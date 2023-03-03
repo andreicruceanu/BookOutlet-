@@ -1,0 +1,18 @@
+.containerIcon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+.iconHeartDefault {
+  background: url(https://css.bkz.ro/images/heart.png);
+  width: 30px;
+  height: 30px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}

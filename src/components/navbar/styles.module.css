@@ -1,0 +1,169 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  height: 200px;
+  flex-direction: column;
+}
+.container {
+  max-width: 1300px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+.logoWrapper {
+  display: block;
+}
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 50rem;
+}
+.input {
+  padding: 1rem 4rem 1rem 1rem;
+  width: 100%;
+}
+.iconSearch {
+  right: 0.5rem;
+  position: absolute;
+  font-size: 1.7rem;
+}
+
+.actionsContainer {
+  display: flex;
+}
+
+.navSearch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*
+nav__burger
+*/
+.navMenu {
+  align-items: center;
+  display: flex;
+  background-image: linear-gradient(to left, #3c24b2, #b224b3);
+  margin-top: 22px;
+}
+.navMenuContainer {
+  display: flex;
+  max-height: 50px;
+  max-width: 1450px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+.nav__burger__menu {
+  display: flex;
+  position: relative;
+  padding-left: 12px;
+  margin-left: 45px;
+  color: #fff;
+  font-family: inherit;
+  align-items: center;
+  width: 300px;
+  background-color: #3c24b2;
+  cursor: pointer;
+  justify-content: space-around;
+}
+.nav__burger__menu__left {
+  display: flex;
+  align-items: center;
+  margin-right: 65px;
+}
+.nav__burger__icon__menu {
+  color: #fff;
+  font-size: 22px;
+}
+.nav__burger__menu__left p {
+  padding-left: 22px;
+  font-size: 15px;
+  line-height: 20px;
+}
+.nav__burger__menu__right {
+  display: flex;
+  align-items: center;
+}
+/*
+  drop manu
+  */
+.nav__burger__menu__drop__menu {
+  position: absolute;
+  top: 34px;
+  color: #3c24b2;
+  list-style: none;
+  width: 312px;
+  padding-left: 0;
+  left: 0;
+  visibility: hidden;
+  background-color: #3c24b2;
+  transition: all 0.15s ease;
+}
+.nav__burger__menu:hover .nav__burger__menu__drop__menu {
+  visibility: visible;
+}
+.nav__burger__menu__drop__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 10px 0 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.nav__burger__menu__drop__item svg {
+  padding: 0 6px;
+  color: #fff;
+  font-size: 18px;
+}
+.nav__burger__menu__drop__item a {
+  text-decoration: none;
+  padding: 14px 20px 14px 20px;
+  color: #fff;
+  font-size: 15px;
+}
+
+/*
+drop manu
+*/
+
+.navMenuSecondaryContainer2 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  list-style: none;
+  margin-left: 0px;
+}
+
+.shopping__pb__container {
+  text-align: center;
+  margin-top: 7px;
+}
+.progress__bar {
+  padding: 8px;
+}
+.progress__bar__container_inner {
+  height: 10px;
+  width: 50%;
+  margin: 0 auto;
+  background-color: #b2b2b2;
+  border-radius: 15px;
+}
+
+.shopping__pb__text p {
+  text-align: center;
+  font-weight: 700;
+  color: #8924b3;
+  margin: 2px 0;
+  font-size: 14px;
+}

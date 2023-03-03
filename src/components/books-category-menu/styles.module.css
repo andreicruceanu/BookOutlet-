@@ -1,0 +1,133 @@
+.nav__burger {
+  align-items: center;
+  display: flex;
+  background-image: linear-gradient(to left, #3c24b2, #b224b3);
+  margin-top: 22px;
+}
+.nav__burger__container {
+  display: flex;
+  max-height: 50px;
+  max-width: 1450px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+.navBurgerMenu {
+  display: flex;
+  position: relative;
+  padding-left: 12px;
+  margin-left: 45px;
+  color: #fff;
+  font-family: inherit;
+  align-items: center;
+  width: 300px;
+  background-color: #3c24b2;
+  cursor: pointer;
+  justify-content: space-around;
+}
+.navBurgerMenuLeft {
+  display: flex;
+  align-items: center;
+  margin-right: 65px;
+}
+.navBurgerIconMenu {
+  color: #fff;
+  font-size: 22px;
+}
+.navBurgerMenuLeft p {
+  padding-left: 22px;
+  font-size: 15px;
+  line-height: 20px;
+}
+.navBurgerMenuRight {
+  display: flex;
+  align-items: center;
+}
+/*
+  drop manu
+  */
+.navBurgerMenuDropMenu {
+  position: absolute;
+  top: 34px;
+  color: #3c24b2;
+  list-style: none;
+  width: 312px;
+  padding-left: 0;
+  left: 0;
+  visibility: hidden;
+  background-color: #3c24b2;
+  transition: all 0.15s ease;
+}
+.navBurgerMenu:hover .navBurgerMenuDropMenu {
+  visibility: visible;
+}
+.navBurgerMenuDropItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  padding: 0 10px 0 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.navBurgerMenuDropItem svg {
+  padding: 0 6px;
+  color: #fff;
+  font-size: 18px;
+}
+.navBurgerMenuDropItem a {
+  text-decoration: none;
+  padding: 14px 20px 14px 20px;
+  color: #fff;
+  font-size: 15px;
+  width: 100%;
+}
+
+.arrowRight {
+  font-size: 30px !important;
+}
+.navBurgerMenuDropItem:hover .menuSubDropList {
+  visibility: visible;
+}
+.menuSubDropList {
+  visibility: hidden;
+  position: absolute;
+  left: 99.5%;
+  z-index: 100;
+  background-color: #361ca6;
+  list-style: none;
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  padding: 10px 20px 10px 20px;
+  top: 0;
+  font-family: inherit;
+  box-shadow: inset 7px 0 9px -7px rgb(0 0 0 / 40%);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.menuSubDropIteam {
+  font-size: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.menuSubDropIteam a {
+  color: white;
+  display: inline-block;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 5px 0;
+}
+.menuSubDropIteam:first-child {
+  font-weight: bold;
+}
+.menuSubDropIteam a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,9 @@
+.containerCards {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 20px auto;
+  max-width: 1200px;
+  justify-content: space-between;
+  width: 100%;
+}

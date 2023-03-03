@@ -1,0 +1,34 @@
+.menuIteam {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 18px 5px;
+  cursor: pointer;
+
+  transition: all 0.15s ease;
+}
+.menuIteam:last-child {
+  border-bottom: none;
+}
+.menuIteam:hover {
+  background-color: #3c24b2;
+}
+.menuIteam:hover a {
+  color: #fff;
+}
+.menuIteam:hover .menuIteamIcon {
+  color: #fff;
+}
+
+.menuIteam a {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+}
+.menuIteamIcon {
+  font-size: 29px;
+  color: #596280;
+  margin: 0px 20px;
+  display: flex;
+  align-items: center;
+}

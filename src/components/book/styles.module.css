@@ -1,0 +1,21 @@
+.bookContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  flex-direction: column;
+  max-width: 400px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 3px rgb(0 0 0 / 5%);
+  border-bottom: 1px solid #ccc;
+}
+
+.priceContainer {
+  display: block;
+}
+.priceContainer:last-child {
+  width: 90%;
+  margin: 0 auto 5px;
+}

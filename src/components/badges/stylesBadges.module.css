@@ -1,0 +1,38 @@
+.badgesWrap {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  border-radius: 4px;
+  max-width: 90px;
+  overflow: hidden;
+  line-height: 17px;
+  z-index: 4;
+}
+.badge {
+  padding: 1px 3px;
+  text-align: center;
+  border-bottom: 1px solid #b42ec0;
+}
+.badgesWrap > :nth-child(1) {
+  background-color: #810d8b;
+}
+.badgesWrap > :nth-child(2) {
+  background-color: #a81db4;
+}
+.badgesWrap > :nth-child(3) {
+  background-color: #b71fc5;
+}
+.badgesWrap > :nth-child(4) {
+  background-color: #c62cd4;
+}
+
+.badge:last-of-type {
+  border: 0;
+}
+.badgeText {
+  margin: 0;
+  padding: 0;
+  color: #ffff;
+  font-size: 11px;
+  text-transform: uppercase;
+}

@@ -1,0 +1,67 @@
+.containerSwiperBooks {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+}
+.newProducts {
+  background-color: #f2f5f5;
+  padding: 30px 0;
+}
+.SwiperBooksTitle {
+  font-size: 20px;
+  font-weight: 400;
+  color: #1f2533;
+  margin: 0;
+  padding-bottom: 30px;
+}
+.swiperWrapper {
+  display: flex;
+}
+.mySwiper {
+  height: 410px;
+}
+
+.swiper-slide {
+  margin-right: 10px !important;
+}
+.featurePagination {
+  display: block;
+}
+
+.swPrevBook {
+  width: 40px !important;
+  height: 40px !important;
+  background-color: #fff !important;
+  border-radius: 50% !important;
+  border: 1px solid #d5d9e2;
+  left: -12px !important;
+  z-index: 10 !important;
+  cursor: pointer !important;
+}
+.swPrevBook::after {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #293766 !important;
+}
+.swNextBook {
+  width: 40px !important;
+  height: 40px !important;
+  background-color: #fff !important;
+  border-radius: 50% !important;
+  right: -12px !important;
+  border: 1px solid #d5d9e2;
+  z-index: 1000000000 !important;
+
+  cursor: default !important;
+}
+.swNextBook::after {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #293766 !important;
+}
+.costum-bullet {
+  background-color: #b224b3 !important;
+  margin: 0 4px !important;
+  cursor: pointer !important;
+}

@@ -1,0 +1,19 @@
+.priceBook {
+  text-align: left;
+  float: left;
+  width: 65%;
+}
+.priceOld {
+  margin: 0;
+  font-size: 12px;
+  color: #1f2533;
+  font-weight: 400;
+  line-height: 1.6;
+}
+.priceNew {
+  font-size: 18px;
+  color: #b30412;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.7;
+}

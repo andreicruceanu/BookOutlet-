@@ -1,0 +1,110 @@
+[
+  {
+    "id": 190,
+    "desktopImage": "/sliders/slider-dulcan-d.jpg",
+    "mobileImage": "/sliders/slider-dulcan-m.jpg",
+    "url": "/landings/carte-dumitru-dulcan/",
+    "orderNo": -304,
+    "out": false,
+    "startDate": "2023-02-28T05:00:00",
+    "endDate": null,
+    "desktopImageWebp": "/sliders/slider-dulcan-d.webp",
+    "mobileImageWebp": "/sliders/slider-dulcan-m.webp"
+  },
+  {
+    "id": 188,
+    "desktopImage": "/sliders/website-D.png",
+    "mobileImage": "/sliders/website-m.png",
+    "url": "/landings/carte-noua-irina-binder/",
+    "orderNo": -303,
+    "out": false,
+    "startDate": "2023-02-20T18:35:00",
+    "endDate": null,
+    "desktopImageWebp": "/sliders/website-D.webp",
+    "mobileImageWebp": "/sliders/website-m.webp"
+  },
+  {
+    "id": 189,
+    "desktopImage": "/sliders/Rai_Slider-D.jpg",
+    "mobileImage": "/sliders/Rai_Slider-M.jpg",
+    "url": "/landings/orice-sfarsit-e-un-inceput/",
+    "orderNo": -302,
+    "out": false,
+    "startDate": "2023-02-23T07:00:00",
+    "endDate": null,
+    "desktopImageWebp": "/sliders/Rai_Slider-D.webp",
+    "mobileImageWebp": "/sliders/Rai_Slider-M.webp"
+  },
+  {
+    "id": 191,
+    "desktopImage": "/sliders/Pacatele-zeilor_Slider-D.jpg",
+    "mobileImage": "/sliders/Pacatele-zeilor_Slider-M.jpg",
+    "url": "/landings/seria-pacatele-zeilor/",
+    "orderNo": -302,
+    "out": false,
+    "startDate": "2023-03-01T06:00:00",
+    "endDate": null,
+    "desktopImageWebp": "/sliders/Pacatele-zeilor_Slider-D.webp",
+    "mobileImageWebp": "/sliders/Pacatele-zeilor_Slider-M.webp"
+  },
+  {
+    "id": 187,
+    "desktopImage": "/sliders/slider-bodyguard-d.jpg",
+    "mobileImage": "/sliders/slider-bodyguard-m.jpg",
+    "url": "/carte/bodyguard-katherine-center-bkz",
+    "orderNo": -300,
+    "out": false,
+    "startDate": "2023-02-16T06:00:00",
+    "endDate": null,
+    "desktopImageWebp": "/sliders/slider-bodyguard-d.webp",
+    "mobileImageWebp": "/sliders/slider-bodyguard-m.webp"
+  },
+  {
+    "id": 186,
+    "desktopImage": "/sliders/Ultimul-Foc_Slider-D.jpg",
+    "mobileImage": "/sliders/Ultimul-Foc_Slider-M.jpg",
+    "url": "/landings/ultimul-foc/",
+    "orderNo": -299,
+    "out": false,
+    "startDate": "2023-02-14T06:00:00",
+    "endDate": null,
+    "desktopImageWebp": "/sliders/Ultimul-Foc_Slider-D.webp",
+    "mobileImageWebp": "/sliders/Ultimul-Foc_Slider-M.webp"
+  },
+  {
+    "id": 185,
+    "desktopImage": "/sliders/Housemaid_Grafica-Website_Silder-D.jpg",
+    "mobileImage": "/sliders/Housemaid_Grafica-Website_Silder-M.jpg",
+    "url": "/carte/menajera-freida-mcfadden-bkz",
+    "orderNo": -298,
+    "out": false,
+    "startDate": null,
+    "endDate": null,
+    "desktopImageWebp": "/sliders/Housemaid_Grafica-Website_Silder-D.webp",
+    "mobileImageWebp": "/sliders/Housemaid_Grafica-Website_Silder-M.webp"
+  },
+  {
+    "id": 184,
+    "desktopImage": "/sliders/Vindecarea-Relatiei-Cu-Mancarea_Grafica-Website_Slider-D.jpg",
+    "mobileImage": "/slidersVindecarea-Relatiei-Cu-Mancarea_Grafica-Website_Slider-M.jpg",
+    "url": "/landings/vindecarea-relatiei-cu-mancarea-si-cu-propriul-corp/",
+    "orderNo": -297,
+    "out": false,
+    "startDate": null,
+    "endDate": null,
+    "desktopImageWebp": "/sliders/Vindecarea-Relatiei-Cu-Mancarea_Grafica-Website_Slider-D.webp",
+    "mobileImageWebp": "/sliders/Vindecarea-Relatiei-Cu-Mancarea_Grafica-Website_Slider-M.webp"
+  },
+  {
+    "id": 183,
+    "desktopImage": "/sliders/183/slider-D.png",
+    "mobileImage": "/sliders/183/slider-M.png",
+    "url": "/landings/lj-shen-graves/",
+    "orderNo": -296,
+    "out": false,
+    "startDate": null,
+    "endDate": null,
+    "desktopImageWebp": "/sliders/slider-D.webp",
+    "mobileImageWebp": "/sliders/slider-M.webp"
+  }
+]

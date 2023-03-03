@@ -1,0 +1,71 @@
+.container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* btn My Account & Favorite */
+.actionBtn {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  align-items: center;
+  border: none;
+  outline: 0;
+  font-family: inherit;
+  transition: all 0.35s ease;
+  background-color: #fff;
+}
+.actionIcon svg {
+  font-size: 28px;
+  color: #293766;
+  font-weight: 400;
+}
+.actionBtnText {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+.actionBtnText span {
+  font-size: 14px;
+}
+.iconArrowDown {
+  font-size: 15px;
+  transform: translateY(0.5px);
+  font-weight: 400;
+  line-height: 10px;
+  color: #293766;
+  margin-left: 4px;
+}
+.my__account {
+  position: relative;
+}
+.favorite {
+  position: relative;
+}
+/* btn My Account & Favorite */
+
+/*
+  My Shooping Cart
+  */
+.actionLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-family: inherit;
+}
+.actionLinkText span {
+  font-size: 14px;
+  font-family: inherit;
+  color: black;
+  margin-left: 5px;
+}
+.actionLink svg {
+  font-size: 25px;
+  color: #293766;
+  font-weight: 400;
+  margin-left: 4px;
+}
+/*
+  My Shooping Cart
+  */

@@ -1,0 +1,9 @@
+.listCarouselMenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 300px;
+  border-left: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+  border-bottom-left-radius: 10px;
+}

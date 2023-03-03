@@ -1,0 +1,21 @@
+.badgesWrap {
+  top: unset;
+  bottom: 148px;
+  left: 8px;
+  max-width: 90px;
+  overflow: hidden;
+  line-height: 17px;
+  z-index: 4;
+  position: absolute;
+  border-radius: 4px;
+}
+.badgesDiscount {
+  padding: 1px 3px;
+  color: #fff;
+  background-color: red;
+}
+.badgesText {
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+}

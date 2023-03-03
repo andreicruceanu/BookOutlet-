@@ -1,0 +1,63 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.wrap {
+  min-height: 560px;
+  display: flex;
+  width: 100%;
+  max-width: 1190px;
+  margin: 0 auto;
+}
+.carousel {
+  min-height: 450px;
+  max-width: 380px;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.detailsTitle {
+  width: 100%;
+}
+.detailsTitle a {
+  text-decoration: none;
+  color: #3f24b2;
+  font-size: 14px;
+  font-weight: 700;
+  margin-right: 10px;
+}
+.bookTitle {
+  margin: 5px 0px;
+  padding: 0;
+  color: #1f2533;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: left;
+}
+.bookSubTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1f2533;
+}
+.detailsIofo {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.detailsInfoRating {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.detailsInfoStar {
+  text-align: left;
+}
+.detailsInfoReview {
+  text-decoration: none;
+  color: #126fdf;
+  font-size: 13px;
+  cursor: pointer;
+}

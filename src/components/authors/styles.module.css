@@ -1,0 +1,26 @@
+.containerAuthors {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.homeAuthors {
+  margin: 40px 0;
+}
+.authorsTitleWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+.authorsTitleWrap h2 {
+  font-size: 20px;
+  font-weight: 500;
+  font-family: inherit;
+  margin: 0;
+}
+.authorsTitleWrap a {
+  text-decoration: none;
+  color: #126fdf;
+  font-size: 14px;
+}

@@ -1,0 +1,14 @@
+.imgWrap {
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+}
+.bookImage {
+  width: 165px;
+  max-height: 250px;
+  max-width: 95%;
+  height: unset;
+}

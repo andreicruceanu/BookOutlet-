@@ -1,0 +1,36 @@
+.authorWrap {
+  display: flex;
+
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.authorIteam {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.authorLink {
+  display: block;
+}
+.authorIteamImg {
+  width: 130px;
+  height: 135px;
+}
+.authorIteamImg img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+}
+.authorIteamTitle {
+  font-size: 14px;
+}
+.authorIteamTitle a {
+  text-decoration: none;
+  color: #000;
+}
+.authorIteam p {
+  margin: 0;
+  font-size: 13px;
+  color: #596580;
+}
