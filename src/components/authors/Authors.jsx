@@ -8,7 +8,8 @@ const Autors = function () {
 
   useEffect(() => {
     const authorsData = async () => {
-      const response = await axios.get("/authors.json");
+      const response = await axios.get("/api/authors");
+      console.log(response);
       if (response.status === 200) {
         setAuthors(response.data);
       } else {
