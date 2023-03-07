@@ -41,7 +41,7 @@
   font-weight: 700;
   color: #1f2533;
 }
-.detailsIofo {
+.detailsInfo {
   margin-top: 10px;
   display: flex;
   flex-direction: row;
@@ -60,4 +60,189 @@
   color: #126fdf;
   font-size: 13px;
   cursor: pointer;
+}
+.oldPrice {
+  display: flex;
+  align-items: center;
+}
+.oldPriceInfoWrap {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  position: relative;
+}
+.oldPriceInfoWrap svg {
+  font-size: 20px;
+  color: #6b7999;
+}
+.oldPriceInfoWrap:hover .priceInfo {
+  visibility: visible;
+}
+.priceInfo {
+  position: absolute;
+  visibility: hidden;
+  width: 270px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 20px 0 rgb(0 0 0 / 15%);
+  z-index: 1;
+  color: #222;
+  left: 20px;
+  top: 0px;
+  font-size: 14px;
+  padding: 5px 20px;
+  background-color: #fff;
+  border-radius: 3px;
+}
+.detailsInfoPrice {
+  display: flex;
+  flex-direction: column;
+}
+.oldPriceValue {
+  color: #6b7999;
+  font-size: 14px;
+}
+.newPrice {
+  margin-top: 5px;
+}
+.newPriceValue {
+  color: red;
+  font-size: 24px;
+  font-weight: 700;
+}
+.detailsPricing {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+.detailsPricingBox {
+  width: 50%;
+}
+.detailsPricingBox:first-child {
+  padding-right: 20px;
+}
+.textBook {
+  text-align: justify;
+  font-size: 14px;
+  color: #1f2533;
+}
+.detailsBonusSticker {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 10px;
+  background-color: #e5fff2;
+}
+.detailsBonusSticker p {
+  margin: 0;
+  line-height: 17px;
+  color: #01a352;
+  font-size: 14px;
+}
+.detailsBonusSticker svg {
+  font-size: 27px;
+  color: #01a352;
+}
+.priceButtonWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+.btnAddToCart {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  background-image: linear-gradient(to right, #b224b3, #3c24b2);
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.btnAddToCart img {
+  max-width: 60px;
+  height: 50px;
+  display: block;
+  width: 100%;
+}
+.btnAddToCart p {
+  width: 100%;
+  color: #fff;
+  font-size: 14px;
+  margin: 0;
+  text-align: center;
+}
+.btnFavorite {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #3c24b2;
+  background-color: #fff;
+  color: #3c24b2;
+  cursor: pointer;
+  padding: 0;
+}
+.btnFavorite svg {
+  font-size: 25px;
+  padding: 8px;
+  display: block;
+  height: 100%;
+  width: 60px;
+  min-height: 40px;
+  border-right: 1px solid #3c24b2;
+}
+.btnFavorite p {
+  width: 100%;
+  font-size: 14px;
+  margin: 0;
+  text-align: center;
+}
+.infoDeliveryWrap {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+.infoDeliveryIteam:not(:last-child) {
+  border-bottom: 1px solid #e1e1e5;
+}
+.infoDeliveryIteam {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+.infoDeliveryIteam p {
+  margin: 0;
+}
+.iconPhone {
+  font-size: 28px;
+  color: #6b7999;
+  margin-right: 20px;
+}
+.infoPhone {
+  flex: 4;
+}
+.infoDelivery {
+  flex: 4;
+}
+.infoPhone {
+  color: #6b7999;
+  font-size: 14px;
+}
+.infoProgram {
+  color: #6b7999;
+  font-size: 13px;
+  flex: 3;
+}
+.green {
+  color: green;
+}
+.iconTruck {
+  font-size: 28px;
+  margin-right: 20px;
+  color: #6b7999;
 }

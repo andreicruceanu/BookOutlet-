@@ -20,6 +20,7 @@
 }
 .mySwiper {
   height: 410px;
+  overflow: visible !important;
 }
 
 .swiper-slide {
@@ -35,7 +36,7 @@
   background-color: #fff !important;
   border-radius: 50% !important;
   border: 1px solid #d5d9e2;
-  left: -12px !important;
+  left: -55px !important;
   z-index: 10 !important;
   cursor: pointer !important;
 }
@@ -49,7 +50,7 @@
   height: 40px !important;
   background-color: #fff !important;
   border-radius: 50% !important;
-  right: -12px !important;
+  right: -55px !important;
   border: 1px solid #d5d9e2;
   z-index: 1000000000 !important;
 

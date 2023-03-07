@@ -2,7 +2,7 @@ import styles from "./stylesBadges.module.css";
 function Badges({ badges }) {
   return (
     <div className={styles.badgesWrap}>
-      {badges.map((iteam) => (
+      {badges?.map((iteam) => (
         <div className={styles.badge} key={iteam.id}>
           <p className={styles.badgeText}>{iteam.displayName}</p>
         </div>

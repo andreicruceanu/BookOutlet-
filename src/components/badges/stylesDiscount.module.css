@@ -1,7 +1,7 @@
 .badgesWrap {
   top: unset;
-  bottom: 148px;
-  left: 8px;
+  bottom: var(--bottom);
+  left: var(--left);
   max-width: 90px;
   overflow: hidden;
   line-height: 17px;
@@ -10,7 +10,7 @@
   border-radius: 4px;
 }
 .badgesDiscount {
-  padding: 1px 3px;
+  padding: 2px 3px;
   color: #fff;
   background-color: red;
 }

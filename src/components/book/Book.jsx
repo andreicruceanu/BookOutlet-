@@ -13,7 +13,12 @@ function Book(bookData) {
   return (
     <div className={styles.bookContainer}>
       <Badges badges={badges} />
-      <BadgesDiscount oldPrice={oldPrice} price={price} />
+      <BadgesDiscount
+        oldPrice={oldPrice}
+        price={price}
+        leftPosition={"8px"}
+        bottomPosition={"148px"}
+      />
       <FavoriteIcon />
       <BookImg bookImg={mainImageUrl} />
       <BookTitle title={title} />

@@ -1,8 +1,11 @@
 import styles from "./stylesDiscount.module.css";
-function BadgesDiscount({ oldPrice, price }) {
+function BadgesDiscount({ oldPrice, price, leftPosition, bottomPosition }) {
   const reducere = ((oldPrice - price) / oldPrice).toFixed(3) * 100;
   return (
-    <div className={styles.badgesWrap}>
+    <div
+      className={styles.badgesWrap}
+      style={{ "--left": leftPosition, "--bottom": bottomPosition }}
+    >
       <div className={styles.badgesDiscount}>
         <p className={styles.badgesText}>
           {reducere &&
