@@ -1,10 +1,13 @@
+import { useState } from "react";
 import { AiTwotoneStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import BookStar from "../../components/bookStar/BookStar";
+import ModalReview from "./ModalReview";
 import styles from "./Review.module.css";
 
 function Review({ review }) {
-  console.log(review);
+  const [isOpen, setOpenModal] = useState(false);
+
   const total =
     review?.star1 +
     review?.star2 +
@@ -21,7 +24,9 @@ function Review({ review }) {
               <h3>Ți-a plăcut produsul?</h3>
               <p>Spune tuturor părerea ta aici.</p>
               <div className={styles.commentBoxWrap}>
-                <Link to={"/"}>Scrie o recenzie</Link>
+                <Link to={""} onClick={() => setOpenModal(true)}>
+                  Scrie o recenzie
+                </Link>
               </div>
             </div>
             <div className={styles.commentOverAll}>
@@ -112,7 +117,43 @@ function Review({ review }) {
                     </div>
                   </div>
                 </div>
-                <div className="commentDetails">
+                <div className={styles.commentDetails}>
+                  <h6>
+                    Unul dintre cele mai bune plot-twist-uri pe care le-am citit
+                    vreodată.
+                  </h6>
+                  <p>
+                    Povestea este ceva ce n-am mai văzut sau citit până acum. E
+                    probabil cartea mea preferată din genul thriller, dacă nu,
+                    chiar printre primele oricum. A avut suspans, acțiune,
+                    dialog, tot ce-ți poți dori de la o carte ce are ca
+                    declanșator o crimă. Cartea a mai prezentat și ce poate face
+                    o mamă pentru copilul ei, devotamentul cu care o persoană te
+                    poate iubi în ciuda tuturor și puterea de a schimba
+                    viitorul. Clar recomand tuturor, chiar și pentru cei ce abia
+                    descoperă acest gen literar.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className={styles.comment}>
+              <div className={styles.commentWrap}>
+                <div className={styles.commentHeaderWrap}>
+                  <span className={styles.avatar}>
+                    <b className={styles.avatarName}>A</b>
+                  </span>
+                  <div className={styles.commnetUserWrap}>
+                    <p>Eliza</p>
+                    <div className={styles.reviewStar}>
+                      <AiTwotoneStar />
+                      <AiTwotoneStar />
+                      <AiTwotoneStar />
+                      <AiTwotoneStar />
+                      <AiTwotoneStar />
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.commentDetails}>
                   <h6>
                     Unul dintre cele mai bune plot-twist-uri pe care le-am citit
                     vreodată.
@@ -133,6 +174,7 @@ function Review({ review }) {
             </div>
           </div>
         </div>
+        <ModalReview open={isOpen} onClose={() => setOpenModal(false)} />
       </div>
     </>
   );

@@ -6,7 +6,7 @@ import { useContext } from "react";
 
 function ModalMyAccount({ onClose }) {
   const { user } = useContext(UserContext);
-  console.log(user);
+
   return (
     <>
       <div className={styles.overlay} onClick={onClose}></div>

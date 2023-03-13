@@ -177,7 +177,21 @@
 }
 .reviewStar {
   color: #ffd055;
-  font-size: 18px;
+  font-size: 16px;
+}
+.commentDetails h6 {
+  margin: 0;
+  color: #1f2533;
+  font-size: 14px;
+}
+.commentDetails {
+  margin-top: 20px;
+}
+.commentDetails p {
+  margin: 5px 0;
+  font-size: 15px;
+  color: #1f2533;
+  text-align: left;
   line-height: 1.6;
 }
 /* Recenzii Content   */
