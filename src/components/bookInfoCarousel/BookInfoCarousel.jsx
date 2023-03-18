@@ -10,27 +10,75 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
+import Badges from "../badges/Badges";
+import BadgesDiscount from "../badges/BadgesDiscount";
 function BookInfoCarousel() {
   return (
     <>
       <Swiper
+        style={{ overflow: "visible" }}
         cssMode={true}
-        navigation={true}
-        pagination={true}
+        navigation={{
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        }}
+        pagination={{
+          clickable: true,
+          modifierClass: `swiper-pagination-info`,
+          bulletClass: `swiper-pagination-bullet ${
+            styles[`costum-bullet-bookInfo`]
+          }`,
+        }}
         mousewheel={true}
         keyboard={true}
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
         className="mySwiper"
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        <SwiperSlide style={{ display: "flex" }}>
+          <Badges
+            badges={[
+              { id: 0, displayName: "BestSeller", icon: "icon-besteller" },
+            ]}
+          />
+          <img
+            className={styles.BookInfoCarouselImg}
+            width={360}
+            height={442}
+            src={
+              "https://assets.bkz.ro/upload/produse/ZKKJMLDWH/bodyguard-katherine-center-bkz-bg1.webp"
+            }
+            alt=""
+          />
+          <BadgesDiscount
+            price={43}
+            oldPrice={67}
+            leftPosition={"16px"}
+            bottomPosition={"25px"}
+          />
+        </SwiperSlide>
+        <SwiperSlide style={{ display: "flex" }}>
+          <Badges
+            badges={[
+              { id: 0, displayName: "BestSeller", icon: "icon-besteller" },
+            ]}
+          />
+          <img
+            className={styles.BookInfoCarouselImg}
+            width={360}
+            height={442}
+            src={
+              "https://assets.bkz.ro/upload/produse/ZKKJMLDWH/bodyguard-katherine-center-bkz-bg2.webp"
+            }
+            alt=""
+          />
+        </SwiperSlide>
+
+        <div
+          className={`swiper-button-prev sw-prev ${styles.swPrevBookInfo}`}
+        ></div>
+        <div
+          className={`swiper-button-next sw-next ${styles.swNextBookInfo}`}
+        ></div>
       </Swiper>
     </>
   );

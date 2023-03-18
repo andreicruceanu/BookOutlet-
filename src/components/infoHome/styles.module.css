@@ -1,0 +1,65 @@
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  width: 100%;
+  display: block;
+}
+.infoWrap {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.infoIteam {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  padding: 10px;
+}
+.infoIteam:hover .hoverWrap {
+  opacity: 1;
+  bottom: -55px;
+  pointer-events: all;
+}
+.title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: left;
+  color: #1f2533;
+}
+.textWrap {
+  margin-left: 12px;
+}
+.hoverWrap {
+  opacity: 0;
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+  height: 50px;
+  left: 0;
+  padding: 5px;
+  text-align: center;
+  border-radius: 0.4rem;
+  border: 1px solid #e8e8ed;
+  background-color: #fff;
+  box-shadow: 0 0 3px rgb(0 0 0/5%);
+  transition: all 0.15s ease;
+}
+.hoverWrap img {
+  position: absolute;
+  right: 50%;
+  top: -10px;
+  transform: translateX(50%);
+}
+.hoverText p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}

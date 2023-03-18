@@ -1,0 +1,29 @@
+.BookInfoCarouselImg {
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+  height: unset;
+  max-width: 380px;
+}
+.swPrevBookInfo::after {
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #293766 !important;
+}
+.swNextBookInfo::after {
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #293766 !important;
+}
+.swiper-pagination-infobullets {
+  transform: translateY(-30px) !important;
+  width: 100% !important;
+}
+.costum-bullet-bookInfo {
+  background-color: #b224b3 !important;
+  margin: 0 4px !important;
+  cursor: pointer !important;
+}
+.swiper-pagination-wrapBookInfobullets {
+  width: 100% !important;
+}

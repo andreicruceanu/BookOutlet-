@@ -1,0 +1,233 @@
+{
+  "id": 76533,
+  "title": "În locul nepotrivit, la timpul nepotrivit",
+  "subtitle": "",
+  "productTypeId": 1,
+  "supplierId": 1,
+  "url": "in-locul-nepotrivit-la-timpul-nepotrivit-bkz",
+  "description": "<p><strong style=\"color: rgb(30, 31, 33);\">În locul nepotrivit, la timpul nepotrivit – o carte recomandată de </strong><strong>REESE WITHERSPOON</strong></p><p><br></p><p><strong>Poți să împiedici o crimă după ce s-a întâmplat?</strong></p><p><br></p><p>Este octombrie şi e trecut de miezul nopții. Îți aștepți fiul de 18 ani să ajungă acasă. În timp ce privești pe fereastră, el își face apariția, însă nu e singur. Se îndreaptă către un bărbat și are o armă în mână. Ceea ce vezi este greu de crezut: băiatul tău drăgălaș și mai mereu zâmbăreț omoară cu sânge rece un străin, chiar în fața casei tale. Nu știi cine e. Și nu știi de ce. Știi doar că fiul tău a fost arestat, iar viitorul său, spulberat.</p><p>Adormi, în acea noapte, lipsită de speranță. Totul este pierdut.</p><p>Până când te trezești… și este ieri, ziua de dinainte de incident. Iar apoi te trezești cu o zi și mai înainte. În fiecare dimineață te trezești cu o zi, cu o lună, cu ani mai devreme, cu o nouă șansă de a opri crima. Undeva, în trecut, se ascunde adevărul, motivul acestei crime. Singura ta șansă este să-l descoperi.</p><p> </p><p> </p><p><strong>RECENZII</strong></p><p><br></p><p><em>„Pur și simplu ador această carte, sunt îndrăgostită de ea. Pagină după pagină, este atât de captivantă, încât nu m-am putut opri din citit. Și ce deznodământ, de necrezut întorsătura de la final.” – </em>REESE WITHERSPOON</p><p><br></p><p><em>„Un thriller pe care nu-l poți lăsa din mână și care te provoacă să te întrebi </em>«<em>eu ce aș face?</em>»<em>.”</em> ‒ ERIN KELLY, pentru <em>„În locul nepotrivit. La timpul nepotrivit”</em></p><p><br></p><p><em>„</em>Cea mai bună carte pe care am citit-o în ultimul timp! Pur și simplu genială! McAllister își construiește povestea ca pe un joc bine gândit până în cele mai mici detalii.<em>”</em> – ADELE PARKS, pentru <em>„În locul nepotrivit. La timpul nepotrivit”</em></p>",
+  "shortDescription": "<p>Descoperă un thriller captivant, plin de suspans și secrete, despre familie, crime și sacrificii făcute în numele iubirii. O carte care te prinde încă de la primele pagini și te surprinde cu un final neașteptat.&nbsp;</p>",
+  "fragmentDescription": null,
+  "promoDescription": "",
+  "topDescription": null,
+  "dateAvailable": null,
+  "pdfBrowse": true,
+  "stock": 999999981,
+  "endOfStock": null,
+  "freeShipping": null,
+  "isbn": "9786303050140",
+  "publisher": "Bookzone",
+  "canonical": null,
+  "metaTitle": null,
+  "metaDescription": null,
+  "hasReview": false,
+  "hasPreview": false,
+  "noIndex": false,
+  "isComingSoon": null,
+  "flash": {
+    "flashPriceEndDate": null,
+    "flashShippingEndDate": null,
+    "flashGiftEndDate": null
+  },
+  "price": { "id": 76533, "price": 39.0, "oldPrice": 49.0 },
+  "categories": [
+    {
+      "id": 910,
+      "name": "Carti",
+      "url": "carti",
+      "level": 1,
+      "parent": null,
+      "parentsList": [],
+      "isMain": null,
+      "subcategories": [
+        {
+          "id": 1054,
+          "name": "Beletristica",
+          "url": "beletristica",
+          "parent": 131857,
+          "children": []
+        },
+        {
+          "id": 1121,
+          "name": "Thriller, mister si suspans",
+          "url": "thriller-mister-suspans",
+          "parent": 131857,
+          "children": []
+        },
+        {
+          "id": 1125,
+          "name": "Carti fictiune",
+          "url": "fictiune",
+          "parent": 131857,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": 1054,
+      "name": "Beletristica",
+      "url": "beletristica",
+      "level": 2,
+      "parent": 910,
+      "parentsList": [],
+      "isMain": null,
+      "subcategories": [
+        {
+          "id": 1129,
+          "name": "Literatura contemporana",
+          "url": "literatura-contemporana",
+          "parent": 131859,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": 1121,
+      "name": "Thriller, mister si suspans",
+      "url": "thriller-mister-suspans",
+      "level": 2,
+      "parent": 910,
+      "parentsList": [],
+      "isMain": null,
+      "subcategories": []
+    },
+    {
+      "id": 1125,
+      "name": "Carti fictiune",
+      "url": "fictiune",
+      "level": 2,
+      "parent": 910,
+      "parentsList": [],
+      "isMain": null,
+      "subcategories": []
+    },
+    {
+      "id": 1129,
+      "name": "Literatura contemporana",
+      "url": "literatura-contemporana",
+      "level": 3,
+      "parent": 1054,
+      "parentsList": [],
+      "isMain": null,
+      "subcategories": []
+    }
+  ],
+  "authors": [
+    {
+      "authorId": 0,
+      "name": "Gillian McAllister",
+      "url": "gillian-mcallister",
+      "description": "Gillian McAllister, de origine britanică, este una dintre cele mai importante autoare de thrillere și bestsellere New York Times, iar cărțile ei au fost selectate cu mândrie de Clubul de carte al lui Reese Witherspoon și Clubul de carte Richard & Judy. Mai mult, cele opt cărți publicate au fost deja traduse în 31 de limbi, bucurându-se de un succes răsunător în întreaga lume.",
+      "quote": null,
+      "imageUrl": null,
+      "imageUrlWebP": null,
+      "books": null
+    }
+  ],
+  "rating": {
+    "rating": 4.67,
+    "totalReviews": 3,
+    "star5": 2,
+    "star4": 1,
+    "star3": 0,
+    "star2": 0,
+    "star1": 0
+  },
+  "banner": [
+    {
+      "id": 1674,
+      "name": "lampa",
+      "url": "",
+      "bannerTypeId": 3,
+      "timer": false,
+      "productId": null,
+      "authorId": null,
+      "publisherId": null,
+      "categoryId": null,
+      "desktopImage": "/upload/altele/default/banner/1674/Desktop.png",
+      "mobileImage": "/upload/altele/default/banner/1674/mobil-v3.png",
+      "html": null,
+      "dateStart": "2023-03-09T00:00:00",
+      "dateStop": "2023-03-10T00:00:00",
+      "out": false,
+      "productTypeId": null,
+      "desktopImageWebP": "/upload/altele/default/banner/1674/Desktop.webp",
+      "mobileImageWebP": "/upload/altele/default/banner/1674/mobil-v3.webp"
+    },
+    {
+      "id": 1675,
+      "name": "lampa",
+      "url": "",
+      "bannerTypeId": 4,
+      "timer": false,
+      "productId": null,
+      "authorId": null,
+      "publisherId": null,
+      "categoryId": null,
+      "desktopImage": "/upload/altele/default/banner/1675/patrat.png",
+      "mobileImage": "/upload/altele/default/banner/1675/patrat.png",
+      "html": null,
+      "dateStart": "2023-03-09T00:00:00",
+      "dateStop": "2023-03-10T00:00:00",
+      "out": false,
+      "productTypeId": null,
+      "desktopImageWebP": "/upload/altele/default/banner/1675/patrat.webp",
+      "mobileImageWebP": "/upload/altele/default/banner/1675/patrat.webp"
+    }
+  ],
+  "images": {
+    "bg": [
+      {
+        "id": 32821,
+        "url": "/upload/produse/ZKJZGGDWH/in-locul-nepotrivit-la-timpul-nepotrivit-bkz-bg1.jpg",
+        "urlWebP": "/upload/produse/ZKJZGGDWH/in-locul-nepotrivit-la-timpul-nepotrivit-bkz-bg1.webp",
+        "is_main": true
+      },
+      {
+        "id": 32822,
+        "url": "/upload/produse/ZKJZGGDWH/in-locul-nepotrivit-la-timpul-nepotrivit-bkz-bg2.jpg",
+        "urlWebP": "/upload/produse/ZKJZGGDWH/in-locul-nepotrivit-la-timpul-nepotrivit-bkz-bg2.webp",
+        "is_main": false
+      }
+    ],
+    "md": [
+      {
+        "id": 32821,
+        "url": "/upload/produse/ZKJZGGDWH/in-locul-nepotrivit-la-timpul-nepotrivit-bkz-md1.jpg",
+        "urlWebP": "/upload/produse/ZKJZGGDWH/in-locul-nepotrivit-la-timpul-nepotrivit-bkz-md1.webp",
+        "is_main": true
+      },
+      {
+        "id": 32822,
+        "url": "/upload/produse/ZKJZGGDWH/in-locul-nepotrivit-la-timpul-nepotrivit-bkz-md2.jpg",
+        "urlWebP": "/upload/produse/ZKJZGGDWH/in-locul-nepotrivit-la-timpul-nepotrivit-bkz-md2.webp",
+        "is_main": false
+      }
+    ],
+    "sm": [
+      {
+        "id": 32821,
+        "url": "/upload/produse/ZKJZGGDWH/in-locul-nepotrivit-la-timpul-nepotrivit-bkz-sm1.jpg",
+        "urlWebP": "/upload/produse/ZKJZGGDWH/in-locul-nepotrivit-la-timpul-nepotrivit-bkz-sm1.webp",
+        "is_main": true
+      },
+      {
+        "id": 32822,
+        "url": "/upload/produse/ZKJZGGDWH/in-locul-nepotrivit-la-timpul-nepotrivit-bkz-sm2.jpg",
+        "urlWebP": "/upload/produse/ZKJZGGDWH/in-locul-nepotrivit-la-timpul-nepotrivit-bkz-sm2.webp",
+        "is_main": false
+      }
+    ]
+  },
+  "videos": [],
+  "pdfUrl": [
+    {
+      "id": 1300,
+      "url": "/upload/produse/ZKJZGGDWH/La timpul nepotrivit -compressed.pdf",
+      "name": "La timpul nepotrivit -compressed.pdf"
+    }
+  ],
+  "badges": [],
+  "productsInPackage": [],
+  "bestReview": null
+}
