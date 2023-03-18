@@ -328,10 +328,8 @@ function BookInfo() {
           </div>
         </div>
         <div className={`${styles.devider} ${styles.marginTop}`}></div>
-        <div>
-          <div className={styles.container}>
-            <Review review={bookDetails.rating} />
-          </div>
+        <div className={styles.container}>
+          <Review review={bookDetails.rating} />
         </div>
       </div>
     </main>

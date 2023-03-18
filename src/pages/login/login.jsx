@@ -7,14 +7,14 @@ import { useState } from "react";
 import { Formik, useFormik } from "formik";
 import { validationLogIn } from "./validationLogIn";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../components/userContext.jsx/UserContext";
 
 function Login() {
   const [visible, setVisibility] = useState(false);
-  const [redirect, setRedirect] = useState(false);
   const [errorLogin, setErrorLogin] = useState(null);
 
+  const navigate = useNavigate();
   const handlePasswordClick = () => {
     setVisibility(!visible);
   };
@@ -32,22 +32,17 @@ function Login() {
     onSubmit: async (values) => {
       try {
         const userInfo = await axios.post("/api/auth/login", values);
-        console.log(userInfo);
-        setUser(userInfo?.data);
-        setRedirect(true);
+        setUser(userInfo?.data.userDetails);
+        localStorage.setItem(
+          "currentUser",
+          JSON.stringify(userInfo.data.userDetails)
+        );
+        navigate("/");
       } catch (err) {
-        if (err.response?.status === 400) {
-          setErrorLogin("Adresă de e-mail sau parolă incorecte");
-        } else if (err.userInfo?.status === 401) {
-          setErrorLogin("Neautorizat");
-        }
+        setErrorLogin(err.response.data);
       }
     },
   });
-
-  if (redirect) {
-    return <Navigate to="/" />;
-  }
 
   return (
     <div className={styles.loginContainer}>
@@ -106,7 +101,9 @@ function Login() {
           <button form="logInForm" type="submit" className={styles.btnLogIn}>
             Login
           </button>
-          {errorLogin && <span>{errorLogin}</span>}
+          {errorLogin && (
+            <span className={styles.errorMessageLogin}>{errorLogin}</span>
+          )}
 
           <div className={styles.containerRememberMe}>
             <div className={styles.loginRememberMe}>

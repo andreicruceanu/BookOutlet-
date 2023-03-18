@@ -9,6 +9,7 @@ import Autors from "../../components/authors/Authors";
 import OnlineLibrary from "../../components/sectionOnlineLibrary/OnlineLibrary";
 import SwiperBooks from "../../components/SwiperBooks/SwiperBooks";
 import requests from "../../constants/requests";
+import InfoHome from "../../components/infoHome/InfoHome";
 
 function BookStore() {
   return (
@@ -38,7 +39,10 @@ function BookStore() {
         title={"Top pachete de cărți"}
         fetchURL={requests.requestNewBookzone}
       />
-      <Autors />
+      {/*
+        <Autors /> 
+       */}
+      <InfoHome />
     </main>
   );
 }
