@@ -10,10 +10,11 @@ export function UserContextProvider({ children }) {
   useEffect(() => {
     if (currentUser && currentUser !== "null") {
       axios.get("/api/profile").then(({ data }) => {
+        console.log(data);
         setUser(data);
       });
     }
-  }, [currentUser]);
+  }, []);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

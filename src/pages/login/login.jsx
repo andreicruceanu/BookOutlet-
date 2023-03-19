@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import styles from "./styles.module.css";
 import Logo from "../../images/logo.svg";
+import errorMessages from "../../utils/errorsMessages.json";
 import { FcGoogle } from "react-icons/fc";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { useState } from "react";
@@ -39,7 +40,8 @@ function Login() {
         );
         navigate("/");
       } catch (err) {
-        setErrorLogin(err.response.data);
+        const errCod = err?.response.data.errorCod;
+        setErrorLogin(errorMessages[errCod]);
       }
     },
   });
