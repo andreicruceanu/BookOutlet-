@@ -8,7 +8,7 @@ const Autors = function () {
 
   useEffect(() => {
     const authorsData = async () => {
-      const response = await axios.get("/api/authors");
+      const response = await axios.get("/api/author/importance");
       console.log(response);
       if (response.status === 200) {
         setAuthors(response.data);
@@ -20,6 +20,8 @@ const Autors = function () {
     authorsData();
   }, []);
 
+  console.log(authors);
+
   return (
     <>
       {authors.length > 0 && (
@@ -27,7 +29,7 @@ const Autors = function () {
           <div className={styles.homeAuthors}>
             <div className={styles.authorsTitleWrap}>
               <h2>Autorii Bookzone</h2>
-              <Link to={"/autori"}>Vezi autorii</Link>
+              <Link to={"/autori"}>Vezi toti autorii</Link>
             </div>
             <AuthorIteam dataAuthor={authors} />
           </div>

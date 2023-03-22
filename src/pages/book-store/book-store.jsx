@@ -39,9 +39,9 @@ function BookStore() {
         title={"Top pachete de cărți"}
         fetchURL={requests.requestNewBookzone}
       />
-      {/*
-        <Autors /> 
-       */}
+
+      <Autors />
+
       <InfoHome />
     </main>
   );

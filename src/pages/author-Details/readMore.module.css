@@ -1,0 +1,16 @@
+.authorText {
+  font-size: 14px;
+  margin-top: 10px;
+  max-width: 100%;
+  line-height: 22px;
+  color: #1f2533;
+}
+.notExpanded {
+  max-height: 310px;
+  overflow: hidden;
+}
+.viewMoreBtn {
+  cursor: pointer;
+  color: #1f2533;
+  text-decoration: underline;
+}

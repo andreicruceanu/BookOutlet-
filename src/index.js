@@ -6,6 +6,8 @@ import BookStore from "./pages/book-store/book-store";
 import Login from "./pages/login/login";
 import Register from "./pages/register/register";
 import BookInfo from "./pages/book-info/BookInfo";
+import Authors from "./pages/authors/authors";
+import AuthorsDetails from "./pages/author-Details/authorsDetails";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -16,6 +18,8 @@ root.render(
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/book" element={<BookInfo />} />
+        <Route path="/autori" element={<Authors />} />
+        <Route path="/autor/:id" element={<AuthorsDetails />} />
       </Route>
     </Routes>
   </BrowserRouter>

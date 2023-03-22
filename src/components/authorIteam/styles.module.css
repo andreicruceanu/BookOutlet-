@@ -1,14 +1,16 @@
 .authorWrap {
   display: flex;
-
+  flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 .authorIteam {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 170px;
+  margin-bottom: 20px;
 }
 .authorLink {
   display: block;

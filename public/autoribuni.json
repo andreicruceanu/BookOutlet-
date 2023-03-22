@@ -1,0 +1,102 @@
+[
+  {
+    "id": 222,
+    "value": "Constantin Dulcan",
+    "description": "Pe Bookzone gasesti cartile renumitului Prof. univ. dr. Constantin Dulcan, o enciclopedie in neurostiinte si recunoscut filosof ce abordeaza teme precum „Inteligenta materiei”, lucrare pentru care a primit Premiul pentru filosofie „Vasile Conta” al Academiei Romane. <br><br>Constantin Dulcan, nascut in Arges (1938), a luat in propriile maini problemele creierului si si-a facut o misiune din a cerceta, a imbunatati si a dezvolta o mai buna intelegere a celui mai complex organ, care ne ghideaza si ne ajuta sa traim viata in toate nuantele ei. <br><br>Prof. Constantin Dulcan - creierul din spatele creierului Absolvent al Facultatii de Medicina Generala din cadrul Institutului Medico-Militar, acesta a ales ulterior sa se specializeze in Neurologie si in Psihiatrie, urmand numeroase cursuri, documentari si congrese in cele mai prestigioase locuri din lume, si obtinand statutul de: Membru al Societatii Romane de Neurologie, al Organizatiei Internationale de Cercetare a Creierului (IBRO), al Societatii Romane de Psihiatrie, al Societatii Romane de Acupunctura, al Ligii Romane pentru Sanatate Mentala, al Societatii Romane de Neuropsihoendoncrinologie, al Societatii Medicilor Scriitori si Publicisti din Romania si din Strainatate, si multe altele, care ii confera acestuia autoritate si credibilitate in tot ceea ce intreprinde. <br><br>Omul care creeaza punti intre stiinta si spiritualitate Pe langa lucrarile de specialitate si carti din domeniul medicinii, Constantin Dulcan este autorul unor capodopere cu continut eseistic si filosofic, precum „Somnul ratiunii”, „Creierul si mintea Universului”, „Mintea de dincolo”, „In cautarea sensului pierdut” (vol 1 si 2). Prof. univ. dr. Constantin Dulcan este o somitate si un om de mare calibru, care ofera prin intermediul fiecarei carti acces la o lume diferita, bogata in informatii noi si extrem de valoroase, conturata intr-un stil care te provoaca sa reflectezi, sa le integrezi in propria viata si sa traiesti cu emotie universul pe care-l descoperi in interiorul tau.",
+    "importance": true,
+    "url": "constantin-dulcan",
+    "books": 1,
+    "imageUrl": "/autori/constantin-dulcan.jpg"
+  },
+  {
+    "id": 321,
+    "value": "Dr. Mihail Pautov",
+    "description": "Dr. Mihail Pautov este un chirurg atipic care își iubește meseria, dar își dorește să aibă cât mai puțini pacienți. În cariera sa - 6 ani de rezidențiat în specializarea chirurgie generală la Institutul Clinic Fundeni din București și ani de practică pe secția de chirurgie generală și la CPU al Spitalului Municipal Curtea de Argeș -, Dr. Mihail Pautov a întâlnit o mulțime de pacienți ale căror alegeri zilnice i-au purtat pas cu pas spre o viață dezechilibrată și, într-un final, spre sala de operație. De aceea, astăzi, Dr. Mihail își petrece o mare parte din timp oferind publicului larg informații medicale esențiale pentru prevenția afecțiunilor care ne îndepărtează de viața pe care o merităm. Acum, toate sfaturile și recomandările sale pentru un stil de viață mai sănătos și-au găsit locul binemeritat în paginile acestei cărți.",
+    "importance": true,
+    "url": "dr-mihail-pautov",
+    "books": 1,
+    "imageUrl": "autori/dr-mihail-pautov.jpg"
+  },
+  {
+    "id": 127,
+    "value": "Cathya MP",
+    "description": "Cu o activitate începută în 2014, Cathya MP se numără printre cei mai tineri scriitori contemporani. Rampa de lansare a autoarei a fost Wattpad, platforma internațională cu milioane de cititori zilnic. Prima ei serie, AME, care aparține genului Mafia Romance, a câștigat concursul internațional The Wattys 2016, la secțiunea „Lecturi captivante”. Publicată de Editura Bookzone în 2020, AME a avut un real succes, trilogia înregistrând vânzări de peste 40 000 de exemplare până în prezent.",
+    "importance": true,
+    "url": "cathya-mp",
+    "books": 1,
+    "imageUrl": "autori/cathya-mp.jpg"
+  },
+
+  {
+    "id": 130,
+    "value": "Vasile Ioana",
+    "description": "Inspirat de mari duhovnici ai Bisericii Ortodoxe precum Părintele Cleopa sau Părintele Arsenie Papacioc, dar și de atmosfera plină de iubire de Dumnezeu din casa bunicilor care l-au crescut, Părintele Vasile Ioana a ales drumul preoției și al Cuvântului pentru a veni în sprijinul semenilor săi. Astăzi, el este parohul Bisericii „Sfântul Nicolae Dintr-o Zi”din apropierea Pieții Universității din București , unde a adunat în jurul său o întreagă comunitate de oameni de bine dornici să-și ajute aproapele. Mereu prezent în viața enoriașilor pe care îi păstorește, și, uneori, în diferite emisiuni radio și TV care abordează teme din actualitate, Părintele Ioana este întodeauna pregătit să ofere îndrumare celor deznădăjduiți sau rătăciți, prin predicile sale sau prin cărțile sale.",
+    "importance": true,
+    "url": "parintele-vasile-ioana",
+    "books": 2,
+    "imageUrl": "/autori/parintele-vasile-ioana.jpg"
+  },
+  {
+    "id": 183,
+    "value": "Psiholog Dr. Raluca Anton",
+    "description": "RALUCA ANTON este doctor în psihologie, psihoterapeut principal și terapeut relațional cu formare internațională. Raluca îi însoţeşte pe oameni în a construi o POVESTE cu sens despre ei înşişi. De peste 15 ani susţine sesiuni de psihoterapie individuală sau de cuplu, sesiuni de coaching şi traininguri pe diverse teme din psihologie. În procesul amplu de cunoaştere a propriei persoane, Raluca îi însoţeşte pe cei cu care lucrează să privească cu blândeţe înspre interior, să îşi accepte părţile rănite pentru a putea să dezvolte relaţii sănătoase cu cei din jur.",
+    "importance": true,
+    "url": "psiholog-dr-raluca-anton",
+    "books": 8,
+    "imageUrl": "/autori/psiholog-dr-raluca-anton.jpg"
+  },
+  {
+    "id": 98,
+    "value": "Silviu Iliuta",
+    "description": "Scriitor, blogger și motivul pentru care peste 33.000 de cititori au fost nevoiți să își șteargă lacrimile de râs. Fie că se folosește de umor sau că te convinge să te cufunzi cu adevărat în universul său, Silviu Iliuță te face să treci prin toate emoțiile. Dacă în „Cronicile unui bărbat”, autorul a purtat cititorii în mintea bărbaților, fără a renunța la ironie și sarcasm, în „Detectiv de România”, a învățat oamenii cum să își găsească pofta de râs și cum să iasă din cotidian cu ajutorul detectivului Anton, reinventând genul polițist, iar în cartea „Ce nu-ți spun când îți vorbesc”, ne arată că atunci când închizi într-o casă oameni din generații diferite, rezultatul nu poate fi decât un scenariu tragicomic.",
+    "importance": false,
+    "url": "silviu-iliuta",
+    "books": 5,
+    "imageUrl": "/autori/silviu-iliuta.jpg"
+  },
+  {
+    "id": 78,
+    "value": "Adrian Mutu",
+    "description": "Născut în 1979, Adrian Mutu și-a început cariera în fotbalul profesionist la FC. Argeș, a continuat la Dinamo, iar, odată cu transferul la Inter Milano din 1999, a început o lungă poveste de dragoste cu fotbalul italian. Aceasta a fost întreruptă temporar odată cu plecarea la Chelsea și suspendarea sa în urma scandalului Cocaina. Totuși, după revenirea în peninsulă, Mutu a continuat să impresioneze, devenind Il Fenomeno, unul dintre cei mai îndrăgiți jucători străini din Seria A. Pe parcursul carierei sale internaționale, el a evoluat pentru Inter Milano, Hellas Verona, Parma, Juventus, Fiorentina, Cesena, Chelsea și Ajaccio. Recent, a fost desemnat cel mai bun jucător al Fiorentinei din ultimii 20 de ani. Căpitan al lotului național al României și golgheter all-time al echipei naționale alături de Gheorghe Hagi, Adrian Mutu este și astăzi o figură emblematică a sportului românesc, un briliant care încă nu și-a dezvăluit toate fațetele.",
+    "importance": false,
+    "url": "adrian-mutu",
+    "books": 1,
+    "imageUrl": "/autori/adrian-mutu.jpg"
+  },
+  {
+    "id": 215,
+    "value": "Adriana Mitu",
+    "description": "Adriana Mitu este psiholog, coach și creator de programe educaționale, lucrând atât cu copii și adolescenți, cât și cu adulți. Iubirea pentru oameni a făcut-o să susțină proiecte cu impact social, precum și demersuri pentru introducerea legislației cu privire la fenomenul de bullying alături de Asociația Părinților Isteți și Radio Itsy Bitsy.",
+    "importance": false,
+    "url": "adriana-mitu",
+    "books": 3,
+    "imageUrl": "/autori/adriana-mitu.jpg"
+  },
+  {
+    "id": 205,
+    "value": "A. F. Steadman",
+    "description": "A.F. Steadman a renunțat la avocatură pentru a face loc magiei în viața ei, iar romanul său de debut Skandar și hoțul de unicorni este începutul unui fenomen global care aduce în fața tinerei generații o lume plină de magie și pericole. Drepturile pentru ecranizarea cărții au fost cumpărate de Sony Pictures chiar înainte de publicarea cărții.",
+    "importance": false,
+    "url": "a-f-steadman",
+    "books": 2,
+    "imageUrl": "/autori/a-f-steadman.jpg"
+  },
+  {
+    "id": 238,
+    "value": "A. F. Steadman",
+    "description": "A.F. Steadman a renunțat la avocatură pentru a face loc magiei în viața ei, iar romanul său de debut Skandar și hoțul de unicorni este începutul unui fenomen global care aduce în fața tinerei generații o lume plină de magie și pericole. Drepturile pentru ecranizarea cărții au fost cumpărate de Sony Pictures chiar înainte de publicarea cărții.",
+    "importance": false,
+    "url": "a-f-steadman",
+    "books": 2,
+    "imageUrl": "/autori/a-f-steadman.jpg"
+  },
+  {
+    "id": 291,
+    "value": "Horatiu Malaele",
+    "description": "Când m-am născut, nu erau semne de vreo reușită a mea în viață. Aveam un strabism pronunțat, eram dislexic și de-abia citeam, toți cei din jur - profesori și copii - râdeau de mine, eram numit „prostu’clasei, în pauză mi se lipeau pe spate bilete cu apelativul ăsta, mi se spunea mereu că desenez urât și atunci nu prea am mai desenat. Eram în suferință. Înțelesesem că sunt prost, urât, și că nu sunt bun de nimic. Apoi, în clasa a V-a, a venit un profesor care mi-a văzut un desen ascuns și a vorbit puțin cu mine, La urmă, m-a privit direct în ochi și mi-a spus clar: «Tu ești un geniu». Iar eu am început să fiu.",
+    "importance": false,
+    "url": "horatiu-malaele",
+    "books": 4,
+    "imageUrl": "/autori/horatiu-malaele.jpg"
+  }
+]
