@@ -69,14 +69,6 @@ function Navbar() {
           </div>
         </div>
       </div>
-      <div className={styles.shopping__pb__container}>
-        <div className={styles.progress__bar}>
-          <div className={styles.progress__bar__container_inner}></div>
-        </div>
-        <span className={styles.shopping__pb__text}>
-          <p>Transport GRATUIT de la 149.9 lei!</p>
-        </span>
-      </div>
     </nav>
   );
 }

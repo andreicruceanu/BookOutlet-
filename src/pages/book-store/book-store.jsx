@@ -23,23 +23,47 @@ function BookStore() {
       </div>
       <h1 className={styles.homePageTitle}>Librarie Online</h1>
       <Banner fetchURL={requests.requestBanner} type={BANNERS.firstComponent} />
-      <SwiperBooks
-        title={"Noutăți Bookzone"}
-        fetchURL={requests.requestNewBookzone}
-      />
-      <SwiperBooks title={"Noutăți"} fetchURL={requests.requestNewBook} />
+      <section className={styles.newProducts}>
+        <div className={styles.containerSwiperBooks}>
+          <SwiperBooks
+            title={"Noutăți Bookzone"}
+            fetchURL={requests.requestNewBookzone}
+            viewBook={6}
+          />
+        </div>
+      </section>
+      <section className={styles.newProducts}>
+        <div className={styles.containerSwiperBooks}>
+          <SwiperBooks
+            title={"Noutăți"}
+            fetchURL={requests.requestNewBook}
+            viewBook={6}
+          />
+        </div>
+      </section>
       <OnlineLibrary />
-      <SwiperBooks title={"Top cărți"} fetchURL={requests.requestNewBookzone} />
+      <section className={styles.newProducts}>
+        <div className={styles.containerSwiperBooks}>
+          <SwiperBooks
+            title={"Top cărți"}
+            fetchURL={requests.requestNewBookzone}
+            viewBook={6}
+          />
+        </div>
+      </section>
       <Banner
         fetchURL={requests.requestBanner}
         type={BANNERS.secondaryComponent}
       />
-
-      <SwiperBooks
-        title={"Top pachete de cărți"}
-        fetchURL={requests.requestNewBookzone}
-      />
-
+      <section className={styles.newProducts}>
+        <div className={styles.containerSwiperBooks}>
+          <SwiperBooks
+            viewBook={6}
+            title={"Top pachete de cărți"}
+            fetchURL={requests.requestNewBookzone}
+          />
+        </div>
+      </section>
       <Autors />
 
       <InfoHome />

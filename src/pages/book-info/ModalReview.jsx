@@ -62,7 +62,6 @@ function ModalReview({ open, onClose }) {
                   <h4>Recenzie</h4>
                   <textarea
                     name="recenzie"
-                    id="recenzie"
                     className={styles.reviewInputText}
                     rows="5"
                     placeholder="Scrie despre produs"
@@ -71,10 +70,13 @@ function ModalReview({ open, onClose }) {
                   ></textarea>
                 </div>
                 <div className={styles.reviewTitleInput}>
-                  <h4>Titlu</h4>
-                  <span>(optional)</span>
+                  <h4>
+                    Titlu
+                    <span className={styles.titleOpt}>(optional)</span>
+                  </h4>
                   <input
                     onChange={(e) => setTitle(e.target.value)}
+                    className={styles.inputTitle}
                     value={Title}
                     type="text"
                     placeholder="Scrie titlu"
@@ -91,22 +93,24 @@ function ModalReview({ open, onClose }) {
         </div>
         {!!userTest ? (
           <div className={styles.modalFooter}>
-            <p>
-              Prin publicarea recenziei, ești de acord cu{" "}
-              <Link to={"#"}>termenii și condițiile</Link> site-ului
+            <p className={styles.reviewFooterText}>
+              Prin publicarea recenziei, ești de acord cu
+              <Link to={"#"}> termenii și condițiile </Link> site-ului
             </p>
-            <Link className={styles.modalBtn} to={"/"}>
-              Scrie o recenzie
-            </Link>
-            <span className={styles.btnClose} onClick={onClose}>
-              Anulează
-            </span>
+            <div className={styles.reviewFooterCta}>
+              <button className={styles.modalBtn} to={"/"}>
+                Scrie o recenzie
+              </button>
+              <span className={styles.btnClose} onClick={onClose}>
+                Anulează
+              </span>
+            </div>
           </div>
         ) : (
           <div className={styles.modalFooter}>
-            <Link className={styles.modalBtn} to={"/"}>
+            <button className={styles.modalBtn} to={"/"}>
               Mergi la pagina de login
-            </Link>
+            </button>
             <span className={styles.btnClose} onClick={onClose}>
               Anulează
             </span>

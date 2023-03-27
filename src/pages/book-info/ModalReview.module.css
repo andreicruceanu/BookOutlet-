@@ -73,8 +73,6 @@
   text-align: left;
 }
 .modalFooter {
-  display: flex;
-  align-items: center;
   padding: 18px 15px;
 }
 .modalBtn {
@@ -86,6 +84,8 @@
   border-radius: 5px;
   cursor: pointer;
   margin-right: 12px;
+  outline: none;
+  border: none;
 }
 .btnClose {
   color: #126fdf;
@@ -101,4 +101,26 @@
   margin-right: 2px;
   cursor: pointer;
   transition: color 200ms;
+}
+.reviewInputText {
+  width: 100%;
+  font-family: inherit;
+  outline: none;
+  line-height: 1.6;
+  border: 1px solid #e1e1e5;
+  border-radius: 4px;
+  padding: 10px 0 0 10px;
+}
+.titleOpt {
+  color: #afafc0;
+  margin-left: 4px;
+}
+.inputTitle {
+  width: 100%;
+  border: 1px solid #e1e1e5;
+  outline: none;
+  padding: 10px 0 10px 15px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1.6;
 }
