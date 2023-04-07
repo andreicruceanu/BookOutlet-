@@ -1,118 +1,201 @@
-import { useFormik } from "formik";
-import { useContext, useState } from "react";
+import axios from "axios";
+import styles from "./ModalReview.module.css";
+import { useState } from "react";
 import { AiOutlineClose, AiTwotoneStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { UserContext } from "../../components/userContext.jsx/UserContext";
-import styles from "./ModalReview.module.css";
+import { useSelector } from "react-redux";
+import BookStar from "../../components/bookStar/BookStar";
+import Autors from "../../components/authors/Authors";
 
-function ModalReview({ open, onClose }) {
+function ModalReview({ open, onClose, updateListReview }) {
   const [Rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
   const [Text, setText] = useState("");
   const [Title, setTitle] = useState("");
+  const [error, setError] = useState(null);
+  const [isSucces, setSucces] = useState(false);
 
-  const userTest = {
-    nume: "Andrei",
+  const { user } = useSelector((state) => state.auth);
+
+  const handleSubmitReview = async () => {
+    if (Text.length === 0 || Rating === null) {
+      setError(true);
+      return;
+    }
+    try {
+      const fetchReview = await axios.post(
+        `/api/product/642d54f8c5902924c8ec57cb/addreview`,
+        {
+          Rating,
+          Text,
+          Title,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      if (fetchReview.status === 201) {
+        setSucces(true);
+        console.log(fetchReview);
+        updateListReview(fetchReview.data);
+      }
+    } catch (err) {
+      console.log(err.response.data.errorCode);
+    }
   };
+
   if (!open) return "";
   return (
     <div className={styles.overlay}>
-      <div className={styles.containerModal}>
-        <div className={styles.modalTitle}>
-          {!!userTest ? <h5>Scrie o recenzie</h5> : <h5>Loghează-te</h5>}
-          <AiOutlineClose onClick={onClose} />
+      {isSucces ? (
+        <div className={styles.containerModal}>
+          <div className={styles.modalTitle}>
+            <h5>Scrie o recenzie</h5>
+            <AiOutlineClose onClick={onClose} />
+          </div>
+          <div className={`${styles.modalWrap} ${styles.textCenter}`}>
+            <br />
+            <br />
+            <h3>Comentariul tau a fost adaugat cu succes.</h3>
+            <span
+              className={styles.modalBtn}
+              style={{ padding: `10px 10px` }}
+              onClick={onClose}
+            >
+              Ok
+            </span>
+            <br />
+            <br />
+            <br />
+          </div>
         </div>
-        <div className={styles.modalWrap}>
-          <div className={styles.modalContent}>
-            {!!userTest ? (
-              <>
-                <div className={styles.productName}>
-                  <h4>Produs</h4>
-                  <span>Am scris o carte despre noi</span>
-                </div>
-                <div className={styles.reviewRating}>
-                  <h4>Evaluare</h4>
-                  <div className={styles.starIconWrap}>
-                    {[...Array(5)].map((star, i) => {
-                      const ratingValue = i + 1;
-                      return (
-                        <label key={i}>
-                          <input
-                            type="radio"
-                            name="rating"
-                            value={ratingValue}
-                            onClick={() => setRating(ratingValue)}
-                          />
-                          <AiTwotoneStar
-                            color={
-                              ratingValue <= (Rating || hover)
-                                ? "#ffd055"
-                                : "grey"
-                            }
-                            className={styles.starIcon}
-                            onMouseEnter={() => setHover(ratingValue)}
-                            onMouseLeave={() => setHover(null)}
-                          />
-                        </label>
-                      );
-                    })}
+      ) : (
+        <div className={styles.containerModal}>
+          <div className={styles.modalTitle}>
+            {!!user ? <h5>Scrie o recenzie</h5> : <h5>Loghează-te</h5>}
+            <AiOutlineClose onClick={onClose} />
+          </div>
+          <div className={styles.modalWrap}>
+            <div className={styles.modalContent}>
+              {!!user ? (
+                <>
+                  <div className={styles.productName}>
+                    <h4>Produs</h4>
+                    <span>Am scris o carte despre noi</span>
                   </div>
-                </div>
-                <div className={styles.reviewContent}>
-                  <h4>Recenzie</h4>
-                  <textarea
-                    name="recenzie"
-                    id="recenzie"
-                    className={styles.reviewInputText}
-                    rows="5"
-                    placeholder="Scrie despre produs"
-                    value={Text}
-                    onChange={(e) => setText(e.target.value)}
-                  ></textarea>
-                </div>
-                <div className={styles.reviewTitleInput}>
-                  <h4>Titlu</h4>
-                  <span>(optional)</span>
-                  <input
-                    onChange={(e) => setTitle(e.target.value)}
-                    value={Title}
-                    type="text"
-                    placeholder="Scrie titlu"
-                  />
-                </div>
-              </>
-            ) : (
-              <p>
-                Pentru a putea lasa o recenzie trebuie sa intri in contul tau
-                BookOutlet.
+                  <div className={styles.reviewRating}>
+                    <h4>Evaluare</h4>
+                    <div className={styles.starIconWrap}>
+                      {[...Array(5)].map((star, i) => {
+                        const ratingValue = i + 1;
+                        return (
+                          <label key={i}>
+                            <input
+                              type="radio"
+                              name="rating"
+                              value={ratingValue}
+                              onClick={() => setRating(ratingValue)}
+                            />
+                            <AiTwotoneStar
+                              color={
+                                ratingValue <= (Rating || hover)
+                                  ? "#ffd055"
+                                  : "grey"
+                              }
+                              className={styles.starIcon}
+                              onMouseEnter={() => setHover(ratingValue)}
+                              onMouseLeave={() => setHover(null)}
+                            />
+                          </label>
+                        );
+                      })}
+                      <br />
+                      {error && Rating === null ? (
+                        <span className={styles.errorText}>
+                          Selecteaza reatingul
+                        </span>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                  </div>
+                  <div className={styles.reviewContent}>
+                    <h4>Recenzie</h4>
+                    <textarea
+                      name="recenzie"
+                      className={
+                        error && Text.length <= 0
+                          ? `${styles.reviewInputText} ${styles.reviewInputTextErr}`
+                          : `${styles.reviewInputText}`
+                      }
+                      rows="5"
+                      placeholder="Scrie despre produs"
+                      value={Text}
+                      onChange={(e) => setText(e.target.value)}
+                    ></textarea>
+                    {error && Text.length <= 0 ? (
+                      <span className={styles.errorText}>
+                        Acest camp este obligatoriu
+                      </span>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                  <div className={styles.reviewTitleInput}>
+                    <h4>
+                      Titlu
+                      <span className={styles.titleOpt}>(optional)</span>
+                    </h4>
+                    <input
+                      onChange={(e) => setTitle(e.target.value)}
+                      className={styles.inputTitle}
+                      value={Title}
+                      type="text"
+                      placeholder="Scrie titlu"
+                    />
+                  </div>
+                </>
+              ) : (
+                <p>
+                  Pentru a putea lasa o recenzie trebuie sa intri in contul tau
+                  BookOutlet.
+                </p>
+              )}
+            </div>
+          </div>
+          {!!user ? (
+            <div className={styles.modalFooter}>
+              <p className={styles.reviewFooterText}>
+                Prin publicarea recenziei, ești de acord cu
+                <Link to={"#"}> termenii și condițiile </Link> site-ului
               </p>
-            )}
-          </div>
+              <div className={styles.reviewFooterCta}>
+                <button
+                  className={styles.modalBtn}
+                  onClick={() => handleSubmitReview()}
+                >
+                  Scrie o recenzie
+                </button>
+                <span className={styles.btnClose} onClick={onClose}>
+                  Anulează
+                </span>
+              </div>
+            </div>
+          ) : (
+            <div className={styles.modalFooter}>
+              <Link className={styles.modalBtn} to={"/login"}>
+                Mergi la pagina de login
+              </Link>
+              <span className={styles.btnClose} onClick={onClose}>
+                Anulează
+              </span>
+            </div>
+          )}
         </div>
-        {!!userTest ? (
-          <div className={styles.modalFooter}>
-            <p>
-              Prin publicarea recenziei, ești de acord cu{" "}
-              <Link to={"#"}>termenii și condițiile</Link> site-ului
-            </p>
-            <Link className={styles.modalBtn} to={"/"}>
-              Scrie o recenzie
-            </Link>
-            <span className={styles.btnClose} onClick={onClose}>
-              Anulează
-            </span>
-          </div>
-        ) : (
-          <div className={styles.modalFooter}>
-            <Link className={styles.modalBtn} to={"/"}>
-              Mergi la pagina de login
-            </Link>
-            <span className={styles.btnClose} onClick={onClose}>
-              Anulează
-            </span>
-          </div>
-        )}
-      </div>
+      )}
     </div>
   );
 }

@@ -1,24 +1,42 @@
 .container {
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 50px auto;
   box-sizing: border-box;
 }
 .title h2 {
   font-size: 20px;
   font-weight: 500;
-  margin: 20px 0 0 0;
+  margin: 20px 0 20px 0;
   color: #1f2533;
 }
 .wrap {
   display: flex;
   order: 3;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
 }
 .menuWrap {
   width: 400px;
   height: 490px;
   overflow-y: scroll;
+  padding-top: 0;
+  background-color: #f2f5f5;
+  border-right: 1px solid #e8e8e8;
 }
+.menuWrap::-webkit-scrollbar {
+  width: 5px;
+  padding-right: 10px;
+  background-color: #d3d3d3;
+}
+.menuWrap::-webkit-scrollbar-thumb {
+  background-color: rgba(60, 36, 178, 0.8);
+  border-radius: 100px;
+}
+.menuWrap::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
 .menuList {
   list-style: none;
   background-color: #f2f5f5;
@@ -70,4 +88,12 @@
 .menuSlide {
   width: 100%;
   max-width: 788px;
+  margin: 0 auto;
+}
+
+.menuSlide h2 {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  color: #1f2533;
 }

@@ -10,7 +10,7 @@ function AuthorIteam({ dataAuthor }) {
         <div className={styles.authorIteam} key={uuidv4()}>
           <div className={styles.authorIteamImg}>
             <Link
-              to={author.url}
+              to={`autor/${author.url}`}
               title={author.value}
               className={styles.authorLink}
             >
@@ -21,7 +21,7 @@ function AuthorIteam({ dataAuthor }) {
             </Link>
           </div>
           <h2 className={styles.authorIteamTitle}>
-            <Link to={author.url} title={author.value}>
+            <Link to={`autor/${author.url}`} title={author.value}>
               {author.value}
             </Link>
           </h2>

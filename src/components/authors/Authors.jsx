@@ -3,12 +3,13 @@ import axios from "axios";
 import styles from "./styles.module.css";
 import { Link } from "react-router-dom";
 import AuthorIteam from "../authorIteam/AuthorIteam";
+import { HiArrowLongRight } from "react-icons/hi2";
 const Autors = function () {
   const [authors, setAuthors] = useState([]);
 
   useEffect(() => {
     const authorsData = async () => {
-      const response = await axios.get("/api/authors");
+      const response = await axios.get("/api/author/importance");
       console.log(response);
       if (response.status === 200) {
         setAuthors(response.data);
@@ -20,6 +21,8 @@ const Autors = function () {
     authorsData();
   }, []);
 
+  console.log(authors);
+
   return (
     <>
       {authors.length > 0 && (
@@ -27,7 +30,10 @@ const Autors = function () {
           <div className={styles.homeAuthors}>
             <div className={styles.authorsTitleWrap}>
               <h2>Autorii Bookzone</h2>
-              <Link to={"/autori"}>Vezi autorii</Link>
+              <Link to={"/autori"}>
+                <span className={styles.mr5}>Vezi toti autorii</span>
+                <HiArrowLongRight className={styles.iconArrowRight} />
+              </Link>
             </div>
             <AuthorIteam dataAuthor={authors} />
           </div>

@@ -53,14 +53,15 @@
 .navBurgerMenuDropMenu {
   position: absolute;
   top: 34px;
+  width: 100%;
   color: #3c24b2;
   list-style: none;
-  width: 312px;
   padding-left: 0;
   left: 0;
   visibility: hidden;
   background-color: #3c24b2;
   transition: all 0.15s ease;
+  z-index: 9999999;
 }
 .navBurgerMenu:hover .navBurgerMenuDropMenu {
   visibility: visible;

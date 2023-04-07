@@ -1,3 +1,6 @@
+main {
+  overflow: hidden;
+}
 .wrapper {
   min-height: 100vh;
   width: 100vw;
@@ -7,53 +10,15 @@
   align-items: center;
   background-color: #f0f1f2;
 }
-.login {
-  max-width: 400px;
-
-  width: 100%;
-  text-align: center;
-}
-.link__logo {
-  text-decoration: none;
-  width: 100%;
-}
-.link__logo img {
-  max-width: 250px;
-  width: 100%;
-  display: block;
-  margin: 20px auto;
-}
-.login__wrap__title {
-  margin-top: 5px;
-}
-.login__wrap__title h4 {
-  font-weight: 400;
-  font-size: 18px;
-
-  margin-bottom: 0px;
-}
-.login__wrap {
-  border-radius: 8px;
-  background-color: #fff;
-  padding: 20px 30px 10px 30px;
-  box-shadow: 0 0 3px rgb(0 0 0 / 5%);
-  border-bottom: 1px solid #ccc;
-}
-.login__wrap__title p {
-  margin-top: 20px;
-  font-size: 14px;
-  color: #6b7999;
-  margin-bottom: 20px;
-}
 
 /*
   input
   */
-.container__input {
+.containerInput {
   width: 100%;
 }
 
-.input__signin {
+.inputCreateAccount {
   width: 100%;
   font-size: 14px;
   color: #1f2533;
@@ -65,10 +30,10 @@
   box-sizing: border-box;
   transition: 0.3s all ease;
 }
-.input__signin:first-child {
+.inputCreateAccount:first-child {
   margin-top: 0px;
 }
-.input__signin:focus {
+.inputCreateAccount:focus {
   border: 1px solid #1f2533;
 }
 /*
@@ -85,6 +50,9 @@
   cursor: pointer;
   color: #fff;
   margin-bottom: 10px;
+}
+.btn:disabled {
+  opacity: 0.5;
 }
 .error__messages__login {
   color: red;
@@ -103,77 +71,14 @@
   height: 20px;
   margin-right: 10px;
 }
-.login__rememberMe {
-  display: flex;
-  align-items: center;
-}
-.login__rememberMe label {
-  font-size: 15px;
-  cursor: pointer;
-}
-.signin__sep {
-  margin: 20px auto;
-  color: #6b7999;
-  font-size: 14px;
-  position: relative;
-  display: block;
-}
-.signin__sep::before {
-  content: "";
-  position: absolute;
-  top: 10px;
-  left: 0;
-  width: 42%;
-  height: 1px;
-  background-color: #dfdfe5;
-}
-.signin__sep::after {
-  content: "";
-  position: absolute;
-  top: 10px;
-  right: 0;
-  width: 42%;
-  height: 1px;
-  background-color: #dfdfe5;
-}
-.google__wrap h3 {
-  font-size: 15px;
-  font-weight: 300;
-}
-.google__login {
-  margin: 15px auto 25px;
-}
-.google__login a {
-  background-color: #ffffff;
-  display: flex;
-  align-items: center;
-  height: 40px;
-  width: 100%;
-  font-size: 15px;
-  font-weight: 500;
-  text-decoration: none;
-  justify-content: center;
-  border: 1px solid #8e8e8f;
-  color: #1f2533;
-  transition: 0.3s ease;
-}
-.google__login a:hover {
-  background-color: #f0f1f2;
-}
-.btn__google__text {
-  margin-left: 10px;
-}
-.google__login svg {
-  font-size: 18px;
-}
 
 /*
   Create Account
   */
-.create__account__wrap {
+.createAccountWrap {
   border-radius: 8px;
   background-color: #fff;
-  padding: 20px 30px 10px 30px;
+  padding: 20px 30px 20px 30px;
   box-shadow: 0 0 3px rgb(0 0 0 / 5%);
   border-bottom: 1px solid #ccc;
   position: relative;
@@ -190,22 +95,22 @@
   text-decoration: none;
 }
 
-.create__account__wrap h4 {
+.createAccountWrap h4 {
   font-weight: 500;
   font-size: 18px;
   margin-top: 40px;
 
   margin-bottom: 0px;
 }
-.create__account__wrap p {
+.createAccountWrap p {
   font-size: 14px;
   margin-bottom: 30px;
 }
-.password__container {
+.passwordContainer {
   position: relative;
   margin-top: 12px;
 }
-.password__container svg {
+.passwordContainer svg {
   position: absolute;
   top: 25%;
   font-size: 18px;
@@ -241,6 +146,23 @@
   font-size: 12px;
   color: red;
   margin-left: 5px;
+}
+.errorMessageRegister {
+  font-size: 14px;
+  color: red;
+  margin-left: 5px;
+}
+
+.iconContainer {
+  width: auto;
+}
+.iconContainer > svg {
+  animation: iconSpin 2s infinite linear;
+}
+@keyframes iconSpin {
+  100% {
+    transform: rotate(360deg);
+  }
 }
 /*
   Create Account

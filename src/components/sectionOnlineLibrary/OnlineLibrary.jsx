@@ -50,7 +50,7 @@ function OnlineLibrary() {
         <div className={styles.menuSlide}>
           <h2>Top oferte</h2>
           <div className={styles.swiperBooksContainer}>
-            <SwiperBooks fetchURL={requests.requestNewBookzone} />
+            <SwiperBooks fetchURL={requests.requestNewBookzone} viewBook={4} />
           </div>
         </div>
       </div>

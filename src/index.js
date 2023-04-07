@@ -6,17 +6,24 @@ import BookStore from "./pages/book-store/book-store";
 import Login from "./pages/login/login";
 import Register from "./pages/register/register";
 import BookInfo from "./pages/book-info/BookInfo";
-
+import Authors from "./pages/authors/authors";
+import AuthorsDetails from "./pages/author-Details/authorsDetails";
+import { Provider } from "react-redux";
+import { store } from "./store.js";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />}>
-        <Route path="/" element={<BookStore />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/book" element={<BookInfo />} />
-      </Route>
-    </Routes>
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route path="/" element={<BookStore />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/book/:id" element={<BookInfo />} />
+          <Route path="/autori" element={<Authors />} />
+          <Route path="/autor/:id" element={<AuthorsDetails />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  </Provider>
 );

@@ -1,0 +1,40 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  min-height: 60px;
+}
+.container h2 {
+  margin-bottom: 0;
+  font-size: 20px;
+  line-height: 1.6;
+  font-weight: bold;
+}
+.productDetails {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+.productDetailsIteam {
+  min-width: 120px;
+  white-space: nowrap;
+  text-align: center;
+}
+.productDetailsIteamTop {
+  font-size: 13px;
+  color: #1f2533;
+}
+.productDetailsIteamMiddle {
+  font-size: 30px;
+
+  margin: 10px 0;
+  transform: translateY(5px);
+  color: #1f2533;
+}
+
+.productDetailsIteamBottom {
+  font-size: 13px;
+  color: #1f2533;
+  font-weight: bold;
+}

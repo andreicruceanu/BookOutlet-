@@ -144,26 +144,3 @@ drop manu
   list-style: none;
   margin-left: 0px;
 }
-
-.shopping__pb__container {
-  text-align: center;
-  margin-top: 7px;
-}
-.progress__bar {
-  padding: 8px;
-}
-.progress__bar__container_inner {
-  height: 10px;
-  width: 50%;
-  margin: 0 auto;
-  background-color: #b2b2b2;
-  border-radius: 15px;
-}
-
-.shopping__pb__text p {
-  text-align: center;
-  font-weight: 700;
-  color: #8924b3;
-  margin: 2px 0;
-  font-size: 14px;
-}
