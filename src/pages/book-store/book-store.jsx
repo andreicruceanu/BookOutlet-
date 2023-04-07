@@ -15,7 +15,7 @@ function BookStore() {
   return (
     <main>
       <BannerHeader fetchURL={requests.requestBanner} />
-      <div className={styles.container}>
+      <div className={`${styles.container} ${styles.borderContainer}`}>
         <div className={styles.carouselContainer}>
           <CarouselMenu />
           <Carousel />

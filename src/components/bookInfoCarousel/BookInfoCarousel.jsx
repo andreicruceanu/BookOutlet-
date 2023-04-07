@@ -12,7 +12,8 @@ import "swiper/css/pagination";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 import Badges from "../badges/Badges";
 import BadgesDiscount from "../badges/BadgesDiscount";
-function BookInfoCarousel() {
+import { API_URL_IMG } from "../../api/api-img";
+function BookInfoCarousel({ badges, bookImg, price, name }) {
   return (
     <>
       <Swiper
@@ -34,44 +35,25 @@ function BookInfoCarousel() {
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
         className="mySwiper"
       >
-        <SwiperSlide style={{ display: "flex" }}>
-          <Badges
-            badges={[
-              { id: 0, displayName: "BestSeller", icon: "icon-besteller" },
-            ]}
-          />
-          <img
-            className={styles.BookInfoCarouselImg}
-            width={360}
-            height={442}
-            src={
-              "https://assets.bkz.ro/upload/produse/ZKKJMLDWH/bodyguard-katherine-center-bkz-bg1.webp"
-            }
-            alt=""
-          />
-          <BadgesDiscount
-            price={43}
-            oldPrice={67}
-            leftPosition={"16px"}
-            bottomPosition={"25px"}
-          />
-        </SwiperSlide>
-        <SwiperSlide style={{ display: "flex" }}>
-          <Badges
-            badges={[
-              { id: 0, displayName: "BestSeller", icon: "icon-besteller" },
-            ]}
-          />
-          <img
-            className={styles.BookInfoCarouselImg}
-            width={360}
-            height={442}
-            src={
-              "https://assets.bkz.ro/upload/produse/ZKKJMLDWH/bodyguard-katherine-center-bkz-bg2.webp"
-            }
-            alt=""
-          />
-        </SwiperSlide>
+        {bookImg &&
+          bookImg.map((img) => (
+            <SwiperSlide style={{ display: "flex" }} key={img.id}>
+              <Badges badges={badges} />
+              <img
+                className={styles.BookInfoCarouselImg}
+                width={360}
+                height={442}
+                src={`${API_URL_IMG}${img.url}`}
+                alt={name}
+              />
+              <BadgesDiscount
+                price={price.price}
+                oldPrice={price.oldPrice}
+                leftPosition={"16px"}
+                bottomPosition={"25px"}
+              />
+            </SwiperSlide>
+          ))}
 
         <div
           className={`swiper-button-prev sw-prev ${styles.swPrevBookInfo}`}

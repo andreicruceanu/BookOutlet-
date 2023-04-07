@@ -1,26 +1,22 @@
 import React from "react";
 import styles from "./styles.module.css";
 import btn_login from "./../../images/btn-login.svg";
-import { UserContext } from "../userContext.jsx/UserContext";
-import { useContext } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout, reset } from "../../features/auth/authSlice";
 
 function ModalMyAccount({ onClose }) {
-  const { user } = useContext(UserContext);
-  const { setUser } = useContext(UserContext);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth);
 
-  const handleLogout = async () => {
-    try {
-      await axios.post("/api/auth/logout");
-      onClose();
-      localStorage.setItem("currentUser", null);
-      setUser(null);
-      window.location.reload();
-    } catch (err) {
-      console.log(err);
-    }
+  const onLogout = () => {
+    dispatch(logout());
+    dispatch(reset());
+    navigate("/");
   };
+
+  const userName = localStorage.getItem("firstName");
 
   return (
     <>
@@ -29,12 +25,35 @@ function ModalMyAccount({ onClose }) {
         {!!user ? (
           <>
             <div className={styles.modalHeaderText}>
-              <p>Bine ai venit , {`${user.firstName}`}</p>
+              <p>Bine ai venit , {userName ? userName : "cititorule"}</p>
             </div>
-            <div>
-              <Link to={""} onClick={handleLogout}>
-                Logout
-              </Link>
+
+            <ul className={styles.contentList}>
+              <li>
+                <a className={styles.link} href="/contul meu">
+                  Contul meu
+                </a>
+              </li>
+              <li>
+                <a className={styles.link} href="/Comenzile mele">
+                  Comenzile mele
+                </a>
+              </li>
+              <li>
+                <a className={styles.link} href="/favorite">
+                  Favorite
+                </a>
+              </li>
+              <li>
+                <a className={styles.link} href="/Comenzile mele">
+                  Date personale
+                </a>
+              </li>
+            </ul>
+            <div className={styles.myAccountFooter}>
+              <span onClick={onLogout} className={styles.linkLogout}>
+                Iesire
+              </span>
             </div>
           </>
         ) : (
@@ -57,7 +76,7 @@ function ModalMyAccount({ onClose }) {
                 </a>
               </div>
               <div className={styles.boxLoginLink}>
-                <Link to={"/register"}>Nu ai cont? Creeaza unul aici.</Link>
+                <a href="/register">Nu ai cont? Creeaza unul aici.</a>
               </div>
             </div>
           </>

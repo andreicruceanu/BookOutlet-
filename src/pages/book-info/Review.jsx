@@ -1,13 +1,35 @@
-import { useState } from "react";
-import { AiTwotoneStar } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import BookStar from "../../components/bookStar/BookStar";
 import ModalReview from "./ModalReview";
 import styles from "./Review.module.css";
+import dayjs from "dayjs";
 
 function Review({ review }) {
   const [isOpen, setOpenModal] = useState(false);
+  const [listReviews, setListReviews] = useState([]);
 
+  const numberView = 2;
+
+  const onLoadMoare = () => {
+    return null;
+  };
+
+  function updateListReview(review) {
+    setListReviews([review, ...listReviews]);
+  }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(
+        "/api/product/642d54f8c5902924c8ec57cb/reviews"
+      );
+      setListReviews(response.data);
+    };
+    fetchData();
+  }, []);
+
+  console.log(listReviews);
   const total =
     review?.star1 +
     review?.star2 +
@@ -24,13 +46,22 @@ function Review({ review }) {
               <h3>Ți-a plăcut produsul?</h3>
               <p>Spune tuturor părerea ta aici.</p>
               <div className={styles.commentBoxWrap}>
-                <Link to={""} onClick={() => setOpenModal(true)}>
+                <span
+                  className={styles.reviewBtn}
+                  onClick={() => setOpenModal(true)}
+                >
                   Scrie o recenzie
-                </Link>
+                </span>
               </div>
             </div>
             <div className={styles.commentOverAll}>
-              <p className={styles.scoreReview}>{review?.rating}</p>
+              <p className={styles.scoreReview}>
+                {`${
+                  Number.isInteger(review?.rating)
+                    ? review?.rating
+                    : Number(review?.rating).toFixed(2)
+                }`}
+              </p>
               <BookStar rating={review?.rating} />
               <p className={styles.numberReview}>
                 {review?.totalReviews} recenzii
@@ -99,82 +130,47 @@ function Review({ review }) {
               </div>
             </div>
           </div>
-          <div className={styles.commentsContent}>
-            <div className={styles.comment}>
-              <div className={styles.commentWrap}>
-                <div className={styles.commentHeaderWrap}>
-                  <span className={styles.avatar}>
-                    <b className={styles.avatarName}>A</b>
-                  </span>
-                  <div className={styles.commnetUserWrap}>
-                    <p>Eliza</p>
-                    <div className={styles.reviewStar}>
-                      <AiTwotoneStar />
-                      <AiTwotoneStar />
-                      <AiTwotoneStar />
-                      <AiTwotoneStar />
-                      <AiTwotoneStar />
+          {listReviews.length > 0 && (
+            <div className={styles.commentsContent}>
+              {listReviews.map((comment) => (
+                <div className={styles.comment} key={comment._id}>
+                  <div className={styles.commentWrap}>
+                    <div className={styles.commentHeaderWrap}>
+                      <span className={styles.avatar}>
+                        <b className={styles.avatarName}>
+                          {comment?.userName.slice(0, 1)}
+                        </b>
+                      </span>
+                      <div className={styles.commnetUserWrap}>
+                        <p>
+                          {comment?.userName}
+                          <span className={styles.commentDate}>
+                            {dayjs(comment.createdAt).format("DD-MM-YYYY")}
+                          </span>
+                        </p>
+                        <BookStar rating={comment?.rating} />
+                      </div>
+                    </div>
+                    <div className={styles.commentDetails}>
+                      <h6>{comment?.title}</h6>
+                      <p>{comment?.text}</p>
                     </div>
                   </div>
                 </div>
-                <div className={styles.commentDetails}>
-                  <h6>
-                    Unul dintre cele mai bune plot-twist-uri pe care le-am citit
-                    vreodată.
-                  </h6>
-                  <p>
-                    Povestea este ceva ce n-am mai văzut sau citit până acum. E
-                    probabil cartea mea preferată din genul thriller, dacă nu,
-                    chiar printre primele oricum. A avut suspans, acțiune,
-                    dialog, tot ce-ți poți dori de la o carte ce are ca
-                    declanșator o crimă. Cartea a mai prezentat și ce poate face
-                    o mamă pentru copilul ei, devotamentul cu care o persoană te
-                    poate iubi în ciuda tuturor și puterea de a schimba
-                    viitorul. Clar recomand tuturor, chiar și pentru cei ce abia
-                    descoperă acest gen literar.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
-            <div className={styles.comment}>
-              <div className={styles.commentWrap}>
-                <div className={styles.commentHeaderWrap}>
-                  <span className={styles.avatar}>
-                    <b className={styles.avatarName}>A</b>
-                  </span>
-                  <div className={styles.commnetUserWrap}>
-                    <p>Eliza</p>
-                    <div className={styles.reviewStar}>
-                      <AiTwotoneStar />
-                      <AiTwotoneStar />
-                      <AiTwotoneStar />
-                      <AiTwotoneStar />
-                      <AiTwotoneStar />
-                    </div>
-                  </div>
-                </div>
-                <div className={styles.commentDetails}>
-                  <h6>
-                    Unul dintre cele mai bune plot-twist-uri pe care le-am citit
-                    vreodată.
-                  </h6>
-                  <p>
-                    Povestea este ceva ce n-am mai văzut sau citit până acum. E
-                    probabil cartea mea preferată din genul thriller, dacă nu,
-                    chiar printre primele oricum. A avut suspans, acțiune,
-                    dialog, tot ce-ți poți dori de la o carte ce are ca
-                    declanșator o crimă. Cartea a mai prezentat și ce poate face
-                    o mamă pentru copilul ei, devotamentul cu care o persoană te
-                    poate iubi în ciuda tuturor și puterea de a schimba
-                    viitorul. Clar recomand tuturor, chiar și pentru cei ce abia
-                    descoperă acest gen literar.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          )}
+          {numberView < listReviews.length && (
+            <span className={styles.reviewBtn} onClick={onLoadMoare}>
+              Vezi toate recenziile
+            </span>
+          )}
         </div>
-        <ModalReview open={isOpen} onClose={() => setOpenModal(false)} />
+        <ModalReview
+          open={isOpen}
+          updateListReview={updateListReview}
+          onClose={() => setOpenModal(false)}
+        />
       </div>
     </>
   );

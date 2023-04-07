@@ -39,7 +39,7 @@
   font-size: 18px;
   font-family: inherit;
   margin: 0;
-  padding-left: 25px;
+  padding-left: 20px;
   line-height: 15px;
   padding-bottom: 15px;
   border-bottom: 1px solid #e8e8ed;
@@ -86,4 +86,49 @@
 .boxLoginLink a {
   color: #126fdf;
   text-decoration: none;
+}
+
+.contentList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.contentList li {
+  cursor: pointer;
+  width: 100%;
+}
+.contentList li:last-child {
+  margin-bottom: 10px;
+}
+.contentList li:hover {
+  background-color: #f2f2f7;
+}
+.contentList li:hover a {
+  color: #1f2533;
+}
+.link {
+  font-size: 14px;
+  text-decoration: none;
+  color: #6b7999;
+  padding: 10px 20px;
+  display: block;
+  width: 100%;
+}
+.myAccountFooter {
+  text-align: left;
+  font-family: inherit;
+  margin: 0;
+
+  border-top: 1px solid #e8e8ed;
+  cursor: pointer;
+}
+.linkLogout {
+  font-size: 15px;
+  color: #6b7999;
+  padding: 10px 0px 10px 20px;
+  display: block;
+}
+.myAccountFooter:hover {
+  background-color: #f2f2f7;
+  color: #1f2533;
 }

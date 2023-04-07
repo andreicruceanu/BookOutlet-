@@ -6,6 +6,15 @@
   box-sizing: border-box;
   margin: 0 auto;
 }
+.borderContainer {
+  overflow: hidden;
+  border-radius: 1rem;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-left: 1px solid #e8e8e8;
+  border-right: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+}
 .containerSwiperBooks {
   width: 1200px;
   margin: 0 auto;

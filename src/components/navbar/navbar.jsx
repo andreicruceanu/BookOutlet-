@@ -1,11 +1,10 @@
 import { CiUser, CiHeart } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
-import { MdKeyboardArrowDown } from "react-icons/md";
 import React from "react";
 import Logo from "../logo/logo";
 import styles from "./styles.module.css";
 // TODO inlocuire btn_login ca loginButtonImage si numele fisierului in login-buttin
-import btn_login from "./../../images/btn-login.svg";
+
 import SearchInput from "./../search-input/search-input";
 import BooksCategoryMenu from "../books-category-menu/books-category-menu";
 

@@ -1,25 +1,47 @@
-import React, { useContext } from "react";
+import React, { useEffect } from "react";
 import styles from "./styles.module.css";
-import Logo from "../../images/logo.svg";
+import Logo from "../../images/Logo.png";
+import errorsMessages from "../../constants/errorsMessages.json";
 import { FcGoogle } from "react-icons/fc";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { useState } from "react";
-import { Formik, useFormik } from "formik";
+import { useFormik } from "formik";
 import { validationLogIn } from "./validationLogIn";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { UserContext } from "../../components/userContext.jsx/UserContext";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { login, reset } from "../../features/auth/authSlice";
+import { ImSpinner8 } from "react-icons/im";
 
 function Login() {
   const [visible, setVisibility] = useState(false);
   const [errorLogin, setErrorLogin] = useState(null);
-
-  const navigate = useNavigate();
+  const [isLoadingButton, setIsLoading] = useState(false);
   const handlePasswordClick = () => {
     setVisibility(!visible);
   };
 
-  const { setUser } = useContext(UserContext);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
+
+  useEffect(() => {
+    if (isError) {
+      setIsLoading(false);
+      setErrorLogin(message);
+    }
+    if (isSuccess || user) {
+      setIsLoading(false);
+      navigate("/");
+    }
+    if (isLoading) {
+      setIsLoading(true);
+    }
+
+    dispatch(reset());
+  }, [user, isError, isLoading, isSuccess, message, navigate, dispatch]);
 
   const formik = useFormik({
     initialValues: {
@@ -29,27 +51,17 @@ function Login() {
     },
 
     validationSchema: validationLogIn,
-    onSubmit: async (values) => {
-      try {
-        const userInfo = await axios.post("/api/auth/login", values);
-        setUser(userInfo?.data.userDetails);
-        localStorage.setItem(
-          "currentUser",
-          JSON.stringify(userInfo.data.userDetails)
-        );
-        navigate("/");
-      } catch (err) {
-        setErrorLogin(err.response.data);
-      }
+    onSubmit: (values) => {
+      dispatch(login(values));
     },
   });
 
   return (
     <div className={styles.loginContainer}>
       <div className={styles.wrapper}>
-        <a className={styles.logo} href="/">
+        <Link className={styles.logo} to={"/"}>
           <img src={Logo} alt="Logo_img" />
-        </a>
+        </Link>
         <div className={styles.loginBox}>
           <div className={styles.loginBoxTitle}>
             <h4>Login pe Bookzone</h4>
@@ -99,10 +111,26 @@ function Login() {
             )}
           </form>
           <button form="logInForm" type="submit" className={styles.btnLogIn}>
-            Login
+            {isLoadingButton ? (
+              <span className={styles.iconContainer}>
+                <ImSpinner8 />
+              </span>
+            ) : (
+              <span>Login</span>
+            )}
           </button>
-          {errorLogin && (
-            <span className={styles.errorMessageLogin}>{errorLogin}</span>
+          {errorLogin &&
+          errorLogin.errorCode &&
+          errorsMessages[errorLogin.errorCode] ? (
+            <span className={styles.errorMessageLogin}>
+              {errorsMessages[errorLogin.errorCode]}
+            </span>
+          ) : errorLogin?.errorMessage ? (
+            <span className={styles.errorMessageLogin}>
+              {errorLogin.errorMessage}
+            </span>
+          ) : (
+            ""
           )}
 
           <div className={styles.containerRememberMe}>
@@ -130,7 +158,7 @@ function Login() {
                 <span className={styles.btnGoogleText}>Continua cu Google</span>
               </a>
             </div>
-            <a href="/register">Nu ai cont? Creaza unul aici</a>
+            <Link to="/register">Nu ai cont? Creaza unul aici</Link>
           </div>
         </div>
       </div>

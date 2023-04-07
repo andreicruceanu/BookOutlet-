@@ -23,4 +23,12 @@
   text-decoration: none;
   color: #126fdf;
   font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+.mr5 {
+  margin-right: 5px;
+}
+.iconArrowRight {
+  font-size: 18px;
 }

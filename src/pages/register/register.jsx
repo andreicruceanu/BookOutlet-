@@ -1,16 +1,28 @@
-import { IoIosArrowBack } from "react-icons/io";
-import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
-import { useState } from "react";
-import { useFormik } from "formik";
-import { validationCreateAccount } from "./validationCreateAccount";
-import axios from "axios";
 import React from "react";
 import styles from "./styles.module.css";
+import errorsMessages from "../../constants/errorsMessages.json";
+import { IoIosArrowBack } from "react-icons/io";
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
+import { useEffect, useState } from "react";
+import { useFormik } from "formik";
+import { ImSpinner8 } from "react-icons/im";
+import { validationCreateAccount } from "./validationCreateAccount";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { register, reset } from "../../features/auth/authSlice";
 
 function Register() {
   const [visiblePassword, setVisiblePassword] = useState(false);
   const [visibleConfirmPassword, setVisibilityConfirmPassword] =
     useState(false);
+  const [isLoadingButton, setIsLoading] = useState(false);
+  const [errorLogin, setErrorLogin] = useState(null);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
 
   const handleVisibleButtonPasswordClick = () =>
     setVisiblePassword((currentVisible) => !currentVisible);
@@ -34,40 +46,45 @@ function Register() {
     validationSchema: validationCreateAccount,
 
     //Submit Form
-    onSubmit: async (values) => {
-      console.log(values);
-      try {
-        const response = await axios.post("/api/auth/register", values, {
-          header: { "Content-Type": "aplication/json" },
-          withCredentials: true,
-        });
-        console.log(JSON.stringify(response?.data));
-      } catch (error) {
-        if (!error.response) {
-          console.log("server Error");
-        }
-      }
+    onSubmit: (values) => {
+      dispatch(register(values));
     },
   });
+
+  useEffect(() => {
+    if (isError) {
+      setIsLoading(false);
+      setErrorLogin(message);
+    }
+    if (isSuccess || user) {
+      setIsLoading(false);
+      navigate("/");
+    }
+    if (isLoading) {
+      setIsLoading(true);
+    }
+
+    dispatch(reset());
+  }, [user, isError, isLoading, isSuccess, message, navigate, dispatch]);
 
   return (
     <main>
       <div className={styles.wrapper}>
-        <div className={styles.create__account__wrap}>
-          <a className={styles.back} href="/login">
+        <div className={styles.createAccountWrap}>
+          <Link className={styles.back} to="/login">
             <IoIosArrowBack />
-            Inapoi
-          </a>
+            Intra in cont
+          </Link>
           <h4>Creare cont nou pe Bookzone.ro</h4>
           <p>Completeaza datele noului tau cont Bookzone.</p>
           <form
             autoComplete="off"
             onSubmit={formik.handleSubmit}
-            className={styles.container__input}
+            className={styles.containerInput}
             id="createAccountForm"
           >
             <input
-              className={styles.input__signin}
+              className={styles.inputCreateAccount}
               type="text"
               name="lastName"
               placeholder="Numele tau"
@@ -84,7 +101,7 @@ function Register() {
             )}
 
             <input
-              className={styles.input__signin}
+              className={styles.inputCreateAccount}
               type="text"
               name="firstName"
               placeholder="Prenumele tau"
@@ -101,7 +118,7 @@ function Register() {
             )}
 
             <input
-              className={styles.input__signin}
+              className={styles.inputCreateAccount}
               type="email"
               name="email"
               placeholder="Email-ul tau"
@@ -114,9 +131,9 @@ function Register() {
             ) : (
               ""
             )}
-            <div className={styles.password__container}>
+            <div className={styles.passwordContainer}>
               <input
-                className={styles.input__signin}
+                className={styles.inputCreateAccount}
                 type={visiblePassword ? "text" : "password"}
                 placeholder="Parola"
                 name="password"
@@ -136,9 +153,9 @@ function Register() {
               ""
             )}
 
-            <div className={styles.password__container}>
+            <div className={styles.passwordContainer}>
               <input
-                className={styles.input__signin}
+                className={styles.inputCreateAccount}
                 type={visibleConfirmPassword ? "text" : "password"}
                 placeholder="Confirmarea parolei"
                 name="confirmPassword"
@@ -197,10 +214,29 @@ function Register() {
             type="submit"
             form="createAccountForm"
             className={`${styles.btn} ${styles.mb__1}`}
+            disabled={isLoadingButton}
           >
-            Creaza cont
+            {isLoadingButton ? (
+              <span className={styles.iconContainer}>
+                <ImSpinner8 />
+              </span>
+            ) : (
+              <span>Creaza cont</span>
+            )}
           </button>
-          <span>{formik.errors.length > 0 ? formik.errors : null}</span>
+          {errorLogin &&
+          errorLogin.errorCode &&
+          errorsMessages[errorLogin.errorCode] ? (
+            <span className={styles.errorMessageRegister}>
+              {errorsMessages[errorLogin.errorCode]}
+            </span>
+          ) : errorLogin?.errorMessage ? (
+            <span className={styles.errorMessageRegister}>
+              {errorLogin.errorMessage}
+            </span>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </main>

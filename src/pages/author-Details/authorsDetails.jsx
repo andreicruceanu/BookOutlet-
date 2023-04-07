@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { API_URL_IMG } from "../../api/api-img";
 import ReadMore from "./readMore";

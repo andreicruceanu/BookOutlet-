@@ -1,0 +1,48 @@
+{
+  "productId": 77828,
+  "productTitle": "Calea vindecarii",
+  "productUrl": "",
+  "mainImageUrl": "/upload/produse/ZKKLFLDWH/md1.jpg",
+  "mainImageUrlWebP": "/upload/produse/ZKKLFLDWH/md1.webp",
+  "attributes": [
+    {
+      "name": "Format",
+      "url": "format",
+      "attributeId": 202,
+      "value": [{ "name": "135x200", "url": "135x200" }]
+    },
+    {
+      "name": "Număr pagini",
+      "url": "numar-pagini",
+      "attributeId": 367,
+      "value": [{ "name": "240", "url": "240" }]
+    },
+    {
+      "name": "Editura",
+      "url": "editura",
+      "attributeId": 2619,
+      "value": [{ "name": "Bookzone", "url": "bookzone" }]
+    },
+    {
+      "name": "Autor",
+      "url": "autor",
+      "attributeId": 2622,
+      "value": [
+        { "name": "Constantin Dulcan", "url": "constantin-dulcan" },
+        { "name": "Florentina Fântânaru", "url": "florentina-fantanaru" }
+      ]
+    },
+    {
+      "name": "Anul publicării",
+      "url": "anul-publicarii",
+      "attributeId": 2640,
+      "value": [{ "name": "2023", "url": "2023" }]
+    },
+    {
+      "name": "ISBN",
+      "url": "isbn",
+      "attributeId": 0,
+      "value": [{ "name": "9786303050553", "url": "isbn" }]
+    }
+  ]
+}
