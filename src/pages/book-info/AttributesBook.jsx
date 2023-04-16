@@ -7,7 +7,7 @@ import { GoBook } from "react-icons/go";
 import { IoBookOutline } from "react-icons/io5";
 import styles from "./AttributesBook.module.css";
 
-function AttributesBook({ bookName }) {
+function AttributesBook({ bookName, bookId }) {
   const [attributes, setAttributes] = useState([]);
 
   const icons = [
@@ -26,15 +26,14 @@ function AttributesBook({ bookName }) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get("attributes.json");
+      const response = await axios.get(`/api/${bookId}/getattributes`);
       if (response.status === 200) {
+        console.log(response);
         setAttributes(response.data.attributes);
       }
     };
     fetchData();
-  }, []);
-
-  console.log(attributes);
+  }, [bookId]);
 
   return (
     <>
@@ -51,9 +50,12 @@ function AttributesBook({ bookName }) {
                 <div className={styles.productDetailsIteamMiddle}>
                   {getAttrIconById(icons, attr.attributeId)}
                 </div>
-                <div className={styles.productDetailsIteamBottom}>
-                  <span>{attr.value[0].name}</span>
-                </div>
+                {attr.value.map((el, index) => (
+                  <div className={styles.productDetailsIteamBottom} key={index}>
+                    {el.name}
+                    {index < attr.value.length - 1 && ", "}
+                  </div>
+                ))}
               </div>
             ))}
           </div>

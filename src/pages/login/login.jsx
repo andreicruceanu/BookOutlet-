@@ -146,7 +146,7 @@ function Login() {
               <label htmlFor="rememberMe">Tine-ma minte</label>
             </div>
             <span>
-              <a href="/">Ai uitat parola?</a>
+              <Link to="/login/recover-password">Ai uitat parola?</Link>
             </span>
           </div>
           <div className={styles.googleWrap}>

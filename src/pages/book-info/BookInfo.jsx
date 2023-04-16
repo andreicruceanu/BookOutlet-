@@ -177,7 +177,7 @@ function BookInfo() {
               </div>
             </div>
             <div className={`${styles.devider} ${styles.marginTop}`}></div>
-            <AttributesBook bookName={book.title} />
+            <AttributesBook bookName={book.title} bookId={book.id} />
             <div className={`${styles.devider} ${styles.marginTop}`}></div>
             <div className={styles.container}>
               <div className={styles.descriptionWrap}>
