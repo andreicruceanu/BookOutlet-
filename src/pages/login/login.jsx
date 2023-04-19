@@ -64,7 +64,7 @@ function Login() {
         </Link>
         <div className={styles.loginBox}>
           <div className={styles.loginBoxTitle}>
-            <h4>Login pe Bookzone</h4>
+            <h4>Login pe Bookoutlet</h4>
             <p>Introdu credentialele pentru a te conecta</p>
           </div>
           <form
@@ -146,7 +146,7 @@ function Login() {
               <label htmlFor="rememberMe">Tine-ma minte</label>
             </div>
             <span>
-              <Link to="/login/recover-password">Ai uitat parola?</Link>
+              <Link to="/recover-password">Ai uitat parola?</Link>
             </span>
           </div>
           <div className={styles.googleWrap}>

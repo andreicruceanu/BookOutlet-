@@ -21,7 +21,7 @@ root.render(
           <Route path="/" element={<BookStore />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/login/recover-password" element={<ForgotPassword />} />
+          <Route path="/recover-password" element={<ForgotPassword />} />
           <Route path="/resetare-parola" element={<ResetPassword />} />
           <Route path="/book/:id" element={<BookInfo />} />
           <Route path="/autori" element={<Authors />} />

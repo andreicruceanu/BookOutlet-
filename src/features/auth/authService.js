@@ -28,10 +28,25 @@ const logout = () => {
   localStorage.removeItem("token");
 };
 
+const forgotPassword = async (email) => {
+  const res = await axios.post("api/auth/forgotPassword", email);
+
+  return res.data;
+};
+const resetPassword = async (data) => {
+  const res = await axios.patch(
+    `api/auth/forgotPassword/reset/${data.token}`,
+    data.userData
+  );
+  return res.data;
+};
+
 const authService = {
   register,
   logout,
   login,
+  forgotPassword,
+  resetPassword,
 };
 
 export default authService;

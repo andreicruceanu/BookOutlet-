@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import * as Yup from "yup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../images/Logo.png";
 import { useFormik } from "formik";
 import axios from "axios";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import { resetPassword } from "../../features/auth/authSlice";
 
 function ResetPassword() {
   const [visiblePassword, setVisiblePassword] = useState(false);
@@ -14,6 +16,10 @@ function ResetPassword() {
 
   const [email, setEmail] = useState("");
   const [token, setToken] = useState("");
+  const [error, setError] = useState(null);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleVisibleButtonPasswordClick = () =>
     setVisiblePassword((currentVisible) => !currentVisible);
@@ -39,24 +45,28 @@ function ResetPassword() {
     initialValues: {
       email: "",
       password: "",
+      confirmPassword: "",
     },
     validationSchema: validationPassword,
-    onSubmit: async (values) => {
-      try {
-        const fetchData = await axios.post(
-          `/api/auth/forgotPassword/reset/${token}`,
-          values
-        );
-      } catch (err) {
-        console.log(err);
-      }
+    onSubmit: (values) => {
+      dispatch(resetPassword({ token: token, userData: values }));
     },
   });
+  const { isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     setEmail(params.get("email"));
     setToken(params.get("key"));
-  }, []);
+
+    if (isError) {
+      setError(message);
+    }
+    if (isSuccess) {
+      navigate("/login");
+    }
+  }, [navigate, isError, isSuccess, message]);
 
   return (
     <div className={styles.loginContainer}>
