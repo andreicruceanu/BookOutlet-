@@ -1,9 +1,6 @@
 {
-  "productId": 77828,
-  "productTitle": "Calea vindecarii",
-  "productUrl": "",
-  "mainImageUrl": "/upload/produse/ZKKLFLDWH/md1.jpg",
-  "mainImageUrlWebP": "/upload/produse/ZKKLFLDWH/md1.webp",
+  "bookId": 111,
+  "bookTitle": "test",
   "attributes": [
     {
       "name": "Format",
