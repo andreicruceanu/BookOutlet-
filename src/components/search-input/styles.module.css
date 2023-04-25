@@ -1,13 +1,13 @@
-.form {
+.searchForm {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 500px;
-  height: 50px;
+  height: 45px;
   position: relative;
 }
 
-.form input {
+.searchForm input {
   width: 100%;
   height: 100%;
   border-radius: 4px;
@@ -18,7 +18,7 @@
   border: 1px solid #e1e1e5;
 }
 
-.form button {
+.searchForm button {
   display: flex;
   align-items: center;
 }
@@ -41,4 +41,5 @@
   cursor: pointer;
   border: none;
   background: none;
+  color: #7a8499;
 }

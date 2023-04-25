@@ -1,4 +1,4 @@
-import { CiUser, CiHeart } from "react-icons/ci";
+import { CiUser, CiHeart, CiSearch } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import React from "react";
 import Logo from "../logo/logo";
@@ -15,16 +15,23 @@ import {
   DATA_MENU_SECONDARY2,
 } from "../../constants/menuData";
 import NavMenuSecondary from "../menu-secondary/nav-menu-secondary";
+import menuImg from "../../images/bars-regular.svg";
 
 function Navbar() {
   return (
     <nav className={styles.nav}>
       <div className={styles.container}>
+        <div className={styles.navbarMenu}>
+          <img className={styles.navbarMenuImg} src={menuImg} alt="Menu Img" />
+        </div>
         <div className={styles.logoWrapper}>
           <Logo />
         </div>
         <div className={styles.navSearch}>
           <SearchInput />
+        </div>
+        <div className={styles.searchIcon}>
+          <CiSearch />
         </div>
         <div className={styles.actionsContainer}>
           <Action

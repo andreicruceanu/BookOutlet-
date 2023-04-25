@@ -134,3 +134,7 @@
 .textCenter {
   text-align: center;
 }
+.productName span {
+  color: #126fdf;
+  font-size: 14px;
+}

@@ -2,6 +2,10 @@
   display: flex;
   align-items: center;
   position: relative;
+  margin-right: 15px;
+}
+.container:last-child {
+  margin-right: 0px;
 }
 
 /* btn My Account & Favorite */
@@ -69,3 +73,12 @@
 /*
   My Shooping Cart
   */
+
+@media screen and (max-width: 391px) {
+  .actionBtnText {
+    display: none;
+  }
+  .actionLinkText {
+    display: none;
+  }
+}

@@ -4,10 +4,8 @@ import { useState } from "react";
 import { AiOutlineClose, AiTwotoneStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import BookStar from "../../components/bookStar/BookStar";
-import Autors from "../../components/authors/Authors";
 
-function ModalReview({ open, onClose, updateListReview }) {
+function ModalReview({ open, onClose, updateListReview, bookId, bookTitle }) {
   const [Rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
   const [Text, setText] = useState("");
@@ -24,7 +22,7 @@ function ModalReview({ open, onClose, updateListReview }) {
     }
     try {
       const fetchReview = await axios.post(
-        `/api/product/642d54f8c5902924c8ec57cb/addreview`,
+        `/api/book/${bookId}/addreview`,
         {
           Rating,
           Text,
@@ -39,7 +37,6 @@ function ModalReview({ open, onClose, updateListReview }) {
       );
       if (fetchReview.status === 201) {
         setSucces(true);
-        console.log(fetchReview);
         updateListReview(fetchReview.data);
       }
     } catch (err) {
@@ -84,7 +81,7 @@ function ModalReview({ open, onClose, updateListReview }) {
                 <>
                   <div className={styles.productName}>
                     <h4>Produs</h4>
-                    <span>Am scris o carte despre noi</span>
+                    <span>{bookTitle}</span>
                   </div>
                   <div className={styles.reviewRating}>
                     <h4>Evaluare</h4>

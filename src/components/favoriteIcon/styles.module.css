@@ -7,6 +7,7 @@
   position: absolute;
   top: 5px;
   right: 10px;
+  cursor: pointer;
 }
 .iconHeartDefault {
   background: url(https://css.bkz.ro/images/heart.png);
