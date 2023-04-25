@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { CiSearch } from "react-icons/ci";
-import { MdOutlineClear } from "react-icons/md";
 import styles from "./styles.module.css";
+import { IoCloseOutline } from "react-icons/io5";
 
 function SearchInput() {
   const [title, setTitle] = useState("");
 
   return (
-    <form className={styles.form}>
+    <form className={styles.searchForm}>
       <div className={styles.wrapper}>
         <input
           value={title}
@@ -22,7 +22,7 @@ function SearchInput() {
       <div className={styles.actions}>
         {title.length > 0 && (
           <button className={styles.clearIcon}>
-            <MdOutlineClear onClick={() => setTitle("")} />
+            <IoCloseOutline onClick={() => setTitle("")} />
           </button>
         )}
         <button type="submit" className={styles.searchIcon}>

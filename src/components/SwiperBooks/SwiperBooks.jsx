@@ -18,9 +18,9 @@ function SwiperBooks({ title, fetchURL, viewBook }) {
 
   useEffect(() => {
     const fetchBooks = async () => {
-      const response = await axios.get(fetchURL);
+      const response = await axios.get("/api/books");
       if (response.status === 200) {
-        setBooks(response.data.products);
+        setBooks(response.data);
       }
     };
 
@@ -54,7 +54,7 @@ function SwiperBooks({ title, fetchURL, viewBook }) {
       >
         {books.length > 0 &&
           books.map((book) => (
-            <SwiperSlide key={book.productId}>
+            <SwiperSlide key={book._id}>
               <Book {...book} />
             </SwiperSlide>
           ))}

@@ -8,7 +8,8 @@ import FavoriteIcon from "../favoriteIcon/FavoriteIcon";
 import styles from "./styles.module.css";
 import BookPrice from "../bookPrice/PriceBook";
 function Book(bookData) {
-  const { badges, rating, title, oldPrice, price, mainImageUrl } = bookData;
+  const { badges, rating, title, oldPrice, price, mainImageUrl, _id } =
+    bookData;
 
   return (
     <div className={styles.bookContainer}>
@@ -20,8 +21,8 @@ function Book(bookData) {
         bottomPosition={"148px"}
       />
       <FavoriteIcon />
-      <BookImg bookImg={mainImageUrl} />
-      <BookTitle title={title} />
+      <BookImg bookImg={mainImageUrl} title={title} id={_id} />
+      <BookTitle title={title} id={_id} />
       <BookStar rating={rating} />
       <div className={styles.priceContainer}>
         <BookPrice oldPrice={oldPrice} price={price} />

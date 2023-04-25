@@ -36,8 +36,8 @@ function BookInfoCarousel({ badges, bookImg, price, name }) {
         className="mySwiper"
       >
         {bookImg &&
-          bookImg.map((img) => (
-            <SwiperSlide style={{ display: "flex" }} key={img.id}>
+          bookImg.map((img, index) => (
+            <SwiperSlide style={{ display: "flex" }} key={index}>
               <Badges badges={badges} />
               <img
                 className={styles.BookInfoCarouselImg}

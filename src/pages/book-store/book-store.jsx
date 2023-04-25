@@ -65,7 +65,6 @@ function BookStore() {
         </div>
       </section>
       <Autors />
-
       <InfoHome />
     </main>
   );

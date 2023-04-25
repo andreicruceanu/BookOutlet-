@@ -5,10 +5,9 @@ import ModalReview from "./ModalReview";
 import styles from "./Review.module.css";
 import dayjs from "dayjs";
 
-function Review({ review }) {
+function Review({ review, bookId, bookTitle }) {
   const [isOpen, setOpenModal] = useState(false);
   const [listReviews, setListReviews] = useState([]);
-
   const numberView = 2;
 
   const onLoadMoare = () => {
@@ -21,15 +20,12 @@ function Review({ review }) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(
-        "/api/product/642d54f8c5902924c8ec57cb/reviews"
-      );
+      const response = await axios.get(`/api/book/${bookId}/reviews`);
       setListReviews(response.data);
     };
     fetchData();
-  }, []);
+  }, [bookId]);
 
-  console.log(listReviews);
   const total =
     review?.star1 +
     review?.star2 +
@@ -169,6 +165,8 @@ function Review({ review }) {
         <ModalReview
           open={isOpen}
           updateListReview={updateListReview}
+          bookTitle={bookTitle}
+          bookId={bookId}
           onClose={() => setOpenModal(false)}
         />
       </div>
