@@ -9,7 +9,7 @@ import { useFormik } from "formik";
 import { validationLogIn } from "./validationLogIn";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { login, reset } from "../../features/auth/authSlice";
+import { getFavorite, login, reset } from "../../features/auth/authSlice";
 import { ImSpinner8 } from "react-icons/im";
 
 function Login() {
@@ -23,9 +23,8 @@ function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { user, isLoading, isError, isSuccess, message } = useSelector(
-    (state) => state.auth
-  );
+  const { user, isLoading, isError, isSuccess, message, listFavorite } =
+    useSelector((state) => state.auth);
 
   useEffect(() => {
     if (isError) {
@@ -34,6 +33,8 @@ function Login() {
     }
     if (isSuccess || user) {
       setIsLoading(false);
+      dispatch(getFavorite());
+
       navigate("/");
     }
     if (isLoading) {
@@ -41,7 +42,16 @@ function Login() {
     }
 
     dispatch(reset());
-  }, [user, isError, isLoading, isSuccess, message, navigate, dispatch]);
+  }, [
+    user,
+    isError,
+    isLoading,
+    isSuccess,
+    message,
+    navigate,
+    dispatch,
+    listFavorite,
+  ]);
 
   const formik = useFormik({
     initialValues: {

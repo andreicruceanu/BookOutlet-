@@ -5,10 +5,12 @@ const user = JSON.parse(localStorage.getItem("user"));
 
 const initialState = {
   user: user ? user : null,
+  listFavorite: [],
   isError: false,
   isSuccess: false,
   isLoading: false,
   message: "",
+  modalNoUser: false,
 };
 
 export const login = createAsyncThunk("auth/login", async (user, thunkAPI) => {
@@ -72,6 +74,49 @@ export const resetPassword = createAsyncThunk(
   }
 );
 
+export const addFavorite = createAsyncThunk(
+  "user/addFavorite",
+  async (bookId, thunkAPI) => {
+    try {
+      return await authService.addFavorite(bookId);
+    } catch (error) {
+      const message =
+        (error.response && error.response.data) ||
+        error.message ||
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+export const removeFavorite = createAsyncThunk(
+  "user/removeFavorite",
+  async (favoriteId, thunkAPI) => {
+    try {
+      return await authService.removeFavorite(favoriteId._id);
+    } catch (error) {
+      const message =
+        (error.response && error.response.data) ||
+        error.message ||
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+export const getFavorite = createAsyncThunk(
+  "/user/favorite",
+  async (_req, thunkAPI) => {
+    try {
+      return await authService.getFavoriteOfUser();
+    } catch (error) {
+      const message =
+        (error.response && error.response.data) ||
+        error.message ||
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
 export const authSlice = createSlice({
   name: "auth",
   initialState,
@@ -81,6 +126,9 @@ export const authSlice = createSlice({
       state.isSuccess = false;
       state.isError = false;
       state.message = "";
+    },
+    setModalNoUser: (state, action) => {
+      state.modalNoUser = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -141,8 +189,41 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
+      })
+      .addCase(addFavorite.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(addFavorite.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.message = action.payload;
+        state.listFavorite = [action.payload, ...state.listFavorite];
+      })
+      .addCase(addFavorite.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+      })
+      .addCase(getFavorite.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.message = action.payload;
+        state.listFavorite = [...action.payload];
+      })
+      .addCase(getFavorite.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+      })
+      .addCase(removeFavorite.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        const { _id } = action.meta.arg;
+        state.listFavorite = state.listFavorite.filter(
+          (e) => e._id.toString() !== _id.toString()
+        );
       });
   },
 });
-export const { reset } = authSlice.actions;
+export const { reset, setModalNoUser } = authSlice.actions;
 export default authSlice.reducer;

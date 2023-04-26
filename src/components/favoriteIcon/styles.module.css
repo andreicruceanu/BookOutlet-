@@ -10,10 +10,13 @@
   cursor: pointer;
 }
 .iconHeartDefault {
-  background: url(https://css.bkz.ro/images/heart.png);
-  width: 30px;
-  height: 30px;
+  background: url(../../images/heart.png);
+  width: 34px;
+  height: 34px;
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: 0 0;
+}
+.isFavorite {
+  background-position: 0 -30px;
 }
