@@ -41,12 +41,47 @@ const resetPassword = async (data) => {
   return res.data;
 };
 
+const addFavorite = async (bookId) => {
+  const res = await axios.post("/api/user/addFavorite", bookId, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  });
+
+  return res.data;
+};
+
+const removeFavorite = async (favoriteId) => {
+  const res = await axios.delete(`/api/user/favorite/${favoriteId}`, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  });
+
+  return res.data;
+};
+
+const getFavoriteOfUser = async () => {
+  const res = await axios.get("/api/user/favorite", {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  });
+
+  return res.data;
+};
 const authService = {
   register,
   logout,
   login,
   forgotPassword,
   resetPassword,
+  addFavorite,
+  getFavoriteOfUser,
+  removeFavorite,
 };
 
 export default authService;
