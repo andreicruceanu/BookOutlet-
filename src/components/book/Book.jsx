@@ -8,29 +8,32 @@ import FavoriteIcon from "../favoriteIcon/FavoriteIcon";
 import styles from "./styles.module.css";
 import BookPrice from "../bookPrice/PriceBook";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
 import {
   addFavorite,
   removeFavorite,
   setModalNoUser,
 } from "../../features/auth/authSlice";
 function Book(bookData) {
-  const { badges, rating, title, oldPrice, price, mainImageUrl, _id } =
+  const { badges, rating, title, oldPrice, price, mainImageUrl, _id, url } =
     bookData;
 
   const { listFavorite, user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
-  const [isFavorite, setFavorite] = useState(false);
+  // const [isFavorite, setFavorite] = useState(false);
 
-  useEffect(() => {
-    if (user) {
-      console.log(listFavorite);
-      listFavorite.some((item) => item.bookId === _id && item.user === user.id)
-        ? setFavorite(true)
-        : setFavorite(false);
-    }
-  }, [user, listFavorite, _id]);
+  // useEffect(() => {
+  //   if (user) {
+  //     console.log(listFavorite);
+  //     listFavorite.some((item) => item.bookId === _id && item.user === user.id)
+  //       ? setFavorite(true)
+  //       : setFavorite(false);
+  //   }
+  // }, [user, listFavorite, _id]);
+
+  const isFavorite = listFavorite.some(
+    (item) => item.bookId === _id && item.user === user.id
+  );
 
   const onRemoveFavorite = () => {
     if (!user) {
@@ -39,7 +42,6 @@ function Book(bookData) {
     const favorite = listFavorite.find(
       (e) => e.bookId.toString() === _id.toString()
     );
-    console.log("aoco");
     dispatch(removeFavorite(favorite));
   };
 
@@ -49,11 +51,12 @@ function Book(bookData) {
     }
     if (isFavorite) {
       onRemoveFavorite();
-
       return;
     }
 
-    dispatch(addFavorite({ bookId: _id }));
+    dispatch(
+      addFavorite({ bookId: _id, mainImageUrl, price, oldPrice, title, url })
+    );
   };
 
   return (

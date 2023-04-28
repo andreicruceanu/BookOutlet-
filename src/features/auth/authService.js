@@ -41,8 +41,8 @@ const resetPassword = async (data) => {
   return res.data;
 };
 
-const addFavorite = async (bookId) => {
-  const res = await axios.post("/api/user/addFavorite", bookId, {
+const addFavorite = async (book) => {
+  const res = await axios.post("/api/user/addFavorite", book, {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.getItem("token")}`,

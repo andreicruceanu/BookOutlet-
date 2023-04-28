@@ -76,9 +76,9 @@ export const resetPassword = createAsyncThunk(
 
 export const addFavorite = createAsyncThunk(
   "user/addFavorite",
-  async (bookId, thunkAPI) => {
+  async (book, thunkAPI) => {
     try {
-      return await authService.addFavorite(bookId);
+      return await authService.addFavorite(book);
     } catch (error) {
       const message =
         (error.response && error.response.data) ||
@@ -130,6 +130,9 @@ export const authSlice = createSlice({
     setModalNoUser: (state, action) => {
       state.modalNoUser = action.payload;
     },
+    setListFavorites: (state, action) => {
+      state.listFavorite = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -153,7 +156,7 @@ export const authSlice = createSlice({
       .addCase(login.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.user = action.payload;
+        state.user = action.payload.userDetails;
       })
       .addCase(login.rejected, (state, action) => {
         state.isLoading = false;
@@ -163,6 +166,7 @@ export const authSlice = createSlice({
       })
       .addCase(logout.fulfilled, (state) => {
         state.user = null;
+        state.listFavorite = [];
       })
       .addCase(forgotPassword.pending, (state) => {
         state.isLoading = true;
@@ -225,5 +229,5 @@ export const authSlice = createSlice({
       });
   },
 });
-export const { reset, setModalNoUser } = authSlice.actions;
+export const { reset, setModalNoUser, setListFavorites } = authSlice.actions;
 export default authSlice.reducer;

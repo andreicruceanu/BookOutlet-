@@ -35,7 +35,9 @@ function Action(props) {
         >
           <div className={styles.actionIcon}>
             {icon}
-            {action === ACTIONS.favorites && listFavorite.length > 0 ? (
+            {action === ACTIONS.favorites &&
+            listFavorite.length > 0 &&
+            listFavorite ? (
               <span className={styles.navNotification}>
                 {listFavorite.length}
               </span>
