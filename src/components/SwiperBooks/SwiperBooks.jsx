@@ -20,7 +20,6 @@ function SwiperBooks({ title, fetchURL, viewBook }) {
   const [books, setBooks] = useState([]);
   const dispatch = useDispatch();
   const modalNoUser = useSelector((state) => state.auth.modalNoUser);
-  console.log(modalNoUser);
 
   const handleClose = () => dispatch(setModalNoUser(false));
   useEffect(() => {
