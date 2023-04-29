@@ -1,7 +1,6 @@
 import styles from "./styles.module.css";
 
 function FavoriteIcon({ addToFavorite, isFavorite }) {
-  console.log(isFavorite);
   const iconClass = isFavorite
     ? `${styles.iconHeartDefault} ${styles.isFavorite}`
     : `${styles.iconHeartDefault}`;

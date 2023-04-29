@@ -201,7 +201,7 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = true;
         state.message = action.payload;
-        state.listFavorite = [action.payload, ...state.listFavorite];
+        state.listFavorite = [...state.listFavorite, action.payload];
       })
       .addCase(addFavorite.rejected, (state, action) => {
         state.isLoading = false;
