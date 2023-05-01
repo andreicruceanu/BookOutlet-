@@ -10,10 +10,26 @@ import OnlineLibrary from "../../components/sectionOnlineLibrary/OnlineLibrary";
 import SwiperBooks from "../../components/SwiperBooks/SwiperBooks";
 import requests from "../../constants/requests";
 import InfoHome from "../../components/infoHome/InfoHome";
+import ModalNoUser from "../../components/modalNoUser/modalNoUser";
+import { useDispatch, useSelector } from "react-redux";
+import { setModalNoUser } from "../../features/auth/authSlice";
 
 function BookStore() {
+  const dispatch = useDispatch();
+  const modalNoUser = useSelector((state) => state.auth.modalNoUser);
+
+  const handleClose = () => dispatch(setModalNoUser(false));
+
   return (
     <main>
+      <ModalNoUser
+        textHeader={"Loghează-te"}
+        textContent={
+          "Pentru a putea adauga la favorite o carte trebuie sa intri in contul tau BookOutlet"
+        }
+        open={modalNoUser}
+        onClose={handleClose}
+      />
       <BannerHeader fetchURL={requests.requestBanner} />
       <div className={`${styles.container} ${styles.borderContainer}`}>
         <div className={styles.carouselContainer}>

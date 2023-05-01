@@ -12,16 +12,10 @@ import "swiper/css/pagination";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 import Book from "../book/Book";
 import axios from "axios";
-import ModalNoUser from "../modal/ModalNoUser";
-import { useDispatch, useSelector } from "react-redux";
-import { setModalNoUser } from "../../features/auth/authSlice";
 
 function SwiperBooks({ title, fetchURL, viewBook }) {
   const [books, setBooks] = useState([]);
-  const dispatch = useDispatch();
-  const modalNoUser = useSelector((state) => state.auth.modalNoUser);
 
-  const handleClose = () => dispatch(setModalNoUser(false));
   useEffect(() => {
     const fetchBooks = async () => {
       const response = await axios.get("/api/books");
@@ -41,7 +35,6 @@ function SwiperBooks({ title, fetchURL, viewBook }) {
         </div>
       )}
 
-      <ModalNoUser open={modalNoUser} onClose={handleClose} />
       <Swiper
         cssMode={true}
         navigation={{
