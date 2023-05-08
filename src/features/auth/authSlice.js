@@ -74,34 +74,6 @@ export const resetPassword = createAsyncThunk(
   }
 );
 
-export const addFavorite = createAsyncThunk(
-  "user/addFavorite",
-  async (book, thunkAPI) => {
-    try {
-      return await authService.addFavorite(book);
-    } catch (error) {
-      const message =
-        (error.response && error.response.data) ||
-        error.message ||
-        error.toString();
-      return thunkAPI.rejectWithValue(message);
-    }
-  }
-);
-export const removeFavorite = createAsyncThunk(
-  "user/removeFavorite",
-  async (favoriteId, thunkAPI) => {
-    try {
-      return await authService.removeFavorite(favoriteId._id);
-    } catch (error) {
-      const message =
-        (error.response && error.response.data) ||
-        error.message ||
-        error.toString();
-      return thunkAPI.rejectWithValue(message);
-    }
-  }
-);
 export const getFavorite = createAsyncThunk(
   "/user/favorite",
   async (_req, thunkAPI) => {
@@ -132,6 +104,16 @@ export const authSlice = createSlice({
     },
     setListFavorites: (state, action) => {
       state.listFavorite = action.payload;
+    },
+    addFavorite: (state, action) => {
+      state.listFavorite = [...state.listFavorite, action.payload];
+    },
+    removeFavorite: (state, action) => {
+      const { _id } = action.payload;
+      console.log(action.payload);
+      state.listFavorite = state.listFavorite.filter(
+        (e) => e._id.toString() !== _id.toString()
+      );
     },
   },
   extraReducers: (builder) => {
@@ -194,20 +176,6 @@ export const authSlice = createSlice({
         state.isError = true;
         state.message = action.payload;
       })
-      .addCase(addFavorite.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(addFavorite.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.isSuccess = true;
-        state.message = action.payload;
-        state.listFavorite = [...state.listFavorite, action.payload];
-      })
-      .addCase(addFavorite.rejected, (state, action) => {
-        state.isLoading = false;
-        state.isError = true;
-        state.message = action.payload;
-      })
       .addCase(getFavorite.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
@@ -218,16 +186,14 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
-      })
-      .addCase(removeFavorite.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.isSuccess = true;
-        const { _id } = action.meta.arg;
-        state.listFavorite = state.listFavorite.filter(
-          (e) => e._id.toString() !== _id.toString()
-        );
       });
   },
 });
-export const { reset, setModalNoUser, setListFavorites } = authSlice.actions;
+export const {
+  reset,
+  setModalNoUser,
+  setListFavorites,
+  addFavorite,
+  removeFavorite,
+} = authSlice.actions;
 export default authSlice.reducer;

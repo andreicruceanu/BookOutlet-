@@ -16,13 +16,37 @@ import axios from "axios";
 import { API_URL_IMG } from "../../api/api-img";
 import ReadMore from "../author-Details/readMore";
 import AttributesBook from "./AttributesBook";
+import { useDispatch, useSelector } from "react-redux";
+import ModalNoUser from "../../components/modalNoUser/modalNoUser";
+import {
+  addFavorite,
+  removeFavorite,
+  setModalNoUser,
+} from "../../features/auth/authSlice";
+import favoriteApi from "../../api/modules/favorite.api";
 
 function BookInfo() {
+  const { listFavorite, modalNoUser, user } = useSelector(
+    (state) => state.auth
+  );
   const [isOpen, setIsOpen] = useState(false);
   const [book, setBook] = useState({});
   const [loading, setLoading] = useState(true);
+  const [isBookFavorite, setBookFavorite] = useState(false);
 
   const { id } = useParams();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (book && user) {
+      setBookFavorite(
+        listFavorite.some(
+          (item) => item.bookId === book._id && item.user === user.id
+        )
+      );
+    }
+  }, [book, user, listFavorite]);
 
   useEffect(() => {
     const fetchBookDetails = async () => {
@@ -35,11 +59,66 @@ function BookInfo() {
     fetchBookDetails();
   }, [id]);
 
-  console.log(book);
+  const handleFavorite = async (book) => {
+    if (!user) {
+      dispatch(setModalNoUser(true));
+    }
+    if (isBookFavorite) {
+      const favoriteDetails = listFavorite.find(
+        (item) => item.bookId === book._id && item.user === user.id
+      );
+      //dispatch(removeFavorite(favoriteDetails));
+      const { response, err } = await favoriteApi.remove({
+        favoriteId: favoriteDetails._id,
+      });
+
+      if (err) return console.log(err);
+
+      if (response) {
+        dispatch(removeFavorite(favoriteDetails));
+        setBookFavorite(false);
+      }
+    } else {
+      const { _id, title, url } = book;
+      const price = book.price.price;
+      const oldPrice = book.price.oldPrice;
+      const mainImageUrl = book.images.find((img) => img.is_main === true).url;
+
+      const body = {
+        bookId: _id,
+        mainImageUrl,
+        price,
+        oldPrice,
+        title,
+        url,
+      };
+
+      const { response, err } = await favoriteApi.add(body);
+
+      if (err) return console.log("eroare");
+      if (response) {
+        dispatch(addFavorite(response));
+      }
+      setBookFavorite(true);
+    }
+  };
+
+  const handleClose = () => {
+    return dispatch(setModalNoUser(false));
+  };
+
   return (
     <>
       {!loading && (
         <main>
+          <ModalNoUser
+            textHeader={"Loghează-te"}
+            textContent={
+              "Pentru a putea adauga la favorite o carte trebuie sa intri in contul tau BookOutlet"
+            }
+            open={modalNoUser}
+            onClose={handleClose}
+          />
           <div className={styles.containerBig}>
             <div className={styles.wrap}>
               <div className={styles.carousel}>
@@ -121,9 +200,22 @@ function BookInfo() {
                         <img src={BtnAddToCart} alt="btn-add-to-cart" />
                         <p>Adauga in cos</p>
                       </Link>
-                      <button className={styles.btnFavorite}>
-                        <AiOutlineHeart />
-                        <p>Adaugă la favorite</p>
+                      <button
+                        className={styles.btnFavorite}
+                        onClick={() => handleFavorite(book)}
+                      >
+                        <AiOutlineHeart
+                          className={
+                            isBookFavorite
+                              ? `${styles.iconHeart} ${styles.isFavorite}`
+                              : `${styles.iconHeart}`
+                          }
+                        />
+                        <p>
+                          {isBookFavorite
+                            ? `Sterge de la favorite`
+                            : `Adaugă la favorite`}
+                        </p>
                       </button>
                     </div>
                     <div className={styles.infoDeliveryWrap}>
