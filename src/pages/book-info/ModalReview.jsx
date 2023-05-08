@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AiOutlineClose, AiTwotoneStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import reviewApi from "../../api/modules/review.api";
 
 function ModalReview({ open, onClose, updateListReview, bookId, bookTitle }) {
   const [Rating, setRating] = useState(null);
@@ -20,30 +21,22 @@ function ModalReview({ open, onClose, updateListReview, bookId, bookTitle }) {
       setError(true);
       return;
     }
-    try {
-      const fetchReview = await axios.post(
-        `/api/book/${bookId}/addreview`,
-        {
-          Rating,
-          Text,
-          Title,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
-      if (fetchReview.status === 201) {
-        setSucces(true);
-        updateListReview(fetchReview.data);
-      }
-    } catch (err) {
-      console.log(err.response.data.errorCode);
+
+    const { response, err } = await reviewApi.addReview({
+      bookId,
+      Rating,
+      Text,
+      Title,
+    });
+
+    if (response) {
+      setSucces(true);
+      updateListReview(response);
+    }
+    if (err) {
+      console.log(err);
     }
   };
-
   if (!open) return "";
   return (
     <div className={styles.overlay}>
