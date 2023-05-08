@@ -1,10 +1,29 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./styles.module.css";
 import { Link } from "react-router-dom";
 import { BsCartPlus } from "react-icons/bs";
 import { API_URL_IMG } from "../../api/api-img";
+import { removeFavorite, setModalNoUser } from "../../features/auth/authSlice";
+import favoriteApi from "../../api/modules/favorite.api";
+
 function ModalWish({ onClose }) {
-  const { listFavorite } = useSelector((state) => state.auth);
+  const { listFavorite, user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
+  const handleBookDelete = async (book) => {
+    if (!user) {
+      return dispatch(setModalNoUser(true));
+    }
+    console.log(book);
+    const { response, err } = await favoriteApi.remove({
+      favoriteId: book._id,
+    });
+
+    if (err) return console.log(err);
+    if (response) {
+      dispatch(removeFavorite(book));
+    }
+  };
 
   return (
     <>
@@ -33,7 +52,6 @@ function ModalWish({ onClose }) {
                   </div>
                   <div className={styles.boxWrap}>
                     <span className={styles.oldPrice}>
-                      {" "}
                       PRP: {book.oldPrice} lei
                     </span>
                     <span className={styles.price}> {book.price} lei</span>
@@ -41,7 +59,12 @@ function ModalWish({ onClose }) {
                       <BsCartPlus />
                       Adauga in cos
                     </span>
-                    <span className={styles.btnRemove}>Sterge</span>
+                    <span
+                      className={styles.btnRemove}
+                      onClick={() => handleBookDelete(book)}
+                    >
+                      Sterge
+                    </span>
                   </div>
                 </div>
               </div>

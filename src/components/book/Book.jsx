@@ -13,6 +13,7 @@ import {
   removeFavorite,
   setModalNoUser,
 } from "../../features/auth/authSlice";
+import favoriteApi from "../../api/modules/favorite.api";
 function Book(bookData) {
   const { badges, rating, title, oldPrice, price, mainImageUrl, _id, url } =
     bookData;
@@ -35,17 +36,25 @@ function Book(bookData) {
     (item) => item.bookId === _id && item.user === user.id
   );
 
-  const onRemoveFavorite = () => {
+  const onRemoveFavorite = async () => {
     if (!user) {
       return dispatch(setModalNoUser(true));
     }
     const favorite = listFavorite.find(
       (e) => e.bookId.toString() === _id.toString()
     );
-    dispatch(removeFavorite(favorite));
+
+    const { response, err } = await favoriteApi.remove({
+      favoriteId: favorite._id,
+    });
+
+    if (err) return console.log(err);
+    if (response) {
+      dispatch(removeFavorite(favorite));
+    }
   };
 
-  const addToFavorite = () => {
+  const addToFavorite = async () => {
     if (!user) {
       return dispatch(setModalNoUser(true));
     }
@@ -54,9 +63,21 @@ function Book(bookData) {
       return;
     }
 
-    dispatch(
-      addFavorite({ bookId: _id, mainImageUrl, price, oldPrice, title, url })
-    );
+    const body = {
+      bookId: _id,
+      mainImageUrl,
+      price,
+      oldPrice,
+      title,
+      url,
+    };
+
+    const { response, err } = await favoriteApi.add(body);
+
+    if (err) return console.log("eroare");
+    if (response) {
+      dispatch(addFavorite(response));
+    }
   };
 
   return (

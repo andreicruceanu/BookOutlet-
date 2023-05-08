@@ -187,7 +187,11 @@
   cursor: pointer;
   padding: 0;
 }
-.btnFavorite svg {
+.isFavorite {
+  background-image: linear-gradient(90deg, #b224b3, #3c24b2);
+  color: #fff;
+}
+.iconHeart {
   font-size: 25px;
   padding: 8px;
   display: block;
