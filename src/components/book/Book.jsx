@@ -14,23 +14,24 @@ import {
   setModalNoUser,
 } from "../../features/auth/authSlice";
 import favoriteApi from "../../api/modules/favorite.api";
+import { addToCartReducer } from "../../features/cart/cartSlice";
+
 function Book(bookData) {
-  const { badges, rating, title, oldPrice, price, mainImageUrl, _id, url } =
-    bookData;
+  const {
+    badges,
+    rating,
+    title,
+    subtitle,
+    oldPrice,
+    price,
+    mainImageUrl,
+    _id,
+    url,
+  } = bookData;
 
   const { listFavorite, user } = useSelector((state) => state.auth);
+
   const dispatch = useDispatch();
-
-  // const [isFavorite, setFavorite] = useState(false);
-
-  // useEffect(() => {
-  //   if (user) {
-  //     console.log(listFavorite);
-  //     listFavorite.some((item) => item.bookId === _id && item.user === user.id)
-  //       ? setFavorite(true)
-  //       : setFavorite(false);
-  //   }
-  // }, [user, listFavorite, _id]);
 
   const isFavorite = listFavorite.some(
     (item) => item.bookId === _id && item.user === user.id
@@ -80,6 +81,20 @@ function Book(bookData) {
     }
   };
 
+  const addToCart = () => {
+    const bookCart = {
+      _id,
+      title,
+      subtitle,
+      url,
+      mainImageUrl,
+      oldPrice,
+      price,
+    };
+
+    dispatch(addToCartReducer(bookCart));
+  };
+
   return (
     <div className={styles.bookContainer}>
       <Badges badges={badges} />
@@ -95,7 +110,7 @@ function Book(bookData) {
       <BookStar rating={rating} />
       <div className={styles.priceContainer}>
         <BookPrice oldPrice={oldPrice} price={price} />
-        <CartButton />
+        <CartButton addToCart={addToCart} />
       </div>
     </div>
   );

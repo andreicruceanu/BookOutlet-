@@ -4,6 +4,7 @@ import BookStar from "../../components/bookStar/BookStar";
 import ModalReview from "./ModalReview";
 import styles from "./Review.module.css";
 import dayjs from "dayjs";
+import reviewApi from "../../api/modules/review.api";
 
 function Review({ review, bookId, bookTitle }) {
   const [isOpen, setOpenModal] = useState(false);
@@ -19,11 +20,18 @@ function Review({ review, bookId, bookTitle }) {
   }
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(`/api/book/${bookId}/reviews`);
-      setListReviews(response.data);
+    const getReview = async () => {
+      const { response, err } = await reviewApi.getList({ bookId });
+
+      if (response) {
+        console.log(response);
+        setListReviews(response);
+      }
+      if (err) {
+        console.log(err);
+      }
     };
-    fetchData();
+    getReview();
   }, [bookId]);
 
   const total =

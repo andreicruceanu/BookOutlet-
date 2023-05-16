@@ -14,12 +14,20 @@ function Action(props) {
   const [openModalMyAccount, setOpenModalMyAccount] = useState(false);
   const [openModalWish, setOpenModalWish] = useState(false);
   const { listFavorite } = useSelector((state) => state.auth);
+  const { cart } = useSelector((state) => state.cart);
+
+  const totalQuantity = cart
+    ? cart.reduce((total, item) => Number(total) + Number(item.quantity), 0)
+    : 0;
 
   return (
     <div className={styles.container}>
       {link ? (
-        <Link to={href} className={`${styles.actionLink}`}>
+        <Link to={href} className={styles.actionLink}>
           {icon}
+          {totalQuantity > 0 && (
+            <span className={styles.navNotificationCart}>{totalQuantity}</span>
+          )}
           <div className={styles.actionLinkText}>
             <span>{name}</span>
           </div>
@@ -35,14 +43,10 @@ function Action(props) {
         >
           <div className={styles.actionIcon}>
             {icon}
-            {action === ACTIONS.favorites &&
-            listFavorite.length > 0 &&
-            listFavorite ? (
-              <span className={styles.navNotification}>
+            {action === ACTIONS.favorites && listFavorite?.length > 0 && (
+              <span className={styles.navNotificationFavorite}>
                 {listFavorite.length}
               </span>
-            ) : (
-              ""
             )}
           </div>
           <div className={styles.actionBtnText}>

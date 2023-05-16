@@ -1,0 +1,165 @@
+main {
+  background-color: rgba(242, 245, 245, 0.9607843137254902);
+}
+.containerEmptyCart {
+  width: 100%;
+  min-height: 60vh;
+  background-color: #f2f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.emptyCart {
+  width: 1200px;
+  margin: 0 auto;
+}
+.wrap {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.btnEmptyCart {
+  text-decoration: none;
+  border: 1px solid #126fdf;
+  color: #126fdf;
+  background-color: #ffff;
+  padding: 15px 30px;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+
+/*  cart */
+.cartTitle {
+  font-size: 24px;
+  font-weight: 400;
+  padding: 10px;
+  color: #1f2533;
+  margin: 0;
+}
+.containerCart {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.cartWrapper {
+  background-color: #fff;
+  margin-bottom: 50px;
+}
+.cartWrapper {
+  display: flex;
+  flex-direction: row;
+}
+.cartDetails {
+  margin: 0 10px;
+  padding: 0 10px;
+  width: 70%;
+}
+.cartSubtitle {
+  font-size: 20px;
+  font-weight: 400;
+}
+.cartItem {
+  display: flex;
+  flex-direction: row;
+  margin: 15px 0px;
+  padding: 15px;
+  border-bottom: 1px solid #e1e1e5;
+  box-shadow: 0 0 3px rgb(0 0 0 / 5%);
+  background-color: #fff;
+  border-radius: 8px;
+}
+.cartBookImg {
+  max-width: 90px;
+  display: block;
+  margin-right: 20px;
+}
+.book {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.bookTitleWrap {
+  display: flex;
+  width: 100%;
+  margin-top: 14px;
+}
+.bookTitle {
+  width: 80%;
+}
+.bookTitle h2 {
+  font-size: 16px;
+  width: unset;
+  font-weight: 700;
+  color: #1f2533;
+  margin: 5px 0;
+}
+.bookTitle p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #1f2533;
+}
+.quantity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid rgb(177, 177, 177);
+  width: 15%;
+  height: 35px;
+  border-radius: 5px;
+  max-width: 100%;
+}
+.quantity button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 3px 8px;
+  color: #1f2533;
+}
+.totalQuantity {
+  margin: 0px 5px;
+}
+.itemPrice {
+  text-align: right;
+  margin-top: 14px;
+}
+.oldPrice {
+  color: red;
+  font-size: 13px;
+  margin: 0;
+  line-height: 1.6;
+}
+.newPrice {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2533;
+  margin: 0;
+  line-height: 1.6;
+}
+.savePrice {
+  font-size: 13px;
+  color: #01a352;
+  line-height: 1.6;
+  margin: 0;
+}
+.removeBook {
+  line-height: 1.6;
+  font-size: 13px;
+  font-weight: 400;
+  color: #126fdf;
+  cursor: pointer;
+}
+/*  cart */
+.cartAside {
+  width: 30%;
+}

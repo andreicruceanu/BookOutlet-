@@ -5,6 +5,8 @@ import Footer from "../../components/footer/footer";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { setListFavorites } from "../../features/auth/authSlice";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const { user } = useSelector((state) => state.auth);
@@ -33,6 +35,12 @@ function App() {
 
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose="3000"
+        closeOnClick
+        pauseOnHover={false}
+      />
       <Navbar />
       <Outlet />
       <Footer />

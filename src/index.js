@@ -12,6 +12,7 @@ import { Provider } from "react-redux";
 import { store } from "./store.js";
 import ForgotPassword from "./pages/login/ForgotPassword";
 import ResetPassword from "./pages/resetPassword/ResetPassword";
+import Cart from "./pages/cart/Cart";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
@@ -26,6 +27,7 @@ root.render(
           <Route path="/book/:id" element={<BookInfo />} />
           <Route path="/autori" element={<Authors />} />
           <Route path="/autor/:id" element={<AuthorsDetails />} />
+          <Route path="/cos" element={<Cart />} />
         </Route>
       </Routes>
     </BrowserRouter>
