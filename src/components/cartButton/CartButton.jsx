@@ -1,10 +1,10 @@
 import styles from "./styles.module.css";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-function CartButton() {
+function CartButton({ addToCart }) {
   return (
-    <span className={styles.wrap}>
+    <button className={styles.btnCart} onClick={addToCart}>
       <AiOutlineShoppingCart />
-    </span>
+    </button>
   );
 }
 

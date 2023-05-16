@@ -53,7 +53,7 @@ function Navbar() {
             name="Cosul meu"
             arrow={false}
             link={true}
-            href="/cos/produse"
+            href="/cos"
             action={ACTIONS.shoppingCart}
           />
         </div>
