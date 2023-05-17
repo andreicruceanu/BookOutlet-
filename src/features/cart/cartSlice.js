@@ -24,7 +24,7 @@ const cartSlice = createSlice({
 
       if (!existingBook) {
         book.quantity = 1;
-        book.totalPrice = book.price;
+        book.totalPrice = book.price * book.quantity;
         state.cart.push(book);
       } else {
         existingBook.quantity++;
@@ -37,7 +37,21 @@ const cartSlice = createSlice({
       toast.success("Carte a fost adaugata in cos !");
       localStorage.setItem("cart", JSON.stringify(state.cart));
     },
-
+    decreaseCart: (state, action) => {
+      const bookIndex = state.cart.findIndex(
+        (item) => item._id === action.payload._id
+      );
+      if (state.cart[bookIndex].quantity > 1) {
+        state.cart[bookIndex].quantity -= 1;
+        state.cart[bookIndex].totalPrice =
+          state.cart[bookIndex].price * state.cart[bookIndex].quantity;
+        console.log(state.cart[bookIndex].totalPrice);
+        toast.info("Ai actualizat cantitatea produsului! ");
+      } else if (state.cart[bookIndex].quantity === 1) {
+        toast.error("Minim 1 buc");
+      }
+      localStorage.setItem("cart", JSON.stringify(state.cart));
+    },
     remove: (state, action) => {
       state.cart.map((book) => {
         if (book._id === action.payload._id) {
@@ -52,5 +66,5 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCartReducer, remove } = cartSlice.actions;
+export const { addToCartReducer, remove, decreaseCart } = cartSlice.actions;
 export default cartSlice.reducer;
