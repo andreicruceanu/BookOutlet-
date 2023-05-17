@@ -15,7 +15,15 @@ const favoriteApi = {
       return { err };
     }
   },
-  add: async ({ bookId, mainImageUrl, price, oldPrice, title, url }) => {
+  add: async ({
+    bookId,
+    mainImageUrl,
+    price,
+    oldPrice,
+    title,
+    url,
+    subtitle,
+  }) => {
     try {
       const response = await privateClient.post(favoriteEndpoints.add, {
         bookId,
@@ -23,6 +31,7 @@ const favoriteApi = {
         price,
         oldPrice,
         title,
+        subtitle,
         url,
       });
 

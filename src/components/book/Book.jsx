@@ -69,6 +69,7 @@ function Book(bookData) {
       mainImageUrl,
       price,
       oldPrice,
+      subtitle,
       title,
       url,
     };

@@ -24,6 +24,7 @@ import {
   setModalNoUser,
 } from "../../features/auth/authSlice";
 import favoriteApi from "../../api/modules/favorite.api";
+import { addToCartReducer } from "../../features/cart/cartSlice";
 
 function BookInfo() {
   const { listFavorite, modalNoUser, user } = useSelector(
@@ -59,6 +60,25 @@ function BookInfo() {
     fetchBookDetails();
   }, [id]);
 
+  const handleAddToCart = (book) => {
+    const { _id, title, subtitle, url } = book;
+    const price = book.price.price;
+    const oldPrice = book.price.oldPrice;
+    const mainImageUrl = book.images.find((img) => img.is_main === true).url;
+
+    const bookCart = {
+      _id,
+      title,
+      subtitle,
+      url,
+      mainImageUrl,
+      oldPrice,
+      price,
+    };
+
+    dispatch(addToCartReducer(bookCart));
+  };
+
   const handleFavorite = async (book) => {
     if (!user) {
       dispatch(setModalNoUser(true));
@@ -67,7 +87,6 @@ function BookInfo() {
       const favoriteDetails = listFavorite.find(
         (item) => item.bookId === book._id && item.user === user.id
       );
-      //dispatch(removeFavorite(favoriteDetails));
       const { response, err } = await favoriteApi.remove({
         favoriteId: favoriteDetails._id,
       });
@@ -79,7 +98,7 @@ function BookInfo() {
         setBookFavorite(false);
       }
     } else {
-      const { _id, title, url } = book;
+      const { _id, title, url, subtitle } = book;
       const price = book.price.price;
       const oldPrice = book.price.oldPrice;
       const mainImageUrl = book.images.find((img) => img.is_main === true).url;
@@ -90,6 +109,7 @@ function BookInfo() {
         price,
         oldPrice,
         title,
+        subtitle,
         url,
       };
 
@@ -196,10 +216,13 @@ function BookInfo() {
                   </div>
                   <div className={styles.detailsPricingBox}>
                     <div className={styles.priceButtonWrap}>
-                      <Link className={styles.btnAddToCart} to="/">
+                      <button
+                        className={styles.btnAddToCart}
+                        onClick={() => handleAddToCart(book)}
+                      >
                         <img src={BtnAddToCart} alt="btn-add-to-cart" />
                         <p>Adauga in cos</p>
-                      </Link>
+                      </button>
                       <button
                         className={styles.btnFavorite}
                         onClick={() => handleFavorite(book)}

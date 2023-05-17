@@ -12,7 +12,9 @@ function ProgressBar({ priceBooks, freeShippingValue }) {
           ></div>
         </div>
       </div>
-      <span>Transport GRATUIT de la {freeShippingValue} lei !</span>
+      <span className={styles.ProgressBarText}>
+        Transport GRATUIT de la {freeShippingValue} lei !
+      </span>
     </div>
   );
 }

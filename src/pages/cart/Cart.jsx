@@ -183,7 +183,7 @@ function Cart() {
       ) : (
         <div className={styles.containerEmptyCart}>
           <div className={styles.emptyCart}>
-            <div className={styles.wrap}>
+            <div className={styles.emptyCartWrap}>
               <img src={CartEmpty} alt="Empty Cart" width={100} />
               <h3>Nu ai produse in coș.</h3>
               <Link to={"/"} className={styles.btnEmptyCart}>

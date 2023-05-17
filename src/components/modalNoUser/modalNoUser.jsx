@@ -17,7 +17,7 @@ function ModalNoUser({ textHeader, textContent, button, onClose, open }) {
               </div>
             </div>
             <div className={styles.modalFooter}>
-              <Link className={styles.modalBtn} to={"/login"}>
+              <Link className={styles.modalBtn} to={"/login"} onClick={onClose}>
                 Mergi la pagina de login
               </Link>
               <span className={styles.btnClose} onClick={onClose}>
