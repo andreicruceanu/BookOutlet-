@@ -104,6 +104,9 @@ main {
   color: #1f2533;
   margin: 5px 0;
 }
+.bookTitle a {
+  text-decoration: none;
+}
 .bookTitle p {
   margin: 0;
   font-size: 14px;

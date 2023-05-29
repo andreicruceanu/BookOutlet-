@@ -25,6 +25,7 @@ import {
 } from "../../features/auth/authSlice";
 import favoriteApi from "../../api/modules/favorite.api";
 import { addToCartReducer } from "../../features/cart/cartSlice";
+import { toast } from "react-toastify";
 
 function BookInfo() {
   const { listFavorite, modalNoUser, user } = useSelector(
@@ -91,7 +92,9 @@ function BookInfo() {
         favoriteId: favoriteDetails._id,
       });
 
-      if (err) return console.log(err);
+      if (err) {
+        return toast.error(err.errorMessage ? err.errorMessage : err.message);
+      }
 
       if (response) {
         dispatch(removeFavorite(favoriteDetails));
@@ -115,11 +118,14 @@ function BookInfo() {
 
       const { response, err } = await favoriteApi.add(body);
 
-      if (err) return console.log("eroare");
+      if (err) {
+        return toast.error(err.errorMessage ? err.errorMessage : err.message);
+      }
       if (response) {
         dispatch(addFavorite(response));
+        toast.success("Ai adaugat o carte la favorite!");
+        setBookFavorite(true);
       }
-      setBookFavorite(true);
     }
   };
 
@@ -292,7 +298,7 @@ function BookInfo() {
               </div>
             </div>
             <div className={`${styles.devider} ${styles.marginTop}`}></div>
-            <AttributesBook bookName={book.title} bookId={book.id} />
+            <AttributesBook bookName={book.title} bookId={book.bookId} />
             <div className={`${styles.devider} ${styles.marginTop}`}></div>
             <div className={styles.container}>
               <div className={styles.descriptionWrap}>

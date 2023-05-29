@@ -51,7 +51,7 @@ function Cart() {
               {cart.map((book) => (
                 <div className={styles.cartItem} key={book._id}>
                   <div className={styles.book}>
-                    <Link to={book.url}>
+                    <Link to={`/book/${book._id}`}>
                       <img
                         src={`${API_URL_IMG}${book.mainImageUrl}`}
                         alt={book.item}
@@ -60,7 +60,9 @@ function Cart() {
                     </Link>
                     <div className={styles.bookTitleWrap}>
                       <div className={styles.bookTitle}>
-                        <h2>{book.title}</h2>
+                        <Link to={`/book/${book._id}`}>
+                          <h2>{book.title}</h2>
+                        </Link>
                         <p>{book.subtitle}</p>
                       </div>
                       <div className={styles.quantity}>
