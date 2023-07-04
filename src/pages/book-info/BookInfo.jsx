@@ -82,7 +82,7 @@ function BookInfo() {
 
   const handleFavorite = async (book) => {
     if (!user) {
-      dispatch(setModalNoUser(true));
+      return dispatch(setModalNoUser(true));
     }
     if (isBookFavorite) {
       const favoriteDetails = listFavorite.find(

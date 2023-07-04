@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles.module.css";
 import btn_login from "./../../images/btn-login.svg";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, reset } from "../../features/auth/authSlice";
 
@@ -30,9 +30,13 @@ function ModalMyAccount({ onClose }) {
 
             <ul className={styles.contentList}>
               <li>
-                <a className={styles.link} href="/contul meu">
+                <Link
+                  to={"/account/account"}
+                  onClick={onClose}
+                  className={styles.link}
+                >
                   Contul meu
-                </a>
+                </Link>
               </li>
               <li>
                 <a className={styles.link} href="/Comenzile mele">

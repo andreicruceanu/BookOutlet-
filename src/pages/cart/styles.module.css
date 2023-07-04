@@ -1,9 +1,6 @@
-main {
-  background-color: rgba(242, 245, 245, 0.9607843137254902);
-}
 .containerEmptyCart {
   width: 100%;
-  min-height: 60vh;
+  min-height: 80vh;
   background-color: #f2f5f5;
   display: flex;
   align-items: center;
