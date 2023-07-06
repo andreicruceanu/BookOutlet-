@@ -5,6 +5,7 @@ import { BsCartPlus } from "react-icons/bs";
 import { API_URL_IMG } from "../../api/api-img";
 import { removeFavorite, setModalNoUser } from "../../features/auth/authSlice";
 import favoriteApi from "../../api/modules/favorite.api";
+import { addToCartReducer } from "../../features/cart/cartSlice";
 
 function ModalWish({ onClose }) {
   const { listFavorite, user } = useSelector((state) => state.auth);
@@ -14,7 +15,6 @@ function ModalWish({ onClose }) {
     if (!user) {
       return dispatch(setModalNoUser(true));
     }
-    console.log(book);
     const { response, err } = await favoriteApi.remove({
       favoriteId: book._id,
     });
@@ -23,6 +23,21 @@ function ModalWish({ onClose }) {
     if (response) {
       dispatch(removeFavorite(book));
     }
+  };
+  const handleAddToCart = (book) => {
+    const { title, subtitle, url, price, oldPrice, mainImageUrl } = book;
+    const _id = book.bookId;
+
+    const bookCart = {
+      _id,
+      title,
+      subtitle,
+      url,
+      mainImageUrl,
+      oldPrice,
+      price,
+    };
+    dispatch(addToCartReducer(bookCart));
   };
 
   return (
@@ -40,7 +55,7 @@ function ModalWish({ onClose }) {
                 <img
                   className={styles.boxImg}
                   src={`${API_URL_IMG}${book.mainImageUrl}`}
-                  alt={"Test"}
+                  alt={`${book.title}`}
                 />
                 <div className={styles.containerBox}>
                   <div className={styles.boxTitle}>
@@ -55,7 +70,10 @@ function ModalWish({ onClose }) {
                       PRP: {book.oldPrice} lei
                     </span>
                     <span className={styles.price}> {book.price} lei</span>
-                    <span className={styles.btnCart}>
+                    <span
+                      className={styles.btnCart}
+                      onClick={() => handleAddToCart(book)}
+                    >
                       <BsCartPlus />
                       Adauga in cos
                     </span>

@@ -166,6 +166,7 @@
   color: #000;
   font-weight: 700;
   filter: opacity(40%);
+  text-transform: uppercase;
 }
 .commnetUserWrap {
   display: flex;

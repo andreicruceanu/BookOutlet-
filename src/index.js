@@ -13,6 +13,8 @@ import { store } from "./store.js";
 import ForgotPassword from "./pages/login/ForgotPassword";
 import ResetPassword from "./pages/resetPassword/ResetPassword";
 import Cart from "./pages/cart/Cart";
+import MyAccount from "./pages/account/MyAccount/MyAccount";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
@@ -25,6 +27,7 @@ root.render(
           <Route path="/recover-password" element={<ForgotPassword />} />
           <Route path="/resetare-parola" element={<ResetPassword />} />
           <Route path="/book/:id" element={<BookInfo />} />
+          <Route path="/account/account" element={<MyAccount />} />
           <Route path="/autori" element={<Authors />} />
           <Route path="/autor/:id" element={<AuthorsDetails />} />
           <Route path="/cos" element={<Cart />} />

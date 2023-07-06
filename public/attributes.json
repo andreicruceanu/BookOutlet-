@@ -1,45 +1,570 @@
-{
-  "bookId": 111,
-  "bookTitle": "test",
-  "attributes": [
-    {
-      "name": "Format",
-      "url": "format",
-      "attributeId": 202,
-      "value": [{ "name": "135x200", "url": "135x200" }]
-    },
-    {
-      "name": "Număr pagini",
-      "url": "numar-pagini",
-      "attributeId": 367,
-      "value": [{ "name": "240", "url": "240" }]
-    },
-    {
-      "name": "Editura",
-      "url": "editura",
-      "attributeId": 2619,
-      "value": [{ "name": "Bookzone", "url": "bookzone" }]
-    },
-    {
-      "name": "Autor",
-      "url": "autor",
-      "attributeId": 2622,
-      "value": [
-        { "name": "Constantin Dulcan", "url": "constantin-dulcan" },
-        { "name": "Florentina Fântânaru", "url": "florentina-fantanaru" }
-      ]
-    },
-    {
-      "name": "Anul publicării",
-      "url": "anul-publicarii",
-      "attributeId": 2640,
-      "value": [{ "name": "2023", "url": "2023" }]
-    },
-    {
-      "name": "ISBN",
-      "url": "isbn",
-      "attributeId": 0,
-      "value": [{ "name": "9786303050553", "url": "isbn" }]
-    }
-  ]
-}
+[
+  {
+    "bookId": 72472,
+    "bookTitle": "Terapie 1 la 1 cu sinele tău",
+    "attributes": [
+      {
+        "name": "Format",
+        "url": "format",
+        "attributeId": 202,
+        "value": [{ "name": "130x200", "url": "130x200" }]
+      },
+      {
+        "name": "Număr pagini",
+        "url": "numar-pagini",
+        "attributeId": 367,
+        "value": [{ "name": "304", "url": "304" }]
+      },
+      {
+        "name": "Editura",
+        "url": "editura",
+        "attributeId": 2619,
+        "value": [{ "name": "Bookzone", "url": "bookzone" }]
+      },
+      {
+        "name": "Autor",
+        "url": "autor",
+        "attributeId": 2622,
+        "value": [
+          {
+            "name": "Psiholog Dr. Raluca Anton",
+            "url": "Psiholog-Dr-Raluca-Anton"
+          }
+        ]
+      },
+      {
+        "name": "Anul publicării",
+        "url": "anul-publicarii",
+        "attributeId": 2640,
+        "value": [{ "name": "2022", "url": "2022" }]
+      },
+      {
+        "name": "ISBN",
+        "url": "isbn",
+        "attributeId": 0,
+        "value": [{ "name": "9786069639856", "url": "isbn" }]
+      }
+    ]
+  },
+  {
+    "bookId": 77547,
+    "bookTitle": "Graves",
+    "attributes": [
+      {
+        "name": "Format",
+        "url": "format",
+        "attributeId": 202,
+        "value": [{ "name": "130x200", "url": "130x200" }]
+      },
+      {
+        "name": "Număr pagini",
+        "url": "numar-pagini",
+        "attributeId": 367,
+        "value": [{ "name": "416", "url": "416" }]
+      },
+      {
+        "name": "Editura",
+        "url": "editura",
+        "attributeId": 2619,
+        "value": [{ "name": "Bookzone", "url": "bookzone" }]
+      },
+      {
+        "name": "Autor",
+        "url": "autor",
+        "attributeId": 2622,
+        "value": [
+          {
+            "name": "L.J. Shen",
+            "url": "L-J-Shen"
+          }
+        ]
+      },
+      {
+        "name": "Anul publicării",
+        "url": "anul-publicarii",
+        "attributeId": 2640,
+        "value": [{ "name": "2022", "url": "2022" }]
+      },
+      {
+        "name": "ISBN",
+        "url": "isbn",
+        "attributeId": 0,
+        "value": [{ "name": "9786303050461", "url": "isbn" }]
+      }
+    ]
+  },
+  {
+    "bookId": 72466,
+    "bookTitle": "Sănătatea creierului pe înțelesul tuturor",
+    "attributes": [
+      {
+        "name": "Format",
+        "url": "format",
+        "attributeId": 202,
+        "value": [{ "name": "137x200", "url": "137x200" }]
+      },
+      {
+        "name": "Număr pagini",
+        "url": "numar-pagini",
+        "attributeId": 367,
+        "value": [{ "name": "272", "url": "272" }]
+      },
+      {
+        "name": "Editura",
+        "url": "editura",
+        "attributeId": 2619,
+        "value": [{ "name": "Bookzone", "url": "bookzone" }]
+      },
+      {
+        "name": "Autor",
+        "url": "autor",
+        "attributeId": 2622,
+        "value": [
+          {
+            "name": "Dr. Alexandru Ciurea",
+            "url": "dr-alexandru-ciurea"
+          }
+        ]
+      },
+      {
+        "name": "Anul publicării",
+        "url": "anul-publicarii",
+        "attributeId": 2640,
+        "value": [{ "name": "2022", "url": "2022" }]
+      },
+      {
+        "name": "ISBN",
+        "url": "isbn",
+        "attributeId": 0,
+        "value": [{ "name": "9786069639696", "url": "isbn" }]
+      }
+    ]
+  },
+  {
+    "bookId": 67424,
+    "bookTitle": "Despre sensul vietii",
+    "attributes": [
+      {
+        "name": "Format",
+        "url": "format",
+        "attributeId": 202,
+        "value": [{ "name": "130x200", "url": "130x200" }]
+      },
+      {
+        "name": "Număr pagini",
+        "url": "numar-pagini",
+        "attributeId": 367,
+        "value": [{ "name": "200", "url": "200" }]
+      },
+      {
+        "name": "Editura",
+        "url": "editura",
+        "attributeId": 2619,
+        "value": [{ "name": "Bookzone", "url": "bookzone" }]
+      },
+      {
+        "name": "Autor",
+        "url": "autor",
+        "attributeId": 2622,
+        "value": [
+          {
+            "name": "Mihai Morar",
+            "url": "mihai-morar "
+          },
+          {
+            "name": "Parintele Necula",
+            "url": "parintele-necula"
+          }
+        ]
+      },
+      {
+        "name": "Anul publicării",
+        "url": "anul-publicarii",
+        "attributeId": 2640,
+        "value": [{ "name": "2021", "url": "2021" }]
+      },
+      {
+        "name": "ISBN",
+        "url": "isbn",
+        "attributeId": 0,
+        "value": [{ "name": "9786069748534", "url": "isbn" }]
+      }
+    ]
+  },
+  {
+    "bookId": 76400,
+    "bookTitle": "Printul Harry - Rezerva",
+    "attributes": [
+      {
+        "name": "Format",
+        "url": "format",
+        "attributeId": 202,
+        "value": [{ "name": "165x235", "url": "165x235" }]
+      },
+      {
+        "name": "Număr pagini",
+        "url": "numar-pagini",
+        "attributeId": 367,
+        "value": [{ "name": "500", "url": "500" }]
+      },
+      {
+        "name": "Editura",
+        "url": "editura",
+        "attributeId": 2619,
+        "value": [{ "name": "Nemira", "url": "Nemira" }]
+      },
+      {
+        "name": "Autor",
+        "url": "autor",
+        "attributeId": 2622,
+        "value": [
+          {
+            "name": "Prințul Harry",
+            "url": "printul-harry"
+          }
+        ]
+      },
+      {
+        "name": "Anul publicării",
+        "url": "anul-publicarii",
+        "attributeId": 2640,
+        "value": [{ "name": "2023", "url": "2023" }]
+      },
+      {
+        "name": "ISBN",
+        "url": "isbn",
+        "attributeId": 0,
+        "value": [{ "name": "9786064314505", "url": "isbn" }]
+      }
+    ]
+  },
+  {
+    "bookId": 77590,
+    "bookTitle": "Casanova. Seria Clubul Miles High Vol. 3",
+    "attributes": [
+      {
+        "name": "Format",
+        "url": "format",
+        "attributeId": 202,
+        "value": [{ "name": "130x200", "url": "130x200" }]
+      },
+      {
+        "name": "Număr pagini",
+        "url": "numar-pagini",
+        "attributeId": 367,
+        "value": [{ "name": "544", "url": "544" }]
+      },
+      {
+        "name": "Editura",
+        "url": "editura",
+        "attributeId": 2619,
+        "value": [{ "name": "Corint", "url": "Corint" }]
+      },
+      {
+        "name": "Autor",
+        "url": "autor",
+        "attributeId": 2622,
+        "value": [
+          {
+            "name": "T.L. Swan",
+            "url": "t.l-swan"
+          }
+        ]
+      },
+      {
+        "name": "Anul publicării",
+        "url": "anul-publicarii",
+        "attributeId": 2640,
+        "value": [{ "name": "2023", "url": "2023" }]
+      },
+      {
+        "name": "ISBN",
+        "url": "isbn",
+        "attributeId": 0,
+        "value": [{ "name": "9786060881704", "url": "isbn" }]
+      }
+    ]
+  },
+  {
+    "bookId": 69845,
+    "bookTitle": "Alegerile care îți pot salva viața",
+    "attributes": [
+      {
+        "name": "Format",
+        "url": "format",
+        "attributeId": 202,
+        "value": [{ "name": "170x230", "url": "170x230" }]
+      },
+      {
+        "name": "Număr pagini",
+        "url": "numar-pagini",
+        "attributeId": 367,
+        "value": [{ "name": "312", "url": "312" }]
+      },
+      {
+        "name": "Editura",
+        "url": "editura",
+        "attributeId": 2619,
+        "value": [{ "name": "Bookzone", "url": "Bookzone" }]
+      },
+      {
+        "name": "Autor",
+        "url": "autor",
+        "attributeId": 2622,
+        "value": [
+          {
+            "name": "Dr. Mihail Pautov",
+            "url": "dr-mihail-pautov"
+          }
+        ]
+      },
+      {
+        "name": "Anul publicării",
+        "url": "anul-publicarii",
+        "attributeId": 2640,
+        "value": [{ "name": "2022", "url": "2022" }]
+      },
+      {
+        "name": "ISBN",
+        "url": "isbn",
+        "attributeId": 0,
+        "value": [{ "name": "9786069748572", "url": "isbn" }]
+      }
+    ]
+  },
+  {
+    "bookId": 71325,
+    "bookTitle": "Carte Adrian Mutu: Revenirea din infern",
+    "attributes": [
+      {
+        "name": "Format",
+        "url": "format",
+        "attributeId": 202,
+        "value": [{ "name": "130x200", "url": "130x200" }]
+      },
+      {
+        "name": "Număr pagini",
+        "url": "numar-pagini",
+        "attributeId": 367,
+        "value": [{ "name": "256", "url": "256" }]
+      },
+      {
+        "name": "Editura",
+        "url": "editura",
+        "attributeId": 2619,
+        "value": [{ "name": "Bookzone", "url": "Bookzone" }]
+      },
+      {
+        "name": "Autor",
+        "url": "autor",
+        "attributeId": 2622,
+        "value": [
+          {
+            "name": "Adrian Mutu",
+            "url": "adrian-mutu"
+          }
+        ]
+      },
+      {
+        "name": "Anul publicării",
+        "url": "anul-publicarii",
+        "attributeId": 2640,
+        "value": [{ "name": "2022", "url": "2022" }]
+      },
+      {
+        "name": "ISBN",
+        "url": "isbn",
+        "attributeId": 0,
+        "value": [{ "name": "9786069639399", "url": "isbn" }]
+      }
+    ]
+  },
+  {
+    "bookId": 67040,
+    "bookTitle": "LORE",
+    "attributes": [
+      {
+        "name": "Format",
+        "url": "format",
+        "attributeId": 202,
+        "value": [{ "name": "130x200", "url": "130x200" }]
+      },
+      {
+        "name": "Număr pagini",
+        "url": "numar-pagini",
+        "attributeId": 367,
+        "value": [{ "name": "640", "url": "640" }]
+      },
+      {
+        "name": "Editura",
+        "url": "editura",
+        "attributeId": 2619,
+        "value": [{ "name": "Bookzone", "url": "Bookzone" }]
+      },
+      {
+        "name": "Autor",
+        "url": "autor",
+        "attributeId": 2622,
+        "value": [
+          {
+            "name": "Alexandra Bracken",
+            "url": "alexandra-bracken"
+          }
+        ]
+      },
+      {
+        "name": "Anul publicării",
+        "url": "anul-publicarii",
+        "attributeId": 2640,
+        "value": [{ "name": "2021", "url": "2021" }]
+      },
+      {
+        "name": "ISBN",
+        "url": "isbn",
+        "attributeId": 0,
+        "value": [{ "name": "9786069748428", "url": "isbn" }]
+      }
+    ]
+  },
+  {
+    "bookId": 67040,
+    "bookTitle": "LORE",
+    "attributes": [
+      {
+        "name": "Format",
+        "url": "format",
+        "attributeId": 202,
+        "value": [{ "name": "130x200", "url": "130x200" }]
+      },
+      {
+        "name": "Număr pagini",
+        "url": "numar-pagini",
+        "attributeId": 367,
+        "value": [{ "name": "640", "url": "640" }]
+      },
+      {
+        "name": "Editura",
+        "url": "editura",
+        "attributeId": 2619,
+        "value": [{ "name": "Bookzone", "url": "Bookzone" }]
+      },
+      {
+        "name": "Autor",
+        "url": "autor",
+        "attributeId": 2622,
+        "value": [
+          {
+            "name": "Alexandra Bracken",
+            "url": "alexandra-bracken"
+          }
+        ]
+      },
+      {
+        "name": "Anul publicării",
+        "url": "anul-publicarii",
+        "attributeId": 2640,
+        "value": [{ "name": "2021", "url": "2021" }]
+      },
+      {
+        "name": "ISBN",
+        "url": "isbn",
+        "attributeId": 0,
+        "value": [{ "name": "9786069748428", "url": "isbn" }]
+      }
+    ]
+  },
+  {
+    "bookId": 70112,
+    "bookTitle": "Nu există nu se poate!",
+    "attributes": [
+      {
+        "name": "Format",
+        "url": "format",
+        "attributeId": 202,
+        "value": [{ "name": "200x230", "url": "200x230" }]
+      },
+      {
+        "name": "Număr pagini",
+        "url": "numar-pagini",
+        "attributeId": 367,
+        "value": [{ "name": "376", "url": "376" }]
+      },
+      {
+        "name": "Editura",
+        "url": "editura",
+        "attributeId": 2619,
+        "value": [{ "name": "Bookzone", "url": "Bookzone" }]
+      },
+      {
+        "name": "Autor",
+        "url": "autor",
+        "attributeId": 2622,
+        "value": [
+          {
+            "name": "Andreea Marin",
+            "url": "andreea-marin"
+          }
+        ]
+      },
+      {
+        "name": "Anul publicării",
+        "url": "anul-publicarii",
+        "attributeId": 2640,
+        "value": [{ "name": "2022", "url": "2022" }]
+      },
+      {
+        "name": "ISBN",
+        "url": "isbn",
+        "attributeId": 0,
+        "value": [{ "name": "9786069748930", "url": "isbn" }]
+      }
+    ]
+  },
+  {
+    "bookId": 52452,
+    "bookTitle": "Suflete captive",
+    "attributes": [
+      {
+        "name": "Format",
+        "url": "format",
+        "attributeId": 202,
+        "value": [{ "name": "130x200", "url": "130x200" }]
+      },
+      {
+        "name": "Număr pagini",
+        "url": "numar-pagini",
+        "attributeId": 367,
+        "value": [{ "name": "224", "url": "224" }]
+      },
+      {
+        "name": "Editura",
+        "url": "editura",
+        "attributeId": 2619,
+        "value": [{ "name": "Bookzone", "url": "Bookzone" }]
+      },
+      {
+        "name": "Autor",
+        "url": "autor",
+        "attributeId": 2622,
+        "value": [
+          {
+            "name": "Dama de Treflă",
+            "url": "dama-de-treflă"
+          }
+        ]
+      },
+      {
+        "name": "Anul publicării",
+        "url": "anul-publicarii",
+        "attributeId": 2640,
+        "value": [{ "name": "2020", "url": "2020" }]
+      },
+      {
+        "name": "ISBN",
+        "url": "isbn",
+        "attributeId": 0,
+        "value": [{ "name": "9786069008706", "url": "isbn" }]
+      }
+    ]
+  }
+]

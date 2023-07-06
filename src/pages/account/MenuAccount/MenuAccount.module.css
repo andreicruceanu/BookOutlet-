@@ -1,0 +1,30 @@
+.myaccountMenu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: unset;
+  justify-content: unset;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0.8rem;
+  background-color: #fff;
+  box-shadow: 0 0 3px rgb(0 0 0 / 5%);
+  padding: 10px 0;
+  margin: 0;
+}
+.myaccountMenuItem {
+  font-size: 15px;
+  text-align: left;
+}
+.menuItemLink {
+  text-decoration: none;
+  padding: 10px;
+  width: 100%;
+  display: block;
+  color: #1f2533;
+}
+.active {
+  font-weight: 600;
+  color: #3f24b2;
+  background-color: #e5e1fa;
+  border-radius: 0;
+}

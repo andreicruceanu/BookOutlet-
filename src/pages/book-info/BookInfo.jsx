@@ -24,6 +24,8 @@ import {
   setModalNoUser,
 } from "../../features/auth/authSlice";
 import favoriteApi from "../../api/modules/favorite.api";
+import { addToCartReducer } from "../../features/cart/cartSlice";
+import { toast } from "react-toastify";
 
 function BookInfo() {
   const { listFavorite, modalNoUser, user } = useSelector(
@@ -59,27 +61,47 @@ function BookInfo() {
     fetchBookDetails();
   }, [id]);
 
+  const handleAddToCart = (book) => {
+    const { _id, title, subtitle, url } = book;
+    const price = book.price.price;
+    const oldPrice = book.price.oldPrice;
+    const mainImageUrl = book.images.find((img) => img.is_main === true).url;
+
+    const bookCart = {
+      _id,
+      title,
+      subtitle,
+      url,
+      mainImageUrl,
+      oldPrice,
+      price,
+    };
+
+    dispatch(addToCartReducer(bookCart));
+  };
+
   const handleFavorite = async (book) => {
     if (!user) {
-      dispatch(setModalNoUser(true));
+      return dispatch(setModalNoUser(true));
     }
     if (isBookFavorite) {
       const favoriteDetails = listFavorite.find(
         (item) => item.bookId === book._id && item.user === user.id
       );
-      //dispatch(removeFavorite(favoriteDetails));
       const { response, err } = await favoriteApi.remove({
         favoriteId: favoriteDetails._id,
       });
 
-      if (err) return console.log(err);
+      if (err) {
+        return toast.error(err.errorMessage ? err.errorMessage : err.message);
+      }
 
       if (response) {
         dispatch(removeFavorite(favoriteDetails));
         setBookFavorite(false);
       }
     } else {
-      const { _id, title, url } = book;
+      const { _id, title, url, subtitle } = book;
       const price = book.price.price;
       const oldPrice = book.price.oldPrice;
       const mainImageUrl = book.images.find((img) => img.is_main === true).url;
@@ -90,16 +112,20 @@ function BookInfo() {
         price,
         oldPrice,
         title,
+        subtitle,
         url,
       };
 
       const { response, err } = await favoriteApi.add(body);
 
-      if (err) return console.log("eroare");
+      if (err) {
+        return toast.error(err.errorMessage ? err.errorMessage : err.message);
+      }
       if (response) {
         dispatch(addFavorite(response));
+        toast.success("Ai adaugat o carte la favorite!");
+        setBookFavorite(true);
       }
-      setBookFavorite(true);
     }
   };
 
@@ -196,10 +222,13 @@ function BookInfo() {
                   </div>
                   <div className={styles.detailsPricingBox}>
                     <div className={styles.priceButtonWrap}>
-                      <Link className={styles.btnAddToCart} to="/">
+                      <button
+                        className={styles.btnAddToCart}
+                        onClick={() => handleAddToCart(book)}
+                      >
                         <img src={BtnAddToCart} alt="btn-add-to-cart" />
                         <p>Adauga in cos</p>
-                      </Link>
+                      </button>
                       <button
                         className={styles.btnFavorite}
                         onClick={() => handleFavorite(book)}
@@ -269,7 +298,7 @@ function BookInfo() {
               </div>
             </div>
             <div className={`${styles.devider} ${styles.marginTop}`}></div>
-            <AttributesBook bookName={book.title} bookId={book.id} />
+            <AttributesBook bookName={book.title} bookId={book.bookId} />
             <div className={`${styles.devider} ${styles.marginTop}`}></div>
             <div className={styles.container}>
               <div className={styles.descriptionWrap}>

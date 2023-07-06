@@ -24,7 +24,6 @@ function Review({ review, bookId, bookTitle }) {
       const { response, err } = await reviewApi.getList({ bookId });
 
       if (response) {
-        console.log(response);
         setListReviews(response);
       }
       if (err) {

@@ -161,6 +161,10 @@
   background-image: linear-gradient(to right, #b224b3, #3c24b2);
   border-radius: 5px;
   margin-bottom: 10px;
+  padding: 0;
+  outline: none;
+  border: none;
+  cursor: pointer;
 }
 .btnAddToCart img {
   max-width: 60px;

@@ -15,6 +15,7 @@ import {
 } from "../../features/auth/authSlice";
 import favoriteApi from "../../api/modules/favorite.api";
 import { addToCartReducer } from "../../features/cart/cartSlice";
+import { toast } from "react-toastify";
 
 function Book(bookData) {
   const {
@@ -30,6 +31,8 @@ function Book(bookData) {
   } = bookData;
 
   const { listFavorite, user } = useSelector((state) => state.auth);
+
+  console.log(user, listFavorite);
 
   const dispatch = useDispatch();
 
@@ -69,15 +72,19 @@ function Book(bookData) {
       mainImageUrl,
       price,
       oldPrice,
+      subtitle,
       title,
       url,
     };
 
     const { response, err } = await favoriteApi.add(body);
 
-    if (err) return console.log("eroare");
+    if (err) {
+      return toast.error(err.errorMessage ? err.errorMessage : err.message);
+    }
     if (response) {
       dispatch(addFavorite(response));
+      toast.success("Ai adaugat o carte la favorite!");
     }
   };
 
