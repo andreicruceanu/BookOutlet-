@@ -13,7 +13,8 @@ import { store } from "./store.js";
 import ForgotPassword from "./pages/login/ForgotPassword";
 import ResetPassword from "./pages/resetPassword/ResetPassword";
 import Cart from "./pages/cart/Cart";
-import MyAccount from "./pages/myAccount/MyAccount";
+import MyAccount from "./pages/account/MyAccount/MyAccount";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>

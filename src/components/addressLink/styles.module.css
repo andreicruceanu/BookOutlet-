@@ -1,0 +1,9 @@
+.addressLink {
+  display: block;
+  font-weight: 500;
+  margin-top: 40px;
+  font-size: 14px;
+  color: #3f24b2;
+  padding-bottom: 10px;
+  text-decoration: none;
+}

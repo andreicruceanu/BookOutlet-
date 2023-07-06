@@ -55,7 +55,7 @@ function ModalWish({ onClose }) {
                 <img
                   className={styles.boxImg}
                   src={`${API_URL_IMG}${book.mainImageUrl}`}
-                  alt={"Test"}
+                  alt={`${book.title}`}
                 />
                 <div className={styles.containerBox}>
                   <div className={styles.boxTitle}>

@@ -1,0 +1,142 @@
+.container {
+  max-width: 100%;
+  background-color: #f2f5f5;
+}
+.myaccount {
+  display: flex;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding-top: 24px;
+  padding-bottom: 50px;
+}
+.myaccountAside {
+  max-width: 250px;
+  width: 100%;
+  display: block;
+  margin-right: 10px;
+  overflow-x: hidden;
+  margin-right: 10px;
+}
+.myaccountWrap {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.myaccountMain {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.myaccountData {
+  background-color: #fff;
+  border-radius: 8px;
+  border-radius: 0.8rem;
+  background-color: #fff;
+  box-shadow: 0 0 3px rgb(0 0 0 / 5%);
+  border-bottom: 1px solid #ccc;
+  padding: 20px;
+}
+.myaccountData h2 {
+  margin: 0;
+  font-weight: 400;
+  padding: 20px 0 20px 20px;
+  font-size: 24px;
+  font-weight: 400;
+  color: #1f2533;
+}
+.myaccountDataWrap {
+  display: flex;
+  flex-direction: row;
+  margin-left: 25px;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 40px;
+}
+.avatar {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: teal;
+  margin-right: 15px;
+}
+.avatar span {
+  font-weight: 600;
+  color: #fff;
+  font-size: 40px;
+}
+.myaccountDataDetails h3 {
+  font-size: 18px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+.myaccountDataDetails .email {
+  margin: 0;
+  color: #6b7999;
+  font-size: 14px;
+  text-align: left;
+}
+.myaccountDataDetails .username {
+  text-align: left;
+  font-size: 14px;
+  margin: 0;
+  margin-top: 20px;
+}
+.myaccountLink {
+  display: block;
+  color: #3f24b2;
+  padding-bottom: 10px;
+  font-weight: 500;
+  text-decoration: none;
+  margin-top: 40px;
+}
+.addressContainer {
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 0 3px rgb(0 0 0 / 5%);
+  border-bottom: 1px solid #ccc;
+  margin-top: 20px;
+}
+.myaccountSide {
+  background-color: #fff;
+  width: 100%;
+  max-width: 300px;
+  margin: 0px 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 3px rgb(0 0 0 / 5%);
+  border-bottom: 1px solid #ccc;
+}
+.myaccountSideBox {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+}
+.myaccountSideBox:first-child {
+  border-bottom: 1px solid #e1e1e5;
+  margin-bottom: 15px;
+}
+.myaccountSideBox p {
+  font-size: 18px;
+  margin: 0;
+  padding: 15px 0;
+  color: #1f2533;
+}
+.myaccountSideBoxWrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 15px;
+}
+.myaccountSideBoxIcon {
+  font-size: 35px;
+  color: #6b7999;
+  margin-right: 8px;
+}
+.myaccountSideBoxText {
+  color: #6b7999;
+}
