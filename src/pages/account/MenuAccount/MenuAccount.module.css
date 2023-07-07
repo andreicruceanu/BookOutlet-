@@ -22,6 +22,11 @@
   display: block;
   color: #1f2533;
 }
+.menuItemLink:hover {
+  color: #3f24b2;
+  background-color: #e5e1fa;
+  border-radius: 0;
+}
 .active {
   font-weight: 600;
   color: #3f24b2;
