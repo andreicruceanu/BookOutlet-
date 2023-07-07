@@ -14,6 +14,7 @@ import ForgotPassword from "./pages/login/ForgotPassword";
 import ResetPassword from "./pages/resetPassword/ResetPassword";
 import Cart from "./pages/cart/Cart";
 import MyAccount from "./pages/account/MyAccount/MyAccount";
+import PersonalData from "./pages/account/Personal/PersonalData";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -28,6 +29,7 @@ root.render(
           <Route path="/resetare-parola" element={<ResetPassword />} />
           <Route path="/book/:id" element={<BookInfo />} />
           <Route path="/account/account" element={<MyAccount />} />
+          <Route path="/account/personal" element={<PersonalData />} />
           <Route path="/autori" element={<Authors />} />
           <Route path="/autor/:id" element={<AuthorsDetails />} />
           <Route path="/cos" element={<Cart />} />

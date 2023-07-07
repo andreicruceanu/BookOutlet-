@@ -1,37 +1,32 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./MenuAccount.module.css";
+import { useState } from "react";
 
 function MenuAccount() {
+  const menuConfig = [
+    { path: "/account/account", label: "Contul meu" },
+    { path: "/account/orders", label: "Comenzile mele" },
+    { path: "/account/vouchers", label: "Voucherele mele" },
+    { path: "/account/favourites", label: "Favorite" },
+    { path: "/account/personal", label: "Date personale" },
+  ];
+
+  const location = useLocation();
+
   return (
     <ul className={styles.myaccountMenu}>
-      <li className={styles.myaccountMenuItem}>
-        <Link
-          className={`${styles.menuItemLink} ${styles.active}`}
-          to={"/account/account"}
-        >
-          Contul meu
-        </Link>
-      </li>
-      <li className={styles.myaccountMenuItem}>
-        <Link className={styles.menuItemLink} to={"/account/orders"}>
-          Comenzile mele
-        </Link>
-      </li>
-      <li className={styles.myaccountMenuItem}>
-        <Link className={styles.menuItemLink} to={"/account/vouchers"}>
-          Voucherele mele
-        </Link>
-      </li>
-      <li className={styles.myaccountMenuItem}>
-        <Link className={styles.menuItemLink} to={"/account/favourites"}>
-          Favorite
-        </Link>
-      </li>
-      <li className={styles.myaccountMenuItem}>
-        <Link className={styles.menuItemLink} to={"/account/personal"}>
-          Date personale
-        </Link>
-      </li>
+      {menuConfig.map((item) => (
+        <li className={styles.myaccountMenuItem} key={item.path}>
+          <Link
+            className={`${styles.menuItemLink} ${
+              item.path === location.pathname ? styles.active : ""
+            }`}
+            to={item.path}
+          >
+            {item.label}
+          </Link>
+        </li>
+      ))}
     </ul>
   );
 }
