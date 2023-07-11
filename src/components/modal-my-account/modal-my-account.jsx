@@ -49,9 +49,13 @@ function ModalMyAccount({ onClose }) {
                 </a>
               </li>
               <li>
-                <a className={styles.link} href="/Comenzile mele">
+                <Link
+                  className={styles.link}
+                  to={"/account/personal"}
+                  onClick={onClose}
+                >
                   Date personale
-                </a>
+                </Link>
               </li>
             </ul>
             <div className={styles.myAccountFooter}>
