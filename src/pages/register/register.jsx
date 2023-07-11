@@ -39,7 +39,7 @@ function Register() {
       password: "",
       confirmPassword: "",
       terms: false,
-      offer: false,
+      newsletter: false,
     },
 
     //Validation Form
@@ -201,7 +201,7 @@ function Register() {
             <input
               type="checkbox"
               className={styles.input__checkbox__confirmation}
-              name="offer"
+              name="newsletter"
               id="confirmation"
               onChange={formik.handleChange}
             />

@@ -61,7 +61,7 @@
   border-bottom: 1px solid transparent;
   border-radius: 8px;
 }
-.menuIteam:hover .offerBtn {
+.menuIteam:hover .newsletterBtn {
   opacity: 1;
 }
 .menuIteam span {
@@ -70,7 +70,7 @@
   margin-left: 10px;
   margin-right: auto;
 }
-.offerBtn {
+.newsletterBtn {
   text-decoration: none;
   font-size: 12px;
   width: 100px;

@@ -36,7 +36,7 @@ function OnlineLibrary() {
                     <ReactIcon icons={iteam.icon} />
                     <span>{iteam.name}</span>
                     <Link
-                      className={styles.offerBtn}
+                      className={styles.newsletterBtn}
                       to={iteam.url}
                       title={iteam.name}
                     >
