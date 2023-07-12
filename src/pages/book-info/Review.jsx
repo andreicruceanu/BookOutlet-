@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import BookStar from "../../components/bookStar/BookStar";
 import ModalReview from "./ModalReview";

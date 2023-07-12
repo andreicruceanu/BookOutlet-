@@ -10,6 +10,15 @@ const profileApi = {
       return { err };
     }
   },
+  updateProfile: async (values) => {
+    try {
+      const response = await privateClient.put("/updateProfile", values);
+
+      return { response };
+    } catch (err) {
+      return { err };
+    }
+  },
 };
 
 export default profileApi;

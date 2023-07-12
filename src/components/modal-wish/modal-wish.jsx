@@ -88,11 +88,17 @@ function ModalWish({ onClose }) {
               </div>
             ))}
         </div>
-        <div className={styles.boxWishButton}>
-          <Link className={styles.btnWish} to={"/account/favorite"}>
-            Vezi toate produsele favorite
-          </Link>
-        </div>
+        {listFavorite.length > 0 ? (
+          <div className={styles.boxWishButton}>
+            <Link className={styles.btnWish} to={"/account/favorite"}>
+              Vezi toate produsele favorite
+            </Link>
+          </div>
+        ) : (
+          <span>
+            <p className={styles.basketEmpty}>Nu ai produse favorite</p>
+          </span>
+        )}
       </div>
     </>
   );
