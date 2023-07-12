@@ -7,6 +7,7 @@ import profileApi from "../../../api/modules/profile.api";
 import { useFormik } from "formik";
 import { validateForm } from "./validateForm";
 import { toast } from "react-toastify";
+
 import ErrorMessage from "../../../components/errorMessage/ErrorMessage";
 
 function PersonalData() {
@@ -26,6 +27,18 @@ function PersonalData() {
     },
 
     validationSchema: validateForm,
+
+    onSubmit: async (values) => {
+      const { response, err } = await profileApi.updateProfile(values);
+      if (response) {
+        localStorage.setItem("firstName", values.firstName);
+        toast.success(response.message);
+      }
+
+      if (err) {
+        return toast.error(err.errorMessage ? err.errorMessage : err.message);
+      }
+    },
   });
 
   useEffect(() => {
@@ -33,7 +46,16 @@ function PersonalData() {
       const { response, err } = await profileApi.getProfile();
 
       if (response) {
-        formik.setValues(response);
+        const { firstName, lastName, username, email, gender, newsletter } =
+          response;
+        formik.setValues({
+          firstName,
+          lastName,
+          username,
+          email,
+          gender,
+          newsletter,
+        });
         setFirstName(response.firstName);
       }
       if (err) {
@@ -54,10 +76,12 @@ function PersonalData() {
         <div className={styles.personalDataAside}>
           <div className={styles.avatar}>
             <div className={styles.avatarWrap}>
-              <span className={styles.avatarImg}>A</span>
+              <span className={styles.avatarImg}>
+                {firstName && firstName.slice(0, 1)}
+              </span>
               <div className={styles.avatarTextWrap}>
                 <p>Bine ai venit,</p>
-                <h3>{firstName}</h3>
+                <h3>{firstName && firstName}</h3>
               </div>
             </div>
           </div>

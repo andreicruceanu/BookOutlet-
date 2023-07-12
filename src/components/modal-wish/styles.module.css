@@ -168,3 +168,9 @@
   cursor: pointer;
   border-radius: 4px;
 }
+.basketEmpty {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 20px;
+  color: #1f2533;
+}
