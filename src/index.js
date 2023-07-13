@@ -15,6 +15,7 @@ import ResetPassword from "./pages/resetPassword/ResetPassword";
 import Cart from "./pages/cart/Cart";
 import MyAccount from "./pages/account/MyAccount/MyAccount";
 import PersonalData from "./pages/account/Personal/PersonalData";
+import Favorite from "./pages/account/Favorites/Favorite";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -30,6 +31,7 @@ root.render(
           <Route path="/book/:id" element={<BookInfo />} />
           <Route path="/account/account" element={<MyAccount />} />
           <Route path="/account/personal" element={<PersonalData />} />
+          <Route path="/account/favourites" element={<Favorite />} />
           <Route path="/autori" element={<Authors />} />
           <Route path="/autor/:id" element={<AuthorsDetails />} />
           <Route path="/cos" element={<Cart />} />
