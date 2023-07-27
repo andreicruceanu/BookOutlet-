@@ -7,7 +7,7 @@
   display: flex;
   width: 100%;
   max-width: 1190px;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 .carousel {
   min-height: 450px;
@@ -129,6 +129,9 @@
   margin: 0;
   line-height: 1.42;
 }
+.promoDescriptionText {
+  width: 88%;
+}
 .detailsBonusSticker {
   margin-top: 20px;
   display: flex;
@@ -139,12 +142,15 @@
 }
 .detailsBonusSticker p {
   margin: 0;
-  line-height: 17px;
+  line-height: 18px;
   color: #01a352;
   font-size: 14px;
+  text-align: left;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 .detailsBonusSticker svg {
-  font-size: 27px;
+  font-size: 30px;
   color: #01a352;
 }
 .priceButtonWrap {
@@ -378,4 +384,7 @@
   margin-right: 5px;
   color: #007aff;
   font-size: 17px;
+}
+li {
+  line-height: 1.7;
 }

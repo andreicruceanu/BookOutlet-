@@ -211,14 +211,17 @@ function BookInfo() {
                         ></div>
                       </div>
                     </div>
-                    <div className={styles.detailsBonusSticker}>
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: book.promoDescription,
-                        }}
-                      ></div>
-                      <CiPercent />
-                    </div>
+                    {book.promoDescription && (
+                      <div className={styles.detailsBonusSticker}>
+                        <div
+                          className={styles.promoDescriptionText}
+                          dangerouslySetInnerHTML={{
+                            __html: book.promoDescription,
+                          }}
+                        ></div>
+                        <CiPercent />
+                      </div>
+                    )}
                   </div>
                   <div className={styles.detailsPricingBox}>
                     <div className={styles.priceButtonWrap}>

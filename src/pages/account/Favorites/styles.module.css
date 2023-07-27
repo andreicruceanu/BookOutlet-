@@ -152,7 +152,7 @@
 }
 .pricesDeduct {
   margin: 0;
-  font-size: 13px;
+  font-size: 15px;
   color: #6b7999;
   line-height: 1.6;
 }
@@ -160,6 +160,7 @@
   line-height: 1.6;
   color: #1f2533;
   margin: 0;
+  margin-right: 3px;
   text-decoration: line-through;
 }
 .bookPriceValue {
@@ -168,4 +169,36 @@
   margin: 0;
   line-height: 1.6;
   font-size: 20px;
+}
+.btnAddToCart {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 220px;
+  background-image: linear-gradient(to right, #b224b3, #3c24b2);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 0;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.btnAddToCart img {
+  max-width: 50px;
+  height: 40px;
+  display: block;
+  width: 100%;
+}
+.btnAddToCart p {
+  width: 100%;
+  color: #fff;
+  font-size: 14px;
+  margin: 0;
+  text-align: center;
+}
+.btnRemoveToFavorite {
+  font-size: 13px;
+  color: #3f24b2;
+  cursor: pointer;
 }

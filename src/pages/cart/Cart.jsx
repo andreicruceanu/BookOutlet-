@@ -9,7 +9,7 @@ import checkoutBtn from "../../images/continua-finalizeaza-comanda.svg";
 import ProgressBar from "../../components/progressBar/ProgressBar";
 
 function Cart() {
-  const { cart, totalPrice } = useSelector((state) => state.cart);
+  const { cart } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const freeShippingFrom = 200;
 
