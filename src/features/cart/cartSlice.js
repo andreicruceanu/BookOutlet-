@@ -46,7 +46,7 @@ const cartSlice = createSlice({
         state.cart[bookIndex].totalPrice =
           state.cart[bookIndex].price * state.cart[bookIndex].quantity;
         console.log(state.cart[bookIndex].totalPrice);
-        toast.info("Ai actualizat cantitatea produsului! ");
+        toast.info("Ai actualizat cantitatea produsului!");
       } else if (state.cart[bookIndex].quantity === 1) {
         toast.error("Minim 1 buc");
       }

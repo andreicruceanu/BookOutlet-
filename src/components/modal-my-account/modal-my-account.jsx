@@ -27,7 +27,6 @@ function ModalMyAccount({ onClose }) {
             <div className={styles.modalHeaderText}>
               <p>Bine ai venit , {userName ? userName : "cititorule"}</p>
             </div>
-
             <ul className={styles.contentList}>
               <li>
                 <Link
@@ -44,7 +43,7 @@ function ModalMyAccount({ onClose }) {
                 </a>
               </li>
               <li>
-                <a className={styles.link} href="/favorite">
+                <a className={styles.link} href="/account/favourites">
                   Favorite
                 </a>
               </li>
