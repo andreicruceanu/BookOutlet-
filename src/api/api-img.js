@@ -1,1 +1,1 @@
-export const API_URL_IMG = "http://localhost:5000/static";
+export const API_URL_IMG = "https://api-book-outlet.vercel.app/static";
