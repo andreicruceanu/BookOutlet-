@@ -1,19 +1,21 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import styles from "./styles.module.css";
 import { Link } from "react-router-dom";
 import AuthorIteam from "../authorIteam/AuthorIteam";
 import { HiArrowLongRight } from "react-icons/hi2";
+import authorApi from "../../api/modules/author.api";
+import { toast } from "react-toastify";
 const Autors = function () {
   const [authors, setAuthors] = useState([]);
 
   useEffect(() => {
     const authorsData = async () => {
-      const response = await axios.get("/api/author/importance");
-      if (response.status === 200) {
-        setAuthors(response.data);
-      } else {
-        console.log("A aparut o eroare la apelarea datelor ");
+      const { response, err } = await authorApi.getAuthorImportance();
+      if (response) {
+        setAuthors(response);
+      }
+      if (err) {
+        toast.error(err.message);
       }
     };
 
