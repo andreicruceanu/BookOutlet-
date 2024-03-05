@@ -1,9 +1,9 @@
-import axios from "axios";
+import headerApi from "../../api/modules/headerCarousel";
 
 const getSliders = async () => {
-  const response = await axios.get("api/sliders/all");
+  const { response } = await headerApi.getSliders();
 
-  return response.data;
+  return response;
 };
 
 const sliderService = {

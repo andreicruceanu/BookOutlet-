@@ -1,7 +1,6 @@
 import styles from "./styles.module.css";
 
 function ProgressBar({ priceBooks, freeShippingValue }) {
-  console.log(priceBooks);
   return (
     <div className={styles.progressBarContainer}>
       <div className={styles.progressBarWrap}>

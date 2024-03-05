@@ -1,8 +1,5 @@
-import styles from "./styles.module.css";
-
-import React, { useEffect, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import styles from "./styles.module.css";
 
 // Import Swiper styles
 import "swiper/css";
@@ -11,21 +8,15 @@ import "swiper/css/pagination";
 
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 import Book from "../book/Book";
-import axios from "axios";
+import { useBooks } from "../../hooks/fetch-book";
+import { toast } from "react-toastify";
 
-function SwiperBooks({ title, fetchURL, viewBook }) {
-  const [books, setBooks] = useState([]);
+function SwiperBooks({ title, viewBook }) {
+  const { books, error } = useBooks();
 
-  useEffect(() => {
-    const fetchBooks = async () => {
-      const response = await axios.get("/api/books");
-      if (response.status === 200) {
-        setBooks(response.data);
-      }
-    };
-
-    fetchBooks();
-  }, [fetchURL]);
+  if (error) {
+    toast.error(error);
+  }
 
   return (
     <>
@@ -53,7 +44,7 @@ function SwiperBooks({ title, fetchURL, viewBook }) {
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
         className={`${styles.mySwiper}`}
       >
-        {books.length > 0 &&
+        {books?.length > 0 &&
           books.map((book) => (
             <SwiperSlide key={book._id}>
               <Book {...book} />

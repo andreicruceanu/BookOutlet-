@@ -42,7 +42,7 @@ function CarouselSliders() {
       modules={[Navigation, Pagination, Mousewheel, Keyboard]}
       id={styles.mySwiperCarousel}
     >
-      {sliders.length > 0 &&
+      {sliders?.length > 0 &&
         sliders.map(({ desktopImage, url, id }) => (
           <SwiperSlide key={id}>
             <Link to={url} className={styles.carouselLinkImg}>
