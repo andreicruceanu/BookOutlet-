@@ -32,8 +32,6 @@ function Book(bookData) {
 
   const { listFavorite, user } = useSelector((state) => state.auth);
 
-  console.log(user, listFavorite);
-
   const dispatch = useDispatch();
 
   const isFavorite = listFavorite.some(

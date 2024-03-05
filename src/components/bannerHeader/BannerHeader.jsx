@@ -1,25 +1,30 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { validationDateBanner } from "../../constants/validationDateBanner";
 import styles from "./styles.module.css";
+import bannersApi from "../../api/modules/banners";
+import { API_URL_IMG } from "../../api/api-img";
+import { toast } from "react-toastify";
 const BannerHeader = function ({ fetchURL }) {
-  console.log(fetchURL);
   const [banner, setDataBanner] = useState([]);
 
   useEffect(() => {
     const fetchDataBanner = async () => {
-      const response = await axios.get(fetchURL);
+      const { response, err } = await bannersApi.getBanners();
 
-      if (response.status === 200) {
+      if (response) {
         setDataBanner(
-          response.data
+          response
             .filter((el) => el.bannerTypeId === 2)
             .filter(validationDateBanner)
         );
       }
+
+      if (err) {
+        toast.error(err.message);
+      }
     };
-    console.log("Sunt Aici");
+
     fetchDataBanner();
   }, [fetchURL]);
 
@@ -31,7 +36,7 @@ const BannerHeader = function ({ fetchURL }) {
             <Link to={el.url} key={el.id}>
               <picture className={styles.bannerImg}>
                 <source srcSet={el.desktopImageWebP} />
-                <img src={el.desktopImage} alt={el.name} />
+                <img src={`${API_URL_IMG}${el.desktopImage}`} alt={el.name} />
               </picture>
             </Link>
           ))}
