@@ -31,20 +31,20 @@ const logout = () => {
 };
 
 const forgotPassword = async (email) => {
-  const res = await axios.post("api/auth/forgotPassword", email);
+  const res = await axios.post("/auth/forgotPassword", email);
 
   return res.data;
 };
 const resetPassword = async (data) => {
   const res = await axios.patch(
-    `api/auth/forgotPassword/reset/${data.token}`,
+    `/auth/forgotPassword/reset/${data.token}`,
     data.userData
   );
   return res.data;
 };
 
 const getFavoriteOfUser = async () => {
-  const res = await axios.get("/api/user/favorite", {
+  const res = await axios.get("/user/favorite", {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.getItem("token")}`,
