@@ -2,37 +2,40 @@ import BannerIteam from "../banner-iteam/BannerIteam";
 import styles from "./styles.module.css";
 import { validationDateBanner } from "../../constants/validationDateBanner";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import bannersApi from "../../api/modules/banners";
+import { toast } from "react-toastify";
 
-function Banner({ fetchURL, type }) {
+function Banner({ type }) {
   const [banner, setDataBanner] = useState([]);
 
   useEffect(() => {
     const fetchDataBanner = async () => {
-      const response = await axios.get(fetchURL);
-
-      if (type === 0) {
+      const { response, err } = await bannersApi.getBanners();
+      if (type === 0 && response && !err) {
         setDataBanner(
-          response.data
+          response
             .filter((el) => el.bannerTypeId === 1)
             .slice(0, 2)
             .filter(validationDateBanner)
         );
       } else {
         setDataBanner(
-          response.data
+          response
             .filter((el) => el.bannerTypeId === 1)
             .slice(2, 4)
             .filter(validationDateBanner)
         );
       }
+      if (err) {
+        toast.error(err.message);
+      }
     };
     fetchDataBanner();
-  }, [fetchURL, type]);
+  }, [type]);
 
   return (
     <>
-      {banner.length > 0 && (
+      {banner?.length > 0 && (
         <div className={styles.containerCards}>
           {banner.map((element) => (
             <BannerIteam data={element} key={element.id} />

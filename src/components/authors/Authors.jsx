@@ -10,7 +10,6 @@ const Autors = function () {
   useEffect(() => {
     const authorsData = async () => {
       const response = await axios.get("/api/author/importance");
-      console.log(response);
       if (response.status === 200) {
         setAuthors(response.data);
       } else {
@@ -20,8 +19,6 @@ const Autors = function () {
 
     authorsData();
   }, []);
-
-  console.log(authors);
 
   return (
     <>

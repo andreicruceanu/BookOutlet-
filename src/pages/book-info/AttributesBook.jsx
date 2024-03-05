@@ -6,6 +6,8 @@ import { FaRegEdit } from "react-icons/fa";
 import { GoBook } from "react-icons/go";
 import { IoBookOutline } from "react-icons/io5";
 import styles from "./AttributesBook.module.css";
+import booksApi from "../../api/modules/books";
+import { toast } from "react-toastify";
 
 function AttributesBook({ bookName, bookId }) {
   const [attributes, setAttributes] = useState([]);
@@ -26,10 +28,12 @@ function AttributesBook({ bookName, bookId }) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(`/api/${bookId}/getattributes`);
-      if (response.status === 200) {
-        console.log(response);
-        setAttributes(response.data.attributes);
+      const { response, err } = await booksApi.getAttributes({ bookId });
+      if (response) {
+        setAttributes(response.attributes);
+      }
+      if (err) {
+        toast.error(err.errorMessage);
       }
     };
     fetchData();

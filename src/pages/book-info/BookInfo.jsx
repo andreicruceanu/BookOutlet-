@@ -26,17 +26,18 @@ import {
 import favoriteApi from "../../api/modules/favorite.api";
 import { addToCartReducer } from "../../features/cart/cartSlice";
 import { toast } from "react-toastify";
+import { useBookDetails } from "../../hooks/fetch-book-details.js";
 
 function BookInfo() {
   const { listFavorite, modalNoUser, user } = useSelector(
     (state) => state.auth
   );
   const [isOpen, setIsOpen] = useState(false);
-  const [book, setBook] = useState({});
-  const [loading, setLoading] = useState(true);
   const [isBookFavorite, setBookFavorite] = useState(false);
 
   const { id } = useParams();
+  console.log(id);
+  const { book, error } = useBookDetails(id);
 
   const dispatch = useDispatch();
 
@@ -49,17 +50,6 @@ function BookInfo() {
       );
     }
   }, [book, user, listFavorite]);
-
-  useEffect(() => {
-    const fetchBookDetails = async () => {
-      const response = await axios.get(`/api/book/${id}`);
-      if (response.status === 200) {
-        setBook(response.data);
-        setLoading(false);
-      }
-    };
-    fetchBookDetails();
-  }, [id]);
 
   const handleAddToCart = (book) => {
     const { _id, title, subtitle, url } = book;
@@ -133,9 +123,13 @@ function BookInfo() {
     return dispatch(setModalNoUser(false));
   };
 
+  if (error) {
+    toast.error(error);
+    return;
+  }
   return (
     <>
-      {!loading && (
+      {book && (
         <main>
           <ModalNoUser
             textHeader={"Loghează-te"}

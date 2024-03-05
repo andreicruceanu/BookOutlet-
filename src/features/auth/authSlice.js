@@ -110,7 +110,6 @@ export const authSlice = createSlice({
     },
     removeFavorite: (state, action) => {
       const { _id } = action.payload;
-      console.log(action.payload);
       state.listFavorite = state.listFavorite.filter(
         (e) => e._id.toString() !== _id.toString()
       );
