@@ -5,7 +5,6 @@ import { API_URL_IMG } from "../../api/api-img";
 
 function AuthorIteam({ dataAuthor }) {
   return (
-    Array.isArray(dataAuthor) &&
     dataAuthor.length > 0 && (
       <div className={styles.authorWrap}>
         {dataAuthor?.map((author) => (
