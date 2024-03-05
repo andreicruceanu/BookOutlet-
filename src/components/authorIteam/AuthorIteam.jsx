@@ -7,7 +7,7 @@ function AuthorIteam({ dataAuthor }) {
   return (
     dataAuthor.length > 0 && (
       <div className={styles.authorWrap}>
-        {dataAuthor.map((author) => (
+        {dataAuthor?.map((author) => (
           <div className={styles.authorIteam} key={uuidv4()}>
             <div className={styles.authorIteamImg}>
               <Link
