@@ -1,26 +1,17 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { API_URL_IMG } from "../../api/api-img";
+import { useAuthorDetails } from "../../hooks/fetch-author-details";
+import { toast } from "react-toastify";
 import ReadMore from "./readMore";
 import styles from "./styles.module.css";
 
 function AuthorsDetails() {
-  const [author, setAuthor] = useState(null);
-
   const { id } = useParams();
-  console.log(id);
+  const { author, error } = useAuthorDetails({ id });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(`/api/author/${id}`);
-      setAuthor(response.data);
-    };
-
-    fetchData();
-  }, [id]);
-
-  console.log(typeof author?.description);
+  if (error) {
+    toast.error(error.message);
+  }
 
   return (
     <main>

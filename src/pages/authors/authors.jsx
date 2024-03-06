@@ -1,20 +1,18 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { API_URL_IMG } from "../../api/api-img";
+import { useAuthorAll } from "../../hooks/fetch-author-all";
+import { toast } from "react-toastify";
 import styles from "./styles.module.css";
 
 function Authors() {
-  const [author, setAuthor] = useState([]);
   const [query, setQuery] = useState("");
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get("/api/author/all");
-      setAuthor(response.data);
-    };
-    fetchData();
-  }, []);
+  const { author, error } = useAuthorAll();
+
+  if (error) {
+    toast.error(error.message);
+  }
 
   return (
     <main>
@@ -31,7 +29,7 @@ function Authors() {
           />
         </div>
         <div className={styles.authorsMainWrap}>
-          {author.length > 0 &&
+          {author?.length > 0 &&
             author
               .filter((author) => author.value.toLowerCase().includes(query))
               .map((author) => (
