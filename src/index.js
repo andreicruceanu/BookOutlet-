@@ -3,19 +3,19 @@ import "./index.css";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import App from "./pages/app/app";
 import BookStore from "./pages/book-store/book-store";
-import Login from "./pages/login/login";
+import Login from "./pages/signin/LoginPage/Login.jsx";
 import Register from "./pages/register/register";
-import BookInfo from "./pages/book-info/BookInfo";
 import Authors from "./pages/authors/authors";
 import AuthorsDetails from "./pages/author-Details/authorsDetails";
 import { Provider } from "react-redux";
 import { store } from "./store.js";
-import ForgotPassword from "./pages/login/ForgotPassword";
+import ForgotPassword from "./pages/signin/ForgotPassword/ForgotPassword.jsx";
 import ResetPassword from "./pages/resetPassword/ResetPassword";
 import Cart from "./pages/cart/Cart";
 import MyAccount from "./pages/account/MyAccount/MyAccount";
 import PersonalData from "./pages/account/Personal/PersonalData";
 import Favorite from "./pages/account/Favorites/Favorite";
+import BookInfo from "./pages/bookPage/bookDetails/BookInfo.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
