@@ -26,9 +26,7 @@ function BookInfoCarousel({ badges, bookImg, price, name }) {
         pagination={{
           clickable: true,
           modifierClass: `swiper-pagination-info`,
-          bulletClass: `swiper-pagination-bullet ${
-            styles[`costum-bullet-bookInfo`]
-          }`,
+          bulletClass: `swiper-pagination-bullet costum-bullet-bookInfo`,
         }}
         mousewheel={true}
         keyboard={true}
