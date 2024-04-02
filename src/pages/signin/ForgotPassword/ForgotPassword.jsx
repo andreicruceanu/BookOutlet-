@@ -10,8 +10,8 @@ import { forgotPassword } from "../../../features/auth/authSlice";
 import MailImg from "../../../images/check-email.svg";
 import Button from "../../../components/ui/Button/Button";
 import content from "../../../constants/content";
-import ErrorMessage from "../../../components/ui/ErrorMessage/ErrorMessage";
 import Input from "../../../components/ui/Input/Input";
+import ErrorMessage from "../../../components/ui/ErrorMessage/ErrorMessage";
 function ForgotPassword() {
   const [error, setError] = useState(null);
 
