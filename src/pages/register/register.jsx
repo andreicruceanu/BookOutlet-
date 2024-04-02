@@ -1,21 +1,22 @@
 import React from "react";
-import styles from "./styles.module.css";
+
 import { IoIosArrowBack } from "react-icons/io";
-import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import { validationCreateAccount } from "./validationCreateAccount";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { register, reset } from "../../features/auth/authSlice";
+import { formRegisterCheckbox, formRegisterInput } from "./dataForm";
+
 import ErrorMessage from "../../components/ui/ErrorMessage/ErrorMessage";
 import Button from "../../components/ui/Button/Button";
 import content from "../../constants/content";
+import Input from "../../components/ui/Input/Input";
+import Checkbox from "../../components/ui/Checkbox/Checkbox";
+import styles from "./styles.module.css";
 
 function Register() {
-  const [visiblePassword, setVisiblePassword] = useState(false);
-  const [visibleConfirmPassword, setVisibilityConfirmPassword] =
-    useState(false);
   const [isLoadingButton, setIsLoading] = useState(false);
   const [errorRegister, setErrorRegister] = useState(null);
   const dispatch = useDispatch();
@@ -24,13 +25,6 @@ function Register() {
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   );
-
-  const handleVisibleButtonPasswordClick = () =>
-    setVisiblePassword((currentVisible) => !currentVisible);
-  const handleVisibleButtonConfirmPasswordClick = () =>
-    setVisibilityConfirmPassword(
-      (currentVisibleConfirmPassword) => !currentVisibleConfirmPassword
-    );
 
   const formik = useFormik({
     initialValues: {
@@ -74,143 +68,35 @@ function Register() {
         <div className={styles.createAccountWrap}>
           <Link className={styles.back} to="/login">
             <IoIosArrowBack />
-            Intra in cont
+            {content.enter_the_account}
           </Link>
-          <h4>Creare cont nou pe Bookzone.ro</h4>
-          <p>Completeaza datele noului tau cont Bookzone.</p>
+          <h4>{content.create_account_title}</h4>
+          <p>{content.create_account_subtitle}</p>
           <form
             autoComplete="off"
             onSubmit={formik.handleSubmit}
             className={styles.containerInput}
             id="createAccountForm"
           >
-            <input
-              className={styles.inputCreateAccount}
-              type="text"
-              name="lastName"
-              placeholder="Numele tau"
-              value={formik.values.lastName}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            {formik.errors.lastName && formik.touched.lastName ? (
-              <span className={styles.errorMessage}>
-                {formik.errors.lastName}
-              </span>
-            ) : (
-              ""
-            )}
-
-            <input
-              className={styles.inputCreateAccount}
-              type="text"
-              name="firstName"
-              placeholder="Prenumele tau"
-              value={formik.values.firstName}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            {formik.errors.firstName && formik.touched.firstName ? (
-              <span className={styles.errorMessage}>
-                {formik.errors.firstName}
-              </span>
-            ) : (
-              ""
-            )}
-
-            <input
-              className={styles.inputCreateAccount}
-              type="email"
-              name="email"
-              placeholder="Email-ul tau"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            {formik.errors.email && formik.touched.email ? (
-              <span className={styles.errorMessage}>{formik.errors.email}</span>
-            ) : (
-              ""
-            )}
-            <div className={styles.passwordContainer}>
-              <input
-                className={styles.inputCreateAccount}
-                type={visiblePassword ? "text" : "password"}
-                placeholder="Parola"
-                name="password"
-                value={formik.values.password}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
+            {formRegisterInput.map((input) => (
+              <Input
+                id={input.id}
+                type={input.type}
+                placeholder={input.placeholder}
+                name={input.name}
+                formik={formik}
               />
-              <span onClick={handleVisibleButtonPasswordClick}>
-                {visiblePassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
-              </span>
-            </div>
-            {formik.errors.password && formik.touched.password ? (
-              <span className={styles.errorMessage}>
-                {formik.errors.password}
-              </span>
-            ) : (
-              ""
-            )}
-
-            <div className={styles.passwordContainer}>
-              <input
-                className={styles.inputCreateAccount}
-                type={visibleConfirmPassword ? "text" : "password"}
-                placeholder="Confirmarea parolei"
-                name="confirmPassword"
-                value={formik.values.confirmPassword}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
+            ))}
+            {formRegisterCheckbox.map((checkbox) => (
+              <Checkbox
+                id={checkbox.id}
+                type={checkbox.type}
+                label={checkbox.label}
+                name={checkbox.name}
+                formik={formik}
               />
-              <span onClick={handleVisibleButtonConfirmPasswordClick}>
-                {visibleConfirmPassword ? (
-                  <AiOutlineEyeInvisible />
-                ) : (
-                  <AiOutlineEye />
-                )}
-              </span>
-            </div>
-            {formik.errors.confirmPassword && formik.touched.confirmPassword ? (
-              <span className={styles.errorMessage}>
-                {formik.errors.confirmPassword}
-              </span>
-            ) : (
-              ""
-            )}
+            ))}
           </form>
-          <div className={styles.terms__wrap}>
-            <input
-              type="checkbox"
-              className={styles.input__checkbox}
-              name="terms"
-              id="terms"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            <label htmlFor="terms">
-              Am citit si sunt de acord cu termenii si conditiile
-            </label>
-          </div>
-          {formik.errors.terms && formik.touched.terms ? (
-            <span className={styles.errorMessage}>{formik.errors.terms}</span>
-          ) : (
-            ""
-          )}
-          <div className={`${styles.terms__wrap} ${styles.mb__2}`}>
-            <input
-              type="checkbox"
-              className={styles.input__checkbox__confirmation}
-              name="newsletter"
-              id="confirmation"
-              onChange={formik.handleChange}
-            />
-            <label htmlFor="confirmation">
-              CONFIRM CA AM PESTE 16 ANI si doresc sa primesc cele mai noi
-              oferte
-            </label>
-          </div>
           <Button
             type="submit"
             name={content.create_account}

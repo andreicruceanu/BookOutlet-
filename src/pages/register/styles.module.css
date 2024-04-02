@@ -10,68 +10,6 @@ main {
   align-items: center;
   background-color: #f0f1f2;
 }
-
-/*
-  input
-  */
-.containerInput {
-  width: 100%;
-}
-
-.inputCreateAccount {
-  width: 100%;
-  font-size: 14px;
-  color: #1f2533;
-  margin-top: 12px;
-  border-radius: 4px;
-  padding: 10px 0 10px 16px;
-  border: 1px solid #dfdfe5;
-  outline: none;
-  box-sizing: border-box;
-  transition: 0.3s all ease;
-}
-.inputCreateAccount:first-child {
-  margin-top: 0px;
-}
-.inputCreateAccount:focus {
-  border: 1px solid #1f2533;
-}
-/*
-  input
-  */
-.btn {
-  width: 100%;
-  height: 40px;
-  font-size: 14px;
-  background-image: linear-gradient(to right, #b224b3, #3c24b2);
-  border: none;
-  border-radius: 4px;
-  text-align: center;
-  cursor: pointer;
-  color: #fff;
-  margin-bottom: 10px;
-}
-.btn:disabled {
-  opacity: 0.5;
-}
-.error__messages__login {
-  color: red;
-  font-size: 14px;
-}
-
-.container__rememberMe {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin: 15px auto;
-}
-.input__checkbox {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-}
-
 /*
   Create Account
   */
@@ -106,33 +44,7 @@ main {
   font-size: 14px;
   margin-bottom: 30px;
 }
-.passwordContainer {
-  position: relative;
-  margin-top: 12px;
-}
-.passwordContainer svg {
-  position: absolute;
-  top: 25%;
-  font-size: 18px;
-  right: 15px;
-  color: #8e8e8f;
-  cursor: pointer;
-}
-.terms__wrap {
-  display: flex;
-  flex-direction: row;
-  margin-top: 15px;
-  text-align: left;
-  align-items: center;
-}
-.terms__wrap label {
-  cursor: pointer;
-}
-.input__checkbox__confirmation {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-}
+
 .mb__1 {
   margin-bottom: 10px;
 }
@@ -142,28 +54,7 @@ main {
 .mb__4 {
   margin-bottom: 40px;
 }
-.errorMessage {
-  font-size: 12px;
-  color: red;
-  margin-left: 5px;
-}
-.errorMessageRegister {
-  font-size: 14px;
-  color: red;
-  margin-left: 5px;
-}
 
-.iconContainer {
-  width: auto;
-}
-.iconContainer > svg {
-  animation: iconSpin 2s infinite linear;
-}
-@keyframes iconSpin {
-  100% {
-    transform: rotate(360deg);
-  }
-}
 /*
   Create Account
   */

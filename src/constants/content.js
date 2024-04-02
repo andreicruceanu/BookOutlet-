@@ -8,6 +8,8 @@ const content = {
   cancel: "Anulează",
   continue: "Continuă",
   create_account: "Crează cont",
+  create_account_title: "Creare cont nou pe Bookoutlet.ro",
+  create_account_subtitle: "Completează datele noului tău cont Bookoutlet.",
 };
 
 export default content;
