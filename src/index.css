@@ -33,6 +33,9 @@ body * {
 .mt-0 {
   margin-top: 0 !important;
 }
+.mt-2 {
+  margin-top: 10px !important;
+}
 .p-10 {
   padding: 10px !important;
 }
@@ -42,6 +45,10 @@ body * {
 .my-0 {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
+}
+.mx-0 {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 .text-sm {
   font-size: 14px;

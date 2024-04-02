@@ -1,11 +1,15 @@
 import errorsMessages from "../../../constants/errorsMessages.json";
 import styles from "./styles.module.css";
 
-const ErrorMessage = ({ error }) => {
+const ErrorMessage = ({ error, className }) => {
+  const combinedClassName = className
+    ? `${className} ${styles.error}`
+    : `${styles.error}`;
+
   return error && error.errorCode && errorsMessages[error.errorCode] ? (
-    <span className={styles.error}>{errorsMessages[error.errorCode]}</span>
+    <span className={combinedClassName}>{errorsMessages[error.errorCode]}</span>
   ) : error?.errorMessage ? (
-    <span className={styles.error}>{error.errorMessage}</span>
+    <span className={combinedClassName}>{error.errorMessage}</span>
   ) : (
     ""
   );
