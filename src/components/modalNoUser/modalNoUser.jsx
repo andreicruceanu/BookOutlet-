@@ -1,7 +1,18 @@
 import { AiOutlineClose } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
+
+import Button from "../ui/Button/Button";
+import content from "../../constants/content";
 import styles from "./styles.module.css";
-import { Link } from "react-router-dom";
-function ModalNoUser({ textHeader, textContent, button, onClose, open }) {
+
+function ModalNoUser({ textHeader, textContent, onClose, open }) {
+  const navigate = useNavigate();
+
+  function handleLogin() {
+    navigate("/login");
+    onClose();
+  }
+
   return (
     <>
       {open ? (
@@ -17,11 +28,15 @@ function ModalNoUser({ textHeader, textContent, button, onClose, open }) {
               </div>
             </div>
             <div className={styles.modalFooter}>
-              <Link className={styles.modalBtn} to={"/login"} onClick={onClose}>
-                Mergi la pagina de login
-              </Link>
+              <Button
+                className="p-10 mr-12 my-0"
+                classNameText="text-sm"
+                size="xs"
+                name={content.go_to_login}
+                onClick={handleLogin}
+              />
               <span className={styles.btnClose} onClick={onClose}>
-                Anulează
+                {content.cancel}
               </span>
             </div>
           </div>

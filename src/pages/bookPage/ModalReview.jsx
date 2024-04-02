@@ -1,10 +1,12 @@
-import axios from "axios";
-import styles from "./ModalReview.module.css";
 import { useState } from "react";
-import { AiOutlineClose, AiTwotoneStar } from "react-icons/ai";
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { AiOutlineClose, AiTwotoneStar } from "react-icons/ai";
+
+import styles from "./ModalReview.module.css";
 import reviewApi from "../../api/modules/review.api";
+import Button from "../../components/ui/Button/Button";
+import content from "../../constants/content";
 
 function ModalReview({ open, onClose, updateListReview, bookId, bookTitle }) {
   const [Rating, setRating] = useState(null);
@@ -15,6 +17,13 @@ function ModalReview({ open, onClose, updateListReview, bookId, bookTitle }) {
   const [isSucces, setSucces] = useState(false);
 
   const { user } = useSelector((state) => state.auth);
+
+  const navigate = useNavigate();
+
+  function handleLogin() {
+    navigate("/login");
+    onClose();
+  }
 
   const handleSubmitReview = async () => {
     if (Text.length === 0 || Rating === null) {
@@ -176,11 +185,15 @@ function ModalReview({ open, onClose, updateListReview, bookId, bookTitle }) {
             </div>
           ) : (
             <div className={styles.modalFooter}>
-              <Link className={styles.modalBtn} to={"/login"}>
-                Mergi la pagina de login
-              </Link>
+              <Button
+                className="p-10 mr-12 my-0"
+                classNameText="text-sm"
+                size="xs"
+                name={content.go_to_login}
+                onClick={handleLogin}
+              />
               <span className={styles.btnClose} onClick={onClose}>
-                Anulează
+                {content.cancel}
               </span>
             </div>
           )}

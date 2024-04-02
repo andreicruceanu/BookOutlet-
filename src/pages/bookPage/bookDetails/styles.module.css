@@ -159,63 +159,7 @@
   justify-content: center;
   align-items: stretch;
 }
-.btnAddToCart {
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  height: 50px;
-  background-image: linear-gradient(to right, #b224b3, #3c24b2);
-  border-radius: 5px;
-  margin-bottom: 10px;
-  padding: 0;
-  outline: none;
-  border: none;
-  cursor: pointer;
-}
-.btnAddToCart img {
-  max-width: 60px;
-  height: 50px;
-  display: block;
-  width: 100%;
-}
-.btnAddToCart p {
-  width: 100%;
-  color: #fff;
-  font-size: 14px;
-  margin: 0;
-  text-align: center;
-}
-.btnFavorite {
-  display: flex;
-  align-items: center;
-  height: 50px;
-  border-radius: 5px;
-  outline: none;
-  border: 1px solid #3c24b2;
-  background-color: #fff;
-  color: #3c24b2;
-  cursor: pointer;
-  padding: 0;
-}
-.isFavorite {
-  background-image: linear-gradient(90deg, #b224b3, #3c24b2);
-  color: #fff;
-}
-.iconHeart {
-  font-size: 25px;
-  padding: 8px;
-  display: block;
-  height: 100%;
-  width: 60px;
-  min-height: 40px;
-  border-right: 1px solid #3c24b2;
-}
-.btnFavorite p {
-  width: 100%;
-  font-size: 14px;
-  margin: 0;
-  text-align: center;
-}
+
 .infoDeliveryWrap {
   display: flex;
   flex-direction: column;

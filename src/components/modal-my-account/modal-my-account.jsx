@@ -4,6 +4,8 @@ import btn_login from "./../../images/btn-login.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, reset } from "../../features/auth/authSlice";
+import Button from "../ui/Button/Button";
+import content from "../../constants/content";
 
 function ModalMyAccount({ onClose }) {
   const navigate = useNavigate();
@@ -74,12 +76,12 @@ function ModalMyAccount({ onClose }) {
               </span>
               <div className={styles.boxLoginBtn}>
                 <a href="/login">
-                  <img
-                    className={styles.btnLoginBtnImg}
-                    src={btn_login}
-                    alt="btn-login"
+                  <Button
+                    className="flex items-center"
+                    startIconImage={btn_login}
+                    name={content.enter_the_account}
+                    classNameText="flex-3"
                   />
-                  <p className={styles.btnLoginText}> Intra in cont</p>
                 </a>
               </div>
               <div className={styles.boxLoginLink}>

@@ -1,0 +1,12 @@
+.radio_primary {
+  outline: 0;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  border: 1px solid #e1e1e5;
+}
+label {
+  margin-right: 15px;
+  cursor: pointer;
+  font-size: 13px;
+}

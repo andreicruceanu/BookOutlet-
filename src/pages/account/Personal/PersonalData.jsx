@@ -7,14 +7,19 @@ import profileApi from "../../../api/modules/profile.api";
 import { useFormik } from "formik";
 import { validateForm } from "./validateForm";
 import { toast } from "react-toastify";
-
-import ErrorMessage from "../../../components/errorMessage/ErrorMessage";
+import { formPersonalInputs, formRadioButtons } from "./dataForm";
+import Input from "../../../components/ui/Input/Input";
+import Checkbox from "../../../components/ui/Checkbox/Checkbox";
+import content from "../../../constants/content";
+import Radio from "../../../components/ui/InputRadio/Radio";
+import Button from "../../../components/ui/Button/Button";
 
 function PersonalData() {
   const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
-
   const [firstName, setFirstName] = useState("");
+  const [onRequestUpdate, setOnReqestUpdate] = useState(false);
+  const [doneRequest, setDoneRequest] = useState(false);
 
   const formik = useFormik({
     initialValues: {
@@ -23,13 +28,16 @@ function PersonalData() {
       lastName: "",
       username: "",
       email: "",
+      password: "***********",
       newsletter: true,
     },
 
     validationSchema: validateForm,
 
     onSubmit: async (values) => {
+      setOnReqestUpdate(true);
       const { response, err } = await profileApi.updateProfile(values);
+      setOnReqestUpdate(false);
       if (response) {
         localStorage.setItem("firstName", values.firstName);
         toast.success(response.message);
@@ -44,6 +52,7 @@ function PersonalData() {
   useEffect(() => {
     const getProfileUser = async () => {
       const { response, err } = await profileApi.getProfile();
+      setDoneRequest(true);
 
       if (response) {
         const { firstName, lastName, username, email, gender, newsletter } =
@@ -55,6 +64,7 @@ function PersonalData() {
           email,
           gender,
           newsletter,
+          password: "***********",
         });
         setFirstName(response.firstName);
       }
@@ -87,152 +97,64 @@ function PersonalData() {
           </div>
           <MenuAccount />
         </div>
-        <div className={styles.personalDataMain}>
-          <div className={styles.personalDataWrap}>
-            <h3>Date personale</h3>
-            <form onSubmit={formik.handleSubmit}>
-              <label className={styles.personalDataLabel}>
-                Formă de adresare
-              </label>
-              <div className={styles.gender}>
-                <input
-                  className={styles.genderInput}
-                  value="Dl"
-                  checked={formik.values.gender === "Dl"}
-                  onChange={formik.handleChange}
-                  type="radio"
-                  id="mr"
-                  name="gender"
-                />
-                <label className={styles.genderLabelMr} htmlFor="mr">
-                  Dl.
+        {doneRequest && (
+          <div className={styles.personalDataMain}>
+            <div className={styles.personalDataWrap}>
+              <h3>Date personale</h3>
+              <form id="userUpdate" onSubmit={formik.handleSubmit}>
+                <label className={styles.personalDataLabel}>
+                  Formă de adresare
                 </label>
-                <input
-                  className={styles.genderInput}
-                  onChange={formik.handleChange}
-                  checked={formik.values.gender === "Dna"}
-                  value="Dna"
-                  type="radio"
-                  id="mrs"
-                  name="gender"
-                />
-                <label className={styles.genderLabelMrs} htmlFor="mrs">
-                  Dna.
-                </label>
-              </div>
-              <div className={styles.inputWrap}>
-                <label htmlFor="firstName" className={styles.personalDataLabel}>
-                  Prenume
-                </label>
-                <input
-                  type="text"
-                  id="firstName"
-                  name="firstName"
-                  value={formik.values.firstName}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  className={styles.personalDataInput}
-                />
-                {formik.errors.firstName && formik.touched.firstName ? (
-                  <ErrorMessage value={formik.errors.firstName} />
-                ) : (
-                  ""
-                )}
-              </div>
-              <div className={styles.inputWrap}>
-                <label htmlFor="lastName" className={styles.personalDataLabel}>
-                  Nume
-                </label>
-                <input
-                  type="text"
-                  id="lastName"
-                  name="lastName"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  className={styles.personalDataInput}
-                  value={formik.values.lastName}
-                />
-                {formik.errors.lastName && formik.touched.lastName ? (
-                  <ErrorMessage value={formik.errors.lastName} />
-                ) : (
-                  ""
-                )}
-              </div>
-              <div className={styles.inputWrap}>
-                <label htmlFor="username" className={styles.personalDataLabel}>
-                  Utilizator
-                </label>
-                <input
-                  type="text"
-                  id="username"
-                  name="username"
-                  className={styles.personalDataInput}
-                  value={formik.values.username}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                />
-                {formik.errors.username && formik.touched.username ? (
-                  <ErrorMessage value={formik.errors.username} />
-                ) : (
-                  ""
-                )}
-              </div>
-              <div className={styles.inputWrap}>
-                <label htmlFor="emial" className={styles.personalDataLabel}>
-                  Email
-                </label>
-                <input
-                  type="text"
-                  id="email"
-                  name="email"
-                  className={styles.personalDataInput}
-                  value={formik.values.email}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  disabled={true}
-                />
-                {formik.errors.email && formik.touched.email ? (
-                  <ErrorMessage value={formik.errors.email} />
-                ) : (
-                  ""
-                )}
-              </div>
-              <div className={styles.inputWrap}>
-                <label htmlFor="password" className={styles.personalDataLabel}>
-                  Parola
-                </label>
-                <input
-                  type="text"
-                  id="password"
-                  disabled={true}
-                  value={"***********"}
-                  className={styles.personalDataInput}
-                />
-              </div>
-              <div className={styles.newsletter}>
-                <input
-                  type="checkbox"
-                  id="newsletter"
-                  name="newsletter"
-                  onChange={formik.handleChange}
-                  checked={formik.values.newsletter}
-                />
-                <label htmlFor="newsletter">
-                  Vreau să primesc newsletterul BookOutlet
-                </label>
-              </div>
-              <div className={styles.wrapBtn}>
-                <button
-                  className={styles.personalDataSubmitBtn}
-                  disabled={!formik.isValid}
-                  type="submit"
-                >
-                  Salvează
-                </button>
-              </div>
-            </form>
+                <div className={styles.gender}>
+                  {formRadioButtons.map((input) => (
+                    <Radio
+                      formik={formik}
+                      key={input.id}
+                      id={input.id}
+                      name={input.name}
+                      label={input.label}
+                      value={input.value}
+                    />
+                  ))}
+                </div>
+                {formPersonalInputs.map((input) => (
+                  <div className={styles.inputWrap} key={input.id}>
+                    <label className={styles.personalDataLabel}>
+                      {input.label}
+                    </label>
+                    <Input
+                      className="my-0"
+                      id={input.id}
+                      type={input.type}
+                      placeholder={input.placeholder}
+                      name={input.name}
+                      formik={formik}
+                      disabled={input.disabled}
+                    />
+                  </div>
+                ))}
+                <div className={styles.newsletter}>
+                  <Checkbox
+                    id="newsletter"
+                    name="newsletter"
+                    formik={formik}
+                    label={content.newsletter_personal_page}
+                  />
+                </div>
+                <div className={styles.wrapBtn}>
+                  <Button
+                    className="max-w-250"
+                    type="submit"
+                    name={content.save}
+                    form="userUpdate"
+                    isLoading={onRequestUpdate}
+                    disabled={!formik.isValid}
+                  />
+                </div>
+              </form>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

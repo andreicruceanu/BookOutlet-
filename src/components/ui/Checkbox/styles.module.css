@@ -1,0 +1,21 @@
+.wrap_checkbox {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+  text-align: left;
+  align-items: center;
+}
+.checkbox_primary {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.errorMessage {
+  font-size: 12px;
+  color: red;
+  margin-left: 5px;
+}
+.wrap_checkbox label {
+  cursor: pointer;
+}

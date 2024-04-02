@@ -1,0 +1,43 @@
+.input_primary {
+  width: 100%;
+}
+
+.input_primary {
+  width: 100%;
+  font-size: 14px;
+  color: #1f2533;
+  margin-top: 12px;
+  border-radius: 4px;
+  padding: 10px 0 10px 16px;
+  border: 1px solid #dfdfe5;
+  outline: none;
+  box-sizing: border-box;
+  transition: 0.3s all ease;
+}
+.input_primary:first-child {
+  margin-top: 0px;
+}
+.input_primary:focus {
+  border: 1px solid #1f2533;
+}
+input:disabled {
+  background: #f2f5f5 !important;
+  border: none;
+}
+.errorMessage {
+  font-size: 12px;
+  color: red;
+  margin-left: 5px;
+}
+.wrap {
+  position: relative;
+  margin-top: 12px;
+}
+.wrap svg {
+  position: absolute;
+  top: 25%;
+  font-size: 18px;
+  right: 15px;
+  color: #8e8e8f;
+  cursor: pointer;
+}

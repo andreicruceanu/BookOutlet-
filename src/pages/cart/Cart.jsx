@@ -7,6 +7,8 @@ import { addToCartReducer, remove } from "../../features/cart/cartSlice";
 import { decreaseCart } from "../../features/cart/cartSlice";
 import checkoutBtn from "../../images/continua-finalizeaza-comanda.svg";
 import ProgressBar from "../../components/progressBar/ProgressBar";
+import Button from "../../components/ui/Button/Button";
+import content from "../../constants/content";
 
 function Cart() {
   const { cart } = useSelector((state) => state.cart);
@@ -169,14 +171,12 @@ function Cart() {
                       {orderFinalPrice.toFixed(2)} Lei
                     </p>
                   </div>
-                  <button className={styles.checkoutBtn}>
-                    <img
-                      className={styles.checkoutImg}
-                      src={checkoutBtn}
-                      alt="Continua Cumparaturile"
-                    />
-                    <span className={styles.checkoutText}>Continuă</span>
-                  </button>
+                  <Button
+                    className="flex items-center my-0"
+                    classNameText="w-full text-md"
+                    name={content.continue}
+                    startIconImage={checkoutBtn}
+                  />
                 </div>
               </div>
             </div>

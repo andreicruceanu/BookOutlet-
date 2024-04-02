@@ -75,18 +75,7 @@
 .modalFooter {
   padding: 18px 15px;
 }
-.modalBtn {
-  text-decoration: none;
-  background-image: linear-gradient(to right, #b224b3, #3c24b2);
-  color: #ffff;
-  padding: 10px;
-  font-size: 14px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-right: 12px;
-  outline: none;
-  border: none;
-}
+
 .btnClose {
   color: #126fdf;
   font-size: 14px;

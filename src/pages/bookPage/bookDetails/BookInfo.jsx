@@ -4,29 +4,31 @@ import { CiPercent } from "react-icons/ci";
 import { FaPhoneAlt, FaTruck } from "react-icons/fa";
 import { IoInformationCircleSharp } from "react-icons/io5";
 import { Link, useParams } from "react-router-dom";
-import BookInfoCarousel from "../../components/bookInfoCarousel/BookInfoCarousel";
-import BookStar from "../../components/bookStar/BookStar";
+import BookInfoCarousel from "../../../components/bookInfoCarousel/BookInfoCarousel.jsx";
+import BookStar from "../../../components/bookStar/BookStar.jsx";
 import styles from "./styles.module.css";
-import BtnAddToCart from "../../images/adauga-in-cos.svg";
-import easyBox from "../../images/easybox-square.jpg";
-import ModalEasyBox from "../../components/modal-EasyBox/ModalEasyBox";
+import BtnAddToCart from "../../../images/adauga-in-cos.svg";
+import easyBox from "../../../images/easybox-square.jpg";
+import ModalEasyBox from "../../../components/modal-EasyBox/ModalEasyBox.jsx";
 import { useEffect, useState } from "react";
-import Review from "./Review.jsx";
-import axios from "axios";
-import { API_URL_IMG } from "../../api/api-img";
-import ReadMore from "../author-Details/readMore";
-import AttributesBook from "./AttributesBook";
+import Review from "../Review.jsx";
+import { API_URL_IMG } from "../../../api/api-img.js";
+import ReadMore from "../../author-Details/readMore.jsx";
+import AttributesBook from "../AttributesBook.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import ModalNoUser from "../../components/modalNoUser/modalNoUser";
+import ModalNoUser from "../../../components/modalNoUser/modalNoUser.jsx";
 import {
   addFavorite,
   removeFavorite,
   setModalNoUser,
-} from "../../features/auth/authSlice";
-import favoriteApi from "../../api/modules/favorite.api";
-import { addToCartReducer } from "../../features/cart/cartSlice";
+} from "../../../features/auth/authSlice.js";
+import favoriteApi from "../../../api/modules/favorite.api.js";
+import { addToCartReducer } from "../../../features/cart/cartSlice.js";
 import { toast } from "react-toastify";
-import { useBookDetails } from "../../hooks/fetch-book-details.js";
+import { useBookDetails } from "../../../hooks/fetch-book-details.js";
+import content from "../../../constants/content.js";
+import Button from "../../../components/ui/Button/Button.jsx";
+import { getClassName, getName } from "./function.js";
 
 function BookInfo() {
   const { listFavorite, modalNoUser, user } = useSelector(
@@ -219,14 +221,16 @@ function BookInfo() {
                   </div>
                   <div className={styles.detailsPricingBox}>
                     <div className={styles.priceButtonWrap}>
-                      <button
-                        className={styles.btnAddToCart}
+                      <Button
+                        className="flex items-center mt-0"
+                        classNameText="w-full"
+                        startIconImage={BtnAddToCart}
+                        type="button"
+                        size="lg"
+                        name={content.add_to_cart}
                         onClick={() => handleAddToCart(book)}
-                      >
-                        <img src={BtnAddToCart} alt="btn-add-to-cart" />
-                        <p>Adauga in cos</p>
-                      </button>
-                      <button
+                      />
+                      {/* <button
                         className={styles.btnFavorite}
                         onClick={() => handleFavorite(book)}
                       >
@@ -242,7 +246,21 @@ function BookInfo() {
                             ? `Sterge de la favorite`
                             : `Adaugă la favorite`}
                         </p>
-                      </button>
+                      </button> */}
+                      <Button
+                        type="button"
+                        size="lg"
+                        name={getName(isBookFavorite)}
+                        className="flex items-center mt-0"
+                        classNameText="w-full"
+                        variant="secondary"
+                        startIcon={
+                          <AiOutlineHeart
+                            className={getClassName(isBookFavorite)}
+                          />
+                        }
+                        onClick={() => handleFavorite(book)}
+                      />
                     </div>
                     <div className={styles.infoDeliveryWrap}>
                       <div className={styles.infoDeliveryIteam}>

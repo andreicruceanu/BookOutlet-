@@ -1,0 +1,67 @@
+.button {
+  width: 100%;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  margin: 12px 0px;
+  outline: none;
+}
+.primary {
+  background-image: linear-gradient(to right, #b224b3, #3c24b2) !important;
+  color: #fff;
+  border: none;
+}
+.secondary {
+  background-color: #fff !important;
+  color: #3c24b2;
+  border: 1px solid #3c24b2;
+}
+
+.iconHeart {
+  font-size: 25px;
+  padding: 8px;
+  display: block;
+  height: 100%;
+  width: 60px;
+  min-height: 40px;
+  border-right: 1px solid #3c24b2;
+}
+.xs {
+  width: auto !important;
+}
+.md {
+  height: 40px;
+  font-size: 14px;
+  padding: 0;
+}
+.lg {
+  height: 50px !important;
+  font-size: 14px;
+  padding: 0;
+}
+.md > img {
+  height: 40px;
+  max-width: 50px;
+  display: block;
+}
+.lg > img {
+  max-width: 60px;
+  height: 50px;
+  display: block;
+}
+
+.button:disabled {
+  opacity: 0.5;
+}
+.iconContainer {
+  width: auto;
+}
+.iconContainer > svg {
+  animation: iconSpin 2s infinite linear;
+}
+
+@keyframes iconSpin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

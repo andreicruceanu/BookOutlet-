@@ -1,14 +1,17 @@
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
-import Logo from "../../images/Logo.png";
+import Logo from "../../../images/Logo.png";
 import styles from "./ForgotPassword.module.css";
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
-import errorsMessages from "../../constants/errorsMessages.json";
+import errorsMessages from "../../../constants/errorsMessages.json";
 import { useDispatch, useSelector } from "react-redux";
-import { forgotPassword } from "../../features/auth/authSlice";
-import { ImSpinner8 } from "react-icons/im";
-import MailImg from "../../images/check-email.svg";
+import { forgotPassword } from "../../../features/auth/authSlice";
+import MailImg from "../../../images/check-email.svg";
+import Button from "../../../components/ui/Button/Button";
+import content from "../../../constants/content";
+import Input from "../../../components/ui/Input/Input";
+import ErrorMessage from "../../../components/ui/ErrorMessage/ErrorMessage";
 function ForgotPassword() {
   const [error, setError] = useState(null);
 
@@ -104,54 +107,27 @@ function ForgotPassword() {
           ) : (
             <>
               <div className={styles.loginBoxTitle}>
-                <h4>Ai uitat parola?</h4>
-                <p>
-                  Completează câmpurile de mai jos pentru a accesa contul tău
-                  din aplicația BookOutlet
-                </p>
+                <h4>{content.forgot_password}</h4>
+                <p>{content.forgot_password_subtitle}</p>
               </div>
               <form
                 onSubmit={formik.handleSubmit}
                 className={styles.containerInput}
               >
-                <input
+                <Input
                   id="email"
                   type="email"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
                   placeholder="Completează adresa de e-mail"
-                  className={styles.inputSignIn}
+                  name="email"
+                  formik={formik}
                 />
-                {formik.errors.email && formik.touched.email ? (
-                  <span className={styles.errorMessage}>
-                    {formik.errors.email}
-                  </span>
-                ) : null}
                 <div>
-                  <button
+                  <Button
                     type="submit"
-                    className={styles.btn}
-                    disabled={isLoading}
-                  >
-                    {isLoading ? (
-                      <span className={styles.iconContainer}>
-                        <ImSpinner8 />
-                      </span>
-                    ) : (
-                      <span> Recuperează parola</span>
-                    )}
-                  </button>
-                  {error &&
-                  error.errorCode &&
-                  errorsMessages[error.errorCode] ? (
-                    <span className={styles.errorMessage}>
-                      {errorsMessages[error.errorCode]}
-                    </span>
-                  ) : error?.errorMessage ? (
-                    <span className={styles.error}>{error.errorMessage}</span>
-                  ) : (
-                    ""
-                  )}
+                    name={content.btn_forgot_Password}
+                    isLoading={isLoading}
+                  />
+                  <ErrorMessage error={error} className="mx-0" />
                 </div>
               </form>
             </>
