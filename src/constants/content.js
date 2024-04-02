@@ -10,6 +10,13 @@ const content = {
   create_account: "Crează cont",
   create_account_title: "Creare cont nou pe Bookoutlet.ro",
   create_account_subtitle: "Completează datele noului tău cont Bookoutlet.",
+  login_title: "Login pe Bookoutlet",
+  login_subtitle: "Introdu credențialele pentru a te conecta",
+  or: "sau",
+  continue_with_google: "Continuă cu Google",
+  no_account: "Nu ai cont? Crează unul aici",
+  login_with: "Loghează-te cu",
+  forgot_password: "Ai uitat parola?",
 };
 
 export default content;

@@ -1,11 +1,22 @@
 import styles from "./styles.module.css";
 
-const Checkbox = ({ type = "checkbox", name, label, formik, ...props }) => {
+const Checkbox = ({
+  className,
+  type = "checkbox",
+  name,
+  label,
+  formik,
+  ...props
+}) => {
   const { values, handleChange, handleBlur, errors, touched } = formik;
+
+  const combinedClassName = className
+    ? `${className} ${styles.wrap_checkbox}`
+    : `${styles.wrap_checkbox}`;
 
   return (
     <>
-      <div className={styles.wrap_checkbox}>
+      <div className={combinedClassName}>
         <input
           className={styles.checkbox_primary}
           type={type}
