@@ -3,7 +3,7 @@ import axios from "axios";
 axios.defaults.baseURL = "https://api-book-outlet.vercel.app/api";
 
 const register = async (userData) => {
-  const res = await axios.post("api/auth/register", userData);
+  const res = await axios.post("/auth/register", userData);
 
   if (res.data) {
     localStorage.setItem("user", JSON.stringify(res.data));
