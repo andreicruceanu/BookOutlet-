@@ -19,6 +19,8 @@ const content = {
   forgot_password: "Ai uitat parola?",
   forgot_password_subtitle:
     "Completează câmpurile de mai jos pentru a accesa contul tău din aplicația BookOutlet",
+  newsletter_personal_page: "Vreau să primesc newsletterul BookOutlet",
+  save: "Salvează",
 };
 
 export default content;
