@@ -1,24 +1,25 @@
 import React, { useEffect } from "react";
-import styles from "./styles.module.css";
-import Logo from "../../../images/logo.svg";
+
+import { formLoginCheckbox, formLoginInput } from "./dataForm";
 import { FcGoogle } from "react-icons/fc";
-import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { useState } from "react";
 import { useFormik } from "formik";
 import { validationLogIn } from "./validationLogIn";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login, reset } from "../../../features/auth/authSlice";
+
 import Button from "../../../components/ui/Button/Button";
+import Logo from "../../../images/logo.svg";
 import ErrorMessage from "../../../components/ui/ErrorMessage/ErrorMessage";
+import Input from "../../../components/ui/Input/Input";
+import Checkbox from "../../../components/ui/Checkbox/Checkbox";
+import content from "../../../constants/content";
+import styles from "./styles.module.css";
 
 function Login() {
-  const [visible, setVisibility] = useState(false);
   const [errorLogin, setErrorLogin] = useState(null);
   const [loading, setLoading] = useState(false);
-  const handlePasswordClick = () => {
-    setVisibility(!visible);
-  };
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -64,51 +65,23 @@ function Login() {
         </Link>
         <div className={styles.loginBox}>
           <div className={styles.loginBoxTitle}>
-            <h4>Login pe Bookoutlet</h4>
-            <p>Introdu credentialele pentru a te conecta</p>
+            <h4>{content.login_title}</h4>
+            <p>{content.login_subtitle}</p>
           </div>
           <form
             onSubmit={formik.handleSubmit}
             id="logInForm"
             className={styles.containerInput}
           >
-            <input
-              id="email"
-              name="email"
-              type="text"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              className={styles.inputSignIn}
-              placeholder="Email"
-            />
-            {formik.errors.email && formik.touched.email ? (
-              <span className={styles.errorMessage}>{formik.errors.email}</span>
-            ) : (
-              ""
-            )}
-            <div className={styles.passwordContainer}>
-              <input
-                className={styles.inputSignIn}
-                type={visible ? "text" : "password"}
-                placeholder="Parola"
-                name="password"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
+            {formLoginInput.map((input) => (
+              <Input
+                id={input.id}
+                type={input.type}
+                placeholder={input.placeholder}
+                name={input.name}
+                formik={formik}
               />
-              <span
-                className={styles.iconPassword}
-                onClick={handlePasswordClick}
-              >
-                {visible ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
-              </span>
-            </div>
-            {formik.errors.password && formik.touched.password ? (
-              <span className={styles.errorMessage}>
-                {formik.errors.password}
-              </span>
-            ) : (
-              ""
-            )}
+            ))}
           </form>
           <Button
             type="submit"
@@ -118,31 +91,32 @@ function Login() {
           />
           <ErrorMessage error={errorLogin} />
           <div className={styles.containerRememberMe}>
-            <div className={styles.loginRememberMe}>
-              <input
-                id="rememberMe"
-                className={styles.inputCheckbox}
-                type="checkbox"
-                name="rememberMe"
-                value={false}
-                onChange={formik.handleChange}
+            {formLoginCheckbox.map((checkbox) => (
+              <Checkbox
+                id={checkbox.id}
+                className="my-0"
+                type={checkbox.type}
+                label={checkbox.label}
+                name={checkbox.name}
+                formik={formik}
               />
-              <label htmlFor="rememberMe">Tine-ma minte</label>
-            </div>
+            ))}
             <span>
-              <Link to="/recover-password">Ai uitat parola?</Link>
+              <Link to="/recover-password">{content.forgot_password}</Link>
             </span>
           </div>
           <div className={styles.googleWrap}>
-            <p className={styles.signinSep}>sau</p>
-            <h3> Logheaza-te cu</h3>
+            <p className={styles.signinSep}>{content.or}</p>
+            <h3>{content.login_with}</h3>
             <div className={styles.googleLogin}>
               <a href="/">
                 <FcGoogle />
-                <span className={styles.btnGoogleText}>Continua cu Google</span>
+                <span className={styles.btnGoogleText}>
+                  {content.continue_with_google}
+                </span>
               </a>
             </div>
-            <Link to="/register">Nu ai cont? Creaza unul aici</Link>
+            <Link to="/register">{content.no_account}</Link>
           </div>
         </div>
       </div>
