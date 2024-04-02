@@ -51,6 +51,7 @@ function PersonalData() {
 
   useEffect(() => {
     const getProfileUser = async () => {
+      setDoneRequest(false);
       const { response, err } = await profileApi.getProfile();
       setDoneRequest(true);
 

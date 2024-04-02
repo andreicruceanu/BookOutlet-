@@ -53,6 +53,9 @@ body * {
 .max-w-250 {
   max-width: 250px !important;
 }
+.max-w-220 {
+  max-width: 220px !important;
+}
 .text-sm {
   font-size: 14px;
 }
