@@ -143,6 +143,7 @@ function PersonalData() {
                 </div>
                 <div className={styles.wrapBtn}>
                   <Button
+                    className="max-w-250"
                     type="submit"
                     name={content.save}
                     form="userUpdate"

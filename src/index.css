@@ -50,6 +50,9 @@ body * {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
+.max-w-250 {
+  max-width: 250px !important;
+}
 .text-sm {
   font-size: 14px;
 }
