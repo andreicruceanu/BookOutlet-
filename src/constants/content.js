@@ -7,6 +7,7 @@ const content = {
   go_to_login: "Mergi la pagina de login",
   cancel: "Anulează",
   continue: "Continuă",
+  create_account: "Crează cont",
 };
 
 export default content;

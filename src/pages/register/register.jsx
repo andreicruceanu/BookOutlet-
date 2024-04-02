@@ -1,22 +1,23 @@
 import React from "react";
 import styles from "./styles.module.css";
-import errorsMessages from "../../constants/errorsMessages.json";
 import { IoIosArrowBack } from "react-icons/io";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { useEffect, useState } from "react";
 import { useFormik } from "formik";
-import { ImSpinner8 } from "react-icons/im";
 import { validationCreateAccount } from "./validationCreateAccount";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { register, reset } from "../../features/auth/authSlice";
+import ErrorMessage from "../../components/ui/ErrorMessage/ErrorMessage";
+import Button from "../../components/ui/Button/Button";
+import content from "../../constants/content";
 
 function Register() {
   const [visiblePassword, setVisiblePassword] = useState(false);
   const [visibleConfirmPassword, setVisibilityConfirmPassword] =
     useState(false);
   const [isLoadingButton, setIsLoading] = useState(false);
-  const [errorLogin, setErrorLogin] = useState(null);
+  const [errorRegister, setErrorRegister] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -54,7 +55,7 @@ function Register() {
   useEffect(() => {
     if (isError) {
       setIsLoading(false);
-      setErrorLogin(message);
+      setErrorRegister(message);
     }
     if (isSuccess || user) {
       setIsLoading(false);
@@ -210,33 +211,13 @@ function Register() {
               oferte
             </label>
           </div>
-          <button
+          <Button
             type="submit"
+            name={content.create_account}
+            isLoading={isLoadingButton}
             form="createAccountForm"
-            className={`${styles.btn} ${styles.mb__1}`}
-            disabled={isLoadingButton}
-          >
-            {isLoadingButton ? (
-              <span className={styles.iconContainer}>
-                <ImSpinner8 />
-              </span>
-            ) : (
-              <span>Creaza cont</span>
-            )}
-          </button>
-          {errorLogin &&
-          errorLogin.errorCode &&
-          errorsMessages[errorLogin.errorCode] ? (
-            <span className={styles.errorMessageRegister}>
-              {errorsMessages[errorLogin.errorCode]}
-            </span>
-          ) : errorLogin?.errorMessage ? (
-            <span className={styles.errorMessageRegister}>
-              {errorLogin.errorMessage}
-            </span>
-          ) : (
-            ""
-          )}
+          />
+          <ErrorMessage error={errorRegister} />
         </div>
       </div>
     </main>

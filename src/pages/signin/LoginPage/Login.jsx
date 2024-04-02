@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import styles from "./styles.module.css";
 import Logo from "../../../images/logo.svg";
-import errorsMessages from "../../../constants/errorsMessages.json";
 import { FcGoogle } from "react-icons/fc";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { useState } from "react";
@@ -11,6 +10,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login, reset } from "../../../features/auth/authSlice";
 import Button from "../../../components/ui/Button/Button";
+import ErrorMessage from "../../../components/ui/ErrorMessage/ErrorMessage";
 
 function Login() {
   const [visible, setVisibility] = useState(false);
@@ -116,19 +116,7 @@ function Login() {
             name="Login"
             isLoading={loading}
           />
-          {errorLogin &&
-          errorLogin.errorCode &&
-          errorsMessages[errorLogin.errorCode] ? (
-            <span className={styles.errorMessageLogin}>
-              {errorsMessages[errorLogin.errorCode]}
-            </span>
-          ) : errorLogin?.errorMessage ? (
-            <span className={styles.errorMessageLogin}>
-              {errorLogin.errorMessage}
-            </span>
-          ) : (
-            ""
-          )}
+          <ErrorMessage error={errorLogin} />
           <div className={styles.containerRememberMe}>
             <div className={styles.loginRememberMe}>
               <input

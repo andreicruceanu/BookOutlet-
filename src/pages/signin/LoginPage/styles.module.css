@@ -166,16 +166,7 @@ input
 .googleLogin svg {
   font-size: 18px;
 }
-.errorMessage {
-  font-size: 12px;
-  color: red;
-  margin-left: 5px;
-}
-.errorMessageLogin {
-  font-size: 14px;
-  color: red;
-  margin-left: 5px;
-}
+
 .iconPassword svg {
   top: 45%;
 }
