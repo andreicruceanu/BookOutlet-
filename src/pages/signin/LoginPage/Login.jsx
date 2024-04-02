@@ -75,6 +75,7 @@ function Login() {
           >
             {formLoginInput.map((input) => (
               <Input
+                key={input.id}
                 id={input.id}
                 type={input.type}
                 placeholder={input.placeholder}
@@ -93,6 +94,7 @@ function Login() {
           <div className={styles.containerRememberMe}>
             {formLoginCheckbox.map((checkbox) => (
               <Checkbox
+                key={checkbox.id}
                 id={checkbox.id}
                 className="my-0"
                 type={checkbox.type}

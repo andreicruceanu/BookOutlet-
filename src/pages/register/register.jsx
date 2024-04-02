@@ -80,6 +80,7 @@ function Register() {
           >
             {formRegisterInput.map((input) => (
               <Input
+                key={input.id}
                 id={input.id}
                 type={input.type}
                 placeholder={input.placeholder}
@@ -89,6 +90,7 @@ function Register() {
             ))}
             {formRegisterCheckbox.map((checkbox) => (
               <Checkbox
+                key={checkbox.id}
                 id={checkbox.id}
                 type={checkbox.type}
                 label={checkbox.label}
