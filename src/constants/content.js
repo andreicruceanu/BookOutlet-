@@ -17,6 +17,8 @@ const content = {
   no_account: "Nu ai cont? Crează unul aici",
   login_with: "Loghează-te cu",
   forgot_password: "Ai uitat parola?",
+  forgot_password_subtitle:
+    "Completează câmpurile de mai jos pentru a accesa contul tău din aplicația BookOutlet",
 };
 
 export default content;
