@@ -6,6 +6,7 @@ const content = {
   remove_to_favorite: "Șterge de la favorite",
   go_to_login: "Mergi la pagina de login",
   cancel: "Anulează",
+  continue: "Continuă",
 };
 
 export default content;
