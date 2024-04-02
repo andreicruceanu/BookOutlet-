@@ -14,6 +14,8 @@ import {
   removeFavorite,
   setModalNoUser,
 } from "../../../features/auth/authSlice";
+import Button from "../../../components/ui/Button/Button";
+import content from "../../../constants/content";
 
 function Favorite() {
   const { user, listFavorite } = useSelector((state) => state.auth);
@@ -49,7 +51,6 @@ function Favorite() {
     };
     dispatch(addToCartReducer(bookCart));
   };
-  console.log(listFavorite);
 
   return (
     <div className={styles.container}>
@@ -111,13 +112,15 @@ function Favorite() {
                           {book.price} Lei
                         </p>
                       </div>
-                      <button
-                        className={styles.btnAddToCart}
+                      <Button
+                        id="add_to_cart"
+                        type="button"
+                        className="max-w-220 flex items-center mt-0"
+                        classNameText="flex-3"
+                        startIconImage={BtnAddToCart}
+                        name={content.add_to_cart}
                         onClick={() => handleAddToCart(book)}
-                      >
-                        <img src={BtnAddToCart} alt="btn-add-to-cart" />
-                        <p>Adauga in cos</p>
-                      </button>
+                      />
                       <span
                         className={styles.btnRemoveToFavorite}
                         onClick={() => handleBookDelete(book)}
