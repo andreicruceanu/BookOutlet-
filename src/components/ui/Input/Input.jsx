@@ -3,17 +3,27 @@ import { useState } from "react";
 import styles from "./styles.module.css";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
-const Input = ({ type, name, placeholder, formik, ...props }) => {
+const Input = ({
+  className,
+  type = "text",
+  name,
+  placeholder,
+  formik,
+  ...props
+}) => {
   const [visiblePassword, setVisiblePassword] = useState(false);
   const { values, handleChange, handleBlur, errors, touched } = formik;
 
   const togglePasswordVisibility = () => {
     setVisiblePassword((prevState) => !prevState);
   };
+  const combinedClassName = className
+    ? `${className} ${styles.wrap}`
+    : `${styles.wrap}`;
 
   return (
     <>
-      <div className={styles.wrap}>
+      <div className={combinedClassName}>
         <input
           className={styles.input_primary}
           type={
