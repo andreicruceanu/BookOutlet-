@@ -13,6 +13,7 @@ const Button = React.forwardRef(
       type = "button",
       variant = "primary",
       isLoading = false,
+      disabled = false,
       ...props
     },
     ref
@@ -26,7 +27,7 @@ const Button = React.forwardRef(
         className={combinedClassName}
         ref={ref}
         type={type}
-        disabled={isLoading}
+        disabled={isLoading || disabled}
         {...props}
       >
         {startIconImage && <img src={startIconImage} alt={name} />}
