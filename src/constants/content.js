@@ -21,6 +21,15 @@ const content = {
     "Completează câmpurile de mai jos pentru a accesa contul tău din aplicația BookOutlet",
   newsletter_personal_page: "Vreau să primesc newsletterul BookOutlet",
   save: "Salvează",
+  welcome: "Bine ai venit,",
+  products: "produse",
+  empty_list_favorite: "Nu ai produse favorite.",
+  favorite_title: "Favorite",
+  my_vouchers: "Voucherele mele",
+  vouchers: "vouchere",
+  my_orders: "Comenzile mele",
+  orders: "comenzi",
+  empty_orders: "Nu ai comenzi.",
 };
 
 export default content;
