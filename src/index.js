@@ -13,9 +13,12 @@ import ForgotPassword from "./pages/signin/ForgotPassword/ForgotPassword.jsx";
 import ResetPassword from "./pages/resetPassword/ResetPassword";
 import Cart from "./pages/cart/Cart";
 import MyAccount from "./pages/account/MyAccount/MyAccount";
-import PersonalData from "./pages/account/Personal/PersonalData";
+import PersonalData from "./pages/account/PersonalData/PersonalData.jsx";
 import Favorite from "./pages/account/Favorites/Favorite";
 import BookInfo from "./pages/bookPage/bookDetails/BookInfo.jsx";
+import LayoutAccount from "./pages/account/LayoutAccount/LayoutAccount.jsx";
+import Vouchers from "./pages/account/Vouchers/Vouchers.jsx";
+import Orders from "./pages/account/Orders/Orders.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -29,9 +32,13 @@ root.render(
           <Route path="/recover-password" element={<ForgotPassword />} />
           <Route path="/resetare-parola" element={<ResetPassword />} />
           <Route path="/book/:id" element={<BookInfo />} />
-          <Route path="/account/account" element={<MyAccount />} />
-          <Route path="/account/personal" element={<PersonalData />} />
-          <Route path="/account/favourites" element={<Favorite />} />
+          <Route path="/account/*" element={<LayoutAccount />}>
+            <Route path="account" element={<MyAccount />} />
+            <Route path="personal" element={<PersonalData />} />
+            <Route path="favourites" element={<Favorite />} />
+            <Route path="vouchers" element={<Vouchers />} />
+            <Route path="orders" element={<Orders />} />
+          </Route>
           <Route path="/autori" element={<Authors />} />
           <Route path="/autor/:id" element={<AuthorsDetails />} />
           <Route path="/cos" element={<Cart />} />
