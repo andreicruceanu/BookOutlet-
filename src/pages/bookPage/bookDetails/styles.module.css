@@ -18,29 +18,7 @@
   flex-direction: column;
   width: 100%;
 }
-.detailsTitle {
-  width: 100%;
-}
-.detailsTitle a {
-  text-decoration: none;
-  color: #3f24b2;
-  font-size: 14px;
-  font-weight: 700;
-  margin-right: 10px;
-}
-.bookTitle {
-  margin: 5px 0px;
-  padding: 0;
-  color: #1f2533;
-  font-size: 24px;
-  font-weight: 700;
-  text-align: left;
-}
-.bookSubTitle {
-  font-size: 14px;
-  font-weight: 700;
-  color: #1f2533;
-}
+
 .detailsInfo {
   margin-top: 10px;
   display: flex;
@@ -120,39 +98,7 @@
 .detailsPricingBox:first-child {
   padding-right: 20px;
 }
-.textBook {
-  text-align: justify;
-  font-size: 14px;
-  color: #1f2533;
-}
-.textBook p {
-  margin: 0;
-  line-height: 1.42;
-}
-.promoDescriptionText {
-  width: 88%;
-}
-.detailsBonusSticker {
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 10px;
-  background-color: #e5fff2;
-}
-.detailsBonusSticker p {
-  margin: 0;
-  line-height: 18px;
-  color: #01a352;
-  font-size: 14px;
-  text-align: left;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-.detailsBonusSticker svg {
-  font-size: 30px;
-  color: #01a352;
-}
+
 .priceButtonWrap {
   display: flex;
   flex-direction: column;
@@ -160,83 +106,6 @@
   align-items: stretch;
 }
 
-.infoDeliveryWrap {
-  display: flex;
-  flex-direction: column;
-  margin: 20px 0;
-}
-.infoDeliveryIteam:not(:last-child) {
-  border-bottom: 1px solid #e1e1e5;
-  margin-bottom: 10px;
-}
-.infoDeliveryIteam {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-}
-
-.infoDeliveryIteam p {
-  margin: 0;
-}
-.iconPhone {
-  font-size: 28px;
-  color: #6b7999;
-  margin-right: 20px;
-}
-.infoPhone {
-  flex: 4;
-}
-.infoDelivery {
-  flex: 4;
-}
-.infoPhone {
-  color: #6b7999;
-  font-size: 13px;
-}
-.pd5 {
-  padding-top: 5px;
-}
-.infoPhone:last-child {
-  padding-top: 5px;
-}
-.infoProgram {
-  color: #6b7999;
-  flex: 3;
-}
-.green {
-  color: green;
-  padding-top: 5px;
-}
-.iconTruck {
-  font-size: 28px;
-  margin-right: 20px;
-  color: #6b7999;
-}
-.easyBoxImg {
-  margin-right: 10px;
-}
-.infoDelivery {
-  color: #6b7999;
-  font-size: 13px;
-}
-.easyBox {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  cursor: pointer;
-}
-.easyBox span {
-  display: flex;
-  align-items: center;
-  margin-left: 5px;
-}
-.easyBox span svg {
-  font-size: 18px;
-  color: #6b7999;
-}
 .devider {
   height: 1px;
   background-color: #e1e1e5;
@@ -293,42 +162,7 @@
 .descriptionText li {
   margin: 2px 0;
 }
-.authorWrap {
-  display: flex;
-  align-items: center;
-  margin-top: 20px;
-  gap: 20px;
-  margin-bottom: 10px;
-}
-.authorWrap img {
-  border-radius: 50%;
-}
-.authorDetails h3 {
-  margin: 0;
-  font-size: 17px;
-  color: #1f2533;
-}
-.authorDetails p {
-  margin: 10px 0;
-  font-size: 14px;
-  max-height: 305px;
-  color: #1f2533;
-  line-height: 1.6;
-  overflow: hidden;
-}
-.authorPageLink {
-  display: flex;
-  align-items: flex-end;
-  text-decoration: none;
-  font-size: 14px;
-  margin-top: 20px;
-  color: #007aff;
-}
-.authorPageLink svg {
-  margin-right: 5px;
-  color: #007aff;
-  font-size: 17px;
-}
+
 li {
   line-height: 1.7;
 }

@@ -1,6 +1,4 @@
 import { AiOutlineHeart } from "react-icons/ai";
-import { HiArrowLongRight } from "react-icons/hi2";
-import { CiPercent } from "react-icons/ci";
 import { FaPhoneAlt, FaTruck } from "react-icons/fa";
 import { IoInformationCircleSharp } from "react-icons/io5";
 import { Link, useParams } from "react-router-dom";
@@ -12,8 +10,6 @@ import easyBox from "../../../images/easybox-square.jpg";
 import ModalEasyBox from "../../../components/modal-EasyBox/ModalEasyBox.jsx";
 import { useEffect, useState } from "react";
 import Review from "../Review.jsx";
-import { API_URL_IMG } from "../../../api/api-img.js";
-import ReadMore from "../../author-Details/readMore.jsx";
 import AttributesBook from "../AttributesBook.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import ModalNoUser from "../../../components/modalNoUser/modalNoUser.jsx";
@@ -29,6 +25,10 @@ import { useBookDetails } from "../../../hooks/fetch-book-details.js";
 import content from "../../../constants/content.js";
 import Button from "../../../components/ui/Button/Button.jsx";
 import { getClassName, getName } from "./function.js";
+import ListAuthors from "../Components/ListAuthors/ListAuthors.jsx";
+import BookTitle from "../Components/BookTitle/BookTitle.jsx";
+import BookOverview from "../Components/BookOverview/BookOverview.jsx";
+import InfoDelivery from "../Components/InfoDelivery/InfoDelivery.jsx";
 
 function BookInfo() {
   const { listFavorite, modalNoUser, user } = useSelector(
@@ -152,16 +152,11 @@ function BookInfo() {
                 />
               </div>
               <div className={styles.details}>
-                <div className={styles.detailsTitle}>
-                  {book.authors &&
-                    book.authors?.map((author) => (
-                      <Link key={author.authorId} to={`/autor/${author.url}`}>
-                        {author.name}
-                      </Link>
-                    ))}
-                  <h1 className={styles.bookTitle}>{book.title}</h1>
-                  <span className={styles.bookSubTitle}>{book.subtitle}</span>
-                </div>
+                <BookTitle
+                  title={book.title}
+                  subtitle={book.subtitle}
+                  authors={book.authors}
+                />
                 <div className={styles.detailsInfo}>
                   <div className={styles.detailsInfoRating}>
                     <div className={styles.detailsInfoStar}>
@@ -196,29 +191,10 @@ function BookInfo() {
                   </div>
                 </div>
                 <div className={styles.detailsPricing}>
-                  <div className={styles.detailsPricingBox}>
-                    <div className={styles.detailsBonus}>
-                      <div className={styles.detailsBonusText}>
-                        <div
-                          className={styles.textBook}
-                          dangerouslySetInnerHTML={{
-                            __html: book.shortDescription,
-                          }}
-                        ></div>
-                      </div>
-                    </div>
-                    {book.promoDescription && (
-                      <div className={styles.detailsBonusSticker}>
-                        <div
-                          className={styles.promoDescriptionText}
-                          dangerouslySetInnerHTML={{
-                            __html: book.promoDescription,
-                          }}
-                        ></div>
-                        <CiPercent />
-                      </div>
-                    )}
-                  </div>
+                  <BookOverview
+                    shortDescription={book.shortDescription}
+                    promoDescription={book.promoDescription}
+                  />
                   <div className={styles.detailsPricingBox}>
                     <div className={styles.priceButtonWrap}>
                       <Button
@@ -245,52 +221,7 @@ function BookInfo() {
                         onClick={() => handleFavorite(book)}
                       />
                     </div>
-                    <div className={styles.infoDeliveryWrap}>
-                      <div className={styles.infoDeliveryIteam}>
-                        <FaPhoneAlt className={styles.iconPhone} />
-                        <div className={styles.infoPhone}>
-                          <p>Comanda prin telefon</p>
-                          <p className={styles.pd5}>0756 111 111</p>
-                        </div>
-                        <span className={styles.infoProgram}>
-                          <p>L-V 9:30 - 17:30</p>
-                        </span>
-                      </div>
-
-                      <div className={styles.infoDeliveryIteam}>
-                        <FaTruck className={styles.iconTruck} />
-                        <div className={styles.infoDelivery}>
-                          <p>Livrare in Romania</p>
-                          <p className={styles.green}>1-3 zile lucratoare</p>
-                        </div>
-                      </div>
-                      <ModalEasyBox
-                        open={isOpen}
-                        onClose={() => setIsOpen(false)}
-                      />
-                      <div className={styles.infoDeliveryIteam}>
-                        <img
-                          className={styles.easyBoxImg}
-                          src={easyBox}
-                          width={40}
-                          height={40}
-                          alt="easyBoxImg"
-                        />
-                        <div className={styles.infoDelivery}>
-                          <p
-                            className={styles.easyBox}
-                            onClick={() => setIsOpen(true)}
-                          >
-                            Ridicare din EasyBox
-                            <span>
-                              <IoInformationCircleSharp />
-                            </span>
-                          </p>
-
-                          <p className={styles.green}>1-3 zile lucratoare</p>
-                        </div>
-                      </div>
-                    </div>
+                    <InfoDelivery />
                   </div>
                 </div>
               </div>
@@ -328,30 +259,7 @@ function BookInfo() {
               </div>
             </div>
             <div className={`${styles.devider} ${styles.marginTop}`}></div>
-            {book.authors.map((author) => (
-              <div className={styles.container} key={author.authorId}>
-                <h2>Despre {author.name}</h2>
-                <div className={styles.authorWrap}>
-                  <img
-                    src={`${API_URL_IMG}/${author.imageUrl}`}
-                    alt={author.name}
-                    width={200}
-                    height={200}
-                  />
-                  <div className={styles.authorDetails}>
-                    <h3>Biografie</h3>
-                    <ReadMore text={author.description} maxHeight={310} />
-                    <Link
-                      to={`/autor/${author.url}`}
-                      className={styles.authorPageLink}
-                    >
-                      <HiArrowLongRight /> Vezi pagina autorului
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-
+            <ListAuthors listAuthors={book?.authors} />
             <div className={`${styles.devider} ${styles.marginTop}`}></div>
             <div className={styles.container}>
               <Review
