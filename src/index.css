@@ -56,6 +56,16 @@ body * {
 .max-w-220 {
   max-width: 220px !important;
 }
+.green {
+  color: green !important;
+  padding-top: 5px !important;
+}
+.red {
+  color: red;
+}
+.bold {
+  font-weight: bold;
+}
 .text-sm {
   font-size: 14px;
 }

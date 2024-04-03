@@ -30,6 +30,14 @@ const content = {
   my_orders: "Comenzile mele",
   orders: "comenzi",
   empty_orders: "Nu ai comenzi.",
+  phoneOrder: "Comandă prin telefon",
+  numberOrder: "0712345678",
+  storeProgram: "L-V 9:30 - 17:30",
+  shippingRomania: "Livrare în România",
+  shippingDays: "1-3 zile lucrătoare",
+  shippingEasybox: "Ridicare din EasyBox",
+  numberPeople: "persoane se uită la acest produs.",
+  hurry: "Grăbește-te! La acest produs, stocurile sunt limitate.",
 };
 
 export default content;
