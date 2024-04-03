@@ -230,23 +230,6 @@ function BookInfo() {
                         name={content.add_to_cart}
                         onClick={() => handleAddToCart(book)}
                       />
-                      {/* <button
-                        className={styles.btnFavorite}
-                        onClick={() => handleFavorite(book)}
-                      >
-                        <AiOutlineHeart
-                          className={
-                            isBookFavorite
-                              ? `${styles.iconHeart} ${styles.isFavorite}`
-                              : `${styles.iconHeart}`
-                          }
-                        />
-                        <p>
-                          {isBookFavorite
-                            ? `Sterge de la favorite`
-                            : `Adaugă la favorite`}
-                        </p>
-                      </button> */}
                       <Button
                         type="button"
                         size="lg"
