@@ -1,0 +1,11 @@
+.container {
+  max-width: 100%;
+  background-color: #f2f5f5;
+}
+.wrap {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 24px;
+  padding-bottom: 50px;
+}

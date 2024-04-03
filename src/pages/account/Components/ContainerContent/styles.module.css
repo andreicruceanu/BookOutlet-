@@ -1,0 +1,28 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.wrap {
+  background-color: #fff;
+  border-radius: 8px;
+  border-radius: 0.8rem;
+  background-color: #fff;
+  box-shadow: 0 0 3px rgb(0 0 0 / 5%);
+  border-bottom: 1px solid #ccc;
+}
+.header {
+  border-bottom: 1px solid #ccc;
+  padding: 20px 25px;
+  margin-bottom: 20px;
+}
+.header h3 {
+  font-weight: 500;
+  font-size: 22px;
+}
+.header p {
+  font-weight: 400;
+  color: #6b7999;
+  font-size: 14px;
+  margin: 0;
+}
