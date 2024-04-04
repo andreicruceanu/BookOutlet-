@@ -1,10 +1,12 @@
-import React from "react";
 import Author from "../Author/Author";
 
 const ListAuthors = ({ listAuthors }) => {
   return (
     <>
-      {listAuthors && listAuthors.map((author) => <Author author={author} />)}
+      {listAuthors &&
+        listAuthors.map((author) => (
+          <Author author={author} key={author.authorId} />
+        ))}
     </>
   );
 };

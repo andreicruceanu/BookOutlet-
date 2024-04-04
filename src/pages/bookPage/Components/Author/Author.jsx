@@ -7,7 +7,7 @@ import { HiArrowLongRight } from "react-icons/hi2";
 
 const Author = ({ author }) => {
   return (
-    <div className={styles.container} key={author.authorId}>
+    <div className={styles.container}>
       <h2>Despre {author.name}</h2>
       <div className={styles.authorWrap}>
         <img
