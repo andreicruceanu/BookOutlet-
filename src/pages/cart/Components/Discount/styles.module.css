@@ -1,0 +1,30 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+}
+.container {
+  background-color: #fff;
+  border-bottom: 1px solid #e1e1e5;
+  padding: 20px;
+  border-top: none;
+  border-radius: 8px;
+}
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 7px;
+}
+.flex p {
+  margin: 0 5px 0 0;
+}
+.flex span {
+  cursor: pointer;
+}
+.subtitle {
+  padding-bottom: 5px;
+  font-size: 13px;
+  color: #6b7999;
+  text-align: center;
+  margin: 0;
+}
