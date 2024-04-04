@@ -1,0 +1,48 @@
+.oldPrice {
+  display: flex;
+  align-items: center;
+}
+.oldPriceInfoWrap {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  position: relative;
+}
+.oldPriceInfoWrap svg {
+  font-size: 20px;
+  color: #6b7999;
+}
+.oldPriceInfoWrap:hover .priceInfo {
+  visibility: visible;
+}
+.priceInfo {
+  position: absolute;
+  visibility: hidden;
+  width: 270px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 20px 0 rgb(0 0 0 / 15%);
+  z-index: 1;
+  color: #222;
+  left: 20px;
+  top: 0px;
+  font-size: 14px;
+  padding: 5px 20px;
+  background-color: #fff;
+  border-radius: 3px;
+}
+.detailsInfoPrice {
+  display: flex;
+  flex-direction: column;
+}
+.oldPriceValue {
+  color: #6b7999;
+  font-size: 14px;
+}
+.newPrice {
+  margin-top: 5px;
+}
+.newPriceValue {
+  color: red;
+  font-size: 24px;
+  font-weight: 700;
+}
