@@ -38,6 +38,13 @@ const content = {
   shippingEasybox: "Ridicare din EasyBox",
   numberPeople: "persoane se uită la acest produs.",
   hurry: "Grăbește-te! La acest produs, stocurile sunt limitate.",
+  currency: "Lei",
+  productCost: "Cost produse:",
+  deliveryCost: "Cost livrare:",
+  processingCost: "Cost procesare:",
+  total: "Total:",
+  orderSummary: "Sumar comandă",
+  subtotal: "Subtotal:",
 };
 
 export default content;

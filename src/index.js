@@ -11,7 +11,6 @@ import { Provider } from "react-redux";
 import { store } from "./store.js";
 import ForgotPassword from "./pages/signin/ForgotPassword/ForgotPassword.jsx";
 import ResetPassword from "./pages/resetPassword/ResetPassword";
-import Cart from "./pages/cart/Cart";
 import MyAccount from "./pages/account/MyAccount/MyAccount";
 import PersonalData from "./pages/account/PersonalData/PersonalData.jsx";
 import Favorite from "./pages/account/Favorites/Favorite";
@@ -19,6 +18,7 @@ import BookInfo from "./pages/bookPage/bookDetails/BookInfo.jsx";
 import LayoutAccount from "./pages/account/LayoutAccount/LayoutAccount.jsx";
 import Vouchers from "./pages/account/Vouchers/Vouchers.jsx";
 import Orders from "./pages/account/Orders/Orders.jsx";
+import Cart from "./pages/cart/Cart/Cart.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
