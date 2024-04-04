@@ -1,0 +1,49 @@
+.descriptionWrap {
+  display: flex;
+  width: 100%;
+  max-width: 1190px;
+  margin: 30px auto 0;
+  padding-bottom: 40px;
+}
+.description {
+  max-width: 70%;
+  width: 100%;
+  margin: unset;
+}
+.descriptionText {
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: left;
+}
+.descriptionText p {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  line-height: 1.6;
+  color: #1f2533;
+}
+.banner {
+  display: block;
+  max-width: 40rem;
+  margin: 5rem auto 0;
+}
+.banner img {
+  display: block;
+  max-width: 35rem;
+  border-radius: 0.8rem;
+  width: 310px;
+  height: 310px;
+}
+
+.descriptionText ul {
+  margin: 0;
+  padding: 0;
+  padding-left: 15px;
+}
+.descriptionText li {
+  margin: 2px 0;
+}
+
+li {
+  line-height: 1.7;
+}
