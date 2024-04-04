@@ -39,54 +39,7 @@
   font-size: 13px;
   cursor: pointer;
 }
-.oldPrice {
-  display: flex;
-  align-items: center;
-}
-.oldPriceInfoWrap {
-  display: flex;
-  align-items: center;
-  margin-left: 5px;
-  position: relative;
-}
-.oldPriceInfoWrap svg {
-  font-size: 20px;
-  color: #6b7999;
-}
-.oldPriceInfoWrap:hover .priceInfo {
-  visibility: visible;
-}
-.priceInfo {
-  position: absolute;
-  visibility: hidden;
-  width: 270px;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 2px 20px 0 rgb(0 0 0 / 15%);
-  z-index: 1;
-  color: #222;
-  left: 20px;
-  top: 0px;
-  font-size: 14px;
-  padding: 5px 20px;
-  background-color: #fff;
-  border-radius: 3px;
-}
-.detailsInfoPrice {
-  display: flex;
-  flex-direction: column;
-}
-.oldPriceValue {
-  color: #6b7999;
-  font-size: 14px;
-}
-.newPrice {
-  margin-top: 5px;
-}
-.newPriceValue {
-  color: red;
-  font-size: 24px;
-  font-weight: 700;
-}
+
 .detailsPricing {
   display: flex;
   flex-direction: row;
@@ -99,70 +52,10 @@
   padding-right: 20px;
 }
 
-.priceButtonWrap {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
-}
-
-.devider {
-  height: 1px;
-  background-color: #e1e1e5;
-}
-.marginTop {
-  margin-top: 20px;
-}
 .container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
   min-height: 60px;
-}
-.descriptionWrap {
-  display: flex;
-  width: 100%;
-  max-width: 1190px;
-  margin: 30px auto 0;
-  padding-bottom: 40px;
-}
-.description {
-  max-width: 70%;
-  width: 100%;
-  margin: unset;
-}
-.banner2 {
-  display: block;
-  max-width: 40rem;
-  margin: 5rem auto 0;
-}
-.banner2 img {
-  display: block;
-  max-width: 35rem;
-  border-radius: 0.8rem;
-}
-.descriptionText {
-  margin-top: 20px;
-  font-size: 14px;
-  text-align: left;
-}
-.descriptionText p {
-  margin: 0;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  line-height: 1.6;
-  color: #1f2533;
-}
-.descriptionText ul {
-  margin: 0;
-  padding: 0;
-  padding-left: 15px;
-}
-.descriptionText li {
-  margin: 2px 0;
-}
-
-li {
-  line-height: 1.7;
 }
