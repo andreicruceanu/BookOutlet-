@@ -16,7 +16,7 @@ import PersonalData from "./pages/account/PersonalData/PersonalData";
 import Favorite from "./pages/account/Favorites/Favorite";
 import Vouchers from "./pages/account/Vouchers/Vouchers";
 import Orders from "./pages/account/Orders/Orders";
-import App from "./pages/app/App";
+import App from "./App";
 
 const router = createBrowserRouter([
   {
