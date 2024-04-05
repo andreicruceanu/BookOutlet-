@@ -12,7 +12,7 @@ const NotFound = () => {
           <div className={styles.error}>
             <BiErrorCircle className={styles.errorIcon} />
             <p className={styles.title}>This page could not be found</p>
-            <Link className={styles.link} to="/">
+            <Link className={styles.link} to="/" replace>
               Back to the home page
             </Link>
           </div>
