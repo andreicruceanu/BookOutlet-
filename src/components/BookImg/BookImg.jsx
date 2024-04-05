@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
-import { API_URL_IMG } from "../../api/api-img";
+import { getImageUrl } from "../../utils/images";
 function BookImg({ bookImg, title, id }) {
   return (
     <Link className={styles.imgWrap} to={`/book/${id}`}>
       <picture>
-        <source srcSet={`${API_URL_IMG}${bookImg}`} type="image/webp" />
         <img
           className={styles.bookImage}
-          src={`${API_URL_IMG}${bookImg}`}
+          src={getImageUrl(bookImg)}
           alt={title}
         />
       </picture>
