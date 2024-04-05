@@ -2,44 +2,49 @@ import { FaPhoneAlt, FaTruck, FaUsers } from "react-icons/fa";
 import styles from "./styles.module.css";
 import content from "../../../../constants/content";
 import EasyboxImg from "../../../../images/easybox-square.jpg";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import ModalEasyBox from "../../../../components/modal-EasyBox/ModalEasyBox";
 import { IoInformationCircleSharp } from "react-icons/io5";
+
+const getRandomNumberOfPeople = () => Math.floor(Math.random() * 19) + 2;
 
 const InfoDelivery = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const data = [
-    {
-      icon: <FaPhoneAlt />,
-      title: content.phoneOrder,
-      subtitle: content.numberOrder,
-      program: content.storeProgram,
-      isImage: false,
-    },
-    {
-      icon: <FaTruck />,
-      title: content.shippingRomania,
-      subtitle: content.shippingDays,
-      isImage: false,
-      color: "green",
-    },
-    {
-      icon: EasyboxImg,
-      title: content.shippingEasybox,
-      subtitle: content.shippingDays,
-      isImage: true,
-      iconInfo: true,
-      color: "green",
-    },
-    {
-      icon: <FaUsers />,
-      title: `${Math.floor(Math.random() * 19) + 2} ${content.numberPeople}`,
-      subtitle: content.hurry,
-      isImage: false,
-      colorTitle: "red bold",
-    },
-  ];
+  const data = useMemo(
+    () => [
+      {
+        icon: <FaPhoneAlt />,
+        title: content.phoneOrder,
+        subtitle: content.numberOrder,
+        program: content.storeProgram,
+        isImage: false,
+      },
+      {
+        icon: <FaTruck />,
+        title: content.shippingRomania,
+        subtitle: content.shippingDays,
+        isImage: false,
+        color: "green",
+      },
+      {
+        icon: EasyboxImg,
+        title: content.shippingEasybox,
+        subtitle: content.shippingDays,
+        isImage: true,
+        iconInfo: true,
+        color: "green",
+      },
+      {
+        icon: <FaUsers />,
+        title: `${getRandomNumberOfPeople()} ${content.numberPeople}`,
+        subtitle: content.hurry,
+        isImage: false,
+        colorTitle: "red bold",
+      },
+    ],
+    []
+  );
 
   return (
     <>
