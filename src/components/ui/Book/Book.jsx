@@ -1,20 +1,20 @@
-import Badges from "../badges/Badges";
-import BadgesDiscount from "../badges/BadgesDiscount";
-import BookImg from "../BookImg/BookImg";
-import BookStar from "../bookStar/BookStar";
-import BookTitle from "../bookTitle/BookTitle";
-import CartButton from "../cartButton/CartButton";
-import FavoriteIcon from "../favoriteIcon/FavoriteIcon";
+import Badges from "../../badges/Badges";
+import BadgesDiscount from "../../badges/BadgesDiscount";
+import BookImg from "../../BookImg/BookImg";
+import BookStar from "../../bookStar/BookStar";
+import BookTitle from "../../bookTitle/BookTitle";
+import CartButton from "../../cartButton/CartButton";
+import FavoriteIcon from "../../favoriteIcon/FavoriteIcon";
 import styles from "./styles.module.css";
-import BookPrice from "../bookPrice/PriceBook";
+import BookPrice from "../../bookPrice/PriceBook";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addFavorite,
   removeFavorite,
   setModalNoUser,
-} from "../../features/auth/authSlice";
-import favoriteApi from "../../api/modules/favorite.api";
-import { addToCartReducer } from "../../features/cart/cartSlice";
+} from "../../../features/auth/authSlice";
+import favoriteApi from "../../../api/modules/favorite.api";
+import { addToCartReducer } from "../../../features/cart/cartSlice";
 import { toast } from "react-toastify";
 
 function Book(bookData) {
