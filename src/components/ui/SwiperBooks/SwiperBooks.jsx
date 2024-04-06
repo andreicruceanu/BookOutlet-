@@ -7,9 +7,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
-import Book from "../book/Book";
-import { useBooks } from "../../hooks/fetch-book";
+import Book from "../Book/Book";
 import { toast } from "react-toastify";
+import { useBooks } from "../../../hooks/fetch-book";
 
 function SwiperBooks({ title, viewBook }) {
   const { books, error } = useBooks();
