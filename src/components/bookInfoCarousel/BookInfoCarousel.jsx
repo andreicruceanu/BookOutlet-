@@ -15,7 +15,7 @@ import BadgesDiscount from "../badges/BadgesDiscount";
 import { API_URL_IMG } from "../../api/api-img";
 function BookInfoCarousel({ badges, bookImg, price, name }) {
   return (
-    <>
+    <div className={styles.carousel}>
       <Swiper
         style={{ overflow: "visible" }}
         cssMode={true}
@@ -60,7 +60,7 @@ function BookInfoCarousel({ badges, bookImg, price, name }) {
           className={`swiper-button-next sw-next ${styles.swNextBookInfo}`}
         ></div>
       </Swiper>
-    </>
+    </div>
   );
 }
 
