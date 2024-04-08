@@ -4,14 +4,26 @@ import ModalReview from "../../ModalReview";
 import styles from "./styles.module.css";
 import reviewApi from "../../../../api/modules/review.api";
 import Review from "./Review";
+import Button from "../../../../components/ui/Button/Button";
 
 function Reviews({ review, bookId, bookTitle }) {
   const [isOpen, setOpenModal] = useState(false);
   const [listReviews, setListReviews] = useState([]);
-  const numberView = 2;
+  const [filteredReviews, setFilteredReviews] = useState([]);
+  const [page, setPage] = useState(1);
 
-  const onLoadMoare = () => {
-    return null;
+  useEffect(() => {
+    setFilteredReviews([...listReviews].splice(0, skip));
+  }, [listReviews]);
+
+  const skip = 4;
+
+  const onLoadMore = () => {
+    setFilteredReviews([
+      ...filteredReviews,
+      ...[...listReviews].splice(page * skip, skip),
+    ]);
+    setPage(page + 1);
   };
 
   function updateListReview(review) {
@@ -40,8 +52,8 @@ function Reviews({ review, bookId, bookTitle }) {
     review?.star5;
   return (
     <>
-      <div className={styles.reviewTitle}>Recenzii</div>
       <div id="reviews" className={styles.comments}>
+        <div className={styles.reviewTitle}>Recenzii</div>
         <div className={styles.filterWrap}>
           <div className={styles.commentsGrid}>
             <div className={styles.commentBox}>
@@ -132,17 +144,23 @@ function Reviews({ review, bookId, bookTitle }) {
               </div>
             </div>
           </div>
-          {listReviews.length > 0 && (
+          {filteredReviews.length > 0 && (
             <div className={styles.commentsContent}>
-              {listReviews.map((comment) => (
+              {filteredReviews.map((comment) => (
                 <Review comment={comment} key={comment._id} />
               ))}
             </div>
           )}
-          {numberView < listReviews.length && (
-            <span className={styles.reviewBtn} onClick={onLoadMoare}>
-              Vezi toate recenziile
-            </span>
+          {filteredReviews.length < listReviews.length && (
+            <div className="flex  w-full justify-center">
+              <Button
+                type="button"
+                variant="blue"
+                onClick={onLoadMore}
+                name=" Vezi toate recenziile"
+                className="max-w-220"
+              />
+            </div>
           )}
         </div>
         <ModalReview

@@ -6,7 +6,6 @@ import { TbMessagePlus } from "react-icons/tb";
 import { FaRegComments } from "react-icons/fa";
 
 const Review = ({ comment }) => {
-  console.log(comment);
   return (
     <div className={styles.comment} key={comment._id}>
       <div className={styles.commentWrap}>
