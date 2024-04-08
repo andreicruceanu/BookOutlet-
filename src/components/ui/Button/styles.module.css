@@ -16,7 +16,11 @@
   color: #3c24b2;
   border: 1px solid #3c24b2;
 }
-
+.blue {
+  color: #126fdf;
+  border: 1px solid #126fdf;
+  background-color: #fff;
+}
 .iconHeart {
   font-size: 25px;
   padding: 8px;
