@@ -1,0 +1,123 @@
+.container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-right: 15px;
+}
+.container:last-child {
+  margin-right: 0px;
+}
+
+/* btn My Account & Favorite */
+.actionBtn {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  align-items: center;
+  border: none;
+  outline: 0;
+  font-family: inherit;
+  transition: all 0.35s ease;
+  background-color: #fff;
+}
+.actionIcon {
+  position: relative;
+}
+.actionIcon svg {
+  font-size: 28px;
+  color: #293766;
+  font-weight: 400;
+}
+.actionBtnText {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+.actionBtnText span {
+  font-size: 14px;
+}
+.iconArrowDown {
+  font-size: 15px;
+  transform: translateY(0.5px);
+  font-weight: 400;
+  line-height: 10px;
+  color: #293766;
+  margin-left: 4px;
+}
+.my__account {
+  position: relative;
+}
+.favorite {
+  position: relative;
+}
+.navNotificationFavorite {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  top: -2px;
+  left: -8px;
+  position: absolute;
+  background-color: #e60013;
+  z-index: 9999;
+  color: #fff;
+  text-align: center;
+  font-size: 10px;
+  border-radius: 100%;
+}
+.navNotificationCart {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  top: -5px;
+  left: -5px;
+  position: absolute;
+  background-color: #e60013;
+  z-index: 9999;
+  color: #fff;
+  text-align: center;
+  font-size: 10px;
+  border-radius: 100%;
+}
+/* btn My Account & Favorite */
+
+/*
+  My Shooping Cart
+  */
+.actionLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-family: inherit;
+  position: relative;
+}
+.actionLinkText span {
+  font-size: 14px;
+  font-family: inherit;
+  color: black;
+  margin-left: 5px;
+}
+.actionLink svg {
+  font-size: 25px;
+  color: #293766;
+  font-weight: 400;
+  margin-left: 4px;
+}
+
+/*
+  My Shooping Cart
+  */
+
+@media screen and (max-width: 391px) {
+  .actionBtnText {
+    display: none;
+  }
+  .actionLinkText {
+    display: none;
+  }
+}
