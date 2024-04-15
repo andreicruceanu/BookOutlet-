@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { validateForm } from "./validateForm";
@@ -13,21 +13,20 @@ import content from "../../../../constants/content";
 import Button from "../../../../components/ui/Button/Button";
 import Checkbox from "../../../../components/ui/Checkbox/Checkbox";
 
-const FormPersonalData = () => {
+const FormPersonalData = ({ data }) => {
   const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const [onRequestUpdate, setOnReqestUpdate] = useState(false);
-  const [doneRequest, setDoneRequest] = useState(false);
 
   const formik = useFormik({
     initialValues: {
-      gender: "",
-      firstName: "",
-      lastName: "",
-      username: "",
-      email: "",
+      gender: data?.gender || "",
+      firstName: data?.firstName || "",
+      lastName: data?.lastName || "",
+      username: data?.username || "",
+      email: data?.email || "",
       password: "***********",
-      newsletter: true,
+      newsletter: data?.newsletter,
     },
 
     validationSchema: validateForm,
@@ -47,36 +46,10 @@ const FormPersonalData = () => {
     },
   });
 
-  useEffect(() => {
-    const getProfileUser = async () => {
-      setDoneRequest(false);
-      const { response, err } = await profileApi.getProfile();
-      setDoneRequest(true);
-
-      if (response) {
-        const { firstName, lastName, username, email, gender, newsletter } =
-          response;
-        formik.setValues({
-          firstName,
-          lastName,
-          username,
-          email,
-          gender,
-          newsletter,
-          password: "***********",
-        });
-      }
-      if (err) {
-        return toast.error(err.errorMessage ? err.errorMessage : err.message);
-      }
-    };
-
-    getProfileUser();
-  }, []);
-
   if (!user) {
     return navigate("/");
   }
+
   return (
     <form id="userUpdate" onSubmit={formik.handleSubmit}>
       <label className={styles.personalDataLabel}>Formă de adresare</label>
