@@ -21,7 +21,7 @@ const Radio = ({
       <input
         className={combinedClassName}
         value={value}
-        checked={values.gender.toString() === value.toString()}
+        checked={values?.gender.toString() === value?.toString()}
         onChange={handleChange}
         type={type}
         name={name}

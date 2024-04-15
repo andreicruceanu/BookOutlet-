@@ -8,16 +8,8 @@ import "swiper/css/pagination";
 
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 import Book from "../Book/Book";
-import { toast } from "react-toastify";
-import { useBooks } from "../../../hooks/fetch-book";
 
-function SwiperBooks({ title, viewBook }) {
-  const { books, error } = useBooks();
-
-  if (error) {
-    toast.error(error);
-  }
-
+function SwiperBooks({ title, viewBook, books }) {
   return (
     <>
       {title && (
@@ -44,7 +36,8 @@ function SwiperBooks({ title, viewBook }) {
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
         className={`${styles.mySwiper}`}
       >
-        {books?.length > 0 &&
+        {books &&
+          books?.length > 0 &&
           books.map((book) => (
             <SwiperSlide key={book._id}>
               <Book {...book} />

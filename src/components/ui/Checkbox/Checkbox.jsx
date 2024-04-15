@@ -10,6 +10,12 @@ const Checkbox = ({
 }) => {
   const { values, handleChange, handleBlur, errors, touched } = formik;
 
+  if (typeof values[name] === "undefined") {
+    values[name] = false;
+  }
+
+  console.log(values[name]);
+
   const combinedClassName = className
     ? `${className} ${styles.wrap_checkbox}`
     : `${styles.wrap_checkbox}`;
@@ -25,6 +31,7 @@ const Checkbox = ({
           onChange={handleChange}
           onBlur={handleBlur}
           {...props}
+          checked={values[name]}
         />
         <label htmlFor={name}>{label}</label>
       </div>
