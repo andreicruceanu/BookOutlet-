@@ -9,48 +9,6 @@
   max-width: 1190px;
   margin: 20px auto;
 }
-.carousel {
-  min-height: 450px;
-  max-width: 380px;
-}
-.details {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.detailsInfo {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.detailsInfoRating {
-  flex-basis: 50%;
-  display: flex;
-  flex-direction: column;
-}
-.detailsInfoStar {
-  text-align: left;
-}
-.detailsInfoReview {
-  text-decoration: none;
-  color: #126fdf;
-  font-size: 13px;
-  cursor: pointer;
-}
-
-.detailsPricing {
-  display: flex;
-  flex-direction: row;
-  margin-top: 20px;
-}
-.detailsPricingBox {
-  width: 50%;
-}
-.detailsPricingBox:first-child {
-  padding-right: 20px;
-}
 
 .container {
   width: 100%;
@@ -58,4 +16,37 @@
   margin: 0 auto;
   padding: 0 20px;
   min-height: 60px;
+}
+/* LOADER*/
+.containerLoader {
+  min-height: 80vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid;
+  border-color: #b224b3 #0000;
+  animation: l1 1s infinite;
+}
+@keyframes l1 {
+  to {
+    transform: rotate(0.5turn);
+  }
+}
+/* LOADER*/
+
+.containerSwiperBooks {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+}
+.newProducts {
+  background-color: #f2f5f5;
+  padding: 30px 0;
 }
