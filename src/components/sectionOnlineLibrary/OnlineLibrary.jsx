@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import requests from "../../constants/requests";
 import ReactIcon from "../reactIcon/ReactIcon";
 
-import SwiperBooks from "../SwiperBooks/SwiperBooks";
 import styles from "./styles.module.css";
+import SwiperBooks from "../ui/SwiperBooks/SwiperBooks";
 function OnlineLibrary() {
   const [categories, setCategories] = useState([]);
 
