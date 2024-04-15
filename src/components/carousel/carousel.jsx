@@ -10,22 +10,36 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
-import { API_URL_IMG } from "../../api/api-img";
 import { getSliders } from "../../features/sliders/sliderSlice";
-import LoadingSliders from "../loadingCarousel/LoadingSliders";
+import { BiError } from "react-icons/bi";
+import { getImageUrl } from "../../utils/images";
+import useFetchCached from "../../hooks/useFetchCached";
+
+const LoadingSliders = ({ isError }) => {
+  return (
+    <>
+      {isError ? (
+        <div className={styles.loaderContainer}>
+          <div className={styles.error}>
+            <BiError />
+          </div>
+        </div>
+      ) : (
+        <div className={styles.loaderContainer}>
+          <div className={styles.loaderStyles}></div>
+        </div>
+      )}
+    </>
+  );
+};
 
 function CarouselSliders() {
-  const dispatch = useDispatch();
-  const { sliders, isLoading, isError } = useSelector((state) => state.sliders);
-
-  useEffect(() => {
-    dispatch(getSliders());
-  }, [dispatch]);
+  const { data: sliders, isLoading, error } = useFetchCached("/sliders/all");
 
   if (isLoading) {
     return <LoadingSliders />;
   }
-  if (isError) {
+  if (error) {
     return <LoadingSliders isError={true} />;
   }
 
@@ -49,7 +63,7 @@ function CarouselSliders() {
               <picture className={styles.wrapperImg}>
                 <img
                   className={styles.carouselImg}
-                  src={`${API_URL_IMG}${desktopImage}`}
+                  src={getImageUrl(desktopImage)}
                   alt="BookOutlet: Librarie (Online) » EDITURA de Carti"
                 />
               </picture>
