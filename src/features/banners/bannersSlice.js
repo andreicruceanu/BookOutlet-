@@ -1,15 +1,15 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import bannersServices from "./bannersServices";
+import axios from "axios";
 
 const initialState = {
   banners: [],
-  isError: false,
-  isSuccess: false,
-  isLoading: false,
-  message: "",
+  error: null,
+  loading: false,
+  success: false,
 };
 
-export const getBanners = createAsyncThunk("/banners", async (_, thunkAPI) => {
+export const getBanners = createAsyncThunk("banners", async (_, thunkAPI) => {
   try {
     return await bannersServices.getBanners();
   } catch (error) {
@@ -28,16 +28,20 @@ export const bannerSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getBanners.pending, (state) => {
-        state.isLoading = true;
+        state.loading = true;
       })
       .addCase(getBanners.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.isSuccess = true;
+        state.loading = false;
+        state.error = false;
+        state.success = true;
         state.banners = action.payload;
       })
       .addCase(getBanners.rejected, (state, action) => {
-        state.isLoading = false;
-        state.isError = true;
+        if (axios.isCancel(action.payload)) {
+          return;
+        }
+        state.loading = false;
+        state.error = true;
         state.message = action.payload;
         state.banners = [];
       });
