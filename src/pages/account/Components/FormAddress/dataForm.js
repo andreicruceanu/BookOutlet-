@@ -13,14 +13,12 @@ const dataFormContactPerson = [
       label: "Prenume",
     },
   ],
-  [
-    {
-      id: "phone",
-      name: "phone",
-      type: "text",
-      label: "Telefon",
-    },
-  ],
+  {
+    id: "phone",
+    name: "phone",
+    type: "text",
+    label: "Telefon",
+  },
 ];
 
 const dataFormShippingAddress = [
@@ -28,32 +26,29 @@ const dataFormShippingAddress = [
     {
       id: "country",
       name: "country",
-      type: "select",
+      type: "text",
       label: "Tara",
+      disabled: true,
     },
     {
       id: "county",
-      name: "County",
+      name: "county",
       type: "select",
       label: "Judet",
     },
   ],
-  [
-    {
-      id: "city",
-      name: "city",
-      type: "text",
-      label: "Localitate",
-    },
-  ],
-  [
-    {
-      id: "address",
-      name: "address",
-      type: "text",
-      label: "Adresa",
-    },
-  ],
+  {
+    id: "city",
+    name: "city",
+    type: "text",
+    label: "Localitate",
+  },
+  {
+    id: "address",
+    name: "address",
+    type: "text",
+    label: "Adresa",
+  },
 ];
 
 export { dataFormContactPerson, dataFormShippingAddress };
