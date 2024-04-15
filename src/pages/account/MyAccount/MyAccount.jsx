@@ -1,4 +1,3 @@
-import MenuAccount from "../Components/MenuAccount/MenuAccount";
 import styles from "./MyAccount.module.css";
 import AddressImg from "../../../images/adresele-mele.svg";
 import AddressLink from "../../../components/addressLink/AddressLink";
@@ -22,6 +21,8 @@ function MyAccount() {
     };
     getProfileUser();
   }, []);
+
+  console.log(profileUser);
 
   return (
     <>
