@@ -51,7 +51,11 @@ const FormPersonalData = ({ data }) => {
   }
 
   return (
-    <form id="userUpdate" onSubmit={formik.handleSubmit}>
+    <form
+      id="userUpdate"
+      className={styles.formUser}
+      onSubmit={formik.handleSubmit}
+    >
       <label className={styles.personalDataLabel}>Formă de adresare</label>
       <div className={styles.gender}>
         {formRadioButtons.map((input) => (

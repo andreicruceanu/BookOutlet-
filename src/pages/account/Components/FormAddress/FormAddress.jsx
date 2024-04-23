@@ -7,22 +7,69 @@ import { counties } from "./counties";
 import Button from "../../../../components/ui/Button/Button";
 import content from "../../../../constants/content";
 import { validationAddress } from "./validationForm";
+import addressApi from "../../../../api/modules/address.api";
+import { toast } from "react-toastify";
+import { useState } from "react";
+import { useAddressContext } from "../AddressContext/AddressContext";
 
-const FormAddress = ({ onClose }) => {
+const initialValues = {
+  firstName: "",
+  lastName: "",
+  phone: "",
+  country: "Romania",
+  county: "",
+  city: "",
+  address: "",
+};
+
+const FormAddress = ({
+  addressValues = initialValues,
+  onClose,
+  editMode = false,
+}) => {
+  const [onRequestUpdate, setOnReqestUpdate] = useState(false);
+
+  const { setAddress } = useAddressContext();
+
   const formik = useFormik({
-    initialValues: {
-      firstName: "",
-      lastName: "",
-      phone: "",
-      country: "Romania",
-      county: "",
-      city: "",
-      address: "",
-    },
+    initialValues: addressValues,
     validationSchema: validationAddress,
 
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: async (values) => {
+      if (editMode) {
+        setOnReqestUpdate(true);
+        const { response, err } = await addressApi.updateAddress({
+          ...values,
+          addressId: addressValues?._id,
+        });
+        setOnReqestUpdate(false);
+        if (response) {
+          setAddress((prev) =>
+            [...prev].map((address) =>
+              address._id.toString() === response._id.toString()
+                ? response
+                : address
+            )
+          );
+          onClose();
+          toast.success("Address updated");
+        }
+        if (err) {
+          return toast.error(err.errorMessage ? err.errorMessage : err.message);
+        }
+      } else {
+        setOnReqestUpdate(true);
+        const { response, err } = await addressApi.saveAddress(values);
+        setOnReqestUpdate(false);
+        if (response) {
+          setAddress((prev) => [...prev, response]);
+          onClose();
+          toast.success("Address saved");
+        }
+        if (err) {
+          return toast.error(err.errorMessage ? err.errorMessage : err.message);
+        }
+      }
     },
   });
 
@@ -87,7 +134,12 @@ const FormAddress = ({ onClose }) => {
         </div>
       </div>
       <div className={styles.buttonWrap}>
-        <Button name="Salveaza" type="submit" className="max-w-220" />
+        <Button
+          name="Salveaza"
+          type="submit"
+          isLoading={onRequestUpdate}
+          className="max-w-220"
+        />
         <span className={styles.btnClose} onClick={onClose}>
           {content.cancel}
         </span>
