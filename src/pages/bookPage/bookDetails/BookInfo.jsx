@@ -20,6 +20,7 @@ import BookRating from "../Components/BookRating/BookRating.jsx";
 import Container from "../Components/Container/Container.jsx";
 import ContainerSwiperBookStore from "../../../components/containers/containerBookStore/ContainerSwiperBookStore.jsx";
 import useFetchBooks from "../../../hooks/useFetchBooks.js";
+import Spinner from "../../../components/Spinner/Spinner.jsx";
 
 function BookInfo() {
   const { id } = useParams();
@@ -40,7 +41,7 @@ function BookInfo() {
     <main>
       {isLoading && (
         <div className={styles.containerLoader}>
-          <div className={styles.loader}></div>
+          <Spinner />
         </div>
       )}
       {book && !isLoading && (

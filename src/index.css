@@ -54,6 +54,9 @@ body * {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
+.min-w-210px {
+  min-width: 210px !important;
+}
 .max-w-250 {
   max-width: 250px !important;
 }

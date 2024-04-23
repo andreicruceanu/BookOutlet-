@@ -22,8 +22,6 @@ function MyAccount() {
     getProfileUser();
   }, []);
 
-  console.log(profileUser);
-
   return (
     <>
       <div className={styles.myaccountWrap}>

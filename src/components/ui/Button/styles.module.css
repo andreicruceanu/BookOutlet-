@@ -16,6 +16,11 @@
   color: #3c24b2;
   border: 1px solid #3c24b2;
 }
+.delete {
+  color: red;
+  border: 1px solid red;
+  background: transparent;
+}
 .blue {
   color: #126fdf;
   border: 1px solid #126fdf;
@@ -37,6 +42,9 @@
   height: 40px;
   font-size: 14px;
   padding: 0;
+}
+.largeIcon svg {
+  font-size: 24px !important;
 }
 .lg {
   height: 50px !important;
