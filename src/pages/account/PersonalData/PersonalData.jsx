@@ -7,6 +7,9 @@ import Modal from "../../../components/modal/Modal";
 import FormAddress from "../Components/FormAddress/FormAddress";
 import useFetch from "../../../hooks/useFetch";
 import Spinner from "../../../components/Spinner/Spinner";
+import Address from "../Components/Address/Address";
+import AddressProvider from "../Components/AddressContext/AddressContext";
+
 function PersonalData() {
   const { isOpenModal, onOpenModal, onCloseModal } = useModal();
 
@@ -27,22 +30,27 @@ function PersonalData() {
           <Container title="Date personale">
             <FormPersonalData data={data} />
           </Container>
-          <Container title="Adresele mele">
-            <Button
-              onClick={onOpenModal}
-              type="button"
-              variant="secondary"
-              name="Adauga adresa"
-              className="max-w-250"
-            />
-          </Container>
-          <Modal
-            isOpen={isOpenModal}
-            onClose={onCloseModal}
-            title="Adaugă o nouă adresă de livrare"
-          >
-            <FormAddress onClose={onCloseModal} />
-          </Modal>
+          <AddressProvider userAddress={data?.savedAddresses}>
+            <Container title="Adresele mele">
+              <Address />
+              <div className={styles.buttonWrap}>
+                <Button
+                  onClick={onOpenModal}
+                  type="button"
+                  variant="secondary"
+                  name="Adauga adresa"
+                  className="max-w-250"
+                />
+              </div>
+            </Container>
+            <Modal
+              isOpen={isOpenModal}
+              onClose={onCloseModal}
+              title="Adaugă o nouă adresă de livrare"
+            >
+              <FormAddress onClose={onCloseModal} />
+            </Modal>
+          </AddressProvider>
         </>
       )}
     </div>

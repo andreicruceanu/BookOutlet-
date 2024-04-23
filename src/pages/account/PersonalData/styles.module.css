@@ -9,3 +9,6 @@
   align-items: center;
   justify-content: center;
 }
+.buttonWrap {
+  margin: 10px 20px 30px;
+}
