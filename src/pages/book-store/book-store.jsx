@@ -64,7 +64,7 @@ function BookStore() {
         <SwiperBooks title={"Noutăți"} viewBook={6} books={newsBookoutlet} />
       </ContainerSwiperBookStore>
 
-      <OnlineLibrary />
+      <OnlineLibrary books={topBooks} />
       <ContainerSwiperBookStore>
         <SwiperBooks title={"Top cărți"} viewBook={6} books={newBooks} />
       </ContainerSwiperBookStore>

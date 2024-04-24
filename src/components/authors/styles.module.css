@@ -7,6 +7,13 @@
 .homeAuthors {
   margin: 40px 0;
 }
+.authorWrap {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
 .authorsTitleWrap {
   display: flex;
   align-items: center;

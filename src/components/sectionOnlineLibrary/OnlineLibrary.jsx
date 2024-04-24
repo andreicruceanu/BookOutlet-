@@ -1,25 +1,18 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import requests from "../../constants/requests";
-import ReactIcon from "../reactIcon/ReactIcon";
+import { menuCategories } from "./menuCategories";
 
 import styles from "./styles.module.css";
 import SwiperBooks from "../ui/SwiperBooks/SwiperBooks";
-function OnlineLibrary() {
-  const [categories, setCategories] = useState([]);
 
-  useEffect(() => {
-    const dataCategories = async () => {
-      const response = await axios.get("/categories.json");
-      if (response.status === 200) {
-        setCategories(response.data);
-      } else {
-        console.log("A aparut o eroare la apelarea datelor ");
-      }
-    };
-    dataCategories();
-  }, []);
+function OnlineLibrary({ books }) {
+  const [menu] = useState(menuCategories);
+
+  const [activeItem, setActiveItem] = useState(menu[0].id);
+
+  const handleActiveItem = (itemId) => {
+    setActiveItem(itemId);
+  };
 
   return (
     <section className={styles.container}>
@@ -29,28 +22,33 @@ function OnlineLibrary() {
       <div className={styles.wrap}>
         <div className={styles.menuWrap}>
           <ul className={styles.menuList}>
-            {categories.length > 0 &&
-              categories.map((iteam) => (
-                <li key={iteam.id} className={styles.menuIteamWrap}>
-                  <div className={styles.menuIteam}>
-                    <ReactIcon icons={iteam.icon} />
-                    <span>{iteam.name}</span>
-                    <Link
-                      className={styles.newsletterBtn}
-                      to={iteam.url}
-                      title={iteam.name}
-                    >
-                      Vezi toate
-                    </Link>
-                  </div>
-                </li>
-              ))}
+            {menu.map((item) => (
+              <li
+                key={item.id}
+                className={`${styles.menuItemWrap} ${
+                  activeItem === item.id ? styles.active : ""
+                }`}
+                onClick={() => handleActiveItem(item.id)}
+              >
+                <div className={styles.menuIteam}>
+                  {item.icon}
+                  <span>{item.name}</span>
+                  <Link
+                    className={styles.newsletterBtn}
+                    to={item.url}
+                    title={item.name}
+                  >
+                    Vezi toate
+                  </Link>
+                </div>
+              </li>
+            ))}
           </ul>
         </div>
         <div className={styles.menuSlide}>
           <h2>Top oferte</h2>
           <div className={styles.swiperBooksContainer}>
-            <SwiperBooks fetchURL={requests.requestNewBookzone} viewBook={4} />
+            <SwiperBooks books={books} viewBook={4} />
           </div>
         </div>
       </div>

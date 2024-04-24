@@ -1,14 +1,23 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { API_URL_IMG } from "../../api/api-img";
-import { useAuthorAll } from "../../hooks/fetch-author-all";
 import { toast } from "react-toastify";
 import styles from "./styles.module.css";
+import endpoints from "../../api/endpoints";
+import useFetchCached from "../../hooks/useFetchCached";
+import { getImageUrl } from "../../utils/images";
+import Spinner from "../../components/Spinner/Spinner";
+import useScrollTop from "../../hooks/useScrollTop";
+import AuthorIteam from "../../components/authorIteam/AuthorIteam";
 
 function Authors() {
   const [query, setQuery] = useState("");
+  useScrollTop();
 
-  const { author, error } = useAuthorAll();
+  const {
+    data: authors,
+    isLoading,
+    error,
+  } = useFetchCached(endpoints.authorsAll);
 
   if (error) {
     toast.error(error.message);
@@ -19,43 +28,29 @@ function Authors() {
       <div className={`${styles.authorsTitle} ${styles.container}`}>
         <h2>Autori BookOutlet</h2>
       </div>
-
-      <div className={styles.authorsMain}>
-        <div className={styles.searchAuthorWrap}>
-          <input
-            type="text"
-            placeholder="Cauta un autor"
-            onChange={(e) => setQuery(e.target.value)}
-          />
+      {isLoading ? (
+        <div className={styles.containerLoader}>
+          <Spinner />
         </div>
-        <div className={styles.authorsMainWrap}>
-          {author?.length > 0 &&
-            author
-              .filter((author) => author.value.toLowerCase().includes(query))
-              .map((author) => (
-                <div className={styles.author} key={author._id}>
-                  <div className={styles.authorAvatar}>
-                    <Link to={`/autor/${author.url}`}>
-                      <img
-                        className={styles.authorImg}
-                        src={`${API_URL_IMG}${author.imageUrl}`}
-                        alt={author.value}
-                        title={author.value}
-                      />
-                    </Link>
-                  </div>
-                  <div className={styles.authorContent}>
-                    <div className={styles.titleWrap}>
-                      <h3>{author.value}</h3>
-                    </div>
-                    <div className={styles.numberBook}>
-                      <p>{author.books}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+      ) : (
+        <div className={styles.authorsMain}>
+          <div className={styles.searchAuthorWrap}>
+            <input
+              type="text"
+              placeholder="Cauta un autor"
+              onChange={(e) => setQuery(e.target.value)}
+            />
+          </div>
+          <div className={styles.authorsMainWrap}>
+            {authors?.length > 0 &&
+              authors
+                .filter((author) => author.value.toLowerCase().includes(query))
+                .map((author) => (
+                  <AuthorIteam author={author} key={author._id} />
+                ))}
+          </div>
         </div>
-      </div>
+      )}
     </main>
   );
 }
