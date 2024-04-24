@@ -1,5 +1,3 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "./styles.module.css";
@@ -10,10 +8,11 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
-import { getSliders } from "../../features/sliders/sliderSlice";
+
 import { BiError } from "react-icons/bi";
 import { getImageUrl } from "../../utils/images";
 import useFetchCached from "../../hooks/useFetchCached";
+import endpoints from "../../api/endpoints";
 
 const LoadingSliders = ({ isError }) => {
   return (
@@ -34,7 +33,7 @@ const LoadingSliders = ({ isError }) => {
 };
 
 function CarouselSliders() {
-  const { data: sliders, isLoading, error } = useFetchCached("/sliders/all");
+  const { data: sliders, isLoading, error } = useFetchCached(endpoints.sliders);
 
   if (isLoading) {
     return <LoadingSliders />;
