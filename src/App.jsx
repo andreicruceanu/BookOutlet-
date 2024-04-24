@@ -8,6 +8,7 @@ import { setListFavorites, setModalNoUser } from "./features/auth/authSlice";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ModalNoUser from "./components/modalNoUser/modalNoUser";
+import endpoints from "./api/endpoints";
 
 function App() {
   const { user, modalNoUser } = useSelector((state) => state.auth);
@@ -16,7 +17,7 @@ function App() {
 
   useEffect(() => {
     const getFavorites = async () => {
-      const res = await axios.get("/api/user/favorite", {
+      const res = await axios.get(endpoints.userFavorite, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("token")}`,
