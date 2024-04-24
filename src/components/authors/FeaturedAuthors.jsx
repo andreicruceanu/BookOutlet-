@@ -7,7 +7,7 @@ import endpoints from "../../api/endpoints";
 import useFetchCached from "../../hooks/useFetchCached";
 import styles from "./styles.module.css";
 
-const Autors = function () {
+const FeaturedAuthors = function () {
   const { data: authors, error } = useFetchCached(endpoints.featuredAuthors);
 
   if (error) {
@@ -38,4 +38,4 @@ const Autors = function () {
   );
 };
 
-export default Autors;
+export default FeaturedAuthors;

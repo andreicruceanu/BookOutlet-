@@ -3,7 +3,7 @@ import { BANNERS } from "../../constants/bannerComponentDisplay";
 import styles from "./styles.module.css";
 import Carousel from "../../components/carousel/carousel";
 import CarouselMenu from "../../components/carousel-menu/carousel-menu";
-import Autors from "../../components/authors/Authors";
+import Autors from "../../components/authors/FeaturedAuthors";
 import OnlineLibrary from "../../components/sectionOnlineLibrary/OnlineLibrary";
 import { useDispatch, useSelector } from "react-redux";
 import InfoHome from "../../components/infoHome/InfoHome";
