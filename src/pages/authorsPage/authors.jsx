@@ -1,15 +1,13 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import styles from "./styles.module.css";
 import endpoints from "../../api/endpoints";
 import useFetchCached from "../../hooks/useFetchCached";
-import { getImageUrl } from "../../utils/images";
 import Spinner from "../../components/Spinner/Spinner";
 import useScrollTop from "../../hooks/useScrollTop";
 import AuthorIteam from "../../components/authorIteam/AuthorIteam";
 
-function Authors() {
+const Authors = () => {
   const [query, setQuery] = useState("");
   useScrollTop();
 
@@ -53,6 +51,6 @@ function Authors() {
       )}
     </main>
   );
-}
+};
 
 export default Authors;

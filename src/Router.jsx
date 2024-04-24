@@ -7,7 +7,6 @@ import Register from "./pages/register/register";
 import ForgotPassword from "./pages/signin/ForgotPassword/ForgotPassword";
 import ResetPassword from "./pages/resetPassword/ResetPassword";
 import BookInfo from "./pages/bookPage/bookDetails/BookInfo";
-import Authors from "./pages/authors/Authors";
 import AuthorsDetails from "./pages/author-Details/authorsDetails";
 import Cart from "./pages/cart/Cart/Cart";
 import LayoutAccount from "./pages/account/LayoutAccount/LayoutAccount";
@@ -17,6 +16,7 @@ import Favorite from "./pages/account/Favorites/Favorite";
 import Vouchers from "./pages/account/Vouchers/Vouchers";
 import Orders from "./pages/account/Orders/Orders";
 import App from "./App";
+import Authors from "./pages/authorsPage/authors";
 
 const router = createBrowserRouter([
   {
