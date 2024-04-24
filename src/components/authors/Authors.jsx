@@ -1,30 +1,22 @@
-import { useState, useEffect } from "react";
-import styles from "./styles.module.css";
 import { Link } from "react-router-dom";
-import AuthorIteam from "../authorIteam/AuthorIteam";
-import { HiArrowLongRight } from "react-icons/hi2";
-import authorApi from "../../api/modules/author.api";
 import { toast } from "react-toastify";
+import { HiArrowLongRight } from "react-icons/hi2";
+
+import AuthorIteam from "../authorIteam/AuthorIteam";
+import endpoints from "../../api/endpoints";
+import useFetchCached from "../../hooks/useFetchCached";
+import styles from "./styles.module.css";
+
 const Autors = function () {
-  const [authors, setAuthors] = useState([]);
+  const { data: authors, error } = useFetchCached(endpoints.featuredAuthors);
 
-  useEffect(() => {
-    const authorsData = async () => {
-      const { response, err } = await authorApi.getAuthorImportance();
-      if (response) {
-        setAuthors(response);
-      }
-      if (err) {
-        toast.error(err.message);
-      }
-    };
-
-    authorsData();
-  }, []);
+  if (error) {
+    return toast.error(error);
+  }
 
   return (
     <>
-      {authors.length > 0 && (
+      {authors && (
         <section className={styles.containerAuthors}>
           <div className={styles.homeAuthors}>
             <div className={styles.authorsTitleWrap}>
@@ -34,7 +26,11 @@ const Autors = function () {
                 <HiArrowLongRight className={styles.iconArrowRight} />
               </Link>
             </div>
-            <AuthorIteam dataAuthor={authors} />
+            <div className={styles.authorWrap}>
+              {authors.map((author) => (
+                <AuthorIteam author={author} key={author._id} />
+              ))}
+            </div>
           </div>
         </section>
       )}
