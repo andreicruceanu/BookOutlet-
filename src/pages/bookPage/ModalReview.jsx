@@ -91,7 +91,7 @@ function ModalReview({ open, onClose, updateListReview, bookId, bookTitle }) {
                       {[...Array(5)].map((star, i) => {
                         const ratingValue = i + 1;
                         return (
-                          <label key={i}>
+                          <label key={i} className="mx-0">
                             <input
                               type="radio"
                               name="rating"

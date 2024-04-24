@@ -1,0 +1,23 @@
+.detailsTitle {
+  width: 100%;
+}
+.detailsTitle a {
+  text-decoration: none;
+  color: #3f24b2;
+  font-size: 14px;
+  font-weight: 700;
+  margin-right: 10px;
+}
+.bookTitle {
+  margin: 5px 0px;
+  padding: 0;
+  color: #1f2533;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: left;
+}
+.bookSubTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1f2533;
+}

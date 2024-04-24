@@ -1,9 +1,13 @@
-import axios from "axios";
+import publicClient from "../../api/client/public.clinet";
+
+const bannersEndpoint = {
+  getBanners: "banners",
+};
 
 const getBanners = async () => {
-  const response = await axios.get("api/banners");
+  const response = await publicClient.get(bannersEndpoint.getBanners);
 
-  return response.data;
+  return response;
 };
 
 const bannersServices = {

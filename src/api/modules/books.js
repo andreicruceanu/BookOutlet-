@@ -1,3 +1,4 @@
+import axios from "axios";
 import publicClient from "../client/public.clinet";
 
 const booksEndpoints = {
@@ -13,15 +14,23 @@ const booksApi = {
 
       return { response };
     } catch (err) {
+      if (axios.isCancel(err)) {
+        return;
+      }
       return { err };
     }
   },
-  bookDetails: async ({ id }) => {
+  bookDetails: async ({ id, signal }) => {
     try {
-      const response = await publicClient.get(booksEndpoints.bookDetails(id));
-
+      const response = await publicClient.get(
+        booksEndpoints.bookDetails(id),
+        signal
+      );
       return { response };
     } catch (err) {
+      if (axios.isCancel(err)) {
+        return;
+      }
       return { err };
     }
   },

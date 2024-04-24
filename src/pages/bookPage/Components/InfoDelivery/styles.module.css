@@ -1,0 +1,66 @@
+.infoDeliveryWrap {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+.infoDeliveryIteam:not(:last-child) {
+  border-bottom: 1px solid #e1e1e5;
+  margin-bottom: 10px;
+}
+.infoDeliveryIteam {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+.infoDeliveryIteam p {
+  margin: 0;
+}
+.iconContainer {
+  display: flex;
+}
+.iconContainer svg {
+  font-size: 28px;
+  color: #4d4d4d;
+  margin-right: 20px;
+}
+
+.infoWrap {
+  flex: 4;
+  color: #333;
+  font-size: 13px;
+}
+.infoWrap:last-child {
+  padding-top: 5px;
+}
+.infoWrap .subtitle {
+  padding-top: 4px;
+}
+
+.infoProgram {
+  color: #333;
+  flex: 3;
+}
+.easyBoxImg {
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+}
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+.title span {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+.title span svg {
+  font-size: 18px;
+  color: #333;
+}

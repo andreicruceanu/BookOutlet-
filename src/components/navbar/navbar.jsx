@@ -3,19 +3,18 @@ import { IoCartOutline } from "react-icons/io5";
 import React from "react";
 import Logo from "../logo/logo";
 import styles from "./styles.module.css";
-// TODO inlocuire btn_login ca loginButtonImage si numele fisierului in login-buttin
 
-import SearchInput from "./../search-input/search-input";
-import BooksCategoryMenu from "../books-category-menu/books-category-menu";
-
-import Action from "../action/action";
 import { ACTIONS } from "../../constants/actions";
 import {
   DATA_MENU_SECONDARY,
   DATA_MENU_SECONDARY2,
 } from "../../constants/menuData";
-import NavMenuSecondary from "../menu-secondary/nav-menu-secondary";
 import menuImg from "../../images/bars-regular.svg";
+import SearchInput from "./searchInput/SearchInput";
+
+import BooksCategoryMenu from "./booksCategoryMenu/BooksCategoryMenu";
+import MenuSecondary from "./menuSecondary/MenuSecondary";
+import Action from "./actionMenu/Action";
 
 function Navbar() {
   return (
@@ -62,13 +61,13 @@ function Navbar() {
         <div className={styles.navMenuContainer}>
           <BooksCategoryMenu />
           <div className={styles.navMenuSecondaryContainer}>
-            <NavMenuSecondary
+            <MenuSecondary
               dataMenuSecondary={DATA_MENU_SECONDARY}
               className="menuSecondary"
             />
           </div>
           <div className={styles.navMenuSecondaryContainer2}>
-            <NavMenuSecondary
+            <MenuSecondary
               dataMenuSecondary={DATA_MENU_SECONDARY2}
               className="menuSecondary2"
             />

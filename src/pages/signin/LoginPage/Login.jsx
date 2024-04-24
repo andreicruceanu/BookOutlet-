@@ -16,6 +16,7 @@ import Input from "../../../components/ui/Input/Input";
 import Checkbox from "../../../components/ui/Checkbox/Checkbox";
 import content from "../../../constants/content";
 import styles from "./styles.module.css";
+import useScrollTop from "../../../hooks/useScrollTop";
 
 function Login() {
   const [errorLogin, setErrorLogin] = useState(null);
@@ -23,6 +24,7 @@ function Login() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  useScrollTop();
 
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth

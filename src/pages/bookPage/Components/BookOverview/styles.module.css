@@ -1,0 +1,39 @@
+.detailsPricingBox {
+  width: 50%;
+}
+.detailsPricingBox:first-child {
+  padding-right: 20px;
+}
+.detailsBonusSticker {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 10px;
+  background-color: #e5fff2;
+}
+.detailsBonusSticker p {
+  margin: 0;
+  line-height: 18px;
+  color: #01a352;
+  font-size: 14px;
+  text-align: left;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.detailsBonusSticker svg {
+  font-size: 30px;
+  color: #01a352;
+}
+.textBook {
+  text-align: justify;
+  font-size: 14px;
+  color: #1f2533;
+}
+.textBook p {
+  margin: 0;
+  line-height: 1.42;
+}
+.promoDescriptionText {
+  width: 88%;
+}

@@ -1,0 +1,140 @@
+.containerEmptyCart {
+  width: 100%;
+  min-height: 80vh;
+  background-color: #f2f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.emptyCart {
+  width: 1200px;
+  margin: 0 auto;
+}
+.emptyCartWrap {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.btnEmptyCart {
+  text-decoration: none;
+  border: 1px solid #126fdf;
+  color: #126fdf;
+  background-color: #ffff;
+  padding: 15px 30px;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+
+/*  cart */
+.cartTitle {
+  font-size: 24px;
+  font-weight: 400;
+  padding: 10px;
+  color: #1f2533;
+  margin: 0;
+}
+.containerCart {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: rgba(242, 245, 245, 1);
+}
+.cartWrapper {
+  margin-bottom: 50px;
+}
+.cartWrapper {
+  display: flex;
+  flex-direction: row;
+}
+.cartDetails {
+  margin: 0 10px;
+  padding: 20px;
+  width: 70%;
+  border-bottom: 1px solid #e1e1e5;
+  box-shadow: 0 0 3px rgb(0 0 0 / 5%);
+  background-color: #fff;
+  border-radius: 8px;
+}
+.cartSubtitle {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+/* cart subtotal*/
+.cartSubtotal,
+.cartItem {
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 3px 0;
+}
+
+.cartItemText {
+  text-align: right;
+  width: 200px;
+  margin-left: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+.cartItemSum {
+  width: 150px;
+  text-align: right;
+  margin-left: unset;
+  margin-top: 0;
+  font-size: 16px;
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+.cartSubtotalText {
+  text-align: right;
+  width: 200px;
+  margin-left: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 700;
+}
+.cartSubtotalSum {
+  width: 150px;
+  text-align: right;
+  margin-left: unset;
+  margin-top: 0;
+  font-size: 16px;
+  margin-bottom: 0;
+  line-height: 1.6;
+  font-weight: 700;
+}
+.totalDiscount {
+  background-image: linear-gradient(0deg, #4224b2, #ac24b3);
+  text-align: center;
+  padding: 22px 0;
+  margin: 15px 0;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* cart subtotal*/
+
+/* Summary Cart  */
+.cartAside {
+  width: 30%;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Summary Cart  */
+
+/*  cart */

@@ -1,0 +1,61 @@
+.cartSummary {
+  background-color: #fff;
+  border-bottom: 1px solid #e1e1e5;
+  padding: 20px;
+  border-top: none;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+.content {
+  padding: 10px 0;
+}
+.wrap {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.wrap p {
+  line-height: 1.6;
+}
+.summaryText {
+  text-align: left;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #1f2533;
+}
+.summarySum {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+  font-size: 14px;
+  font-weight: 400;
+  color: #1f2533;
+}
+.totalPriceContainer {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #e1e1e5;
+  margin-top: 10px;
+}
+.totalPriceWrap {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 10px 0;
+}
+.totalPriceText {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1f2533;
+  line-height: 1.6;
+}
+.totalPriceSum {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2533;
+  line-height: 1.6;
+}

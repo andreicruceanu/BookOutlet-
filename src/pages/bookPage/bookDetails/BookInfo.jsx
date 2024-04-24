@@ -1,386 +1,115 @@
-import { AiOutlineHeart } from "react-icons/ai";
-import { HiArrowLongRight } from "react-icons/hi2";
-import { CiPercent } from "react-icons/ci";
-import { FaPhoneAlt, FaTruck } from "react-icons/fa";
-import { IoInformationCircleSharp } from "react-icons/io5";
 import { Link, useParams } from "react-router-dom";
 import BookInfoCarousel from "../../../components/bookInfoCarousel/BookInfoCarousel.jsx";
 import BookStar from "../../../components/bookStar/BookStar.jsx";
 import styles from "./styles.module.css";
-import BtnAddToCart from "../../../images/adauga-in-cos.svg";
-import easyBox from "../../../images/easybox-square.jpg";
-import ModalEasyBox from "../../../components/modal-EasyBox/ModalEasyBox.jsx";
-import { useEffect, useState } from "react";
-import Review from "../Review.jsx";
-import { API_URL_IMG } from "../../../api/api-img.js";
-import ReadMore from "../../author-Details/readMore.jsx";
-import AttributesBook from "../AttributesBook.jsx";
-import { useDispatch, useSelector } from "react-redux";
-import ModalNoUser from "../../../components/modalNoUser/modalNoUser.jsx";
-import {
-  addFavorite,
-  removeFavorite,
-  setModalNoUser,
-} from "../../../features/auth/authSlice.js";
-import favoriteApi from "../../../api/modules/favorite.api.js";
-import { addToCartReducer } from "../../../features/cart/cartSlice.js";
+import ListAuthors from "../Components/ListAuthors/ListAuthors.jsx";
+import BookTitle from "../Components/BookTitle/BookTitle.jsx";
+import BookOverview from "../Components/BookOverview/BookOverview.jsx";
+import InfoDelivery from "../Components/InfoDelivery/InfoDelivery.jsx";
+import BookPrice from "../Components/BookPrice/BookPrice.jsx";
+import Summary from "../Components/Summary/Summary.jsx";
+import BookAttributes from "../Components/BookAttributes/BookAttributes.jsx";
+import Reviews from "../Components/Reviews/Reviews.jsx";
+import Devider from "../Components/Devider/Devider.jsx";
+import ButtonsPage from "../Components/ButtonsPage/ButtonsPage.jsx";
+import useScrollTop from "../../../hooks/useScrollTop.js";
 import { toast } from "react-toastify";
-import { useBookDetails } from "../../../hooks/fetch-book-details.js";
-import content from "../../../constants/content.js";
-import Button from "../../../components/ui/Button/Button.jsx";
-import { getClassName, getName } from "./function.js";
+import useRecommendedProducts from "../../../hooks/useRecommendedBooks.js";
+import SwiperBooks from "../../../components/ui/SwiperBooks/SwiperBooks.jsx";
+import BookRating from "../Components/BookRating/BookRating.jsx";
+import Container from "../Components/Container/Container.jsx";
+import ContainerSwiperBookStore from "../../../components/containers/containerBookStore/ContainerSwiperBookStore.jsx";
+import useFetchBooks from "../../../hooks/useFetchBooks.js";
+import Spinner from "../../../components/Spinner/Spinner.jsx";
 
 function BookInfo() {
-  const { listFavorite, modalNoUser, user } = useSelector(
-    (state) => state.auth
-  );
-  const [isOpen, setIsOpen] = useState(false);
-  const [isBookFavorite, setBookFavorite] = useState(false);
-
   const { id } = useParams();
-  console.log(id);
-  const { book, error } = useBookDetails(id);
 
-  const dispatch = useDispatch();
+  const { data: book, isLoading, error } = useFetchBooks(id);
 
-  useEffect(() => {
-    if (book && user) {
-      setBookFavorite(
-        listFavorite.some(
-          (item) => item.bookId === book._id && item.user === user.id
-        )
-      );
-    }
-  }, [book, user, listFavorite]);
+  const {
+    data: recommendedProducts,
+    isLoading: isLoadingFeatured,
+    error: errorFeatured,
+  } = useRecommendedProducts(id);
 
-  const handleAddToCart = (book) => {
-    const { _id, title, subtitle, url } = book;
-    const price = book.price.price;
-    const oldPrice = book.price.oldPrice;
-    const mainImageUrl = book.images.find((img) => img.is_main === true).url;
+  useScrollTop(id);
 
-    const bookCart = {
-      _id,
-      title,
-      subtitle,
-      url,
-      mainImageUrl,
-      oldPrice,
-      price,
-    };
+  if (error) return toast.error(error);
 
-    dispatch(addToCartReducer(bookCart));
-  };
-
-  const handleFavorite = async (book) => {
-    if (!user) {
-      return dispatch(setModalNoUser(true));
-    }
-    if (isBookFavorite) {
-      const favoriteDetails = listFavorite.find(
-        (item) => item.bookId === book._id && item.user === user.id
-      );
-      const { response, err } = await favoriteApi.remove({
-        favoriteId: favoriteDetails._id,
-      });
-
-      if (err) {
-        return toast.error(err.errorMessage ? err.errorMessage : err.message);
-      }
-
-      if (response) {
-        dispatch(removeFavorite(favoriteDetails));
-        setBookFavorite(false);
-      }
-    } else {
-      const { _id, title, url, subtitle } = book;
-      const price = book.price.price;
-      const oldPrice = book.price.oldPrice;
-      const mainImageUrl = book.images.find((img) => img.is_main === true).url;
-
-      const body = {
-        bookId: _id,
-        mainImageUrl,
-        price,
-        oldPrice,
-        title,
-        subtitle,
-        url,
-      };
-
-      const { response, err } = await favoriteApi.add(body);
-
-      if (err) {
-        return toast.error(err.errorMessage ? err.errorMessage : err.message);
-      }
-      if (response) {
-        dispatch(addFavorite(response));
-        toast.success("Ai adaugat o carte la favorite!");
-        setBookFavorite(true);
-      }
-    }
-  };
-
-  const handleClose = () => {
-    return dispatch(setModalNoUser(false));
-  };
-
-  if (error) {
-    toast.error(error);
-    return;
-  }
   return (
-    <>
-      {book && (
-        <main>
-          <ModalNoUser
-            textHeader={"Loghează-te"}
-            textContent={
-              "Pentru a putea adauga la favorite o carte trebuie sa intri in contul tau BookOutlet"
-            }
-            open={modalNoUser}
-            onClose={handleClose}
-          />
-          <div className={styles.containerBig}>
-            <div className={styles.wrap}>
-              <div className={styles.carousel}>
-                <BookInfoCarousel
-                  badges={book.badges}
-                  bookImg={book.images}
-                  price={book.price}
-                  name={book.title}
+    <main>
+      {isLoading && (
+        <div className={styles.containerLoader}>
+          <Spinner />
+        </div>
+      )}
+      {book && !isLoading && (
+        <div className="flex flex-col">
+          <Container>
+            <BookInfoCarousel
+              badges={book.badges}
+              bookImg={book.images}
+              price={book.price}
+              name={book.title}
+            />
+            <div className="flex flex-col w-full">
+              <BookTitle
+                title={book.title}
+                subtitle={book.subtitle}
+                authors={book.authors}
+              />
+              <div className="flex flex-row mt-10 items-center">
+                <BookRating rating={book.rating} />
+                <BookPrice
+                  oldPrice={book?.price.oldPrice}
+                  price={book?.price.price}
                 />
               </div>
-              <div className={styles.details}>
-                <div className={styles.detailsTitle}>
-                  {book.authors &&
-                    book.authors?.map((author) => (
-                      <Link key={author.authorId} to={`/autor/${author.url}`}>
-                        {author.name}
-                      </Link>
-                    ))}
-                  <h1 className={styles.bookTitle}>{book.title}</h1>
-                  <span className={styles.bookSubTitle}>{book.subtitle}</span>
-                </div>
-                <div className={styles.detailsInfo}>
-                  <div className={styles.detailsInfoRating}>
-                    <div className={styles.detailsInfoStar}>
-                      <BookStar rating={book.rating.rating} />
-                    </div>
-                    <Link to={"reviews"} className={styles.detailsInfoReview}>
-                      {`${
-                        Number.isInteger(book.rating.rating)
-                          ? book.rating.rating
-                          : Number(book.rating.rating).toFixed(2)
-                      } (${book.rating.totalReviews} review-uri)`}
-                    </Link>
-                  </div>
-                  <div className="detailsInfoPrice">
-                    <div className={styles.oldPrice}>
-                      <span className={styles.oldPriceValue}>
-                        PRP: {book.price.oldPrice} Lei
-                      </span>
-                      <span className={styles.oldPriceInfoWrap}>
-                        <IoInformationCircleSharp />
-                        <span className={styles.priceInfo}>
-                          Acesta este Prețul Recomandat de Producător. Prețul de
-                          vânzare al produsului este afișat mai jos.
-                        </span>
-                      </span>
-                    </div>
-                    <div className={styles.newPrice}>
-                      <span className={styles.newPriceValue}>
-                        {book?.price.price} Lei
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div className={styles.detailsPricing}>
-                  <div className={styles.detailsPricingBox}>
-                    <div className={styles.detailsBonus}>
-                      <div className={styles.detailsBonusText}>
-                        <div
-                          className={styles.textBook}
-                          dangerouslySetInnerHTML={{
-                            __html: book.shortDescription,
-                          }}
-                        ></div>
-                      </div>
-                    </div>
-                    {book.promoDescription && (
-                      <div className={styles.detailsBonusSticker}>
-                        <div
-                          className={styles.promoDescriptionText}
-                          dangerouslySetInnerHTML={{
-                            __html: book.promoDescription,
-                          }}
-                        ></div>
-                        <CiPercent />
-                      </div>
-                    )}
-                  </div>
-                  <div className={styles.detailsPricingBox}>
-                    <div className={styles.priceButtonWrap}>
-                      <Button
-                        className="flex items-center mt-0"
-                        classNameText="w-full"
-                        startIconImage={BtnAddToCart}
-                        type="button"
-                        size="lg"
-                        name={content.add_to_cart}
-                        onClick={() => handleAddToCart(book)}
-                      />
-                      {/* <button
-                        className={styles.btnFavorite}
-                        onClick={() => handleFavorite(book)}
-                      >
-                        <AiOutlineHeart
-                          className={
-                            isBookFavorite
-                              ? `${styles.iconHeart} ${styles.isFavorite}`
-                              : `${styles.iconHeart}`
-                          }
-                        />
-                        <p>
-                          {isBookFavorite
-                            ? `Sterge de la favorite`
-                            : `Adaugă la favorite`}
-                        </p>
-                      </button> */}
-                      <Button
-                        type="button"
-                        size="lg"
-                        name={getName(isBookFavorite)}
-                        className="flex items-center mt-0"
-                        classNameText="w-full"
-                        variant="secondary"
-                        startIcon={
-                          <AiOutlineHeart
-                            className={getClassName(isBookFavorite)}
-                          />
-                        }
-                        onClick={() => handleFavorite(book)}
-                      />
-                    </div>
-                    <div className={styles.infoDeliveryWrap}>
-                      <div className={styles.infoDeliveryIteam}>
-                        <FaPhoneAlt className={styles.iconPhone} />
-                        <div className={styles.infoPhone}>
-                          <p>Comanda prin telefon</p>
-                          <p className={styles.pd5}>0756 111 111</p>
-                        </div>
-                        <span className={styles.infoProgram}>
-                          <p>L-V 9:30 - 17:30</p>
-                        </span>
-                      </div>
-
-                      <div className={styles.infoDeliveryIteam}>
-                        <FaTruck className={styles.iconTruck} />
-                        <div className={styles.infoDelivery}>
-                          <p>Livrare in Romania</p>
-                          <p className={styles.green}>1-3 zile lucratoare</p>
-                        </div>
-                      </div>
-                      <ModalEasyBox
-                        open={isOpen}
-                        onClose={() => setIsOpen(false)}
-                      />
-                      <div className={styles.infoDeliveryIteam}>
-                        <img
-                          className={styles.easyBoxImg}
-                          src={easyBox}
-                          width={40}
-                          height={40}
-                          alt="easyBoxImg"
-                        />
-                        <div className={styles.infoDelivery}>
-                          <p
-                            className={styles.easyBox}
-                            onClick={() => setIsOpen(true)}
-                          >
-                            Ridicare din EasyBox
-                            <span>
-                              <IoInformationCircleSharp />
-                            </span>
-                          </p>
-
-                          <p className={styles.green}>1-3 zile lucratoare</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+              <div className="flex flex-row mt-20">
+                <BookOverview
+                  shortDescription={book.shortDescription}
+                  promoDescription={book.promoDescription}
+                />
+                <div className="w-50">
+                  <ButtonsPage book={book} />
+                  <InfoDelivery />
                 </div>
               </div>
             </div>
-            <div className={`${styles.devider} ${styles.marginTop}`}></div>
-            <AttributesBook bookName={book.title} bookId={book.bookId} />
-            <div className={`${styles.devider} ${styles.marginTop}`}></div>
-            <div className={styles.container}>
-              <div className={styles.descriptionWrap}>
-                <div className={styles.description}>
-                  <h2>
-                    Rezumat {book.title} -
-                    {book.authors.map((author) => author.name).join(", ")}
-                  </h2>
-                  <div className={styles.descriptionContent}>
-                    <div
-                      id="descriere"
-                      dangerouslySetInnerHTML={{
-                        __html: book.description,
-                      }}
-                      className={styles.descriptionText}
-                    ></div>
-                  </div>
-                </div>
-                <div className={styles.banner2}>
-                  <img
-                    src={
-                      "https://assets.bkz.ro/upload/altele/default/banner/1782/Patrat.webp"
-                    }
-                    alt=""
-                    width={310}
-                    height={310}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className={`${styles.devider} ${styles.marginTop}`}></div>
-            {book.authors.map((author) => (
-              <div className={styles.container} key={author.authorId}>
-                <h2>Despre {author.name}</h2>
-                <div className={styles.authorWrap}>
-                  <img
-                    src={`${API_URL_IMG}/${author.imageUrl}`}
-                    alt={author.name}
-                    width={200}
-                    height={200}
-                  />
-                  <div className={styles.authorDetails}>
-                    <h3>Biografie</h3>
-                    <ReadMore text={author.description} maxHeight={310} />
-                    <Link
-                      to={`/autor/${author.url}`}
-                      className={styles.authorPageLink}
-                    >
-                      <HiArrowLongRight /> Vezi pagina autorului
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-
-            <div className={`${styles.devider} ${styles.marginTop}`}></div>
-            <div className={styles.container}>
-              <Review
-                review={book.rating}
-                bookTitle={book.title}
-                bookId={book._id}
-              />
-            </div>
-          </div>
-        </main>
+          </Container>
+          <Devider />
+          <Container>
+            <BookAttributes bookName={book.title} bookId={book.bookId} />
+          </Container>
+          <Devider />
+          <Container>
+            <Summary
+              title={book.title}
+              authors={book.authors}
+              description={book.description}
+            />
+          </Container>
+          <Devider />
+          <ListAuthors listAuthors={book?.authors} />
+          <Devider />
+          <Container>
+            <Reviews
+              review={book.rating}
+              bookTitle={book.title}
+              bookId={book._id}
+            />
+          </Container>
+          <ContainerSwiperBookStore>
+            <SwiperBooks
+              title={"Recommended for You"}
+              viewBook={6}
+              books={recommendedProducts}
+            />
+          </ContainerSwiperBookStore>
+        </div>
       )}
-    </>
+    </main>
   );
 }
 

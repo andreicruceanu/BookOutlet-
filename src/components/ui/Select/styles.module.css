@@ -1,0 +1,25 @@
+.input_primary {
+  width: 100%;
+}
+
+.input_primary {
+  width: 100%;
+  font-size: 14px;
+  color: #1f2533;
+  margin-top: 0;
+  border-radius: 4px;
+  padding: 10px 0 10px 12px;
+  border: 1px solid #dfdfe5;
+  outline: none;
+  box-sizing: border-box;
+  transition: 0.3s all ease;
+}
+.wrap {
+  position: relative;
+  margin-top: 0px;
+}
+.errorMessage {
+  font-size: 12px;
+  color: red;
+  margin-left: 5px;
+}

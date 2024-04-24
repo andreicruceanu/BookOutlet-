@@ -1,13 +1,41 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import sliderServices from "./sliderService.js";
+import axios from "axios";
 
 const initialState = {
   sliders: [],
-  isError: false,
-  isSuccess: false,
-  isLoading: false,
-  message: "",
+  error: false,
+  errorMessage: undefined,
+  success: false,
+  loading: false,
 };
+
+export const sliderSlice = createSlice({
+  name: "sliders",
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(getSliders.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(getSliders.fulfilled, (state, action) => {
+        state.loading = false;
+        state.success = true;
+        state.sliders = action.payload;
+      })
+      .addCase(getSliders.rejected, (state, action) => {
+        if (axios.isCancel(action.payload)) {
+          return;
+        }
+        state.loading = false;
+        state.success = false;
+        state.error = true;
+        state.errorMessage = action.payload;
+        state.sliders = [];
+      });
+  },
+});
 
 export const getSliders = createAsyncThunk(
   "slider/all",
@@ -23,28 +51,5 @@ export const getSliders = createAsyncThunk(
     }
   }
 );
-
-export const sliderSlice = createSlice({
-  name: "slider",
-  initialState,
-  reducers: {},
-  extraReducers: (builder) => {
-    builder
-      .addCase(getSliders.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(getSliders.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.isSuccess = true;
-        state.sliders = action.payload;
-      })
-      .addCase(getSliders.rejected, (state, action) => {
-        state.isLoading = false;
-        state.isError = true;
-        state.message = action.payload;
-        state.sliders = [];
-      });
-  },
-});
 
 export default sliderSlice.reducer;

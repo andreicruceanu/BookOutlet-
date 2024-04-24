@@ -18,17 +18,12 @@ body * {
 .swiper-pagination {
   width: 100% !important;
 }
-.flex {
-  display: flex;
-}
-.items-center {
-  align-items: center;
-}
-.flex-3 {
-  flex: 3;
-}
+
 .w-full {
   width: 100%;
+}
+.w-50 {
+  width: 50%;
 }
 .mt-0 {
   margin-top: 0 !important;
@@ -36,11 +31,20 @@ body * {
 .mt-2 {
   margin-top: 10px !important;
 }
+.mb-20 {
+  margin-bottom: 20px !important;
+}
 .p-10 {
   padding: 10px !important;
 }
 .mr-12 {
   margin-right: 12px !important;
+}
+.mt-10 {
+  margin-top: 10px !important;
+}
+.mt-20 {
+  margin-top: 20px !important;
 }
 .my-0 {
   margin-top: 0 !important;
@@ -50,8 +54,42 @@ body * {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
+.min-w-210px {
+  min-width: 210px !important;
+}
 .max-w-250 {
   max-width: 250px !important;
+}
+.max-w-220 {
+  max-width: 220px !important;
+}
+.green {
+  color: green !important;
+  padding-top: 5px !important;
+}
+.red {
+  color: red;
+}
+.bold {
+  font-weight: bold;
+}
+.flex {
+  display: flex;
+}
+.items-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.flex-3 {
+  flex: 3;
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex-row {
+  flex-direction: row;
 }
 .text-sm {
   font-size: 14px;

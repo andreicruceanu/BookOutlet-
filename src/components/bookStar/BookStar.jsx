@@ -1,5 +1,4 @@
 import styles from "./styles.module.css";
-
 import { AiTwotoneStar } from "react-icons/ai";
 function BookStar({ rating }) {
   const stars = Math.round(rating);

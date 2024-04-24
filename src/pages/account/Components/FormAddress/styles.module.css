@@ -1,0 +1,48 @@
+.inputContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.inputBox:first-child {
+  margin-right: 10px;
+}
+.inputLabel {
+  cursor: pointer;
+  font-size: 13px;
+  margin: 9px 0;
+  display: block;
+  color: #6b7999;
+}
+.modalWrap {
+  width: 100%;
+}
+.modalContent {
+  width: 100%;
+  text-align: left;
+  padding: 0 20px;
+  margin: 20px 0 0;
+  border-bottom: 1px solid #e1e1e5;
+}
+.modalContent p {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 10px 0;
+  text-align: left;
+}
+.buttonWrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 15px 30px;
+}
+.btnClose {
+  color: #126fdf;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 20px;
+}
