@@ -1,8 +1,8 @@
 import axios from "axios";
 import queryString from "query-string";
 
-//const baseURL = "https://api-book-outlet.vercel.app/api";
-const baseURL = "http://127.0.0.1:5000/api";
+const baseURL = "https://api-book-outlet.vercel.app/api";
+//const baseURL = "http://127.0.0.1:5000/api";
 
 const privateClient = axios.create({
   baseURL,
