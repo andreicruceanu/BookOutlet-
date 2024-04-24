@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Fullstack BookOutlet Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The "BookOutlet" project is an online bookstore where users can explore and purchase a variety of books. The website provides detailed information about each book or author.
 
-## Available Scripts
+A full-stack application developed using the MERN (MongoDB, Express.js, React.js, Node.js) stack. Users can explore and purchase a wide variety of books. The website offers detailed information about each book and its respective author, enhancing the user's browsing and shopping experience.
 
-In the project directory, you can run:
+Backend is [here](https://github.com/andreicruceanu/BookOutlet-backend)
 
-### `npm start`
+# Live Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[Click Here](https://bookoutlet.vercel.app/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Dependencies
 
-### `npm test`
+**Frontend**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [React.js](https://reactjs.org/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [react-router-dom](https://reactrouter.com/web/guides/quick-start)
+- [react-toastify](https://fkhadra.github.io/react-toastify/introduction)
+- [swiper](https://swiperjs.com/)
+- [axios](https://www.npmjs.com/package/axios)
+- [react-icons](https://react-icons.github.io/react-icons/)
+- [formik](https://formik.org/)
+- [Yup](https://yup-docs.vercel.app/docs/intro)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Preview
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![BookOutlet 2024](https://github.com/andreicruceanu/BookOutlet-frontend/blob/6968a9f7584deb1613bd33153e1f95173f49104b/src/images/preview/BookOutlet-Home.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![BookOutlet 2024](https://github.com/andreicruceanu/BookOutlet-frontend/blob/6968a9f7584deb1613bd33153e1f95173f49104b/src/images/preview/BookOutlet%20-%20Details%20Book.png)
 
-### `npm run eject`
+![BookOutlet 2024](https://github.com/andreicruceanu/BookOutlet-frontend/blob/6968a9f7584deb1613bd33153e1f95173f49104b/src/images/preview/Favorite%20Page.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![BookOutlet 2024](https://github.com/andreicruceanu/BookOutlet-frontend/blob/6968a9f7584deb1613bd33153e1f95173f49104b/src/images/preview/Cart.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![BookOutlet 2024](https://github.com/andreicruceanu/BookOutlet-frontend/blob/6968a9f7584deb1613bd33153e1f95173f49104b/src/images/preview/CreateAccount.png)
