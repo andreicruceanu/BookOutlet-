@@ -43,7 +43,16 @@
   margin: 0;
   padding: 15px 0;
 }
-.menuIteamWrap {
+.active {
+  color: #3c24b2;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+.active .newsletterBtn {
+  opacity: 1;
+}
+
+.menuItemWrap {
   margin: 0 15px;
 }
 .menuIteam {
