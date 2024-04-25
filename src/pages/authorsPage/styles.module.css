@@ -2,7 +2,6 @@
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
-  padding: 20px 0;
 }
 .authorsMain {
   display: flex;
@@ -20,6 +19,20 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+}
+.authorsTitle {
+  padding: 25px 0;
+}
+.authorsTitle h3 {
+  font-size: 28px;
+  font-weight: 400;
+  margin: 0 0 0 10px;
+}
+.authorsMainContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
 }
 .searchAuthorWrap {
   margin-bottom: 40px;

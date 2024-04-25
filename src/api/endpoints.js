@@ -6,6 +6,7 @@ const endpoints = {
   sliders: "/sliders/all",
   authorsAll: "/author/all",
   featuredAuthors: "/author/importance",
+  authorDetails: (id) => `/author/${id}`,
 };
 
 export default endpoints;
