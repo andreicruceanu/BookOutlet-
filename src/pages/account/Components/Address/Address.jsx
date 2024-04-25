@@ -1,15 +1,34 @@
-import { RiDeleteBinLine } from "react-icons/ri";
 import { useAddressContext } from "../AddressContext/AddressContext";
+import { RiDeleteBinLine } from "react-icons/ri";
+import { getCountyNameById } from "../../../../utils/getCountyNameById";
+import { toast } from "react-toastify";
 
 import Modal from "../../../../components/modal/Modal";
 import Button from "../../../../components/ui/Button/Button";
 import useModal from "../../../../hooks/useModal";
 import FormAddress from "../FormAddress/FormAddress";
 import styles from "./styles.module.css";
-import { getCountyNameById } from "../../../../utils/getCountyNameById";
+import addressApi from "../../../../api/modules/address.api";
 
 const AddressItem = ({ address }) => {
   const { isOpenModal, onOpenModal, onCloseModal } = useModal();
+  const { setAddress } = useAddressContext();
+
+  const handleDeleteAddress = async (addressId) => {
+    const { response, err } = await addressApi.deleteAddress(addressId);
+
+    if (response) {
+      toast.success("Address deleted");
+      setAddress((prev) =>
+        [...prev].filter(
+          (address) => address._id.toString() !== addressId.toString()
+        )
+      );
+    }
+    if (err) {
+      toast.error("Something went wrong. Please try again later.");
+    }
+  };
 
   return (
     <>
@@ -36,6 +55,7 @@ const AddressItem = ({ address }) => {
                 variant="delete"
                 size="largeIcon"
                 startIcon={<RiDeleteBinLine />}
+                onClick={() => handleDeleteAddress(address._id)}
               />
             </div>
           </div>

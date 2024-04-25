@@ -3,6 +3,7 @@ import privateClient from "../client/private.client";
 const addressEndpoints = {
   saveAddress: "/saveAddress",
   updateAddress: "/updateAddress",
+  deleteAddress: (id) => `/deleteAddress/${id}`,
 };
 
 const addressApi = {
@@ -22,6 +23,16 @@ const addressApi = {
       const response = await privateClient.put(
         addressEndpoints.updateAddress,
         data
+      );
+      return { response };
+    } catch (err) {
+      return { err };
+    }
+  },
+  deleteAddress: async (id) => {
+    try {
+      const response = await privateClient.delete(
+        addressEndpoints.deleteAddress(id)
       );
       return { response };
     } catch (err) {
