@@ -1,9 +1,16 @@
 import { toast } from "react-toastify";
+import styles from "./styles.module.css";
+import Spinner from "../Spinner/Spinner";
 
 const DataRenderer = ({ children, error, isLoading }) => {
-  console.log(isLoading);
   if (isLoading) {
-    return <div>loading</div>;
+    return (
+      <>
+        <div className={styles.containerLoader}>
+          <Spinner />
+        </div>
+      </>
+    );
   }
 
   if (error) {
