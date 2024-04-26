@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./styles.module.css";
 import { Link } from "react-router-dom";
-import ReadMore from "../../../author-Details/readMore";
 import { API_URL_IMG } from "../../../../api/api-img";
 import { HiArrowLongRight } from "react-icons/hi2";
+import ReadMore from "../../../author-Details/ReadMore/readMore";
 
 const Author = ({ author }) => {
   return (

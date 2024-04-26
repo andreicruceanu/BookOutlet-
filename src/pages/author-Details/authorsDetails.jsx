@@ -1,31 +1,39 @@
 import { useParams } from "react-router";
-import { API_URL_IMG } from "../../api/api-img";
-import { useAuthorDetails } from "../../hooks/fetch-author-details";
-import { toast } from "react-toastify";
-import ReadMore from "./readMore";
+import { getImageUrl } from "../../utils/images";
+
+import ReadMore from "./ReadMore/readMore";
 import styles from "./styles.module.css";
+import useFetch from "../../hooks/useFetch";
+import endpoints from "../../api/endpoints";
+import DataRenderer from "../../components/DataRenderer/DataRenderer";
+import useScrollTop from "../../hooks/useScrollTop";
 
 function AuthorsDetails() {
   const { id } = useParams();
-  const { author, error } = useAuthorDetails({ id });
 
-  if (error) {
-    toast.error(error.message);
-  }
+  useScrollTop();
+
+  const {
+    data: author,
+    error,
+    isLoading,
+  } = useFetch(endpoints.authorDetails(id));
 
   return (
     <main>
-      {author && (
-        <div className={styles.container}>
-          <div className={styles.wrap}>
-            <h1 className={styles.authorName}> {author?.value}</h1>
-            <div className={styles.avatar}>
-              <img src={`${API_URL_IMG}${author?.imageUrl}`} alt="Text" />
+      <DataRenderer isLoading={isLoading} error={error}>
+        {author && (
+          <div className={styles.container}>
+            <div className={styles.wrap}>
+              <h1 className={styles.authorName}>{author?.value}</h1>
+              <div className={styles.avatar}>
+                <img src={getImageUrl(author.imageUrl)} alt="Text" />
+              </div>
+              <ReadMore text={author?.description} maxHeight={310} />
             </div>
-            <ReadMore text={author?.description} maxHeight={310} />
           </div>
-        </div>
-      )}
+        )}
+      </DataRenderer>
     </main>
   );
 }
