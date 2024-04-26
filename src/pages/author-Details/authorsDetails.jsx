@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import { getImageUrl } from "../../utils/images";
 
-import ReadMore from "./readMore";
+import ReadMore from "./ReadMore/readMore";
 import styles from "./styles.module.css";
 import useFetch from "../../hooks/useFetch";
 import endpoints from "../../api/endpoints";
