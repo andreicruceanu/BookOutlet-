@@ -16,6 +16,7 @@ import {
 import favoriteApi from "../../../api/modules/favorite.api";
 import { addToCartReducer } from "../../../features/cart/cartSlice";
 import { toast } from "react-toastify";
+import content from "../../../constants/content";
 
 function Book(bookData) {
   const {
@@ -40,7 +41,9 @@ function Book(bookData) {
 
   const onRemoveFavorite = async () => {
     if (!user) {
-      return dispatch(setModalNoUser(true));
+      return dispatch(
+        setModalNoUser({ open: true, content: content.noUserAddToFavorite })
+      );
     }
     const favorite = listFavorite.find(
       (e) => e.bookId.toString() === _id.toString()
@@ -58,7 +61,9 @@ function Book(bookData) {
 
   const addToFavorite = async () => {
     if (!user) {
-      return dispatch(setModalNoUser(true));
+      return dispatch(
+        setModalNoUser({ open: true, content: content.noUserAddToFavorite })
+      );
     }
     if (isFavorite) {
       onRemoveFavorite();

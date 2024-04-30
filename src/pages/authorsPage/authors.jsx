@@ -29,7 +29,7 @@ const Authors = () => {
               <input
                 type="text"
                 placeholder="Cauta un autor"
-                onChange={(e) => setQuery(e.target.value)}
+                onChange={(e) => setQuery(e.target.value.toLowerCase())}
               />
             </div>
             <div className={styles.authorsMainWrap}>

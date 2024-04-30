@@ -9,11 +9,13 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ModalNoUser from "./components/modalNoUser/modalNoUser";
 import endpoints from "./api/endpoints";
+import content from "./constants/content";
 
 function App() {
   const { user, modalNoUser } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-  const handleClose = () => dispatch(setModalNoUser(false));
+  const handleClose = () =>
+    dispatch(setModalNoUser({ open: false, content: "" }));
 
   useEffect(() => {
     const getFavorites = async () => {
@@ -46,11 +48,9 @@ function App() {
         pauseOnHover={false}
       />
       <ModalNoUser
-        textHeader={"Loghează-te"}
-        textContent={
-          "Pentru a putea adauga la favorite o carte trebuie sa intri in contul tau BookOutlet"
-        }
-        open={modalNoUser}
+        textHeader={content.login}
+        textContent={modalNoUser.content}
+        open={modalNoUser.open}
         onClose={handleClose}
       />
       <Navbar />
