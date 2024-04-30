@@ -57,6 +57,12 @@ body * {
 .min-w-210px {
   min-width: 210px !important;
 }
+.max-w-80 {
+  max-width: 80px !important;
+}
+.max-w-130 {
+  max-width: 130px !important;
+}
 .max-w-250 {
   max-width: 250px !important;
 }
