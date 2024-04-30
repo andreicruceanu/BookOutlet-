@@ -17,11 +17,11 @@ const reviewApi = {
     }
   },
 
-  addReview: async ({ bookId, Rating, Text, Title }) => {
+  addReview: async ({ bookId, ...values }) => {
     try {
       const response = await privateClient.post(
         reviewEndpoints.add({ bookId }),
-        { Rating, Text, Title }
+        { ...values }
       );
 
       return { response };
