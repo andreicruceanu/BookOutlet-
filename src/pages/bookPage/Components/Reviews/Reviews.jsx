@@ -1,16 +1,34 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setModalNoUser } from "../../../../features/auth/authSlice";
+
 import BookStar from "../../../../components/bookStar/BookStar";
-import ModalReview from "../../ModalReview";
 import styles from "./styles.module.css";
 import reviewApi from "../../../../api/modules/review.api";
 import Review from "./Review";
 import Button from "../../../../components/ui/Button/Button";
+import content from "../../../../constants/content";
+import useModal from "../../../../hooks/useModal";
+import Modal from "../../../../components/modal/Modal";
+import FormReview from "../FormReview/FormReview";
 
-function Reviews({ review, bookId, bookTitle }) {
-  const [isOpen, setOpenModal] = useState(false);
+const Reviews = ({ review, bookId, bookTitle }) => {
+  const { user } = useSelector((state) => state.auth);
+  const { isOpenModal, onOpenModal, onCloseModal } = useModal();
+
   const [listReviews, setListReviews] = useState([]);
   const [filteredReviews, setFilteredReviews] = useState([]);
   const [page, setPage] = useState(1);
+
+  const dispatch = useDispatch();
+
+  const handleCreateReview = () => {
+    if (!user) {
+      return dispatch(
+        setModalNoUser({ open: true, content: content.noUserAddReview })
+      );
+    } else onOpenModal(true);
+  };
 
   useEffect(() => {
     setFilteredReviews([...listReviews].splice(0, skip));
@@ -50,6 +68,7 @@ function Reviews({ review, bookId, bookTitle }) {
     review?.star3 +
     review?.star4 +
     review?.star5;
+
   return (
     <>
       <div id="reviews" className={styles.comments}>
@@ -62,7 +81,7 @@ function Reviews({ review, bookId, bookTitle }) {
               <div className={styles.commentBoxWrap}>
                 <span
                   className={styles.reviewBtn}
-                  onClick={() => setOpenModal(true)}
+                  onClick={() => handleCreateReview()}
                 >
                   Scrie o recenzie
                 </span>
@@ -163,16 +182,21 @@ function Reviews({ review, bookId, bookTitle }) {
             </div>
           )}
         </div>
-        <ModalReview
-          open={isOpen}
-          updateListReview={updateListReview}
-          bookTitle={bookTitle}
-          bookId={bookId}
-          onClose={() => setOpenModal(false)}
-        />
+        <Modal
+          isOpen={isOpenModal}
+          onClose={onCloseModal}
+          title="Scrie o recenzie"
+        >
+          <FormReview
+            onClose={onCloseModal}
+            updateListReview={updateListReview}
+            bookTitle={bookTitle}
+            bookId={bookId}
+          />
+        </Modal>
       </div>
     </>
   );
-}
+};
 
 export default Reviews;
