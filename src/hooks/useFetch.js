@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import privateClient from "../api/client/private.client";
+import { getError } from "../utils/getError";
 
 const useFetch = (url, options) => {
   const [data, setData] = useState(null);
@@ -25,7 +26,7 @@ const useFetch = (url, options) => {
         if (axios.isCancel(error)) {
           return;
         }
-        setError("Something went wrong. Please try again later.");
+        setError(getError(error));
       } finally {
         setIsLoading(false);
       }
