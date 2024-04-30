@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import authService from "./authService";
+import { startTransition } from "react";
 
 const user = JSON.parse(localStorage.getItem("user"));
 
@@ -10,7 +11,7 @@ const initialState = {
   isSuccess: false,
   isLoading: false,
   message: "",
-  modalNoUser: false,
+  modalNoUser: { open: false, content: "" },
 };
 
 export const login = createAsyncThunk("auth/login", async (user, thunkAPI) => {
@@ -100,7 +101,8 @@ export const authSlice = createSlice({
       state.message = "";
     },
     setModalNoUser: (state, action) => {
-      state.modalNoUser = action.payload;
+      state.modalNoUser.open = action.payload?.open;
+      state.modalNoUser.content = action.payload?.content;
     },
     setListFavorites: (state, action) => {
       state.listFavorite = action.payload;
