@@ -1,15 +1,10 @@
 import privateClient from "../client/private.client";
-
-const favoriteEndpoints = {
-  list: "user/favorite",
-  add: "user/addFavorite",
-  remove: ({ favoriteId }) => `user/favorite/${favoriteId}`,
-};
+import endpoints from "../endpoints";
 
 const favoriteApi = {
   getList: async () => {
     try {
-      const response = await privateClient.get(favoriteEndpoints.list);
+      const response = await privateClient.get(endpoints.listFavorite);
       return { response };
     } catch (err) {
       return { err };
@@ -25,7 +20,7 @@ const favoriteApi = {
     subtitle,
   }) => {
     try {
-      const response = await privateClient.post(favoriteEndpoints.add, {
+      const response = await privateClient.post(endpoints.addToFavorite, {
         bookId,
         mainImageUrl,
         price,
@@ -43,7 +38,7 @@ const favoriteApi = {
   remove: async ({ favoriteId }) => {
     try {
       const response = await privateClient.delete(
-        favoriteEndpoints.remove({ favoriteId })
+        endpoints.removeFavorite({ favoriteId })
       );
       return { response };
     } catch (err) {

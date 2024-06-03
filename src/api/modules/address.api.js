@@ -1,18 +1,10 @@
 import privateClient from "../client/private.client";
-
-const addressEndpoints = {
-  saveAddress: "/saveAddress",
-  updateAddress: "/updateAddress",
-  deleteAddress: (id) => `/deleteAddress/${id}`,
-};
+import endpoints from "../endpoints";
 
 const addressApi = {
   saveAddress: async (data) => {
     try {
-      const response = await privateClient.post(
-        addressEndpoints.saveAddress,
-        data
-      );
+      const response = await privateClient.post(endpoints.saveAddress, data);
       return { response };
     } catch (err) {
       return { err };
@@ -20,10 +12,7 @@ const addressApi = {
   },
   updateAddress: async (data) => {
     try {
-      const response = await privateClient.put(
-        addressEndpoints.updateAddress,
-        data
-      );
+      const response = await privateClient.put(endpoints.updateAddress, data);
       return { response };
     } catch (err) {
       return { err };
@@ -31,9 +20,7 @@ const addressApi = {
   },
   deleteAddress: async (id) => {
     try {
-      const response = await privateClient.delete(
-        addressEndpoints.deleteAddress(id)
-      );
+      const response = await privateClient.delete(endpoints.deleteAddress(id));
       return { response };
     } catch (err) {
       return { err };
