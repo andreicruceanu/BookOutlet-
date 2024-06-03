@@ -1,3 +1,5 @@
+@import "../../constants/styles/variables.css";
+
 .badgesWrap {
   position: absolute;
   top: 8px;
@@ -11,19 +13,19 @@
 .badge {
   padding: 1px 3px;
   text-align: center;
-  border-bottom: 1px solid #b42ec0;
+  border-bottom: 1px solid var(--badge-bg-primary);
 }
 .badgesWrap > :nth-child(1) {
-  background-color: #810d8b;
+  background-color: var(--badge-bg-border-1);
 }
 .badgesWrap > :nth-child(2) {
-  background-color: #a81db4;
+  background-color: var(--badge-bg-border-2);
 }
 .badgesWrap > :nth-child(3) {
-  background-color: #b71fc5;
+  background-color: var(--badge-bg-border-3);
 }
 .badgesWrap > :nth-child(4) {
-  background-color: #c62cd4;
+  background-color: var(--badge-bg-border-4);
 }
 
 .badge:last-of-type {
@@ -32,7 +34,7 @@
 .badgeText {
   margin: 0;
   padding: 0;
-  color: #ffff;
+  color: var(--color-white);
   font-size: 11px;
   text-transform: uppercase;
 }

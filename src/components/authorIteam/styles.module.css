@@ -1,3 +1,5 @@
+@import "../../constants/styles/variables.css";
+
 .authorIteam {
   display: flex;
   flex-direction: column;
@@ -23,10 +25,10 @@
 }
 .authorIteamTitle a {
   text-decoration: none;
-  color: #000;
+  color: var(--color-black);
 }
 .authorIteam p {
   margin: 0;
   font-size: 13px;
-  color: #596580;
+  color: var(--color-gray-1);
 }

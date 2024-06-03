@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-import "./index.css";
+import "../src/constants/styles/global-css-elements.css";
 import { Provider } from "react-redux";
 import { store } from "./store.js";
 import Router from "./Router.jsx";

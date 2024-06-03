@@ -1,3 +1,5 @@
+@import "../../constants//styles/variables.css";
+
 .nav {
   display: flex;
   justify-content: center;
@@ -58,7 +60,11 @@ nav__burger
 .navMenu {
   align-items: center;
   display: flex;
-  background-image: linear-gradient(to left, #3c24b2, #b224b3);
+  background-image: linear-gradient(
+    to left,
+    var(--color-secondary),
+    var(--color-primary)
+  );
   margin-top: 22px;
 }
 .navMenuContainer {
@@ -78,11 +84,11 @@ nav__burger
   position: relative;
   padding-left: 12px;
   margin-left: 45px;
-  color: #fff;
+  color: var(--color-white);
   font-family: inherit;
   align-items: center;
   width: 300px;
-  background-color: #3c24b2;
+  background-color: var(--color-secondary);
   cursor: pointer;
   justify-content: space-around;
 }
@@ -92,7 +98,7 @@ nav__burger
   margin-right: 65px;
 }
 .nav__burger__icon__menu {
-  color: #fff;
+  color: var(--color-white);
   font-size: 22px;
 }
 .nav__burger__menu__left p {
@@ -110,13 +116,13 @@ nav__burger
 .nav__burger__menu__drop__menu {
   position: absolute;
   top: 34px;
-  color: #3c24b2;
+  color: var(--color-secondary);
   list-style: none;
   width: 312px;
   padding-left: 0;
   left: 0;
   visibility: hidden;
-  background-color: #3c24b2;
+  background-color: var(--color-secondary);
   transition: all 0.15s ease;
 }
 .nav__burger__menu:hover .nav__burger__menu__drop__menu {
@@ -131,13 +137,13 @@ nav__burger
 }
 .nav__burger__menu__drop__item svg {
   padding: 0 6px;
-  color: #fff;
+  color: var(--color-white);
   font-size: 18px;
 }
 .nav__burger__menu__drop__item a {
   text-decoration: none;
   padding: 14px 20px 14px 20px;
-  color: #fff;
+  color: var(--color-white);
   font-size: 15px;
 }
 

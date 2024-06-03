@@ -1,3 +1,5 @@
+@import "../../constants/styles/variables.css";
+
 .badgesWrap {
   top: unset;
   bottom: var(--bottom);
@@ -11,8 +13,8 @@
 }
 .badgesDiscount {
   padding: 2px 3px;
-  color: #fff;
-  background-color: red;
+  color: var(--color-white);
+  background-color: var(--bg-danger);
 }
 .badgesText {
   margin: 0;

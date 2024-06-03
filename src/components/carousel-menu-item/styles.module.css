@@ -1,33 +1,34 @@
+@import "../../constants/styles/variables.css";
+
 .menuIteam {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #e8e8e8;
+  border-bottom: 1px solid var(--color-white-1);
   padding: 18px 5px;
   cursor: pointer;
-
   transition: all 0.15s ease;
 }
 .menuIteam:last-child {
   border-bottom: none;
 }
 .menuIteam:hover {
-  background-color: #3c24b2;
+  background-color: var(--color-secondary);
 }
 .menuIteam:hover a {
-  color: #fff;
+  color: var(--color-white);
 }
 .menuIteam:hover .menuIteamIcon {
-  color: #fff;
+  color: var(--color-white);
 }
 
 .menuIteam a {
   text-decoration: none;
-  color: #000;
+  color: var(--color-black);
   font-size: 14px;
 }
 .menuIteamIcon {
   font-size: 29px;
-  color: #596280;
+  color: var(--color-gray-1);
   margin: 0px 20px;
   display: flex;
   align-items: center;

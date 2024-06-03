@@ -1,0 +1,99 @@
+:root {
+  --color-primary: #b224b3;
+  --color-secondary: #3c24b2;
+  --border-danger: red;
+  --main-background: #f2f5f5;
+  --bg-danger: red;
+  --bg-danger-1: #e60013;
+  --color-link: #126fdf;
+  --color-divider: #e1e1e5;
+
+  /* CAROUSEL */
+  --color-carousel-prev: var(--color-secondary);
+  --color-carousel-bullet: var(--color-primary);
+  --color-carousel-border: #d5d9e2;
+
+  /* CAROUSEL */
+
+  /* COLORS */
+  --color-white: #fff;
+  --color-white-1: #e8e8e8;
+  --color-white-2: #e8e8ed;
+  --color-white-3: #f2f2f7;
+  --color-black: #000;
+  --color-gray-1: #596580;
+  --color-gray-2: #1f2533;
+  --color-gray-3: #eeeeee;
+  --color-gray-4: #dddddddd;
+  --color-gray-5: #6b7999;
+  --color-gray-6: #7a8499;
+  --color-blue: #293766;
+  --color-blue-light: #361ca6;
+  --color-blue-dark: #1f2533;
+
+  /* STAR */
+  --color-star-full: #ffd055;
+  /* STAR */
+
+  /* BADGES */
+  --badge-bg-primary: #b42ec0;
+  --badge-bg-border-1: #810d8b;
+  --badge-bg-border-2: #a81db4;
+  --badge-bg-border-3: #b71fc5;
+  --badge-bg-border-4: #c62cd4;
+  /* BADGES */
+
+  /* NOTIFICATIONS */
+  --notification-bg-success: #e5fff2;
+  --notification-bg-warning: #fefee5;
+  --notification-bg-danger: #ffe5f2;
+
+  --notification-color-success: #00994d;
+  --notification-color-warning: #6a5300;
+  --notification-color-danger: #ed2e7e;
+
+  /* BUTTONS */
+
+  /* primary */
+  --btn-bg-color-primary: var(--color-primary);
+  --btn-bg-color-hover-primary: var(--color-primary-dark);
+
+  --btn-color-primary: var(--color-white-1);
+  --btn-color-hover-primary: var(--color-white-1);
+
+  --btn-border-color: var(--color-primary);
+  --btn-border-color-hover: var(--color-primary);
+
+  /* secondary */
+  --btn-bg-color-secondary: var(--color-white-2);
+  --btn-bg-color-hover-secondary: var(--color-gray-2);
+
+  --btn-color-secondary: var(--color-primary);
+  --btn-color-hover-secondary: var(--color-primary);
+
+  --btn-border-color-secondary: var(--color-primary);
+  --btn-border-color-hover-secondary: var(--color-primary);
+
+  /* help */
+  --btn-bg-color-help: var(--color-help);
+  --btn-bg-color-hover-help: var(--color-help-dark);
+
+  --btn-color-help: var(--color-black-1);
+  --btn-color-hover-help: var(--color-black-1);
+
+  --btn-border-color-help: var(--color-primary);
+  --btn-border-color-hover-help: var(--color-primary);
+
+  /* circle */
+  --btn-bg-color-circle: var(--color-white-1);
+  --btn-bg-color-hover-circle: var(--color-gray-2);
+
+  --btn-color-circle: var(--color-gray-3);
+  --btn-color-hover-circle: var(--color-gray-3);
+
+  --btn-border-color-circle: var(--color-white-1);
+  --btn-border-color-hover-circle: var(--color-gray-2);
+
+  /* EXTRA */
+  --footer-height: 5rem;
+}

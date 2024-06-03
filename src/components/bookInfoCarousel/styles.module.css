@@ -1,3 +1,5 @@
+@import "../../constants/styles/variables.css";
+
 .carousel {
   min-height: 450px;
   max-width: 380px;
@@ -12,19 +14,19 @@
 .swPrevBookInfo::after {
   font-size: 16px !important;
   font-weight: 700 !important;
-  color: #293766 !important;
+  color: var(--color-carousel-prev) !important;
 }
 .swNextBookInfo::after {
   font-size: 16px !important;
   font-weight: 700 !important;
-  color: #293766 !important;
+  color: var(--color-carousel-prev) !important;
 }
 .swiper-pagination-infobullets {
   transform: translateY(-30px) !important;
   width: 100% !important;
 }
 .costum-bullet-bookInfo {
-  background-color: #b224b3 !important;
+  background-color: var(--color-carousel-bullet) !important;
   margin: 0 4px !important;
   cursor: pointer !important;
 }
