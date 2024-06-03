@@ -43,7 +43,9 @@ const ButtonsPage = ({ book }) => {
 
   const handleFavorite = async (book) => {
     if (!user) {
-      return dispatch(setModalNoUser(true));
+      return dispatch(
+        setModalNoUser({ open: true, content: content.noUserAddToFavorite })
+      );
     }
     if (isBookFavorite) {
       const favoriteDetails = listFavorite.find(

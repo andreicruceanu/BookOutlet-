@@ -1,3 +1,5 @@
+@import "../../../constants//styles//variables.css";
+
 .searchForm {
   display: flex;
   align-items: center;
@@ -13,9 +15,9 @@
   border-radius: 4px;
   padding: 10px 75px 10px 10px;
   font-size: 13px;
-  background-color: #fff;
+  background-color: var(--color-white);
   outline: 0;
-  border: 1px solid #e1e1e5;
+  border: 1px solid var(--color-divider);
 }
 
 .searchForm button {
@@ -41,5 +43,5 @@
   cursor: pointer;
   border: none;
   background: none;
-  color: #7a8499;
+  color: var(--color-gray-6);
 }

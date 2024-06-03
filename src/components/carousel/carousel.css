@@ -1,9 +1,11 @@
+@import "../../constants/styles/variables.css";
+
 .prevCarousel {
   width: 40px !important;
   height: 40px !important;
-  background-color: #fff !important;
+  background-color: var(--color-white) !important;
   border-radius: 50% !important;
-  border: 1px solid #d5d9e2;
+  border: 1px solid var(--color-carousel-border);
   left: 25px !important;
   z-index: 10 !important;
   cursor: default !important;
@@ -11,29 +13,29 @@
 .prevCarousel::after {
   font-size: 12px !important;
   font-weight: 700 !important;
-  color: #293766 !important;
+  color: var(--color-carousel-prev) !important;
 }
 .nextCarousel {
   width: 40px !important;
   height: 40px !important;
-  background-color: #fff !important;
+  background-color: var(--color-white) !important;
   border-radius: 50% !important;
   right: 25px !important;
-  border: 1px solid #d5d9e2;
+  border: 1px solid var(--color-carousel-border);
   z-index: 10 !important;
   cursor: default !important;
 }
 .nextCarousel::after {
   font-size: 12px !important;
   font-weight: 700 !important;
-  color: #293766 !important;
+  color: var(--color-carousel-prev) !important;
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #fff !important;
+  background-color: var(--color-white) !important;
 }
 .swiper-pagination-bullet {
-  background-color: #fff !important;
+  background-color: var(--color-white) !important;
 }
 .swiper-button-disabled {
   pointer-events: all !important;

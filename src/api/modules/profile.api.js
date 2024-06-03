@@ -1,10 +1,10 @@
 import privateClient from "../client/private.client";
+import endpoints from "../endpoints";
 
 const profileApi = {
   getProfile: async () => {
     try {
-      const response = await privateClient.get("/profile");
-
+      const response = await privateClient.get(endpoints.userProfile);
       return { response };
     } catch (err) {
       return { err };
@@ -12,8 +12,10 @@ const profileApi = {
   },
   updateProfile: async (values) => {
     try {
-      const response = await privateClient.put("/updateProfile", values);
-
+      const response = await privateClient.put(
+        endpoints.userProfileUpdate,
+        values
+      );
       return { response };
     } catch (err) {
       return { err };

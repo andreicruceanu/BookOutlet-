@@ -1,3 +1,5 @@
+@import "../../constants/styles/variables.css";
+
 #mySwiperCarousel {
   width: 900px;
 }
@@ -18,13 +20,18 @@
 }
 /* Loader  */
 .loaderContainer {
-  background-color: #eeeeee;
+  background-color: var(--color-gray-3);
   width: 900px;
   overflow: hidden;
   position: relative;
 }
 .loaderStyles {
-  background: linear-gradient(to right, #eeeeee 10%, #dddddd 50%, #eeeeee 90%);
+  background: linear-gradient(
+    to right,
+    var(--color-gray-3) 10%,
+    var(--color-gray-4) 50%,
+    var(--color-gray-3) 90%
+  );
   top: 0;
   left: 0;
   position: absolute;
@@ -41,7 +48,7 @@
 }
 .error svg {
   font-size: 45px;
-  color: gray;
+  color: var(--color-gray-1);
 }
 @keyframes loaderSliderAnim {
   0% {

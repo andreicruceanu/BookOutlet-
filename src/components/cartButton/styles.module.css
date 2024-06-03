@@ -1,3 +1,5 @@
+@import "../../constants/styles/variables.css";
+
 .btnCart {
   width: 45px;
   height: 45px;
@@ -8,12 +10,16 @@
   justify-content: center;
   margin-top: 5px;
   border-radius: 5px;
-  background-image: linear-gradient(to right, #b224b3, #3c24b2);
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-secondary)
+  );
   cursor: pointer;
   outline: none;
   border: none;
 }
 .btnCart svg {
-  color: #fff;
+  color: var(--color-white);
   font-size: 23px;
 }

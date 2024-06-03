@@ -1,27 +1,23 @@
 import privateClient from "../client/private.client";
 import publicClient from "../client/public.clinet";
-
-const reviewEndpoints = {
-  list: ({ bookId }) => `book/${bookId}/reviews`,
-  add: ({ bookId }) => `book/${bookId}/addreview`,
-};
+import endpoints from "../endpoints";
 
 const reviewApi = {
   getList: async ({ bookId }) => {
     try {
-      const response = await publicClient.get(reviewEndpoints.list({ bookId }));
-
+      const response = await publicClient.get(
+        endpoints.getListReviews({ bookId })
+      );
       return { response };
     } catch (err) {
       return { err };
     }
   },
-
-  addReview: async ({ bookId, Rating, Text, Title }) => {
+  addReview: async ({ bookId, ...values }) => {
     try {
       const response = await privateClient.post(
-        reviewEndpoints.add({ bookId }),
-        { Rating, Text, Title }
+        endpoints.addReview({ bookId }),
+        { ...values }
       );
 
       return { response };

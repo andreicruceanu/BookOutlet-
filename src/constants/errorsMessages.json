@@ -1,5 +1,7 @@
 {
   "invalid_email_password": "Adresă de e-mail sau parolă incorecte!",
   "email_exists": "Adresa de e-mail exista deja!",
-  "email_not_exist": "Nu exista un cont creat cu aceasta adresa de e-mail !"
+  "email_not_exist": "Nu exista un cont creat cu aceasta adresa de e-mail !",
+  "author_not_found": "Autorul nu a fost gasit.",
+  "default_error": "A apărut o eroare. Vă rugăm să încercați din nou mai târziu."
 }

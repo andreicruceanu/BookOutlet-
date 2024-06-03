@@ -1,11 +1,8 @@
 import publicClient from "../../api/client/public.clinet";
-
-const headerEndpoints = {
-  carouselSliders: "/sliders/all",
-};
+import endpoints from "../../api/endpoints";
 
 const getSliders = async () => {
-  const response = await publicClient.get(headerEndpoints.carouselSliders);
+  const response = await publicClient.get(endpoints.sliders);
 
   return response;
 };

@@ -27,7 +27,7 @@ function AuthorsDetails() {
             <div className={styles.wrap}>
               <h1 className={styles.authorName}>{author?.value}</h1>
               <div className={styles.avatar}>
-                <img src={getImageUrl(author.imageUrl)} alt="Text" />
+                <img src={getImageUrl(author.imageUrl)} alt={author?.value} />
               </div>
               <ReadMore text={author?.description} maxHeight={310} />
             </div>

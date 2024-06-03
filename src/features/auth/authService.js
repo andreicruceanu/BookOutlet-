@@ -1,10 +1,11 @@
 import axios from "axios";
+import endpoints from "../../api/endpoints";
 
 axios.defaults.baseURL = "https://api-book-outlet.vercel.app/api";
 //axios.defaults.baseURL = "http://127.0.0.1:5000/api";
 
 const register = async (userData) => {
-  const res = await axios.post("/auth/register", userData);
+  const res = await axios.post(endpoints.register, userData);
 
   if (res.data) {
     localStorage.setItem("user", JSON.stringify(res.data));
@@ -15,7 +16,7 @@ const register = async (userData) => {
 };
 
 const login = async (userData) => {
-  const res = await axios.post("/auth/login", userData);
+  const res = await axios.post(endpoints.login, userData);
 
   if (res.data) {
     localStorage.setItem("user", JSON.stringify(res.data.userDetails));
@@ -32,20 +33,17 @@ const logout = () => {
 };
 
 const forgotPassword = async (email) => {
-  const res = await axios.post("/auth/forgotPassword", email);
+  const res = await axios.post(endpoints.forgotPassword, email);
 
   return res.data;
 };
-const resetPassword = async (data) => {
-  const res = await axios.patch(
-    `/auth/forgotPassword/reset/${data.token}`,
-    data.userData
-  );
+const resetPassword = async ({ token, userData }) => {
+  const res = await axios.patch(endpoints.resetPassword({ token }), userData);
   return res.data;
 };
 
 const getFavoriteOfUser = async () => {
-  const res = await axios.get("/user/favorite", {
+  const res = await axios.get(endpoints.getFavoriteOfUser, {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.getItem("token")}`,

@@ -1,11 +1,13 @@
+@import "../../constants/styles/variables.css";
+
 .containerStar {
   text-align: left;
   margin-top: 5px;
 }
 .containerStar svg {
-  color: grey;
+  color: var(--color-grey);
   font-size: 18px;
 }
 .starFull {
-  color: #ffd055 !important;
+  color: var(--color-star-full) !important;
 }

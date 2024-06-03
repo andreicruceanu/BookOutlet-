@@ -17,6 +17,7 @@ import Vouchers from "./pages/account/Vouchers/Vouchers";
 import Orders from "./pages/account/Orders/Orders";
 import App from "./App";
 import Authors from "./pages/authorsPage/authors";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -62,7 +63,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/account",
-        element: <LayoutAccount />,
+        element: (
+          <ProtectedRoute>
+            <LayoutAccount />
+          </ProtectedRoute>
+        ),
         children: [
           {
             path: "account",
