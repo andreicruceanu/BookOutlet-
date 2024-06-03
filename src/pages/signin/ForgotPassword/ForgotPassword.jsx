@@ -1,10 +1,9 @@
 import * as Yup from "yup";
-import { Link } from "react-router-dom";
 import Logo from "../../../images/Logo.png";
 import styles from "./ForgotPassword.module.css";
+import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
-import errorsMessages from "../../../constants/errorsMessages.json";
 import { useDispatch, useSelector } from "react-redux";
 import { forgotPassword } from "../../../features/auth/authSlice";
 import MailImg from "../../../images/check-email.svg";
@@ -12,11 +11,12 @@ import Button from "../../../components/ui/Button/Button";
 import content from "../../../constants/content";
 import Input from "../../../components/ui/Input/Input";
 import ErrorMessage from "../../../components/ui/ErrorMessage/ErrorMessage";
+
 function ForgotPassword() {
   const [error, setError] = useState(null);
 
   const [succes, setSucces] = useState(false);
-  const [counter, setCounter] = useState(60);
+  const [counter, setCounter] = useState(59);
   const [isButtonEnabled, setIsButtonEnabled] = useState(true);
   const { isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
@@ -56,14 +56,14 @@ function ForgotPassword() {
 
   const handleSubmitAgain = () => {
     dispatch(forgotPassword(formik.values));
-    setCounter(60);
+    setCounter(59);
     setIsButtonEnabled(() => !isButtonEnabled);
   };
 
   return (
     <div className={styles.loginContainer}>
       <div className={styles.wrapper}>
-        <Link className={styles.logo} to={"/"}>
+        <Link className={styles.logo} to="/">
           <img src={Logo} alt="Logo_img" />
         </Link>
 
@@ -85,24 +85,15 @@ function ForgotPassword() {
               <p className={`${styles.checkMailText} ${styles.mt_40}`}>
                 Nu ai primit e-mail? Trimite din nou. <b>00:{counter}</b>
               </p>
-              <button
-                onClick={handleSubmitAgain}
-                disabled={isButtonEnabled}
-                className={styles.btn}
-              >
-                Trimite din nou
-              </button>
-              {error && error.errorCode && errorsMessages[error.errorCode] ? (
-                <span className={styles.errorMessage}>
-                  {errorsMessages[error.errorCode]}
-                </span>
-              ) : error?.errorMessage ? (
-                <span className={styles.errorMessage}>
-                  {error.errorMessage}
-                </span>
-              ) : (
-                ""
-              )}
+              <div className={styles.btnCenter}>
+                <Button
+                  className="max-w-250 text-center"
+                  name="Trimite din nou"
+                  disabled={isButtonEnabled}
+                  onClick={handleSubmitAgain}
+                />
+              </div>
+              <ErrorMessage error={error} />
             </>
           ) : (
             <>

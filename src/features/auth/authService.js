@@ -37,11 +37,8 @@ const forgotPassword = async (email) => {
 
   return res.data;
 };
-const resetPassword = async (data) => {
-  const res = await axios.patch(
-    endpoints.resetPassword(data.token),
-    data.userData
-  );
+const resetPassword = async ({ token, userData }) => {
+  const res = await axios.patch(endpoints.resetPassword({ token }), userData);
   return res.data;
 };
 
