@@ -1,11 +1,8 @@
 import publicClient from "../../api/client/public.clinet";
-
-const bannersEndpoint = {
-  getBanners: "banners",
-};
+import endpoints from "../../api/endpoints";
 
 const getBanners = async () => {
-  const response = await publicClient.get(bannersEndpoint.getBanners);
+  const response = await publicClient.get(endpoints.getBanners);
 
   return response;
 };

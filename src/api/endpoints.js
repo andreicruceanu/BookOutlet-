@@ -6,6 +6,7 @@ const endpoints = {
   books: "/books",
   userFavorite: "/user/favorite",
   sliders: "/sliders/all",
+  getBanners: "banners",
   authorsAll: "/author/all",
   featuredAuthors: "/author/importance",
   saveAddress: "/saveAddress",
@@ -18,6 +19,11 @@ const endpoints = {
   addReview: ({ bookId }) => `book/${bookId}/addreview`,
   listFavorite: "user/favorite",
   addToFavorite: "user/addFavorite",
+  login: "/auth/login",
+  register: "/auth/register",
+  forgotPassword: "/auth/forgotPassword",
+  resetPassword: ({ token }) => `/auth/forgotPassword/reset/${token}`,
+  getFavoriteOfUser: "/user/favorite",
 };
 
 export default endpoints;
