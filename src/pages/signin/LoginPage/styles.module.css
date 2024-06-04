@@ -170,3 +170,19 @@ input
 .iconPassword svg {
   top: 45%;
 }
+.recoverPasswordLink {
+  color: #126fdf;
+  text-decoration: none;
+  font-size: 14px;
+}
+.noAccountLink {
+  color: #126fdf;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+.recoverPasswordLink:hover,
+.noAccountLink:hover {
+  text-decoration: underline;
+  margin-bottom: 20px;
+}

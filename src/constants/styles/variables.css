@@ -5,6 +5,7 @@
   --main-background: #f2f5f5;
   --bg-danger: red;
   --bg-danger-1: #e60013;
+  --color-price-new: #b30412;
   --color-link: #126fdf;
   --color-divider: #e1e1e5;
 
@@ -17,16 +18,24 @@
 
   /* COLORS */
   --color-white: #fff;
+  --color-black: #000;
   --color-white-1: #e8e8e8;
   --color-white-2: #e8e8ed;
   --color-white-3: #f2f2f7;
-  --color-black: #000;
+  --color-white-4: #b2b2b2;
+  --color-white-5: #d3d3d3;
+  --color-white-6: #ccc;
+  --color-white-7: #dfdfe5;
+
+  --color-grey: gray;
+
   --color-gray-1: #596580;
-  --color-gray-2: #1f2533;
+  --color-gray-2: #b2b2b2;
   --color-gray-3: #eeeeee;
   --color-gray-4: #dddddddd;
   --color-gray-5: #6b7999;
   --color-gray-6: #7a8499;
+
   --color-blue: #293766;
   --color-blue-light: #361ca6;
   --color-blue-dark: #1f2533;

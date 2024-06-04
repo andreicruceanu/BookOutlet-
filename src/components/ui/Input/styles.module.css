@@ -1,15 +1,16 @@
-.input_primary {
-  width: 100%;
-}
+@import "../../../constants//styles//variables.css";
 
 .input_primary {
   width: 100%;
+}
+.input_primary {
+  width: 100%;
   font-size: 14px;
-  color: #1f2533;
+  color: var(--color-blue-dark);
   margin-top: 12px;
   border-radius: 4px;
   padding: 10px 0 10px 16px;
-  border: 1px solid #dfdfe5;
+  border: 1px solid var(--color-white-7);
   outline: none;
   box-sizing: border-box;
   transition: 0.3s all ease;

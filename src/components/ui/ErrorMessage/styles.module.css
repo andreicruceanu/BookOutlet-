@@ -1,5 +1,7 @@
+@import "../../../constants//styles//variables.css";
+
 .error {
   font-size: 14px;
-  color: red;
+  color: var(--bg-danger);
   margin-left: 5px;
 }

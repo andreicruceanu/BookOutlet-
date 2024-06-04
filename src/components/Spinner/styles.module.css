@@ -1,10 +1,12 @@
+@import "../../constants/styles/variables.css";
+
 .spinner,
 .spinner div,
 .spinner div:after {
   box-sizing: border-box;
 }
 .spinner {
-  color: red;
+  color: var(--bg-danger);
   display: inline-block;
   position: relative;
   width: 80px;
@@ -23,7 +25,11 @@
   width: 6.4px;
   height: 17.6px;
   border-radius: 20%;
-  background: linear-gradient(to left, #3c24b2, #b224b3);
+  background: linear-gradient(
+    to left,
+    var(--color-secondary),
+    var(--color-primary)
+  );
 }
 .spinner div:nth-child(1) {
   transform: rotate(0deg);

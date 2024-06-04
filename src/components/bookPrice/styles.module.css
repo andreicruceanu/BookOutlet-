@@ -14,7 +14,7 @@
 }
 .priceNew {
   font-size: 18px;
-  color: var(--bg-danger);
+  color: var(--color-price-new);
   font-weight: 700;
   margin: 0;
   line-height: 1.7;
