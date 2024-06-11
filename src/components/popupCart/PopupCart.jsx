@@ -10,6 +10,7 @@ import Button from "../ui/Button/Button";
 import checkoutBtn from "../../images/continua-finalizeaza-comanda.svg";
 import checkoutBtn2 from "../../images/continua-finalizeaza-comanda2.svg";
 import CartRecommend from "./CartRecommend/CartRecommend";
+import BookTitle from "../bookTitle/BookTitle";
 
 function PopupCart() {
   const { isOpen, book } = useSelector((state) => state.modalCart);
@@ -51,7 +52,9 @@ function PopupCart() {
               <img src={getImageUrl(book.mainImageUrl)} alt={book.title} />
             </Link>
             <div className={styles.bookName}>
-              <h6>{book.title}</h6>
+              <Link to={`book/${book._id}`} className={styles.title}>
+                {book.title}
+              </Link>
               <p>{book.subtitle}</p>
             </div>
             <div className={styles.bookPriceContainer}>

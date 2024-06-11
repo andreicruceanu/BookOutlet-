@@ -14,6 +14,7 @@ import {
 import favoriteApi from "../../../../api/modules/favorite.api";
 import { toast } from "react-toastify";
 import BtnAddToCart from "../../../../images/adauga-in-cos.svg";
+import { openModal } from "../../../../features/modalCart/modalCartSlice";
 
 const ButtonsPage = ({ book }) => {
   const { listFavorite, user } = useSelector((state) => state.auth);
@@ -39,6 +40,7 @@ const ButtonsPage = ({ book }) => {
     };
 
     dispatch(addToCartReducer(bookCart));
+    dispatch(openModal(bookCart));
   };
 
   const handleFavorite = async (book) => {

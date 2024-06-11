@@ -18,17 +18,22 @@
 .bookName {
   flex: 1;
 }
-.bookName h6 {
+.title {
   margin: 0;
   padding: 0;
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: 700;
   line-height: 1.6;
   margin-bottom: 2px;
+  text-decoration: none;
+  color: var(--color-blue-dark);
 }
 .bookName p {
   margin: 0;
   padding: 0;
   font-size: 13px;
+  font-weight: 400;
+  color: var(--color-blue-dark);
 }
 .linkBook {
   margin-right: 25px;

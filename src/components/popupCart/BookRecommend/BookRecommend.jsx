@@ -23,7 +23,6 @@ function BookRecommend({
 }) {
   const { cart } = useSelector((state) => state.cart);
   const [isBookInCart, setIsBookInCart] = useState(checkBookCart(cart, _id));
-  console.log(isBookInCart);
 
   const dispatch = useDispatch();
 

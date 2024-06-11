@@ -32,8 +32,11 @@ const FormPersonalData = ({ data }) => {
     validationSchema: validateForm,
 
     onSubmit: async (values) => {
+      const { password, ...valuesWithoutPassword } = values;
       setOnReqestUpdate(true);
-      const { response, err } = await profileApi.updateProfile(values);
+      const { response, err } = await profileApi.updateProfile(
+        valuesWithoutPassword
+      );
       setOnReqestUpdate(false);
       if (response) {
         localStorage.setItem("firstName", values.firstName);
