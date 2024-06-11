@@ -34,7 +34,7 @@ function BookInfo() {
   } = useRecommendedProducts(id);
 
   useScrollTop(id);
-  useCloseCartModal();
+  useCloseCartModal(id);
 
   if (error) return toast.error(error);
 
