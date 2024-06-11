@@ -72,6 +72,7 @@ function PopupCart() {
                 className="flex items-center my-0 border-bold"
                 classNameText="w-full text-md blue bold"
                 startIconImage={checkoutBtn2}
+                onClick={handleClose}
               />
             </div>
           </div>
