@@ -17,6 +17,7 @@ import favoriteApi from "../../../api/modules/favorite.api";
 import { addToCartReducer } from "../../../features/cart/cartSlice";
 import { toast } from "react-toastify";
 import content from "../../../constants/content";
+import { openModal } from "../../../features/modalCart/modalCartSlice";
 
 function Book(bookData) {
   const {
@@ -101,8 +102,8 @@ function Book(bookData) {
       oldPrice,
       price,
     };
-
     dispatch(addToCartReducer(bookCart));
+    dispatch(openModal(bookData));
   };
 
   return (
