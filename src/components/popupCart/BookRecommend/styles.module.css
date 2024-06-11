@@ -1,0 +1,41 @@
+.bookContainer {
+  width: 160px;
+  height: 100%;
+  text-align: center;
+}
+.imgCheck {
+  position: absolute;
+  width: 80%;
+  z-index: 2;
+  left: 10%;
+  top: 4%;
+}
+.visibleImage {
+  display: block;
+  z-index: 999999;
+}
+.hiddenImage {
+  display: none;
+}
+.hiddenBook {
+  opacity: 0.1;
+  cursor: default;
+  z-index: 999;
+}
+.imgWrap {
+  display: block;
+  width: 100%;
+  height: 180px;
+  text-decoration: none;
+  position: relative;
+  margin-bottom: 20px;
+}
+.bookImage {
+  width: 120px;
+}
+.wrapPrice {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}

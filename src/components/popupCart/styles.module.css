@@ -1,0 +1,72 @@
+@import "../../constants/styles/variables.css";
+
+.progressBarContainer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  width: 60%;
+  margin: 0 auto;
+}
+.bookContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 10px 20px;
+  align-items: center;
+  border: 1px solid var(--color-divider);
+}
+.bookName {
+  flex: 1;
+}
+.bookName h6 {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 2px;
+}
+.bookName p {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+}
+.linkBook {
+  margin-right: 25px;
+  text-decoration: none;
+}
+.bookPriceContainer {
+  text-align: right;
+  margin-right: 20px;
+}
+.oldPrice {
+  margin: 0;
+  color: var(--color-blue-dark);
+  opacity: 0.8;
+  line-height: 1.7;
+  font-size: 13px;
+  font-weight: 400;
+}
+.newPrice {
+  color: var(--bg-danger-1);
+  margin: 0;
+  line-height: 1.6;
+  font-size: 16px;
+  font-weight: 700;
+}
+.linkBook img {
+  max-width: 50px;
+}
+.bookPriceContainer {
+  min-width: 120px;
+}
+.btnDetailsWrap {
+  display: flex;
+  flex-direction: column;
+  min-width: 250px;
+}
+.btnDetailsWrap button {
+  margin: 0 !important;
+}
+.btnDetailsWrap button:first-child {
+  margin-bottom: 10px !important;
+}
