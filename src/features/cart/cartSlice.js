@@ -34,7 +34,6 @@ const cartSlice = createSlice({
       state.totalAmount = state.cart.reduce(
         (total, item) => total + Number(item.price) * Number(item.quantity)
       );
-      toast.success("Carte a fost adaugata in cos !");
       localStorage.setItem("cart", JSON.stringify(state.cart));
     },
     decreaseCart: (state, action) => {

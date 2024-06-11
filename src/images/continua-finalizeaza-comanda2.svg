@@ -1,0 +1,58 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  version="1.1"
+  id="Layer_1"
+  x="0px"
+  y="0px"
+  viewBox="0 0 62.9 52"
+  style="enable-background: new 0 0 62.9 52"
+  xml:space="preserve"
+>
+  <script xmlns="" id="eppiocemhmnlbhjplcgkofciiegomcon" />
+  <script xmlns="" />
+  <script xmlns="" />
+  <style type="text/css">
+    .st0 {
+      opacity: 0.6;
+    }
+    .st1 {
+      fill: #ffffff;
+    }
+    .st2 {
+      fill: none;
+      stroke: #6950a1;
+      stroke-width: 1.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  </style>
+  <g class="st0">
+    <path
+      class="st1"
+      d="M61.3,0H6C2.7,0,0,2.7,0,6v40c0,3.3,2.7,6,6,6h42.8c0.9-1.5,1.6-3,2.2-4.6l5-14l5.4-15.1   C63.4,12.4,63.4,5.9,61.3,0z"
+    />
+  </g>
+  <g class="st0">
+    <path
+      class="st1"
+      d="M55.9,33.4l-0.6-2.8l0,0c0-2.3-1.1-4.5-2.9-6L28.5,5.5c-0.5-0.4-1-0.8-1.4-1.3L23.2,0H6C2.7,0,0,2.7,0,6v40   c0,3.3,2.7,6,6,6h53.9L55.9,33.4z"
+    />
+  </g>
+  <g id="Arrows-Diagrams_Arrows_arrow-button-right-1">
+    <g id="Group_17">
+      <g id="Light_17">
+        <path
+          id="Shape_19"
+          class="st2"
+          d="M15.4,13.8l11.5,11.5c0.4,0.4,0.4,1.1,0,1.5c0,0,0,0,0,0L15.4,38.2"
+        />
+        <path
+          id="Shape_20"
+          class="st2"
+          d="M27.7,13.8l11.5,11.5c0.4,0.4,0.4,1.1,0,1.5c0,0,0,0,0,0L27.7,38.2"
+        />
+      </g>
+    </g>
+  </g>
+</svg>

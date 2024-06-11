@@ -2,8 +2,8 @@
 
 .nav {
   display: flex;
-  justify-content: center;
-  height: 160px;
+  justify-content: end;
+  height: 150px;
   flex-direction: column;
   background-color: rgb(255, 255, 255);
   width: 100%;

@@ -28,10 +28,11 @@
   background: transparent;
 }
 .blue {
-  color: var(--color-link);
-  border: 1px solid var(--color-link);
-  background-color: var(--color-white);
+  color: var(--color-link) !important;
+  border: 1px solid var(--color-link) !important;
+  background-color: var(--color-white) !important;
 }
+
 .iconHeart {
   font-size: 25px;
   padding: 8px;
@@ -43,6 +44,10 @@
 }
 .xs {
   width: auto !important;
+}
+.small {
+  height: 30px !important;
+  border: 1px solid var(--color-link) !important;
 }
 .md {
   height: 40px;
@@ -58,7 +63,7 @@
   padding: 0;
 }
 .md > img {
-  height: 40px;
+  height: 100%;
   max-width: 50px;
   display: block;
 }
