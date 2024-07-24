@@ -2,13 +2,14 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./styles.module.css";
 import { Link } from "react-router-dom";
 import { BsCartPlus } from "react-icons/bs";
-import { API_URL_IMG } from "../../api/api-img";
 import { removeFavorite, setModalNoUser } from "../../features/auth/authSlice";
 import favoriteApi from "../../api/modules/favorite.api";
-import { addToCartReducer } from "../../features/cart/cartSlice";
+import { getImageUrl } from "../../utils/images";
+import useAddToCart from "../../hooks/addToCart";
 
 function ModalWish({ onClose }) {
   const { listFavorite, user } = useSelector((state) => state.auth);
+  const addToCart = useAddToCart();
   const dispatch = useDispatch();
 
   const handleBookDelete = async (book) => {
@@ -37,7 +38,7 @@ function ModalWish({ onClose }) {
       oldPrice,
       price,
     };
-    dispatch(addToCartReducer(bookCart));
+    addToCart(bookCart);
   };
 
   return (
@@ -54,8 +55,8 @@ function ModalWish({ onClose }) {
               <div className={styles.boxItem} key={book._id}>
                 <img
                   className={styles.boxImg}
-                  src={`${API_URL_IMG}${book.mainImageUrl}`}
-                  alt={`${book.title}`}
+                  src={getImageUrl(book.mainImageUrl)}
+                  alt={book.title}
                 />
                 <div className={styles.containerBox}>
                   <div className={styles.boxTitle}>
