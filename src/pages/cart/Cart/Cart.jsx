@@ -3,7 +3,6 @@ import CartEmpty from "../../../images/nu-ai-produse-in-cos.svg";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import ProgressBar from "../../../components/progressBar/ProgressBar";
-
 import BookItem from "../Components/BookItem/BookItem";
 import Discount from "../Components/Discount/Discount";
 import { cost } from "../../../utils/DeliveryCost";
@@ -14,9 +13,14 @@ import {
   priceDeliveryDisplay,
 } from "./function";
 import content from "../../../constants/content";
+import useCloseCartModal from "../../../hooks/closeCartModal";
+import useScrollTop from "../../../hooks/useScrollTop";
+import BannerHeader from "../../../components/banners/bannerHeader/BannerHeader";
 
 function Cart() {
   const { cart } = useSelector((state) => state.cart);
+  useCloseCartModal();
+  useScrollTop();
 
   const discount = cart.reduce(
     (total, book) =>
@@ -60,17 +64,20 @@ function Cart() {
   ];
 
   return (
-    <main>
+    <main className={styles.bigContainer}>
+      <BannerHeader />
       {cart?.length > 0 ? (
         <div className={styles.containerCart}>
           <h2 className={styles.cartTitle}>Coșul meu</h2>
           <div className={styles.cartWrapper}>
             <div className={styles.cartDetails}>
               <h2 className={styles.cartSubtitle}>Produse din coș</h2>
-              <ProgressBar
-                priceBooks={totalPriceBooks}
-                freeShippingValue={cost.freeShippingFrom}
-              />
+              <div className={styles.processBarContainer}>
+                <ProgressBar
+                  priceBooks={totalPriceBooks}
+                  freeShippingValue={cost.freeShippingFrom}
+                />
+              </div>
               {cart.map((book) => (
                 <BookItem book={book} />
               ))}

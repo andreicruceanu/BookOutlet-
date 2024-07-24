@@ -2,7 +2,7 @@ import styles from "./styles.module.css";
 
 function ProgressBar({ priceBooks, freeShippingValue }) {
   return (
-    <div className={styles.progressBarContainer}>
+    <>
       <div className={styles.progressBarWrap}>
         <div className={styles.progressBarOuter}>
           <div
@@ -14,7 +14,7 @@ function ProgressBar({ priceBooks, freeShippingValue }) {
       <span className={styles.ProgressBarText}>
         Transport GRATUIT de la {freeShippingValue} lei !
       </span>
-    </div>
+    </>
   );
 }
 

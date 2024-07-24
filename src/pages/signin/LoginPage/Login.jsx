@@ -106,21 +106,28 @@ function Login() {
               />
             ))}
             <span>
-              <Link to="/recover-password">{content.forgot_password}</Link>
+              <Link
+                className={styles.recoverPasswordLink}
+                to="/recover-password"
+              >
+                {content.forgot_password}
+              </Link>
             </span>
           </div>
           <div className={styles.googleWrap}>
             <p className={styles.signinSep}>{content.or}</p>
             <h3>{content.login_with}</h3>
             <div className={styles.googleLogin}>
-              <a href="/">
+              <Link to="/login">
                 <FcGoogle />
                 <span className={styles.btnGoogleText}>
                   {content.continue_with_google}
                 </span>
-              </a>
+              </Link>
             </div>
-            <Link to="/register">{content.no_account}</Link>
+            <Link to="/register" className={styles.noAccountLink}>
+              {content.no_account}
+            </Link>
           </div>
         </div>
       </div>

@@ -1,6 +1,5 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import BookInfoCarousel from "../../../components/bookInfoCarousel/BookInfoCarousel.jsx";
-import BookStar from "../../../components/bookStar/BookStar.jsx";
 import styles from "./styles.module.css";
 import ListAuthors from "../Components/ListAuthors/ListAuthors.jsx";
 import BookTitle from "../Components/BookTitle/BookTitle.jsx";
@@ -21,6 +20,7 @@ import Container from "../Components/Container/Container.jsx";
 import ContainerSwiperBookStore from "../../../components/containers/containerBookStore/ContainerSwiperBookStore.jsx";
 import useFetchBooks from "../../../hooks/useFetchBooks.js";
 import Spinner from "../../../components/Spinner/Spinner.jsx";
+import useCloseCartModal from "../../../hooks/closeCartModal.js";
 
 function BookInfo() {
   const { id } = useParams();
@@ -34,6 +34,7 @@ function BookInfo() {
   } = useRecommendedProducts(id);
 
   useScrollTop(id);
+  useCloseCartModal(id);
 
   if (error) return toast.error(error);
 

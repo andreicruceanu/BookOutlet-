@@ -46,7 +46,7 @@ function OnlineLibrary({ books }) {
           </ul>
         </div>
         <div className={styles.menuSlide}>
-          <h2>Top oferte</h2>
+          <h2 className={styles.menuSlideTitle}>Top oferte</h2>
           <div className={styles.swiperBooksContainer}>
             <SwiperBooks books={books} viewBook={4} />
           </div>

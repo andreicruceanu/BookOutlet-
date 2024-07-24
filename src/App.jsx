@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import ModalNoUser from "./components/modalNoUser/modalNoUser";
 import endpoints from "./api/endpoints";
 import content from "./constants/content";
+import PopupCart from "./components/popupCart/PopupCart";
 
 function App() {
   const { user, modalNoUser } = useSelector((state) => state.auth);
@@ -53,6 +54,7 @@ function App() {
         open={modalNoUser.open}
         onClose={handleClose}
       />
+      <PopupCart />
       <Navbar />
       <Outlet />
       <Footer />

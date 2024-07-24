@@ -47,7 +47,6 @@ const useFetchCached = (url, options) => {
         if (axios.isCancel(error)) {
           return;
         }
-
         setError("Something went wrong. Please try again later.");
       } finally {
         setIsLoading(false);

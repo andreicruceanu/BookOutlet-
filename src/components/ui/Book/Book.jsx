@@ -17,6 +17,8 @@ import favoriteApi from "../../../api/modules/favorite.api";
 import { addToCartReducer } from "../../../features/cart/cartSlice";
 import { toast } from "react-toastify";
 import content from "../../../constants/content";
+import { openModal } from "../../../features/modalCart/modalCartSlice";
+import useAddToCart from "../../../hooks/addToCart";
 
 function Book(bookData) {
   const {
@@ -30,6 +32,12 @@ function Book(bookData) {
     _id,
     url,
   } = bookData;
+
+  const addToCart = useAddToCart();
+
+  const handleAddToCart = () => {
+    addToCart(bookData);
+  };
 
   const { listFavorite, user } = useSelector((state) => state.auth);
 
@@ -91,20 +99,6 @@ function Book(bookData) {
     }
   };
 
-  const addToCart = () => {
-    const bookCart = {
-      _id,
-      title,
-      subtitle,
-      url,
-      mainImageUrl,
-      oldPrice,
-      price,
-    };
-
-    dispatch(addToCartReducer(bookCart));
-  };
-
   return (
     <div className={styles.bookContainer}>
       <Badges badges={badges} />
@@ -120,7 +114,7 @@ function Book(bookData) {
       <BookStar rating={rating} />
       <div className={styles.priceContainer}>
         <BookPrice oldPrice={oldPrice} price={price} />
-        <CartButton addToCart={addToCart} />
+        <CartButton addToCart={handleAddToCart} />
       </div>
     </div>
   );

@@ -12,11 +12,11 @@ import {
   setModalNoUser,
 } from "../../../../features/auth/authSlice";
 import favoriteApi from "../../../../api/modules/favorite.api";
-import { addToCartReducer } from "../../../../features/cart/cartSlice";
+import useAddToCart from "../../../../hooks/addToCart";
 
 const FavoriteBook = ({ book }) => {
   const { user } = useSelector((state) => state.auth);
-
+  const addToCart = useAddToCart();
   const dispatch = useDispatch();
 
   const handleBookDelete = async (book) => {
@@ -34,7 +34,6 @@ const FavoriteBook = ({ book }) => {
   };
 
   const handleAddToCart = (book) => {
-    console.log(book);
     const { title, subtitle, url, price, oldPrice, mainImageUrl, bookId } =
       book;
 
@@ -47,7 +46,7 @@ const FavoriteBook = ({ book }) => {
       oldPrice,
       price,
     };
-    dispatch(addToCartReducer(bookCart));
+    addToCart(bookCart);
   };
 
   return (

@@ -14,7 +14,6 @@
   animation: fadeIn 0.2s;
 }
 .containerModal {
-  max-width: 600px;
   z-index: 999;
   display: flex;
   flex-direction: column;
@@ -27,6 +26,12 @@
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 8px;
+}
+.overlay .modalMedium {
+  max-width: 600px;
+}
+.overlay .modalLarge {
+  max-width: 900px;
 }
 
 @keyframes fadeIn {
@@ -53,6 +58,10 @@
   margin: 0;
   line-height: 1.6;
 }
+.modalTitle .titleGreen {
+  color: var(--color-green);
+}
+
 .modalTitle svg {
   font-size: 28px;
   color: var(--color-gray-5);

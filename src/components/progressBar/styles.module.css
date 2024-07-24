@@ -1,15 +1,10 @@
-.progressBarContainer {
-  box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.06);
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
-  width: 100%;
-}
+@import "../../constants/styles/variables.css";
+
 .progressBarWrap {
   padding: 8px;
 }
 .progressBarOuter {
-  background-color: #b2b2b2;
+  background-color: var(--color-gray-2);
   height: 10px;
   width: 95%;
   margin: 0 auto;
@@ -17,7 +12,11 @@
   position: relative;
 }
 .progressBarInner {
-  background-image: linear-gradient(90deg, #4524b2, #a924b3);
+  background-image: linear-gradient(
+    90deg,
+    var(--color-secondary),
+    var(--color-primary)
+  );
   height: 100%;
   border-radius: 25px;
   animation-fill-mode: forwards;

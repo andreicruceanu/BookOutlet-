@@ -1,6 +1,6 @@
 import { CiUser, CiHeart, CiSearch } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../logo/logo";
 import styles from "./styles.module.css";
 
@@ -15,10 +15,37 @@ import SearchInput from "./searchInput/SearchInput";
 import BooksCategoryMenu from "./booksCategoryMenu/BooksCategoryMenu";
 import MenuSecondary from "./menuSecondary/MenuSecondary";
 import Action from "./actionMenu/Action";
+import ProgressBar from "../progressBar/ProgressBar";
+import { cost } from "../../utils/DeliveryCost";
+import { useSelector } from "react-redux";
 
 function Navbar() {
+  const { cart } = useSelector((state) => state.cart);
+
+  const totalPriceBooks = cart.reduce(
+    (total, book) => Number(total) + Number(book.totalPrice),
+    0
+  );
+
+  const [navbarSticky, setNavbarSticky] = useState(false);
+
+  const controlNavbar = () => {
+    if (window.scrollY > 300) {
+      setNavbarSticky(true);
+    } else {
+      setNavbarSticky(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", controlNavbar);
+    return () => {
+      window.removeEventListener("scroll", controlNavbar);
+    };
+  }, []);
+
   return (
-    <nav className={styles.nav}>
+    <nav className={`${styles.nav} ${navbarSticky && styles.sticky}`}>
       <div className={styles.container}>
         <div className={styles.navbarMenu}>
           <img className={styles.navbarMenuImg} src={menuImg} alt="Menu Img" />
@@ -57,7 +84,9 @@ function Navbar() {
           />
         </div>
       </div>
-      <div className={styles.navMenu}>
+      <div
+        className={`${styles.navMenu} ${navbarSticky && styles.hideNavMenu}`}
+      >
         <div className={styles.navMenuContainer}>
           <BooksCategoryMenu />
           <div className={styles.navMenuSecondaryContainer}>
@@ -73,6 +102,12 @@ function Navbar() {
             />
           </div>
         </div>
+      </div>
+      <div className={styles.shippingContainer}>
+        <ProgressBar
+          freeShippingValue={cost.freeShippingFrom}
+          priceBooks={totalPriceBooks}
+        />
       </div>
     </nav>
   );
