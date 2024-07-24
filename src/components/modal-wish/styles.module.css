@@ -40,6 +40,9 @@
   padding: 10px 20px;
   border-bottom: 1px solid var(--color-white-1);
 }
+.boxItem:hover {
+  background-color: var(--color-gray-7);
+}
 .boxImg {
   max-width: 15%;
 }
@@ -147,8 +150,6 @@
   color: var(--color-gray-5);
 }
 .boxWishButton {
-  margin-top: 20px;
-  border-top: 1px solid var(--color-white-1);
   padding-right: 20px;
   padding-left: 20px;
   padding-top: 22px;
