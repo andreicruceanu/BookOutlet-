@@ -21,9 +21,13 @@ import ContainerSwiperBookStore from "../../../components/containers/containerBo
 import useFetchBooks from "../../../hooks/useFetchBooks.js";
 import Spinner from "../../../components/Spinner/Spinner.jsx";
 import useCloseCartModal from "../../../hooks/closeCartModal.js";
+import { useDispatch } from "react-redux";
+import { addRecentBooks } from "../../../features/recentBooks/recentBooks.js";
+import { useEffect } from "react";
 
 function BookInfo() {
   const { id } = useParams();
+  const dispatch = useDispatch();
 
   const { data: book, isLoading, error } = useFetchBooks(id);
 
@@ -35,6 +39,21 @@ function BookInfo() {
 
   useScrollTop(id);
   useCloseCartModal(id);
+  console.log(book);
+
+  useEffect(() => {
+    if (book && !isLoading) {
+      const bookRecent = {
+        _id: book._id,
+        title: book.title,
+        url: book.url,
+        price: book.price,
+        mainImg: book.images[0]?.url,
+        dateAddedToRecent: Date.now(),
+      };
+      dispatch(addRecentBooks(bookRecent));
+    }
+  }, [book, isLoading, dispatch]);
 
   if (error) return toast.error(error);
 

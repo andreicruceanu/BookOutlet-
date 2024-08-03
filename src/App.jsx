@@ -11,9 +11,11 @@ import ModalNoUser from "./components/modalNoUser/modalNoUser";
 import endpoints from "./api/endpoints";
 import content from "./constants/content";
 import PopupCart from "./components/popupCart/PopupCart";
+import RecentBook from "./components/recentBook/RecentBook";
 
 function App() {
   const { user, modalNoUser } = useSelector((state) => state.auth);
+  const { listRecentBooks } = useSelector((state) => state.recentBooks);
   const dispatch = useDispatch();
   const handleClose = () =>
     dispatch(setModalNoUser({ open: false, content: "" }));
@@ -58,6 +60,7 @@ function App() {
       <Navbar />
       <Outlet />
       <Footer />
+      {listRecentBooks && listRecentBooks.length > 0 && <RecentBook />}
     </>
   );
 }

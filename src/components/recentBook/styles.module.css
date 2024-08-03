@@ -1,0 +1,117 @@
+@import "../../constants/styles/variables.css";
+
+.recentContainer {
+  position: fixed;
+  bottom: 50px;
+  left: 50px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  box-shadow: 0 2px 8px 4px rgba(0, 0, 0, 0.1), 0 2px 4px 2px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  z-index: 9999;
+}
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  cursor: pointer;
+}
+.BookCount {
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--bg-danger-1);
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.textBtn {
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  color: var(--color-gray-1);
+}
+.iconBooks {
+  font-size: 22px;
+}
+.recentList {
+  width: 500px !important;
+  height: unset !important;
+  overflow: hidden !important;
+  border-radius: 8px !important;
+  padding: 8px 16px 16px;
+}
+.headerList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.headerList span {
+  font-size: 11px;
+  color: var(--color-grey-8);
+}
+.headerList svg {
+  font-size: 18px;
+  color: var(--color-grey-8);
+  cursor: pointer;
+}
+.containerList {
+  padding-bottom: unset;
+  overflow: unset;
+}
+.swiperRecentBooks {
+  overflow: visible;
+  margin-top: 15px;
+}
+.wrapItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.recentItem {
+  position: relative;
+  display: inline-block;
+}
+.recentItemDelete {
+  background-color: var(--color-white);
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 9999;
+  right: -8px;
+  top: -8px;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  transition: 0.2s;
+  opacity: 0;
+  line-height: 23px;
+  text-align: center;
+}
+.recentItem:hover .recentItemDelete {
+  opacity: 1;
+}
+
+.recentItemDelete svg {
+  font-size: 13px;
+  color: var(--color-grey-8);
+}
+
+.recentItemImg img {
+  width: 70px;
+  height: auto;
+  border-radius: 4px;
+  display: block;
+}
